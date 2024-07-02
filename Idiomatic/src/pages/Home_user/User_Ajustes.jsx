@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import Button from '@mui/material/Button';
-import Navbar_Home from '../../components/NavBar_User'
-function User_Home() {
+import Navbar_User from '../../components/NavBar_User'
+function User_Ajustes() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>User Home</h1>
-      <Navbar_Home/>
       
       
+      <h1>User Ajustes</h1>
+      <Navbar_User/>
       
 
     </>
   )
 }
 
-export default User_Home;
+export default User_Ajustes;

@@ -6,8 +6,8 @@ function User_Home() {
 
   return (
     <>
-      <h1>User Home</h1>
-      <Navbar_Home/>
+      <h1>Admin Home</h1>
+      
       
       
       

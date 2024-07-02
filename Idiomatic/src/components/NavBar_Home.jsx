@@ -18,12 +18,12 @@ export default function NavBar() {
         
       
         <Container sx={{display:'flex',justifyContent:'right',position:'relative',bottom:'50px'}}>
-        <Button href="#text-buttons" sx={{bottom:'5px',color:'black'}}>Inicio</Button>
-        <Button href="#text-buttons" sx={{bottom:'5px',color:'black'}}>Cursos</Button>
-        <Button href="#text-buttons" sx={{bottom:'5px',color:'black'}}>Login</Button>
-        <Button href="#text-buttons" sx={{bottom:'5px',color:'black'}}>Nosotros</Button>
-
-        <Button  variant="outlined"sx={{color: 'white' ,background: 'rgba(58, 49, 96, 1)',height:'25px'}}>Crear Cuenta</Button>
+        <Button href="/" sx={{bottom:'5px',color:'black'}}>Inicio</Button>
+        <Button href="/Cursos" sx={{bottom:'5px',color:'black'}}>Cursos</Button>
+        <Button href="/Login" sx={{bottom:'5px',color:'black'}}>Login</Button>
+        <Button href="/Nosotros" sx={{bottom:'5px',color:'black'}}>Nosotros</Button>
+        
+        <Button href='/Sign_up'  variant="outlined"sx={{color: 'white' ,background: 'rgba(58, 49, 96, 1)',height:'25px'}}>Crear Cuenta</Button>
       
         </Container>
         

@@ -6,7 +6,15 @@ import Login from './Login';
 import Home from './Home';
 import Sign_up from './Sign_up';
 import Error404 from './Error404'
-
+import Nosotros from './Nosotros';
+import Cursos from './Cursos';
+import User_Home from './Home_user/User_Home';
+import User_Cursos from './Home_user/User_Cursos';
+import User_Informes from './Home_user/User_Informes';
+import User_Notificaciones from './Home_user/User_Notificaciones';
+import User_Ajustes from './Home_user/User_Ajustes';
+import Admin_Home from './Administrador/Admin_Home'
+import TestIngles from './TestIngles';
 function App() {
   
 
@@ -16,9 +24,22 @@ function App() {
            <Routes>
 
                 <Route  path='/' element={<Home/>} />
-                <Route  path='/TestAprendizaje' element={<TestAprendizaje/>} />
                 <Route  path='/Login' element={<Login/>} />
                 <Route  path='/Sign_up' element={<Sign_up/>} />
+                <Route  path='/Nosotros' element={<Nosotros/>} />
+                <Route  path='/Cursos' element={<Cursos/>} />
+
+                <Route  path='/TestAprendizaje' element={<TestAprendizaje/>} />
+                <Route  path='/TestIngles' element={<TestIngles/>} />
+
+                <Route  path='/User_Home' element={<User_Home/>} />
+                <Route  path='/User_Cursos' element={<User_Cursos/>} />
+                <Route  path='/User_Informes' element={<User_Informes/>} />
+                <Route  path='/User_Notificaciones' element={<User_Notificaciones/>} />
+                <Route  path='/User_Ajustes' element={<User_Ajustes/>} />
+
+                <Route  path='/Admin_Home' element={<Admin_Home/>} />
+
                 <Route  path='*' element={<Error404/>} />
                 
 

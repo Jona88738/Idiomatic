@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-import NavBar from '../components/NavBar';
+import NavBar from '../components/NavBar_Home';
 function Sign_up() {
   const [count, setCount] = useState(0)
 
@@ -9,7 +9,7 @@ function Sign_up() {
     <>
       
       <NavBar/>
-      <h1>Home</h1>
+      <h1>Sign_up</h1>
 
       
 

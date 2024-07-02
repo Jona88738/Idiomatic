@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import Button from '@mui/material/Button';
 import Navbar_Home from '../../components/NavBar_User'
-function User_Home() {
+function User_Cursos() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>User Home</h1>
+      
+      
+      <h1>User Cursos</h1>
       <Navbar_Home/>
-      
-      
       
 
     </>
   )
 }
 
-export default User_Home;
+export default User_Cursos;

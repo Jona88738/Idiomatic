@@ -2,15 +2,19 @@ import { useState } from 'react'
 
 
 import NavBar from '../components/NavBar_Home';
-function TestAprendizaje() {
+function Cursos() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-       
-      <h1>Test Aprendizaje</h1>
+      
+      <NavBar/>
+      <h1>Cursos</h1>
+
+      
+
     </>
   )
 }
 
-export default TestAprendizaje
+export default Cursos

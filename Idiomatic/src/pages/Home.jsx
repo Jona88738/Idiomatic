@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import NavBar from '../components/NavBar';
+import NavBar from '../components/NavBar_Home';
 import Presentacion_Home from '../components/Presentacion_Home';
+import Body_Home from '../components/Body_Home'
 
 function Home() {
   const [count, setCount] = useState(0)
@@ -9,9 +10,9 @@ function Home() {
     <>
       
       <NavBar/>
-      <h1>Home</h1>
+      
       <Presentacion_Home/>
-
+      <Body_Home/>
       
 
     </>
