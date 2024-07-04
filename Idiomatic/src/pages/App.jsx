@@ -34,7 +34,8 @@ function App() {
 
                 <Route  path='/User_Home' element={<User_Home/>} />
                 <Route  path='/User_Cursos' element={<User_Cursos/>} />
-                <Route  path='/User_Informes' element={<User_Informes/>} />
+                {/*<Route  path='/User_Informes' element={<User_Informes/>} />*/
+}
                 <Route  path='/User_Notificaciones' element={<User_Notificaciones/>} />
                 <Route  path='/User_Ajustes' element={<User_Ajustes/>} />
 

@@ -9,7 +9,7 @@ function User_Notificaciones() {
       
       
       <h1>User Notificaciones</h1>
-      <Navbar_Home/>
+      
       
 
     </>

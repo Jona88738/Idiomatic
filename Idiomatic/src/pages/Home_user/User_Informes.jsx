@@ -9,7 +9,7 @@ function User_Informes() {
       
       
       <h1>User Informes</h1>
-      <Navbar_Home/>
+      
       
 
     </>

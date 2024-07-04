@@ -9,7 +9,7 @@ function User_Ajustes() {
       
       
       <h1>User Ajustes</h1>
-      <Navbar_User/>
+      
       
 
     </>

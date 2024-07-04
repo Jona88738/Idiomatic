@@ -9,7 +9,7 @@ function User_Cursos() {
       
       
       <h1>User Cursos</h1>
-      <Navbar_Home/>
+     
       
 
     </>
