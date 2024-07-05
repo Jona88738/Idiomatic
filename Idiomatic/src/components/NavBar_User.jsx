@@ -31,32 +31,18 @@ export default function NavBar_User({funcion}) {
       {count ? (
       <Container disableGutters myvalor={0} onClick={handleActualizar} maxWidth="false" sx={{position:'relative',left:'15px',borderRadius:'50px',width:'70px',background: 'rgba(70, 70, 122, 0.05)', height:'80vh',  boxShadow:'5px 8px 2px GRAY',margin:'0'}}>
        
-       <button className="btn" ><img myvalor={1}  src="/src/images/dashboardHome.svg" width="40vw" height="40vh" alt="Home"/></button>
+       <button className="btn" ><img myvalor={0}  src="/src/images/dashboardHome.svg" width="40vw" height="40vh" alt="Home"/></button>
        <button className="btn" ><img myvalor={2}  src="/src/images/curses-lenguage.svg" width="40vw" height="40vh" alt="Mis Cursos"/></button>
        <button className="btn" ><img myvalor={3}  src="/src/images/Informacion.svg" width="40vw" height="40vh" alt="Informacion"/></button>
        
        <button className="btn" ><img myvalor={4}  src="/src/images/IconoNotificacion.svg" width="40vw" height="40vh" alt="Notificaciones"/></button>
        <button className="btn" ><img myvalor={5}  src="/src/images/IconoConfig.svg" width="40vw" height="40vh" alt="Ajustes"/></button>
        <button className="btn"  ><img myvalor={6}   src="/src/images/IconSalir.svg" width="40vw" height="40vh" alt="Salir"/></button>
-      
-
-      
-      
-
-      
-      
-      
-          
-      
-      
-
-      
-
-      
+   
         
       </Container>
 
-      ):(<NavBar_UserDesplegada/>)};
+      ):(<NavBar_UserDesplegada funcion={handleActualizar}/>)};
 
 
 

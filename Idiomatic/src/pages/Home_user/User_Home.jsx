@@ -7,7 +7,7 @@ import User_Informes from './User_Informes';
 import User_Cursos from './User_Cursos';
 import User_Notificaciones from './User_Notificaciones';
 import User_Ajustes from './User_Ajustes';
-import Home from '../Home';
+import Container from '@mui/material/Container';
 
 import React, { useEffect, useRef } from 'react';
 function User_Home() {
@@ -16,19 +16,26 @@ function User_Home() {
 
   const navigate = useNavigate();
 
+  function Home(){
+    return(<>
+        
+
+        <Container sx={{background:'rgba(119, 102, 198, 0.3)',width:'50%',borderRadius:'50px'}}>
+          <h1 style={{textAlign:'center'}}>Bienvenido Xavier</h1>
+          <h3 style={{textAlign:'center'}}>¿Listo para iniciar?</h3>
+        </Container>
+    </>)
+  }
+
   function MostrarApartados(myvalor){
     let num = Number(myvalor);
-
-    
 
     console.log(num);
     if(myvalor == 6){
       navigate('/')
     }
-    
-     
-    setCount(num);
-    
+         
+    setCount(num);    
   }
 
 
@@ -36,13 +43,13 @@ function User_Home() {
 
   return (
     <>
-      <h1>User Home</h1>
-      <NavBar_User funcion={MostrarApartados}/>
       
-      {count === 0 ? (<h1>Home xD</h1>): count == 2 ?(<User_Cursos/>): count == 3 ? (<User_Informes/>): 
+      
+      
+      {count === 0 ? (<Home/>): count == 2 ?(<User_Cursos/>): count == 3 ? (<User_Informes/>): 
       count == 4 ? (<User_Notificaciones />): count == 5 ? (<User_Ajustes/>): count == 6 ?  (MostrarApartados):3}
       
-      
+      <NavBar_User funcion={MostrarApartados}/>
       
       
       
