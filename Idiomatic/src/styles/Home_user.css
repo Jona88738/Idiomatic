@@ -4,10 +4,20 @@
     border:none;
     display: flex;
     margin-bottom: 5%;
-    margin-top: 10%;
+    margin-top: 60%;
     margin-left: 10%;
 }
 
+.btnDesplegable{
+
+    border-radius:20px;
+    cursor:pointer;
+   border:none;
+   display: flex;
+   margin-bottom: 5%;
+   margin-top: 10%;
+   margin-left: 10%;
+}
 .btn:hover{
     padding: 5px;
     box-shadow: 0px 0px 5px  0px gray inset;

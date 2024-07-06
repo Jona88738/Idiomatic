@@ -11,9 +11,9 @@ function User_Cursos() {
       
      
 
-      <Container sx={{background:'rgba(70, 70, 122, 1)',width:'50%',borderRadius:'50px'}}>
-          <h1 style={{color:'white',left:'20%'}}>Mis Cursos</h1>
-          <h3 style={{color:'white',textAlign:'center'}}>Aqui tenemos tu seleccion de cursos</h3>
+      <Container sx={{background:'rgba(70, 70, 122, 1)',width:'100%',borderRadius:'50px',margin:'0'}}>
+          <h1 style={{color:'white',left:'20%',fontSize:'4vw'}}>Mis Cursos</h1>
+          <h3 style={{color:'white',textAlign:'center',fontSize:'2vw'}}>Aqui tenemos tu seleccion de cursos</h3>
         </Container>
      
       

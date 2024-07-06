@@ -7,11 +7,21 @@ function User_Ajustes() {
 
   return (
     <>
+    <Container>
+      <Container sx={{background:'rgba(255, 199, 39, 1)',width:'100%',borderRadius:'50px'}}>
+          <h1 style={{color:'black',left:'20%',fontSize:'4vw'}}>Ajustes</h1>
+          <h3 style={{color:'black',textAlign:'center',fontSize:'2vw'}}>¡Arreglemos Esto!</h3>
+          <img src="/src/images/IconoAjus.svg" width="25%"  style={{position:'absolute',right:'20px',top:'2px',minHeight:'25%'}}   alt="Logo de mi página"/>
+        
+          
+      </Container >
+
       
-      <Container sx={{background:'rgba(255, 199, 39, 1)',width:'50%',borderRadius:'50px'}}>
-          <h1 style={{color:'black',left:'20%'}}>Ajustes</h1>
-          <h3 style={{color:'black',textAlign:'center'}}>¡Arreglemos Esto!</h3>
-        </Container>
+     
+      </Container>
+
+      
+      
       
 
     </>
