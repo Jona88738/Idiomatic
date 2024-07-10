@@ -15,6 +15,8 @@ import User_Notificaciones from './Home_user/User_Notificaciones';
 import User_Ajustes from './Home_user/User_Ajustes';
 import Admin_Home from './Administrador/Admin_Home'
 import TestIngles from './TestIngles';
+import MainApartados from './ApartadosCursos/MainApartados';
+
 function App() {
   
 
@@ -34,6 +36,7 @@ function App() {
 
                 <Route  path='/User_Home' element={<User_Home/>} />
                 <Route  path='/User_Cursos' element={<User_Cursos/>} />
+                <Route path='/Apartados' element={<MainApartados/>} />
                 {/*<Route  path='/User_Informes' element={<User_Informes/>} />*/
 }
                 <Route  path='/User_Notificaciones' element={<User_Notificaciones/>} />

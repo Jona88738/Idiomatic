@@ -9,8 +9,10 @@ import User_Cursos from './User_Cursos';
 import User_Notificaciones from './User_Notificaciones';
 import User_Ajustes from './User_Ajustes';
 import Container from '@mui/material/Container';
+import { Gauge, gaugeClasses } from '@mui/x-charts';
 
 import React, { useEffect, useRef } from 'react';
+import { width } from '@mui/system';
 function User_Home() {
   const [count, setCount] = useState(0);
   const buttonRef = useRef(null);
@@ -32,17 +34,38 @@ function User_Home() {
         <h2 style={{  boxShadow:'0px 3px 1px rgba(31, 25, 47, 0.5)'}}>Vista Previa</h2>
         <h2>Progreso general</h2>
 
-        <Container sx={{background:'rgba(70, 70, 122, 0.15)',borderRadius:'25px'}}>
+        <Container sx={{height:"20%",width:"40%",background:'rgba(70, 70, 122, 0.15)',borderRadius:'25px',display:"flex"}}>
 
-        <img src="/src/images/cuadrado.png" width="20%" height="20%"style={{position:'relative',left:'14%',bottom:'0%'}}   alt="Logo de mi página"/>
+        <img src="/src/images/cuadrado.png" width="30%" height="80%"style={{position:'relative',left:'10%',top:'10%'}}   alt="Logo de mi página"/>
+        
           
+        <Gauge width={130} height={135} value={70}  
+         innerRadius="78%"
+         outerRadius="99%"
+         text={
+                ({ value}) => `${value}%`
+              } 
+              sx={{marginLeft:"15%",
 
+                [`& .${gaugeClasses.valueText}`]: {
+                  fontSize: 20,
+                  transform: 'translate(0px, 0px)',
+                }, 
+
+              }} />
+             
         </Container>
+        
         <h1 style={{  boxShadow:'0px -3px 1px rgba(31, 25, 47, 0.5)'}}>Avisos</h1>
         <h1>Estas al dia</h1>
-    </>)
-  }
+        
 
+    </>
+    
+     
+    )
+  }
+  
   function MostrarApartados(myvalor){
     let num = Number(myvalor);
 
