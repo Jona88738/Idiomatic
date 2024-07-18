@@ -1,0 +1,45 @@
+
+
+
+@media screen and (max-width: 600px){
+
+}
+
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
+
+}
+
+@media screen and (min-width:1024px){
+
+    .ContenedorMain{
+        background:rgba(119, 102, 198, 0.3);
+        width:100%;
+        border-Radius:50px;
+    }
+
+    .TituloNoti{
+        color:black;
+        left:20%;
+        font-Size:4vw;
+    }
+
+    .SubTNoti{
+        color:black;
+        text-Align:center;
+        font-Size:2vw;
+    }
+
+    .btonFiltrar{
+        color: black !important;
+        border-radius: 45px !important;
+        width:  25%;
+        background:greenyellow !important;
+    }
+
+    .ContenedorNoti{
+        box-Shadow:0px 3px 1px rgba(31, 25, 47, 0.5);
+    }
+
+}

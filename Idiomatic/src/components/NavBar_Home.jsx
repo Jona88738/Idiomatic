@@ -1,33 +1,40 @@
-import * as React from 'react';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-
-
-
+import "../styles/MainHome.css";
+import { useState } from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
 
 export default function NavBar() {
+
+        const [navH, setnavH] = useState(false);
+
+        function cambioNav(){
+          setnavH(!navH);
+        }
   return (
-    <React.Fragment>
+    <>
       
-      
-      
-      <Container maxWidth="cadena" sx={{background: '#F9FAFD', height:'10vh',     boxShadow:'0px 6px 2px GRAY'}}>
+      <Container className='NavBarHome' maxWidth="false" >
       
       <img src="/src/images/Logo.png" width="60vw" height="60vh" alt="Logo de mi página"/>
 
-        
       
-        <Container sx={{display:'flex',justifyContent:'right',position:'relative',bottom:'50px'}}>
-        <Button href="/" sx={{bottom:'5px',color:'black'}}>Inicio</Button>
-        <Button href="/Cursos" sx={{bottom:'5px',color:'black'}}>Cursos</Button>
-        <Button href="/Login" sx={{bottom:'5px',color:'black'}}>Login</Button>
-        <Button href="/Nosotros" sx={{bottom:'5px',color:'black'}}>Nosotros</Button>
+      <Button className='btnAbrir' onClick={cambioNav}><MenuIcon className='btnCerrar'  fontSize='large'/></Button> 
+
+        <Container disableGutters className={navH ? 'NavBarOpciones':'NavBarOpcioness'}  id="nav">
+
+        <Button className='btnCerrar'>Cerrar</Button> 
+
+        <Button className='btnOpcion' href="/" >Inicio</Button>
+        <Button  className='btnOpcion' href="/Cursos" >Cursos</Button>
+        <Button  className='btnOpcion' href="/Login" >Login</Button>
+        <Button  className='btnOpcion' href="/Nosotros" >Nosotros</Button>
         
-        <Button href='/Sign_up'  variant="outlined"sx={{color: 'white' ,background: 'rgba(58, 49, 96, 1)',height:'25px'}}>Crear Cuenta</Button>
+        <Button className='btnCrearCuenta' href='/Sign_up'  variant="outlined"sx={{}}>Crear Cuenta</Button>
       
         </Container>
         
       </Container>
-    </React.Fragment>
+    </>
   );
 }

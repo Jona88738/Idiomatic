@@ -1,8 +1,26 @@
+import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import { useState } from 'react'
 
+
+
+const Root = styled('div')(({ theme }) => ({
+  padding: theme.spacing(1),
+  [theme.breakpoints.down('md')]: {
+    backgroundColor: red[500],
+  },
+  [theme.breakpoints.up('md')]: {
+    backgroundColor: blue[500],
+  },
+  [theme.breakpoints.up('lg')]: {
+    backgroundColor: green[500],
+  },
+}));
+
+
 export default function NavBar_UserDesplegada({funcion}) {
 
+    
     const [count, setCount] = useState(true)  
 
   function handleActualizar(e){
@@ -16,12 +34,12 @@ export default function NavBar_UserDesplegada({funcion}) {
         
 
 
-      <Container disableGutters   maxWidth="false" sx={{position:'relative',top:'19%',left:'15px',borderRadius:'50px',width:'80%',background: 'rgba(70, 70, 122, 0.05)', height:'80vh',  boxShadow:'5px 8px 2px GRAY',margin:'0'}}>
+      <Container className='navDesple'    maxWidth="false" >
        
-       <Container sx={{position:'relative',top:'8%'}}>
+       <Container className='navDespleSgund' >
        
-       <Container disableGutters  >
-       <button className="btnDesplegable" onClick={handleActualizar}><img myvalor={0}  src="/src/images/dashboardHome.svg" width="40vw" height="40vh" alt="Home"/>  <h2 style={{fontSize:'1.5vw'}}>Dashboard</h2> </button>
+       <Container className='ConBotones'   >
+       < button className="btnDesplegable" onClick={handleActualizar}><img myvalor={0}  src="/src/images/dashboardHome.svg" width="40vw"  alt="Home"/>  <h2 style={{fontSize:'1.5vw'}}>Dashboard</h2> </button>
        
        <button className="btnDesplegable"  onClick={handleActualizar} ><img myvalor={2}  src="/src/images/curses-lenguage.svg" width="40vw" height="40vh" alt="Mis Cursos"/> <h2 style={{fontSize:'1.5vw'}}>Mis Cursos</h2></button>
        <button className="btnDesplegable" onClick={handleActualizar}><img myvalor={3}  src="/src/images/Informacion.svg" width="40vw" height="40vh" alt="Informacion"/> <h2 style={{fontSize:'1.5vw'}}>Informes</h2></button>

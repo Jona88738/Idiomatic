@@ -13,13 +13,12 @@ export default function NavBar_Apartados(){
       
         <Container sx={{display:'flex',justifyContent:'right',position:'relative',bottom:'50px'}}>
             <h2 style={{margin:"0",marginRight:"25px"}}>Barra provicional</h2>
-        <Button href="/" sx={{bottom:'5px',color:'black'}}>Videos</Button>
-        <Button href="/Cursos" sx={{bottom:'5px',color:'black'}}>Audios</Button>
-        <Button href="/Login" sx={{bottom:'5px',color:'black'}}>Lecturas</Button>
-        <Button href="/Nosotros" sx={{bottom:'5px',color:'black'}}>Ejercicios</Button>
+        <Button href="/Videos" sx={{bottom:'5px',color:'black'}}>Videos</Button>
+        <Button href="/Audios" sx={{bottom:'5px',color:'black'}}>Audios</Button>
+        <Button href="/Lecturas" sx={{bottom:'5px',color:'black'}}>Lecturas</Button>
+        <Button href="/Ejercicios" sx={{bottom:'5px',color:'black'}}>Ejercicios</Button>
+        <Button  className='btnOpcion' href="/User_Home" >salir</Button>
         
-        <Button href='/Sign_up'  variant="outlined"sx={{color: 'white' ,background: 'rgba(58, 49, 96, 1)',height:'25px'}}>Crear Cuenta</Button>
-      
         </Container>
         
       </Container>

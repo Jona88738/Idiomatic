@@ -1,25 +1,328 @@
-.btn{
-     border-radius:20px;
-     cursor:pointer;
-    border:none;
-    display: flex;
-    margin-bottom: 5%;
-    margin-top: 60%;
-    margin-left: 10%;
+
+@media screen and (max-width:600px) {
+
+    .Contenedormain{
+        /*display:block !important;
+*/        margin:0;
+        width:100%;
+        
+    }
+    .ContenedorNav{
+        margin:0;
+        width:100% !important;
+        position:absolute  !important; 
+        
+        bottom:0;
+    }
+
+    .btn{
+        border-radius:20px;
+        cursor:pointer;
+       border:none;
+       display: flex;
+       margin-bottom: 5%;
+       
+      
+   }
+   
+   
+   
+   .btn:hover{
+       padding: 5px;
+       box-shadow: 0px 0px 5px  0px gray inset;
+       
+   }
+
+    .ContenedorUser{
+
+        position:absolute  !important;
+        
+        bottom:0;
+        border-Radius:50px;
+        width:100% !important;
+        background: rgba(70, 70, 122, 0.05);
+        
+        box-Shadow:5px 8px 2px GRAY;
+        margin:0;
+   }
+
+   .ContenedorBotonesUser{
+    display: flex !important;
+   
+    flex-direction: row;
+    position:static;
+    top:8%;
+    right:15px;
 }
 
-.btnDesplegable{
 
+     /*  Apartado User_Home*/
+
+    
+     .TitleUserHome{
+        background:rgba(119, 102, 198, 0.3);
+        width:100%;
+        border-Radius:50px;
+        margin:0;
+}
+
+
+    .TituloMain{
+        
+        text-Align:center;
+        font-Size:8vw;
+    }
+
+    .subTituloMain{
+        text-Align:center;
+        font-Size:6vw;
+    }
+
+    .imgHomeUser{
+        position:absolute;
+        right:30px;
+        top:2px;
+        min-Height:25%;
+    }
+
+    .subtema{
+        box-Shadow:0px 3px 1px rgba(31, 25, 47, 0.5);
+        font-Size:6vw;
+    }
+
+    .subtema2{
+        font-Size:6vw;
+    }
+
+    .ContenedorProgreso{
+
+        height:20%;
+        width:70% !important;
+        background:rgba(70, 70, 122, 0.15);
+        border-Radius:25px;
+        display:flex !important;
+    }
+
+    .imgBandera{
+
+        position:sticky !important;
+        left:10%;
+        top:38%;
+        width: 35%;
+        height: 50%;
+        /* margin-top: 36%;*/
+    }
+
+    .subtema3{
+        font-Size:6vw;
+        text-align: center;
+        box-Shadow:0px -3px 1px rgba(31, 25, 47, 0.5);
+    }
+
+
+    /* NavBAr UserDesplegada */
+    .navDesple{
+       
+
+        position:absolute  !important;
+        padding: 0 !important;
+        bottom:0;
+        border-Radius:50px;
+        width:100% !important;
+        background: rgba(70, 70, 122, 0.05);
+        
+        box-Shadow:5px 8px 2px GRAY;
+        margin:0;
+    }
+
+    .btnDesplegable{
+   
+        border-radius:20px;
+        cursor:pointer;
+       border:none;
+       
+       
+      
+    }
+    .btnDesplegable h2{
+        visibility: hidden;
+    } 
+
+
+    .navDespleSgund{
+    display: flex !important;
+    padding: 0 !important;
+    flex-direction: row;
+    position:static;
+    top:8%;
+    right:15px;
+    }
+
+    .ConBotones{
+        display: flex !important;
+        
+    }
+
+
+}
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
+}
+
+
+@media  (min-width:1024px){
+
+    .Contenedormain{
+        display:flex !important;
+        margin:0;
+        width:100%;
+        height:100vh;
+    }
+
+    .ContenedorNav{
+        margin:0;
+        width:30% !important;
+    }
+ 
+    .btn{
+        border-radius:20px;
+        cursor:pointer;
+       border:none;
+       display: flex;
+       margin-bottom: 5%;
+       margin-top: 60%;
+       margin-left: 10%;
+   }
+   
+   .btn:hover{
+       padding: 5px;
+       box-shadow: 0px 0px 5px  0px gray inset;
+       
+   }
+
+
+   .ContenedorUser{
+        
+        position:relative  !important;
+        top:18%;
+        right:22%;
+        border-Radius:50px;
+        width:70px !important;
+        background: rgba(70, 70, 122, 0.05);
+        height:80vh;  
+        box-Shadow:5px 8px 2px GRAY;
+        margin:0;
+   }
+
+   .ContenedorBotonesUser{
+        position:relative;
+        top:8%;
+        right:15px;
+   }
+
+
+   /*  Apartado User_Home*/
+
+    .TitleUserHome{
+        background:rgba(119, 102, 198, 0.3);
+        width:100%;
+        border-Radius:50px;
+        margin:0;
+    }
+
+
+    .TituloMain{
+        
+        text-Align:center;
+        font-Size:4vw;
+    }
+
+    .subTituloMain{
+        text-Align:center;
+        font-Size:2vw;
+    }
+
+    .imgHomeUser{
+        position:absolute;
+        right:30px;
+        top:2px;
+        min-Height:25%;
+    }
+
+    .subtema{
+        box-Shadow:0px 3px 1px rgba(31, 25, 47, 0.5);
+        font-Size:2vw;
+    }
+
+    .subtema2{
+        font-Size:2vw;
+    }
+
+    .ContenedorProgreso{
+
+        height:20%;
+        width:40% !important;
+        background:rgba(70, 70, 122, 0.15);
+        border-Radius:25px;
+        display:flex !important;
+    }
+
+    .imgBandera{
+
+        position:relative !important;
+        left:10%;
+        top:10%;
+    }
+
+    .subtema3{
+        font-Size:2vw;
+        box-Shadow:0px -3px 1px rgba(31, 25, 47, 0.5);
+    }
+
+    /* NavBAr UserDesplegada */
+    .navDesple{
+        position:relative !important;
+        top:19%;
+        
+        border-Radius:50px;
+        width:90%;
+        background: rgba(70, 70, 122, 0.05);
+        height:80vh; 
+        box-Shadow:5px 8px 2px GRAY;
+        margin:0;
+
+    }
+
+    .navDespleSgund{
+        position:relative !important;
+        top:8%;
+    }
+
+    .ConBotones{
+        padding-Left:3px;
+    }
+
+    
+   .btnDesplegable{
+   
     border-radius:20px;
     cursor:pointer;
    border:none;
-   display: flex;
+   display: flex !important;
    margin-bottom: 5%;
    margin-top: 10%;
    margin-left: 10%;
-}
-.btn:hover{
-    padding: 5px;
-    box-shadow: 0px 0px 5px  0px gray inset;
+    }
+
+   
+   
     
-}
+
+}    
+
+
+
+
+
+

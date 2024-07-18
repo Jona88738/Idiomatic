@@ -10,7 +10,7 @@ export default function NuestrosIdiomas(){
           <Container disableGutters sx={{}}>
             
           <h1 style={{textAlign:'center'}}>Ingles</h1>
-          <p style={{fontSize:'2vw',textAlign:'justify'}}>El inglés es un idioma ampliamente hablado y 
+          <p style={{fontSize:'1rem',textAlign:'justify'}}>El inglés es un idioma ampliamente hablado y 
             utilizado en todo el mundo, tanto en contextos profesionales 
             como cotidianos. Es el idioma predominante en áreas como la tecnología,
              los negocios, la ciencia y el entretenimiento.</p>
@@ -51,29 +51,29 @@ export default function NuestrosIdiomas(){
 
       <h1 style={{textAlign:'center'}}>Ofrecemos</h1>
 
-      <Container sx={{background:'rgba(249, 176, 195, 0.44)',display:'flex',justifyContent:'space-evenly',borderRadius:'20px'}}> 
+      <Container disableGutters sx={{background:'rgba(249, 176, 195, 0.44)',display:'flex',justifyContent:'space-evenly',borderRadius:'20px'}}> 
         
         <Container disableGutters sx={{}}>
 
-            <img src="/src/images/ElipseA1.png" width="70%" height="60%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
+            <img src="/src/images/ElipseA1.png" width="70%" height="70%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
           
-            <h1>Ejercicios nivel A1 para ambos idiomas</h1>
+            <h1 style={{fontSize:'2vw',marginLeft:"7%", marginRight:"4%"}}>Ejercicios nivel A1 para ambos idiomas</h1>
 
 
         </Container>
         <Container disableGutters  sx={{}}>
         
-        <img src="/src/images/EyesPana.png" width="70%" height="60%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
+        <img src="/src/images/EyesPana.png" width="70%" height="70%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
           
-        <h1>Adaptación a su estilo de aprendizaje</h1>
+        <h1 style={{fontSize:'2vw'}}>Adaptación a su estilo de aprendizaje</h1>
 
         </Container>
         <Container disableGutters sx={{}}>
 
 
-        <img src="/src/images/Ontest-pana.png" width="70%" height="60%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
+        <img src="/src/images/Ontest-pana.png" width="70%" height="70%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
          
-            <h1>Test de nivelación y tipo de aprendizaje</h1>
+            <h1 style={{fontSize:'2vw'}}>Test de nivelación y tipo de aprendizaje</h1>
         </Container>
 
       </Container>

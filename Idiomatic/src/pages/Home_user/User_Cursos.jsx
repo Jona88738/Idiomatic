@@ -21,7 +21,7 @@ import Typography from '@mui/material/Typography';
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Gramatica
+          Ejercicios
         </Typography>
         <Typography variant="body2" color="black">
           Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -42,7 +42,7 @@ function User_Cursos() {
 
   function to(){
     console.log("Entro xD")
-    navigate('/Apartados')
+    navigate('/Ejercicios')
   }
 
   return (

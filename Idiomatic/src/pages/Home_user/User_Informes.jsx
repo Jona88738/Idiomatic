@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import Button from '@mui/material/Button';
-import Navbar_Home from '../../components/NavBar_User'
 import Container from '@mui/material/Container';
 function User_Informes() {
   const [count, setCount] = useState(0)

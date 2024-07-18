@@ -1,0 +1,358 @@
+/*Pestaña Home  Movile */
+
+
+
+
+
+@media screen and (max-width:600px) {
+    
+    
+
+    .NavBarHome{
+        position: sticky;
+        top:0;
+        z-index: 1000;
+        background: #F9FAFD;
+        height: 10vh;
+        box-shadow: 0px 6px 2px GRAY;
+        width: 100%;
+    }
+    .NavBarOpciones{
+        
+        display:flex !important;
+        flex-direction: column;
+        position: absolute ;
+        
+        width: 20%;
+        left: 0;
+        align-items: center;
+        background: grey;
+    }
+
+    .NavBarOpcioness{
+        
+        display:none  !important;
+        visibility: hidden;
+        flex-direction: column;
+        position: relative ;
+        top: 2%;
+        align-items: center;
+        background: grey;
+    }
+
+    .btnCrearCuenta{
+       display: none !important;
+    }
+
+    .btnOpcion{
+
+        display: block !important;
+        color: black  !important;
+        
+    }
+
+    .btnAbrir{
+        position: relative;
+        bottom: 29%;
+        left: 58%;
+    }
+
+    .btnCerrar{
+        display: block  !important;
+        
+        border: 3px black solid  !important;
+        position: sticky !important;
+        right: 0;
+        top: 0;
+       
+       
+    }
+
+    /* Body Presentacion*/
+
+    .PresentacionContenedor{
+        background:white;
+        display: block;
+        margin-Top:5px;
+     }
+
+     .PresentacionImage{
+        position:absolute;
+        width:90%;
+       
+     }
+
+     .PresentacionTitulo{
+        position:sticky; 
+        text-align: center;
+        left:8%;
+        font-family:helvetica neue;
+        font-Size:10vw;
+        
+     }
+
+     .ContenedorGif{
+        justify-Content:center;
+     }
+
+     .PresentacionGif{
+        position:relative;
+        left:3%;
+        bottom:0%;
+     }
+
+    /*  body Home */
+
+    .BodyContenedor{
+
+        background: rgba(224, 223, 253, 0.5);
+        display: block !important;
+        margin: 0;
+        max-Width: 100%;
+     }
+}
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
+    
+    .NavBarHome{
+        position: sticky;
+        top:0;
+        z-index: 1000;
+        background: #F9FAFD;
+        height: 10vh;
+        box-shadow: 0px 6px 2px GRAY;
+        width: 100%;
+    }
+
+    .NavBarOpciones{
+        
+        display:flex !important ;
+        justify-Content:right ;
+        position: relative ;
+        bottom: 50px  ;
+    }
+
+    .NavBarOpcioness{
+        
+        display:flex !important ;
+        justify-Content:right ;
+        position: relative ;
+        bottom: 50px  ;
+    }
+
+
+    .btnOpcion{
+
+        bottom:5px;
+        color:black !important;
+    }
+
+    .btnHamburguesa{
+        display: none !important;
+    }
+
+    .btnCrearCuenta{
+        color: white !important;
+        background: rgba(58, 49, 96, 1) !important;
+        height:25px;
+    }
+
+    .btnCrearCuenta{
+        display: flex !important;
+     }
+ 
+     .btnOpcion{
+ 
+         display: block !important;
+         color: black  !important;
+         
+     }
+ 
+     .btnAbrir{
+         display: none;
+         position: relative;
+         bottom: 29%;
+         left: 65%;
+     }
+ 
+     .btnCerrar{
+
+         display: none  !important;
+         
+         border: 3px black solid  !important;
+         position: sticky !important;
+         right: 0;
+         top: 0;
+        
+        
+     }
+
+
+    /* Presentacion Home*/
+
+    .PresentacionContenedor{
+        background:white;
+        display:flex;
+        margin-Top:5px;
+     }
+
+     .PresentacionImage{
+        position:absolute;
+        width: 50%;
+     }
+
+     .PresentacionTitulo{
+        position:absolute;
+        left:8%;
+        font-family:helvetica neue;
+        font-Size:5vw;
+     }
+
+     .ContenedorGif{
+        justify-Content:center;
+     }
+
+     .PresentacionGif{
+        position:relative;
+        left:14%;
+        bottom:0%;
+     }
+
+     /*  body Home */
+
+     .BodyContenedor{
+
+        background: rgba(224, 223, 253, 0.5);
+        display: flex !important;
+        margin: 0;
+        max-Width: 100%;
+     }
+
+     .ImgRazones{
+        position: relative !important;
+        left: 10px;
+        margin-Top: 120px; 
+     }
+}
+
+@media  (min-width:1024px){
+ 
+
+    .NavBarHome{
+        position: sticky;
+        top:0;
+        z-index: 1000;
+        background: #F9FAFD;
+        height: 10vh;
+        box-shadow: 0px 6px 2px GRAY;
+        width: 100%;
+    }
+
+    .NavBarOpciones{
+        
+        display:flex !important ;
+        
+        flex-direction: row;
+        justify-Content:right ;
+        position: relative ;
+        bottom: 50px  ;
+    }
+
+    .NavBarOpcioness{
+        
+        display:flex !important ;
+        justify-Content:right ;
+        position: relative ;
+        bottom: 50px  ;
+    }
+
+    .btnOpcion{
+
+        bottom:5px;
+        color:black !important;
+    }
+
+    .btnHamburguesa{
+        display: none !important;
+    }
+
+    .btnCrearCuenta{
+        color: white !important;
+        background: rgba(58, 49, 96, 1) !important;
+        height:25px;
+    }
+
+
+    .btnOpcion{
+ 
+        display: block !important;
+        color: black  !important;
+        
+    }
+
+    .btnAbrir{
+        display: none;
+        position: relative;
+        bottom: 29%;
+        left: 65%;
+    }
+
+    .btnCerrar{
+
+        display: none  !important;
+        
+        border: 3px black solid  !important;
+        position: sticky !important;
+        right: 0;
+        top: 0;
+       
+       
+    }
+
+     /* Body Presentacion*/
+    .PresentacionContenedor{
+        background:white;
+        display:flex;
+        margin-Top:5px;
+     }
+
+     .PresentacionImage{
+        position:absolute;
+        width: 50%;
+     }
+
+     .PresentacionTitulo{
+        position:absolute;
+        left:8%;
+        font-family:helvetica neue;
+        font-Size:5vw;
+     }
+
+     .ContenedorGif{
+        justify-Content:center;
+     }
+
+     .PresentacionGif{
+        position:relative;
+        left:14%;
+        bottom:0%;
+     }
+
+     /*  body Home */
+
+     .BodyContenedor{
+
+        background: rgba(224, 223, 253, 0.5);
+        display: flex !important;
+        margin: 0;
+        max-Width: 100%;
+     }
+
+     .ImgRazones{
+        position: relative !important;
+        left: 10px;
+        margin-Top: 120px; 
+     }
+
+}

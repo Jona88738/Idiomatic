@@ -15,7 +15,10 @@ import User_Notificaciones from './Home_user/User_Notificaciones';
 import User_Ajustes from './Home_user/User_Ajustes';
 import Admin_Home from './Administrador/Admin_Home'
 import TestIngles from './TestIngles';
-import MainApartados from './ApartadosCursos/MainApartados';
+import ApartadoEjercicios from './ApartadosCursos/ApartadoEjercicios';
+import ApartadoVideos from './ApartadosCursos/ApartadoVideos';
+import ApartadoLecturas from './ApartadosCursos/ApartadoLecturas';
+import ApartadoAudio from './ApartadosCursos/ApartadoAudio';
 
 function App() {
   
@@ -36,13 +39,21 @@ function App() {
 
                 <Route  path='/User_Home' element={<User_Home/>} />
                 <Route  path='/User_Cursos' element={<User_Cursos/>} />
-                <Route path='/Apartados' element={<MainApartados/>} />
+
+
+                <Route path='/Ejercicios' element={<ApartadoEjercicios/>} />
+                <Route path='/Videos' element={<ApartadoVideos/>} />
+                <Route path='/Lecturas' element={<ApartadoLecturas/>} />
+                <Route path='/Audios' element={<ApartadoAudio/>} />
+                
                 {/*<Route  path='/User_Informes' element={<User_Informes/>} />*/
 }
                 <Route  path='/User_Notificaciones' element={<User_Notificaciones/>} />
                 <Route  path='/User_Ajustes' element={<User_Ajustes/>} />
 
                 <Route  path='/Admin_Home' element={<Admin_Home/>} />
+
+
 
                 <Route  path='*' element={<Error404/>} />
                 

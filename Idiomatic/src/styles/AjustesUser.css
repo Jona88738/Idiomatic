@@ -1,0 +1,60 @@
+@media screen and (max-width: 600px) {
+    
+}
+
+@media  screen and (min-width:601px) and (max-Width:1023px) {
+    
+
+}
+
+@media screen and (min-width:1024px){
+
+    .ContainerHead{
+        background:rgba(255, 199, 39, 1) !important;
+        width:100%;
+        border-Radius:50px;
+    }
+
+    .TitleHead{
+        color:black;
+        left:20%;
+        font-Size:4vw;
+    }
+
+    .subTitleHead{
+        color:black;
+        text-Align:center;
+        font-Size:2vw;
+    }
+
+    .imgHead{
+        position:absolute;
+        right:20px;
+        top:2px;
+        min-Height:25%;
+    }
+
+    .ApartadosAjustes{
+        width: 60% !important;
+    }
+
+    .Containerbody{
+        background: greenyellow;
+        display: flex !important;
+        padding-left: 0 !important;
+        
+    }
+    .ApartadoBody{
+        background-color: rgba(31, 25, 47, 0.1);
+        border-radius: 30px;
+        padding-left: 20px;
+    }
+
+    .btnAjustes{
+        display: block;
+        width: 100%;
+        border-radius: 30px;
+    }
+
+
+}

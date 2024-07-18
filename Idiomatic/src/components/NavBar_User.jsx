@@ -20,9 +20,9 @@ export default function NavBar_User({funcion}) {
       
       
       {count ? (
-      <Container myvalor={0} onClick={handleActualizar} maxWidth="false" sx={{position:'relative',top:'18%',left:'15px',borderRadius:'50px',width:'70px',background: 'rgba(70, 70, 122, 0.05)', height:'80vh',  boxShadow:'5px 8px 2px GRAY',margin:'0'}}>
+      <Container className='ContenedorUser' myvalor={0} onClick={handleActualizar} maxWidth="false">
        
-       <Container disableGutters  sx={{position:'relative',top:'8%',right:'15px'}}>
+       <Container className='ContenedorBotonesUser' disableGutters >
 
        <button className="btn" ><img myvalor={0}  src="/src/images/dashboardHome.svg" width="40vw" height="40vh" alt="Home"/></button>
        <button className="btn" ><img myvalor={2}  src="/src/images/curses-lenguage.svg" width="40vw" height="40vh" alt="Mis Cursos"/></button>
