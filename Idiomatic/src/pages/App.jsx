@@ -1,7 +1,5 @@
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import TestAprendizaje from './TestAprendizaje';
-
-
 import Login from './Login';
 import Home from './Home';
 import Sign_up from './Sign_up';
@@ -19,7 +17,7 @@ import ApartadoEjercicios from './ApartadosCursos/ApartadoEjercicios';
 import ApartadoVideos from './ApartadosCursos/ApartadoVideos';
 import ApartadoLecturas from './ApartadosCursos/ApartadoLecturas';
 import ApartadoAudio from './ApartadosCursos/ApartadoAudio';
-
+import CompleteSentences from './ApartadoJuegos/CompleteSentences';
 function App() {
   
 
@@ -45,6 +43,8 @@ function App() {
                 <Route path='/Videos' element={<ApartadoVideos/>} />
                 <Route path='/Lecturas' element={<ApartadoLecturas/>} />
                 <Route path='/Audios' element={<ApartadoAudio/>} />
+
+                <Route path='/CompleteSentences' element={<CompleteSentences/>} />
                 
                 {/*<Route  path='/User_Informes' element={<User_Informes/>} />*/
 }

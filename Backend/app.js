@@ -3,13 +3,13 @@ import morgan  from 'morgan'
 import { exec } from'child_process';
 import rutasUsuario from './Routes/rutasUsuarios.js'
 import rutasAdministrador from './Routes/rutasAdministrador.js'
+import bodyParser from 'body-parser';
 
 const app = express()
 
 app.use(morgan("dev"))
 app.use(express.json())
-app.use(express.urlencoded({extend:false}))
-
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/run-python', (req, res) => {
     exec('python prueba.py', (error, stdout, stderr) => {
@@ -35,7 +35,9 @@ app.use((req,res) => {
     })
 })
 
-app.listen(3001)
+app.listen(3001,()=>{
+    console.log("Servidor iniciado xD")
+})
 
-console.log("Servidor iniciado xD")
+
 

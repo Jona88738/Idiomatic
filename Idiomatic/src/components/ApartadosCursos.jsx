@@ -1,12 +1,6 @@
 import { Container } from "@mui/system"
-import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
+import {InputBase, IconButton,Card, CardContent ,  CardMedia,Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import IconButton from '@mui/material/IconButton';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 
 export function Head({ruta,title,mycolor}){
     return(<> 
@@ -35,7 +29,7 @@ export function Head({ruta,title,mycolor}){
 export function MyCard({title,}){
     return(
     
-    <Card  sx={{display:"inline-block", width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"50px",marginLeft:"3%" }}>
+    <Card onClick={()=> console.log("holax")}  sx={{display:"inline-block", width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"50px",marginLeft:"5%" }}>
       <CardMedia
         sx={{ height: 140 }}
         image="/src/images/vector(cursoGramatica).svg"

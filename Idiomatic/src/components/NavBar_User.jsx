@@ -38,7 +38,7 @@ export default function NavBar_User({funcion}) {
         
       </Container>
 
-      ):(<NavBar_UserDesplegada funcion={handleActualizar}/>)};
+      ):(<NavBar_UserDesplegada funcion={handleActualizar}/>)}
 
 
 

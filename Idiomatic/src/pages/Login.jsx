@@ -1,9 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import Button from '@mui/material/Button';
 
 import NavBar from '../components/NavBar_Home';
 function Login() {
   const [count, setCount] = useState(0)
+
+
+  useEffect(()=>{
+
+      fetch("/api/signUser?nombre=Jonathan")
+      .then(res =>  res.json())
+      .then(re => console.log(re))
+      
+
+      .catch(error =>{
+        console.error(error)
+      })
+  },[]) 
 
   return (
     <>

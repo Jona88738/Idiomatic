@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import Button from '@mui/material/Button';
-import Navbar_User from '../../components/NavBar_User'
 import Container from '@mui/material/Container';
 import {Main,Fedback, RestaurarSuscrip,Cursos,Notificaciones} from '../../components/ComponentAjustes/ApartadosAjustes'
-
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import PersonIcon from '@mui/icons-material/Person';
+import SchoolIcon from '@mui/icons-material/School';
+import ShopIcon from '@mui/icons-material/Shop';
+import AddCommentIcon from '@mui/icons-material/AddComment';
 import "../../styles/AjustesUser.css"
 function User_Ajustes() {
   const [apartados, setApartados] = useState(0)
@@ -25,19 +27,19 @@ function User_Ajustes() {
       <Container className='ApartadosAjustes'>
         
         <h2 className='ApartadoBody'>Cuenta</h2>
-        <button onClick={() => setApartados(0)} className='btnAjustes'>Perfil</button>
-        <button onClick={() => setApartados(1)} className='btnAjustes'>Notificaciones</button>
-        <button onClick={() => setApartados(2)}  className='btnAjustes'>Cursos</button>
+        <button onClick={() => setApartados(0)} className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"1%"}}><PersonIcon/>  Perfil</button>
+        <button onClick={() => setApartados(1)} className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%"}}> <NotificationsIcon sx={{position:"relative",top:"2px"}}/>  Notificaciones</button>
+        <button onClick={() => setApartados(2)}  className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%"}}><SchoolIcon/> Cursos</button>
       
         <h2 className='ApartadoBody'>Suscripcion</h2>
 
-        <button onClick={() => setApartados(3)}  className='btnAjustes'>Restaurar Suscripcion</button>
+        <button onClick={() => setApartados(3)}  className='btnAjustes' style={{fontSize:"1.5vw"}}><ShopIcon /> Restaurar Suscripcion</button>
         <h2 className='ApartadoBody'>Soporte</h2>    
-        <button onClick={() => setApartados(4)}  className='btnAjustes'>Feedback</button>  
+        <button onClick={() => setApartados(4)}  className='btnAjustes' style={{fontSize:"1.5vw"}}><AddCommentIcon/> Feedback</button>  
       </Container>
 
       <Container>
-        <h2>vista</h2>
+        
 
         {apartados == 0 ? (<Main/>): apartados == 1 ? (<Notificaciones/>):
         apartados == 2 ? (<Cursos/>): apartados == 3 ? (<RestaurarSuscrip/>):

@@ -11,17 +11,17 @@ import Typography from '@mui/material/Typography';
 
 
 
- function MediaCard({miFuncion}) {
+ function MediaCard({miFuncion,titulo}) {
   return (
-    <Card onClick={miFuncion} sx={{ width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"50px" }}>
+    <Card onClick={miFuncion} sx={{  minWidth: 45,maxWidth: 300,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"38px",marginLeft:"3%" }}>
       <CardMedia
         sx={{ height: 140 }}
         image="/src/images/vector(cursoGramatica).svg"
-        title="green iguana"
+        title={titulo}
       />
-      <CardContent>
+      <CardContent sx={{paddingBottom:"5px !important"}}>
         <Typography gutterBottom variant="h5" component="div">
-          Ejercicios
+          {titulo}
         </Typography>
         <Typography variant="body2" color="black">
           Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -51,16 +51,16 @@ function User_Cursos() {
       
      
 
-      <Container sx={{background:'rgba(70, 70, 122, 1)',width:'100%',borderRadius:'50px',margin:'0'}}>
+      <Container sx={{background:'rgba(70, 70, 122, 1)',width:'100%',borderRadius:'50px',marginTop:'3.5%'}}>
           <h1 style={{color:'#F9FAFD',marginLeft:"15%",fontSize:'4vw',marginTop:"0",marginBottom:"0"}}>Mis Cursos</h1>
-          <h3 style={{color:'#F9FAFD',marginLeft:"20%",fontSize:'2vw'}}>Aqui tenemos tu seleccion de cursos</h3>
-          <img src="/src/images/logoCursos.svg" width="17%"  style={{position:'absolute',right:'60px',top:'2px',minHeight:'25%'}}   alt="Logo de mi página"/>
-          
+          <h3 style={{color:'#F9FAFD',marginLeft:"20%",fontSize:'2vw',marginBottom:"0"}}>Aqui tenemos tu seleccion de cursos</h3>
+          <img src="/src/images/logoCursos.svg" width="15%"  style={{position:'absolute',right:'60px',top:'2px',minHeight:'25%'}}   alt="Logo de mi página"/>
+                                               
       </Container>
      
-      <h1 style={{textAlign:"center", boxShadow:'0px 3px 1px rgba(31, 25, 47, 0.5)',color:'rgba(31, 25, 47, 0.7)'}}>Ingles</h1>
+      <h1 style={{textAlign:"center",fontSize:"2vw", boxShadow:'0px 3px 1px rgba(31, 25, 47, 0.5)',color:'rgba(31, 25, 47, 0.7)'}}>Ingles</h1>
 
-      <h1 style={{marginBottom:"0"}}>Nivel</h1>
+      <h1 style={{marginBottom:"0",fontSize:"2vw"}}>Nivel</h1>
 
       <Container style={{background:"rgba(249, 176, 195, 0.3)",borderRadius:'33px',width:"30%",height:"10%",paddingBottom:"10px",maxWidth:"35%"}}>
 
@@ -69,20 +69,22 @@ function User_Cursos() {
 
       </Container>
 
-      <Container>
+      
+
+      <Container sx={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}}>
 
 
-          
-      <MediaCard miFuncion={to}/>
-
+      
+      <MediaCard miFuncion={to} titulo="Ejercicios"/>
+      <MediaCard miFuncion={to} titulo="Lecturas"/>
+      <MediaCard miFuncion={to} titulo="Videos"/>
+      <MediaCard miFuncion={to} titulo="Audios"/>
+                                              
 
       </Container>
 
-      <br/>
+      
 
-      <br/>
-      <br/>
-      <br/>
     </>
   )
 }
