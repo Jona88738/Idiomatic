@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
 import { useState } from 'react'
-
 import NavBar_UserDesplegada from './NavBar_UserDesplegada';
 import '../styles/Home_user.css';
 export default function NavBar_User({funcion}) {

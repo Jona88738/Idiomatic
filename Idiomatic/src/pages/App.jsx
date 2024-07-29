@@ -18,6 +18,9 @@ import ApartadoVideos from './ApartadosCursos/ApartadoVideos';
 import ApartadoLecturas from './ApartadosCursos/ApartadoLecturas';
 import ApartadoAudio from './ApartadosCursos/ApartadoAudio';
 import CompleteSentences from './ApartadoJuegos/CompleteSentences';
+import DragImage from './ApartadoJuegos/DragImage';
+import CreateSentences from './ApartadoJuegos/CreateSentences';
+import Vocabulary from './ApartadoJuegos/Vocabulary'
 function App() {
   
 
@@ -43,8 +46,12 @@ function App() {
                 <Route path='/Videos' element={<ApartadoVideos/>} />
                 <Route path='/Lecturas' element={<ApartadoLecturas/>} />
                 <Route path='/Audios' element={<ApartadoAudio/>} />
+                
 
                 <Route path='/CompleteSentences' element={<CompleteSentences/>} />
+                <Route path='/DragImage' element={<DragImage/>}/>
+                <Route path='/CreateSentences' element={<CreateSentences/>} />
+                <Route path='/Vocabulary' element={<Vocabulary/>} />
                 
                 {/*<Route  path='/User_Informes' element={<User_Informes/>} />*/
 }
