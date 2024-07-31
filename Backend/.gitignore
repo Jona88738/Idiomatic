@@ -23,6 +23,11 @@ dist-ssr
 /uploads/Lecturas/*
 !/uploads/Lecturas/.gitkeep
 
+/audiosTemporales/*
+!/audiosTemporales/.gitkeep
+
+/configModeloIA/*
+!/configModeloIA/.gitkeep
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
