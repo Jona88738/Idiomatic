@@ -21,6 +21,8 @@ import CompleteSentences from './ApartadoJuegos/CompleteSentences';
 import DragImage from './ApartadoJuegos/DragImage';
 import CreateSentences from './ApartadoJuegos/CreateSentences';
 import Vocabulary from './ApartadoJuegos/Vocabulary'
+import PageVideos from './ApartadoVideos/PageVideos';
+import AudioIA from './ApartadoJuegos/AudioIA';
 function App() {
   
 
@@ -52,6 +54,9 @@ function App() {
                 <Route path='/DragImage' element={<DragImage/>}/>
                 <Route path='/CreateSentences' element={<CreateSentences/>} />
                 <Route path='/Vocabulary' element={<Vocabulary/>} />
+
+                <Route path='/Video' element={<PageVideos/>} />
+                <Route path='/AudioIA' element={<AudioIA/>} />
                 
                 {/*<Route  path='/User_Informes' element={<User_Informes/>} />*/
 }

@@ -1,6 +1,7 @@
 import { Container } from "@mui/system"
 import {InputBase, IconButton,Card, CardContent ,  CardMedia,Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from "react-router-dom";
 
 export function Head({ruta,title,mycolor}){
     return(<> 
@@ -26,10 +27,12 @@ export function Head({ruta,title,mycolor}){
     </>)
 }
 
-export function MyCard({title,}){
+export function MyCard({title,page}){
+  const navigate = useNavigate();
+
     return(
     
-    <Card onClick={()=> console.log("holax")}  sx={{display:"inline-block", width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"50px",marginLeft:"5%" }}>
+    <Card onClick={()=> navigate(page)}  sx={{display:"inline-block", width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"50px",marginLeft:"5%" }}>
       <CardMedia
         sx={{ height: 140 }}
         image="/src/images/vector(cursoGramatica).svg"
@@ -37,7 +40,7 @@ export function MyCard({title,}){
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Ejercicios
+          {title}
         </Typography>
         <Typography variant="body2" color="black">
           Lizards are a widespread group of squamate reptiles, with over 6,000

@@ -8,7 +8,7 @@ export default function ApartadoVideos(){
 
             
             <Head title="Videos" mycolor="rgba(255, 194, 18, 0.4)" ruta="/src/images/iconoVideos.svg"/>
-            <MyCard title="" />
+            <MyCard title="verb to be" page="/Video"/>
             <MyCard title="" />
             <MyCard title="" />
             <MyCard title="" />
