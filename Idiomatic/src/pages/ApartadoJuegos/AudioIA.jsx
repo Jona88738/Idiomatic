@@ -35,9 +35,37 @@ document.getElementById('stopRecord').addEventListener('click', () => {
 
     return(<div  style={{background:"#E0DFFD",height:"100Vh"}} >
 
-            <h1>Audios</h1>
+        <br/>
 
-            <button id="record" onClick={fun}>Grabar</button>
+            <Container sx={{background:"rgba(255, 194, 18, 0.65)",borderRadius:"25px",height:"25vh"}}>
+
+                <img src="/src/images/svgJuegos/speak.svg" width="250px"  style={{float:"right",position:"relative",bottom:"18%"}} />
+                <h1 style={{paddingTop:"5%"}} >Speaking.- Was/Were</h1>
+            </Container>
+
+            <h1 style={{paddingLeft:"5%"}}>Speak this sentence</h1>
+
+            <Container sx={{display:"flex"}}>
+
+            <img src="/src/images/svgJuegos/perroDudaIA.png" alt="" width="20%" style={{marginLeft:"8%"}}/>
+            
+                <Container sx={{}}>
+
+                    <div style={{background:"rgba(255, 189, 0, 0.95)",height:"15vh",borderRadius:"22px",marginTop:"7%",border:"4px solid black"}}>
+
+                        <h2 style={{textAlign:"center",paddingTop:"1%"}}>My father wasn’t at the office 
+                        yesterday</h2>
+                    </div>
+
+                    
+                </Container>
+
+
+            </Container>
+
+            <br/>
+            
+           <button id="record" onClick={fun}>Grabar</button>
             <button id="stopRecord" disabled>Detener</button>
             <audio id="audio" controls></audio>
     
