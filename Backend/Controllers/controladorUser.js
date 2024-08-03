@@ -7,11 +7,12 @@ const createUser = async (req,res) => {
     const {nombre,correo,contra} = req.body
     console.log(nombre+" "+correo+"con"+contra)  
    
-    const [rows] = await conn.query('INSERT INTO usuario (nombre,correo,contraseña,rol,suscripcion) VALUES(?,?,?,?,?)',
-        [nombre,correo,contra,0,true])
-    
+    const [rows] = await conn.query('INSERT INTO usuario (nombre,correo,contraseña,foto,rol,suscripcion) VALUES(?,?,?,?,?,?)',
+        [nombre,correo,contra,"/uploads/FotoPerfil/init.png",0,true])
+    console.log(rows);
     res.json({
-     
+     resultado:true,
+     rol:rows.insertId,
      message: 'Se inserto '+" " + nombre
    })
 }
@@ -20,7 +21,7 @@ const sign_in = async (req,res) => {
 
     const {nombre} =  req.query
 
-    const [row] =await conn.query(`SELECT * FROM usuario where nombre = ?` ,[nombre])
+    const [row] =await conn.query(`SELECT * FROM usuario where name = ?` ,[nombre])
     
 
     if(row.length <= 0 ){
@@ -37,12 +38,16 @@ const sign_in = async (req,res) => {
 
 
 const editUser = (req,res) => {
-
+     
 
 }
 
 const testAprendizaje = (req,res) => {
-
+    const tipo = req.body;
+    console.log(tipo)
+    res.json({
+        resultado:"true",
+    })
 }
 const testIngles = (req,res) => {
 
@@ -57,5 +62,6 @@ export default {
 
     sign_in,
     createUser,
-    editUser
+    editUser,
+    testAprendizaje
 }

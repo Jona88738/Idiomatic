@@ -1,6 +1,5 @@
 import express from 'express'
 import morgan  from 'morgan'
-import { exec } from'child_process';
 import rutasUsuario from './Routes/rutasUsuarios.js'
 import rutasAdministrador from './Routes/rutasAdministrador.js'
 import bodyParser from 'body-parser';
@@ -10,19 +9,6 @@ const app = express()
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-
-app.get('/run-python', (req, res) => {
-    exec('python prueba.py', (error, stdout, stderr) => {
-        if (error) {
-            console.error(`Error ejecutando el script: ${error}`);
-            return res.status(500).send('Error ejecutando el script');
-        }
-
-        // Parsear la salida del script Python
-        const result = JSON.parse(stdout);
-        res.json(result);
-    });
-});
 
 
 app.use("/api",rutasUsuario)

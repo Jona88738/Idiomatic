@@ -7,5 +7,5 @@ export const conn = createPool({
     port:"3306",
     database:"idiomatic",
     user:"root",
-    password:""
+    password:"root"
 })
