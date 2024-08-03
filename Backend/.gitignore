@@ -28,6 +28,10 @@ dist-ssr
 
 /configModeloIA/*
 !/configModeloIA/.gitkeep
+
+/uploads/FotoPerfil/*
+!/uploads/FotoPerfil/.gitkeep
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
