@@ -29,6 +29,8 @@ routes.get("/signUser", cUser.sign_in )
 
 })
 
+routes.get("/logout",cUser.Logout)
+
 routes.post("/testAprendizaje",cUser.testAprendizaje)
 
 
