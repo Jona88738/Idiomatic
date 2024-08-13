@@ -1,7 +1,6 @@
 import { useState } from 'react'
-
-
 import NavBar from '../components/NavBar_Home';
+
 function Home() {
   const [count, setCount] = useState(0)
 

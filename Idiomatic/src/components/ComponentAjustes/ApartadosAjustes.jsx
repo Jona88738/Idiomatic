@@ -32,7 +32,7 @@ export function Notificaciones(){
 export function Cursos(){
     return(<>
     
-        <h1>Cursos</h1>
+        <h1>Mi cuenta</h1>
     </>)
 }
 
@@ -66,6 +66,11 @@ export function Main(){
     
     
     <h1>Editar Perfil</h1>
+
+    <Container sx={{background:"rgba(224, 223, 253, 0.5)",borderRadius:"25px"}}>
+        <h2>Nombre      nivel</h2>
+        <img src="" alt="" />
+    </Container>
     </>)
 }
 

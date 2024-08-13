@@ -1,8 +1,5 @@
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import CloseIcon from '@mui/icons-material/Close'
-import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
-import {IconButton} from '@mui/material';
 
 export default function CompleteSentences(){
     return(

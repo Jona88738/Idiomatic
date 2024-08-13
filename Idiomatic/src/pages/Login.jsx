@@ -1,11 +1,14 @@
 import { useState, useEffect} from 'react'
-import Button from '@mui/material/Button';
-
+import {Button,TextField} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar_Home';
+
 function Login() {
-  const [count, setCount] = useState(0)
+  const [datos, setDatos] = useState({})
 
+  const navigate = useNavigate();
 
+/*
   useEffect(()=>{
 
       fetch("/api/signUser?nombre=Jonathan")
@@ -14,15 +17,58 @@ function Login() {
       
 
       .catch(error =>{
-        console.error(error)
+        console.error("Hubo un Error")
       })
   },[]) 
+*/
+  function enviarDatos(event){
+    event.preventDefault()
+    console.log(datos.correo)
+
+    fetch(`/api/signUser?correo=${datos.correo}&password=${datos.contraseña}`)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res.resultado)
+
+        if(res.resultado === "true"){
+          navigate("/User_Home")
+        }else{
+          console.log("El usuario no existe");
+        }
+        
+       
+        
+      })
+  }
+
+  function handleChange(event){
+    setDatos({
+      ...datos,
+      [event.target.name]:event.target.value,
+    })
+
+   
+  }
 
   return (
     <>
       
       <NavBar/>
       <h1>Login</h1>
+      <form onSubmit={enviarDatos}>
+
+          <TextField id="outlined-basic" label="Usuario" name='correo' variant="outlined" onChange={handleChange} />
+          <br/>
+          <br/>
+          <TextField id="outlined-basic2" label="Password" name='contraseña' type="password" onChange={handleChange} />
+          <br/>
+          <br/>
+          <button>Ingresar</button>
+           
+          
+      </form>
+
+      <br/>
       <Button href="/User_Home" sx={{left:'10%',bottom:'5px',color:'black',background:'purple'}}>Te lleva a la vista del<br/> Dashboard User</Button>
       <br/>
       <br/>

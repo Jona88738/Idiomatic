@@ -29,7 +29,7 @@ function User_Ajustes() {
         <h2 className='ApartadoBody'>Cuenta</h2>
         <button onClick={() => setApartados(0)} className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"1%"}}><PersonIcon/>  Perfil</button>
         <button onClick={() => setApartados(1)} className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%"}}> <NotificationsIcon sx={{position:"relative",top:"2px"}}/>  Notificaciones</button>
-        <button onClick={() => setApartados(2)}  className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%"}}><SchoolIcon/> Cursos</button>
+        <button onClick={() => setApartados(2)}  className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%"}}><SchoolIcon/> Cuenta</button>
       
         <h2 className='ApartadoBody'>Suscripcion</h2>
 
