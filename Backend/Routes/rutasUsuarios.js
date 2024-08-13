@@ -29,9 +29,21 @@ routes.get("/signUser", cUser.sign_in )
 
 })
 
+routes.get("/progresoUsuario",cUser.progresoUsuario)
+
 routes.get("/logout",cUser.Logout)
 
 routes.post("/testAprendizaje",cUser.testAprendizaje)
+
+
+
+//Recursos de usuarios
+
+routes.use("/videos",cUser.recursoVideos);
+
+routes.get("/lecturas")
+routes.get("/juegos")
+routes.get("/audios")
 
 
 routes.post("/audioIA", upload.single("N.mp3") ,(req, res) => {

@@ -5,6 +5,8 @@ import rutasAdministrador from './Routes/rutasAdministrador.js'
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import { createRequire } from 'module';
+import { resolve,join,dirname } from "path";
+import { fileURLToPath } from 'url';
 
 const require = createRequire(import.meta.url);
 const MySQLStore = require('express-mysql-session')(session);
@@ -33,6 +35,13 @@ app.use(session({
     cookie: { secure: false } 
 }))
 
+
+// Necesario para obtener la ruta del archivo en ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+console.log(__dirname)
+// Define la ruta para servir los archivos de video con el prefijo /api/videos
+//app.use('/api/videos', express.static(join(__dirname, 'recursos/Videos')));
 
 app.use("/api",rutasUsuario)
 app.use("/api",rutasAdministrador.updateUser)
