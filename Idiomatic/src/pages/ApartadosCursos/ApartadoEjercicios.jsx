@@ -15,7 +15,7 @@ export default function ApartadoEjercicios(){
             <MyCard title="Memorama" page />
             <MyCard title="personal pronouns" page="/DragImage" />
             <MyCard title="Complete Sentences" page="/CompleteSentences" />
-            
+            <MyCard title="Audio IA" page="/AudioIA" />
             
     </>)
 }

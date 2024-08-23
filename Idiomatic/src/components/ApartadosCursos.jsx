@@ -27,12 +27,12 @@ export function Head({ruta,title,mycolor}){
     </>)
 }
 
-export function MyCard({title,page}){
+export function MyCard({title,page,linkVideo,introduccion}){
   const navigate = useNavigate();
 
     return(
     
-    <Card onClick={()=> navigate(page)}  sx={{display:"inline-block", width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"50px",marginLeft:"5%" }}>
+    <Card onClick={()=> navigate(page,{state:{"video":linkVideo}})}  sx={{display:"inline-block", width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"50px",marginLeft:"5%" }}>
       <CardMedia
         sx={{ height: 140 }}
         image="/src/images/vector(cursoGramatica).svg"
@@ -43,8 +43,7 @@ export function MyCard({title,page}){
           {title}
         </Typography>
         <Typography variant="body2" color="black">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {introduccion}
         </Typography>
       </CardContent>
      

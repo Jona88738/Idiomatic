@@ -7,6 +7,7 @@ import User_Ajustes from './User_Ajustes';
 import Container from '@mui/material/Container';
 import { Gauge, gaugeClasses } from '@mui/x-charts';
 import { useEffect, useRef,useState  } from 'react';
+import Avatar from '@mui/material/Avatar';
 
 function User_Home() {
   const [count, setCount] = useState(0);
@@ -29,9 +30,6 @@ function User_Home() {
 
   function Home(){
       
-
-
-
     return(<>
         
 
@@ -72,11 +70,10 @@ function User_Home() {
         <h1 className='subtema2' >Estas al dia</h1>
         
 
-    </>
-    
-     
-    )
+    </>)
   }
+
+
   
   function MostrarApartados(myvalor){
     let num = Number(myvalor);
@@ -104,6 +101,10 @@ function User_Home() {
 <Container className='Contenedormain' maxWidth='false'  disableGutters >
 
     <Container  className='ContenedorNav' disableGutters >
+
+      <Avatar alt="Remy Sharp"  variant="rounded" src="http://localhost:3001/FotoPerfil/init.png" sx={{marginTop:"2%",marginLeft:"32%", width: 110, height: 110 }} />
+      <h3 style={{textAlign:"center",margin:"0"}} >{info.nombre}</h3>
+      <h3 style={{textAlign:"center",margin:"0"}} >{info.correo}</h3>
       
        <NavBar_User funcion={MostrarApartados}/>
      

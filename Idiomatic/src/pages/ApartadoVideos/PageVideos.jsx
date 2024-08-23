@@ -1,9 +1,14 @@
 import { Container } from "@mui/material";
 import { useState,useEffect } from "react";
 import ReactPlayer from 'react-player';
-
+import { useLocation } from 'react-router-dom';
 export default function PageVideos(){
    
+
+    const location = useLocation();
+
+    const { video } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    console.log(video)
 
     const [path, setpath] = useState("");
 
@@ -17,7 +22,7 @@ export default function PageVideos(){
         </Container>
         
 
-        <ReactPlayer style={{marginLeft:"25%",marginTop:"5%"}} url="/api/videos/Caballos.mp4" controls/>
+        <ReactPlayer style={{marginLeft:"25%",marginTop:"5%"}} url={video} controls/>
     
         </div>)
 }

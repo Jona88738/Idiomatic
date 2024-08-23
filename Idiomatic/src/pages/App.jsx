@@ -23,6 +23,7 @@ import CreateSentences from './ApartadoJuegos/CreateSentences';
 import Vocabulary from './ApartadoJuegos/Vocabulary'
 import PageVideos from './ApartadoVideos/PageVideos';
 import AudioIA from './ApartadoJuegos/AudioIA';
+import EjercicioAudio from './ApartadoVLA/EjercicioAudio';
 function App() {
   
 
@@ -49,11 +50,16 @@ function App() {
                 <Route path='/Lecturas' element={<ApartadoLecturas/>} />
                 <Route path='/Audios' element={<ApartadoAudio/>} />
                 
-
+                {//Juegos
+                }
                 <Route path='/CompleteSentences' element={<CompleteSentences/>} />
                 <Route path='/DragImage' element={<DragImage/>}/>
                 <Route path='/CreateSentences' element={<CreateSentences/>} />
                 <Route path='/Vocabulary' element={<Vocabulary/>} />
+
+
+                {/* Ejercicio Audio*/}
+                <Route path='/EjercicioAudio' element={<EjercicioAudio/>} />
 
                 <Route path='/Video' element={<PageVideos/>} />
                 <Route path='/AudioIA' element={<AudioIA/>} />
