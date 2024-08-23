@@ -1,12 +1,13 @@
 import { Router } from "express";
 import cUser from "../Controllers/controladorUser.js"
-import { exec } from'child_process';
+import { exec,spawn } from'child_process';
 import multer from "multer";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
+//const {  } = require('child_process');
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -23,11 +24,11 @@ routes.get("/signUser", cUser.sign_in )
 
 
 
- routes.patch("/editUser", cUser.editUser)
+routes.patch("/editUser", cUser.editUser)
 
-  routes.put((req,res) => {
+routes.get("/getUser",cUser.getUser);
 
-})
+  
 
 routes.get("/progresoUsuario",cUser.progresoUsuario)
 
@@ -35,9 +36,12 @@ routes.get("/logout",cUser.Logout)
 
 routes.post("/testAprendizaje",cUser.testAprendizaje)
 
+routes.get("/notificaciones",cUser.notificaciones);
 
+routes.patch("/comentario",cUser.comentario);
 
 //Recursos de usuarios
+routes.get("/listaVideos",cUser.listaVideos);
 
 routes.use("/videos",cUser.recursoVideos);
 
@@ -46,31 +50,43 @@ routes.get("/juegos")
 routes.get("/audios")
 
 
-routes.post("/audioIA", upload.single("N.mp3") ,(req, res) => {
+routes.post("/audioIA", upload.single("audio") ,(req, res) => {
+  //console.log("archivo: "+ typeof req.file);
+   // Ahora puedes obtener las especificaciones del archivo
+   console.log(`Archivo subido: ${req.file.originalname}`);
+   console.log(`MIME Type: ${req.file.mimetype}`);
+   console.log(`Tamaño: ${req.file.size} bytes`);
 
-    if (!req.file) {
-      return res.status(400).send('No se ha subido ningún archivo');
-  }
+  // console.log(req.file);
+   console.log('Buffer size:', req.file.buffer.length);
+
+
+  
 
   // Convertir el buffer del archivo a un archivo temporal para pasar al script Python
   const fileBuffer = req.file.buffer;
-  const tempFilePath = path.join(__dirname, '../audiosTemporales/N.mp3'); // Ruta del archivo temporal
-  const name = "N.mp3"
-  console.log(tempFilePath);
+  const tempFilePath = path.join(__dirname, '../audiosTemporales/N.wav'); // Ruta del archivo temporal
+  const name = "N.wav"
+  //const name = req.file;
+ // console.log(tempFilePath+"archivo: "+fileBuffer);
+
 
   // Guardar el archivo temporalmente
+  //fs.writeFileSync(tempFilePath, fileBuffer);
+
+
+ 
   fs.writeFileSync(tempFilePath, fileBuffer);
 
-
-
+ //                        name
   exec(`python prueba.py ${name}`, (error, stdout, stderr) => {
 
        // Eliminar el archivo temporal
-       fs.unlink(tempFilePath, (unlinkError) => {
+    /*   fs.unlink(tempFilePath, (unlinkError) => {
         if (unlinkError) {
             console.error(`Error al eliminar el archivo temporal: ${unlinkError}`);
         }
-    });
+    });*/
     
 
       if (error) {
@@ -79,13 +95,64 @@ routes.post("/audioIA", upload.single("N.mp3") ,(req, res) => {
       }
 
       // Parsear la salida del script Python
-      console.log("sd"+stdout)
+     // console.log("sd"+stdout)
       const result = JSON.parse(stdout);
       res.json(result);
   });
 })
 
+/*
 
+routes.post('/audioIA', upload.single('audio'), (req, res) => {
+  if (!req.file) {
+      return res.status(400).send('No file uploaded.');
+  }
+
+  console.log("archivo: "+ typeof req.file);
+   // Ahora puedes obtener las especificaciones del archivo
+   console.log(`Archivo subido: ${req.file.originalname}`);
+   console.log(`MIME Type: ${req.file.mimetype}`);
+   console.log(`Tamaño: ${req.file.size} bytes`);
+
+
+  // Obtén el buffer del archivo
+  const fileBuffer = req.file.buffer;
+
+  // Crear un proceso Python para ejecutar el script
+  const pythonProcess = spawn('python', ['script.py']);
+
+  // Enviar el buffer al script Python a través de stdin
+  pythonProcess.stdin.write(fileBuffer);
+  pythonProcess.stdin.end();
+
+  let output = '';
+  pythonProcess.stdout.on('data', (data) => {
+      output += data.toString();
+  });
+
+  pythonProcess.stderr.on('data', (data) => {
+      console.error(`stderr: ${data}`);
+  });
+
+  pythonProcess.on('close', (code) => {
+      if (code === 0) {
+          try {
+              // Parsear y enviar la salida del script Python como JSON
+              const result = JSON.parse(output);
+              res.json(result);
+          } catch (e) {
+              console.error('Error al parsear la salida de Python:', e);
+              res.status(500).send('Error al procesar la salida del script Python');
+          }
+      } else {
+          res.status(500).send(`Python script exited with code ${code}`);
+      }
+  });
+});
+
+
+
+*/
 export default routes
 
 

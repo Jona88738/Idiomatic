@@ -35,6 +35,8 @@ app.use(session({
     cookie: { secure: false } 
 }))
 
+app.use(express.static('recursos'))
+
 
 // Necesario para obtener la ruta del archivo en ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -44,7 +46,7 @@ console.log(__dirname)
 //app.use('/api/videos', express.static(join(__dirname, 'recursos/Videos')));
 
 app.use("/api",rutasUsuario)
-app.use("/api",rutasAdministrador.updateUser)
+app.use("/api",rutasAdministrador)
 
 app.use((req,res) => {
 

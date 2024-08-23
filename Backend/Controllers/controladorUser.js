@@ -1,11 +1,10 @@
 import {conn} from "../db/connectionMysql.js"
 import { exec } from'child_process';
-//import { resolve,join } from "path";
 import { encryptPass,verificationPass } from "../utils/fileHelperUser.js";
 import { fileURLToPath } from 'url';
 import { resolve,join,dirname } from "path";
-
 import express from 'express';
+
 const createUser = async (req,res) => {
      
     const {nombre,correo,contra} = req.body
@@ -44,6 +43,7 @@ const sign_in = async (req,res) => {
 
     req.session.idUser = row[0].idusuario;
     req.session.nombre = row[0].nombre;
+    req.session.correo = row[0].correo;
    // console.log(req.session.idUser);
     res.json({
         resultado: "true",
@@ -60,19 +60,49 @@ const editUser = (req,res) => {
  })
 }
 
+const getUser = async (req,res) => {
+
+    const [row] = await conn.query(`select * from usuario where idusuario = ?`,[req.session.idUser]);
+    //console.log(row)
+
+  res.json({
+    nombre:row[0].nombre,
+    correo:row[0].correo,
+    foto:row[0].foto,
+
+
+  })
+}
+
 const testAprendizaje = (req,res) => {
     const tipoAprendizaje = req.body;
-    console.log(tipoAprendizaje)
+   console.log(tipoAprendizaje)
     res.json({
         resultado:"true",
     })
 }
+
 const testIngles = (req,res) => {
 
 }
 
 const LecturaGuardada = (req,res) => {
 
+}
+
+const comentario = async (req,res) => {
+
+  const {comentario} =req.query; 
+
+ // console.log(req.session.idUser+" Este es el comentario xD"+comentario)
+  
+  const [row] = await conn.query(`update bitacora set comentarios = json_array_append(comentarios,'$.comentario',?)
+    where id_usuario = ?`,[comentario,req.session.idUser]) 
+    
+    //console.log(row);
+  res.json({
+        message:"Comentario Enviado"
+  })
 }
 
 const Logout = (req,res) => {
@@ -99,6 +129,7 @@ const progresoUsuario = async (req,res) => {
   res.status(200).json({
     "message":true,
     "nombre":req.session.nombre,
+    "correo":req.session.correo,
     "progresoGeneral":row[0].porcentajeGeneral,
     "horasMes":row[0].tiempoMes
 
@@ -106,6 +137,27 @@ const progresoUsuario = async (req,res) => {
 }
 
   
+
+const notificaciones = (req,res) =>{
+
+  res.status(200).json({
+
+  })
+}
+
+
+const listaVideos = async (req,res) =>{
+
+  const [row] = await conn.query("select * from video");
+  console.log(row)
+  res.json(
+      row
+  )
+}
+
+
+
+// traer recursos como video 
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
   
@@ -121,8 +173,12 @@ export default {
     sign_in,
     createUser,
     editUser,
+    getUser,
+    comentario,
     testAprendizaje,
     progresoUsuario,
+    listaVideos,
     recursoVideos,
-    Logout
+    Logout,
+    notificaciones 
 }
