@@ -1,32 +1,52 @@
 import express from 'express'
 import morgan  from 'morgan'
-import { exec } from'child_process';
 import rutasUsuario from './Routes/rutasUsuarios.js'
 import rutasAdministrador from './Routes/rutasAdministrador.js'
 import bodyParser from 'body-parser';
+import session from 'express-session';
+import { createRequire } from 'module';
+import { resolve,join,dirname } from "path";
+import { fileURLToPath } from 'url';
 
+const require = createRequire(import.meta.url);
+const MySQLStore = require('express-mysql-session')(session);
 const app = express()
 
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.get('/run-python', (req, res) => {
-    exec('python prueba.py', (error, stdout, stderr) => {
-        if (error) {
-            console.error(`Error ejecutando el script: ${error}`);
-            return res.status(500).send('Error ejecutando el script');
-        }
+const options = {
+    host:'localhost',
+    port:3306,
+    user:'root',
+    password:'root',
+    database:'idiomatic'
+}
 
-        // Parsear la salida del script Python
-        const result = JSON.parse(stdout);
-        res.json(result);
-    });
-});
+const sessionStore = new MySQLStore(options);
 
+app.use(session({
+    key:"cookie_user",
+    secret:"idiomaticXDJN",
+    store:sessionStore,
+    resave:false,
+    saveUninitialized:false,
+    cookie: { secure: false } 
+}))
+
+app.use(express.static('recursos'))
+
+
+// Necesario para obtener la ruta del archivo en ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+console.log(__dirname)
+// Define la ruta para servir los archivos de video con el prefijo /api/videos
+//app.use('/api/videos', express.static(join(__dirname, 'recursos/Videos')));
 
 app.use("/api",rutasUsuario)
-app.use("/api",rutasAdministrador.updateUser)
+app.use("/api",rutasAdministrador)
 
 app.use((req,res) => {
 

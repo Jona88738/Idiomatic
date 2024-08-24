@@ -205,12 +205,12 @@
    .ContenedorUser{
         
         position:relative  !important;
-        top:18%;
+        top:0%;
         right:22%;
         border-Radius:50px;
         width:70px !important;
         background: rgba(70, 70, 122, 0.05);
-        height:80vh;  
+        height:68vh;  
         box-Shadow:5px 8px 2px GRAY;
         margin:0;
    }
@@ -283,12 +283,11 @@
     /* NavBAr UserDesplegada */
     .navDesple{
         position:relative !important;
-        top:19%;
-        
+        top:0%;
         border-Radius:50px;
         width:86% !important;
         background: rgba(70, 70, 122, 0.05);
-        height:80vh; 
+        height:75vh; 
         box-Shadow:5px 8px 2px GRAY;
         margin:0;
 

@@ -5,10 +5,13 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import SchoolIcon from '@mui/icons-material/School';
 import ShopIcon from '@mui/icons-material/Shop';
+import { useEffect } from "react";
 import AddCommentIcon from '@mui/icons-material/AddComment';
 import "../../styles/AjustesUser.css"
 function User_Ajustes() {
   const [apartados, setApartados] = useState(0)
+
+  
 
   return (
     <>
@@ -29,7 +32,7 @@ function User_Ajustes() {
         <h2 className='ApartadoBody'>Cuenta</h2>
         <button onClick={() => setApartados(0)} className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"1%"}}><PersonIcon/>  Perfil</button>
         <button onClick={() => setApartados(1)} className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%"}}> <NotificationsIcon sx={{position:"relative",top:"2px"}}/>  Notificaciones</button>
-        <button onClick={() => setApartados(2)}  className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%"}}><SchoolIcon/> Cursos</button>
+        <button onClick={() => setApartados(2)}  className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%"}}><SchoolIcon/> Cuenta</button>
       
         <h2 className='ApartadoBody'>Suscripcion</h2>
 
@@ -41,7 +44,7 @@ function User_Ajustes() {
       <Container>
         
 
-        {apartados == 0 ? (<Main/>): apartados == 1 ? (<Notificaciones/>):
+        {apartados == 0 ? (<Main />): apartados == 1 ? (<Notificaciones/>):
         apartados == 2 ? (<Cursos/>): apartados == 3 ? (<RestaurarSuscrip/>):
         apartados == 4 ? (<Fedback/>):2}
 

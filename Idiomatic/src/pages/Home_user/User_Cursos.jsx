@@ -1,15 +1,6 @@
 import { useState } from 'react'
-import Button from '@mui/material/Button';
-import Navbar_Home from '../../components/NavBar_User'
-import Container from '@mui/material/Container';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import {Container, Card, CardContent, CardMedia,Typography} from '@mui/material';
 import { useNavigate  } from 'react-router-dom';
-
-import Typography from '@mui/material/Typography';
-
-
 
  function MediaCard({miFuncion,titulo}) {
   return (

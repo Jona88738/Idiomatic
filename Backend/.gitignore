@@ -12,6 +12,26 @@ dist
 dist-ssr
 *.local
 
+
+#Recursos 
+/uploads/Audios/*
+!/uploads/Audios/.gitkeep
+
+/uploads/Videos/*
+!/uploads/Videos/.gitkeep
+
+/uploads/Lecturas/*
+!/uploads/Lecturas/.gitkeep
+
+/audiosTemporales/*
+!/audiosTemporales/.gitkeep
+
+/configModeloIA/*
+!/configModeloIA/.gitkeep
+
+/uploads/FotoPerfil/*
+!/uploads/FotoPerfil/.gitkeep
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
