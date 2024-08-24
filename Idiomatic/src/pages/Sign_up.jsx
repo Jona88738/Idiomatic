@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 
 import NavBar from '../components/NavBar_Home';
-import './styles/Register.css'; // Asegúrate de importar el archivo CSS para los estilos.
+//import './styles/Register.css'; // Asegúrate de importar el archivo CSS para los estilos.
 
 function Register() {
   return (

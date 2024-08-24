@@ -38,7 +38,7 @@
   }
   
   .create-account-btn {
-    background-color: #FFCF47;
+    background-color: #FFC212;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -67,7 +67,6 @@
   .welcome-section {
     flex: 1;
     padding: 50px;
-    background-color: #654EA3;
     color: white;
   }
   
@@ -101,14 +100,14 @@
   .forgot-password {
     margin-top: 10px;
     font-size: 0.9rem;
-    color: #007BFF;
+    color: #1f192f;
     text-decoration: none;
   }
   
   .login-btn {
     width: 100%;
     padding: 15px;
-    background-color: #FFCF47;
+    background-color: #FFC212;
     border: none;
     border-radius: 5px;
     color: white;
