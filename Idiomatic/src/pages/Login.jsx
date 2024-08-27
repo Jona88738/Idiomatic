@@ -8,19 +8,6 @@ function Login() {
 
   const navigate = useNavigate();
 
-/*
-  useEffect(()=>{
-
-      fetch("/api/signUser?nombre=Jonathan")
-      .then(res =>  res.json())
-      .then(re => console.log(re))
-      
-
-      .catch(error =>{
-        console.error("Hubo un Error")
-      })
-  },[]) 
-*/
   function enviarDatos(event){
     event.preventDefault()
     console.log(datos.correo)

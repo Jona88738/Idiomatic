@@ -18,7 +18,7 @@ function User_Home() {
 
 
   useEffect(() =>{
-
+      console.log("pidio datos progreso usuario")
     fetch("/api/progresoUsuario")
       .then(res => res.json(res))
       .then(res => setInfo(res))
@@ -93,8 +93,8 @@ function User_Home() {
   }
 
 
-  
-
+  //"http://localhost:3001/FotoPerfil/init.png"
+//console.log(info.foto)
   return (
     <>
             
@@ -102,7 +102,7 @@ function User_Home() {
 
     <Container  className='ContenedorNav' disableGutters >
 
-      <Avatar alt="Remy Sharp"  variant="rounded" src="http://localhost:3001/FotoPerfil/init.png" sx={{marginTop:"2%",marginLeft:"32%", width: 110, height: 110 }} />
+      <Avatar alt="Remy Sharp"  variant="rounded" src={info.foto} sx={{marginTop:"2%",marginLeft:"32%", width: 110, height: 110 }} />
       <h3 style={{textAlign:"center",margin:"0"}} >{info.nombre}</h3>
       <h3 style={{textAlign:"center",margin:"0"}} >{info.correo}</h3>
       
@@ -114,7 +114,7 @@ function User_Home() {
     
     <Container   > 
      {count === 0 ? (<Home/>): count == 2 ?(<User_Cursos/>): count == 3 ? (<User_Informes dataUser={info}/>): 
-      count == 4 ? (<User_Notificaciones />): count == 5 ? (<User_Ajustes/>): count == 6 ?  (MostrarApartados):33333}
+      count == 4 ? (<User_Notificaciones />): count == 5 ? (<User_Ajustes foto={info} cambiarFoto={setInfo} />): count == 6 ?  (MostrarApartados):33333}
       
     
     </Container>

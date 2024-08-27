@@ -1,8 +1,14 @@
 import { Container } from "@mui/system"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-
+import { useLocation } from "react-router-dom";
 export default function EjercicioAudio(){
+
+    const location = useLocation();
+
+    const { link } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    console.log(link)
+
     return(<>
 
         <br />
@@ -25,7 +31,10 @@ export default function EjercicioAudio(){
                 <img src="/src/images/svgJuegos/perroDudaIA.png" alt="" width="20%" style={{marginLeft:"8%"}}/>
 
                 <h1>XD</h1>   
-                    
+                <audio controls>
+                <source src={link} type="audio/mpeg" />
+                Your browser does not support the audio element.
+                </audio>
                 </div>
 
                 <input type="text" placeholder="Escribe xD" style={{height:"8vh",width:"60%",borderRadius:"5px", paddingLeft:"5%",border:"2px solid black",marginLeft:"25%"}} />

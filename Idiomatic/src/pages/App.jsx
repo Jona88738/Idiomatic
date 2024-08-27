@@ -24,6 +24,7 @@ import Vocabulary from './ApartadoJuegos/Vocabulary'
 import PageVideos from './ApartadoVideos/PageVideos';
 import AudioIA from './ApartadoJuegos/AudioIA';
 import EjercicioAudio from './ApartadoVLA/EjercicioAudio';
+import Datos from '../contexto/ProvedorContexto';
 function App() {
   
 
@@ -31,12 +32,13 @@ function App() {
     <>
       <BrowserRouter>
            <Routes>
-
+               
                 <Route  path='/' element={<Home/>} />
-                <Route  path='/Login' element={<Login/>} />
+                <Route  path='/Login' element={  <Datos> <Login/> </Datos>} />
                 <Route  path='/Sign_up' element={<Sign_up/>} />
                 <Route  path='/Nosotros' element={<Nosotros/>} />
                 <Route  path='/Cursos' element={<Cursos/>} />
+                
 
                 <Route  path='/TestAprendizaje' element={<TestAprendizaje/>} />
                 <Route  path='/TestIngles' element={<TestIngles/>} />

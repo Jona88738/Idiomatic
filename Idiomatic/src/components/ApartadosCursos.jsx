@@ -27,12 +27,12 @@ export function Head({ruta,title,mycolor}){
     </>)
 }
 
-export function MyCard({title,page,linkVideo,introduccion}){
+export function MyCard({title,page,link,introduccion}){
   const navigate = useNavigate();
 
     return(
     
-    <Card onClick={()=> navigate(page,{state:{"video":linkVideo}})}  sx={{display:"inline-block", width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"50px",marginLeft:"5%" }}>
+    <Card onClick={()=> navigate(page,{state:{"link":link}})}  sx={{display:"inline-block", width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"50px",marginLeft:"5%" }}>
       <CardMedia
         sx={{ height: 140 }}
         image="/src/images/vector(cursoGramatica).svg"

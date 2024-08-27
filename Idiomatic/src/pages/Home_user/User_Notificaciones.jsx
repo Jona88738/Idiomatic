@@ -1,9 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Container from '@mui/material/Container';
 import "../../styles/NotificacionesHome.css"
 import Button from '@mui/material/Button';
 function User_Notificaciones() {
-  const [count, setCount] = useState(0)
+  const [notificacion, setNotificacion] = useState([])
+
+  useEffect(()=>{
+
+      fetch("/api/notificaciones")
+        .then(res => res.json())
+        .then(res => setNotificacion(res))
+  },[]);
+
+  console.log(notificacion)
+  function Notificacion({titulo,texto}){
+    
+    return(<>
+      <Container className='ContenedorNoti'>
+          <h2>{titulo} </h2>
+          <p>{texto}</p>
+          <br/>   
+          <button>X</button>
+        </Container>
+        </>
+  )
+  }
 
   return (
     <>
@@ -17,20 +38,11 @@ function User_Notificaciones() {
         </Container>
       
         <Button className='btonFiltrar' >Filtrar por</Button>
-
-
-        <Container className='ContenedorNoti'>
-          <h2>Lorem ipsum </h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-             sed do eiusmod tempor incididunt ut labore ...</p>
-          <br/>   
-        </Container>
-        <Container className='ContenedorNoti'>
-          <h2>Lorem ipsum </h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-             sed do eiusmod tempor incididunt ut labore ...</p>
-          <br/>   
-        </Container>
+        {notificacion.map((info) =>{
+         return <Notificacion key="dk" titulo={info.Titulo} texto={info.texto} />
+        })}
+        <Notificacion/>
+       
     </>
   )
 }

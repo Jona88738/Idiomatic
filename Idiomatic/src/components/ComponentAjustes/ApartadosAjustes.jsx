@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { json } from "react-router-dom";
-
+import SimpleDialogDemo from "../CambiarAvatar"
 
 export function Notificaciones(){
 
@@ -143,45 +143,63 @@ export function Fedback(){
         </>)
 }
 
-export function Main({datos}){
+export function Main({foto,cambiarFoto}){
 
     const [info, setInfo] = useState([]);
-
+    const [updateInfo, setUpdateInfo] = useState({"foto":foto.foto})
+    //console.log("informacion",updateInfo)
     useEffect(() =>{
 
         fetch("/api/getUser")
             .then(res => res.json(res))
             .then(res => {
-                console.log(res)
+                //console.log(res)
                 setInfo(res)
 
             })
 
     },[])
+   // console.log(foto)
    
+    function actualizar(){
+            cambiarFoto({
+                ...foto,
+                "foto":"http://localhost:3001/FotoPerfil/mision.png"})
+    }
 
+    function handleChange(e){
+        setUpdateInfo({
+            ...updateInfo,
+            [e.target.name]:e.target.value,
 
+            })
+
+            console.log(updateInfo)
+
+    }
 
     return(<>
     
     
     <h1 style={{marginTop:"0"}}>Editar Perfil</h1>
 
-    <Container sx={{background:"rgba(224, 223, 253, 0.5)",borderRadius:"25px", height:"95vh"}}>
+    <Container sx={{background:"rgba(224, 223, 253, 0.5)",borderRadius:"25px", height:"110vh"}}>
 
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" sx={{marginLeft:"35%", width: 164, height: 164 }} />
+            <Avatar alt="Remy Sharp" variant="rounded" src={updateInfo.foto} sx={{marginLeft:"35%", width: 164, height: 164 }} />
             <h3 style={{marginLeft:"30%"}}>Cambiar foto de perfil</h3>
+            <SimpleDialogDemo setfoto={setUpdateInfo} info={updateInfo}/>
             <h3 style={{textAlign:"center"}}>{info.nombre}</h3>
             <h4 style={{textAlign:"center"}}>{info.correo}</h4>
+
             <label htmlFor="">Nombre de Usuario</label> <br />
-            <TextField id="outlined-basic" label={info.nombre} variant="outlined" sx={{width:"100%"}} /> <br />
+            <TextField id="outlined-basic" label={info.nombre} name="Nombre" variant="outlined" sx={{width:"100%"}} onChange={handleChange} /> <br />
             <label htmlFor="">Correo</label> <br />
-            <TextField id="outlined-basic" label={info.correo} variant="outlined" sx={{width:"100%"}} /> <br />
+            <TextField id="outlined-basic" label={info.correo} name="Correo" variant="outlined" sx={{width:"100%"}} onChange={handleChange} /> <br />
             <label htmlFor="">Contraseña</label> <br />
-            <TextField id="outlined-basic" label="*****" variant="outlined" sx={{width:"100%"}} />
+            <TextField id="outlined-basic" label="*****" name="Contraseña" variant="outlined" sx={{width:"100%"}} onChange={handleChange} />
             <label htmlFor="">Escriba de nuevo la Contraseña</label> <br />
-            <TextField id="outlined-basic" label="*****" variant="outlined" sx={{width:"100%"}} />
-            <Button sx={{marginTop:"2%"}} variant="contained" >Actualizar</Button>
+            <TextField id="outlined-basic" label="*****" name="Contraseña2" variant="outlined" sx={{width:"100%"}} onChange={handleChange} />
+            <Button sx={{marginTop:"2%"}} variant="contained"  onClick={actualizar}>Actualizar</Button>
 
     </Container>
     </>)

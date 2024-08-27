@@ -9,7 +9,7 @@ export default function ApartadoVideos(){
 
         fetch("/api/listaVideos")
             .then(res => res.json(res))
-            .then(res => { setInfoVideos(res)})
+            .then(res =>  setInfoVideos(res))
 
     },[])
     //console.log(infoVideos)
@@ -20,10 +20,9 @@ export default function ApartadoVideos(){
 
             
             <Head title="Videos" mycolor="rgba(255, 194, 18, 0.4)" ruta="/src/images/iconoVideos.svg"/>
-            <MyCard title="verb to be" page="/Video" linkVideo="/api/videos/Caballos.mp4" introduccion="Aprende el tema escencial para poder iniciar en tu camino en el aprendizaje"/>
             
             {infoVideos.map((video) =>{ 
-               return <MyCard key={video.idvideo} title={video.nombre}  page="/video" linkVideo={video.link} introduccion={video.introduccion} /> })}
+               return <MyCard key={video.idvideo} title={video.nombre}  page="/video" link={video.link} introduccion={video.introduccion} /> })}
 
                 
             

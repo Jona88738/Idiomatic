@@ -8,7 +8,7 @@ import ShopIcon from '@mui/icons-material/Shop';
 import { useEffect } from "react";
 import AddCommentIcon from '@mui/icons-material/AddComment';
 import "../../styles/AjustesUser.css"
-function User_Ajustes() {
+function User_Ajustes({foto,cambiarFoto}) {
   const [apartados, setApartados] = useState(0)
 
   
@@ -44,7 +44,7 @@ function User_Ajustes() {
       <Container>
         
 
-        {apartados == 0 ? (<Main />): apartados == 1 ? (<Notificaciones/>):
+        {apartados == 0 ? (<Main foto={foto} cambiarFoto={cambiarFoto}/>): apartados == 1 ? (<Notificaciones/>):
         apartados == 2 ? (<Cursos/>): apartados == 3 ? (<RestaurarSuscrip/>):
         apartados == 4 ? (<Fedback/>):2}
 

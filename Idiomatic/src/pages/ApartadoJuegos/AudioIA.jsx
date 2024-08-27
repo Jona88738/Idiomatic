@@ -93,7 +93,7 @@ export default function AudioIA() {
                 Press to stop Record
                 <MicIcon sx={{ fontSize: 50 }} />
             </Button>
-            {audioUrl && <audio src={audioUrl} controls />}
+            
         </div>
     );
 }
