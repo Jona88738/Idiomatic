@@ -44,6 +44,7 @@ const sign_in = async (req,res) => {
     req.session.idUser = row[0].idusuario;
     req.session.nombre = row[0].nombre;
     req.session.correo = row[0].correo;
+    req.session.foto = row[0].foto;
    // console.log(req.session.idUser);
     res.json({
         resultado: "true",
@@ -131,18 +132,21 @@ const progresoUsuario = async (req,res) => {
     "nombre":req.session.nombre,
     "correo":req.session.correo,
     "progresoGeneral":row[0].porcentajeGeneral,
-    "horasMes":row[0].tiempoMes
+    "horasMes":row[0].tiempoMes,
+    "foto":req.session.foto
 
   })
 }
 
   
 
-const notificaciones = (req,res) =>{
+const notificaciones = async (req,res) =>{
 
-  res.status(200).json({
-
-  })
+  const [row] = await conn.query("select * from notificaciones where Id_usuario= ?",[req.session.idUser])
+      console.log("Aqui esta el dato",row[0].notificacion.Notificacion[0])
+  res.status(200).json([
+      row[0].notificacion.Notificacion[0]
+  ])
 }
 
 
@@ -153,6 +157,14 @@ const listaVideos = async (req,res) =>{
   res.json(
       row
   )
+}
+
+const listaAudios = async (req,res) => {
+
+  const [row] = await conn.query("select * from audio");
+  console.log(row);
+
+  res.json(row)
 }
 
 
@@ -178,6 +190,7 @@ export default {
     testAprendizaje,
     progresoUsuario,
     listaVideos,
+    listaAudios,
     recursoVideos,
     Logout,
     notificaciones 

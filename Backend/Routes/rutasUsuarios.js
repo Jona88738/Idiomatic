@@ -45,6 +45,8 @@ routes.get("/listaVideos",cUser.listaVideos);
 
 routes.use("/videos",cUser.recursoVideos);
 
+routes.use("/listaAudios",cUser.listaAudios); 
+
 routes.get("/lecturas")
 routes.get("/juegos")
 routes.get("/audios")
