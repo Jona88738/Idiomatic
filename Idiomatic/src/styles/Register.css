@@ -145,19 +145,19 @@
     margin-left: 40px;
   }
   
-  .sign-up-button {
-    width: 40%;
-    padding: 10px;
-    background-color: #FFC212;
-    border: none;
-    border-radius: 25px;
-    color: white;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 700;
-    margin: 20px auto 0 auto; 
-    display: block; 
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
+  .sign-up-button  {
+    width: 40% !important;
+    padding: 10px !important;
+    background-color: #FFC212 !important;
+    border: none !important;
+    border-radius: 25px !important;
+    color: white !important;
+    cursor: pointer !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    margin: 20px auto 0 auto !important; 
+    display: block !important; 
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important; /* Efecto de transición */
   }
   
   /* Efecto de resplandor al hacer hover */
@@ -177,8 +177,11 @@
     font-size: 0.8rem;
     font-weight: 700;
     margin: 20px auto 0 auto; 
-    display: block; 
+    display:  block; 
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
+  }
+  .ejemplo{
+    background: chocolate;
   }
   
   .sign-in-button:hover {
