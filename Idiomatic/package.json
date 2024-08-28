@@ -16,6 +16,7 @@
     "@ffmpeg/ffmpeg": "^0.12.10",
     "@ffmpeg/util": "^0.12.1",
     "@fontsource/roboto": "^5.0.13",
+    "@hookform/resolvers": "^3.9.0",
     "@mui/icons-material": "^5.15.21",
     "@mui/material": "^5.15.21",
     "@mui/x-charts": "^7.9.0",
@@ -23,8 +24,10 @@
     "lamejs": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.53.0",
     "react-player": "^2.16.0",
-    "react-router-dom": "^6.24.0"
+    "react-router-dom": "^6.24.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
