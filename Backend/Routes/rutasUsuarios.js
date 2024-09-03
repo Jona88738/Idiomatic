@@ -32,11 +32,15 @@ routes.get("/getUser",cUser.getUser);
 
 routes.get("/progresoUsuario",cUser.progresoUsuario)
 
+routes.patch("/progresoUsuarioGeneral",cUser.progresoUsuarioGeneral)
+
 routes.get("/logout",cUser.Logout)
 
 routes.post("/testAprendizaje",cUser.testAprendizaje)
 
 routes.get("/notificaciones",cUser.notificaciones);
+
+routes.patch("/notificaciones",cUser.pausarNotification);
 
 routes.patch("/comentario",cUser.comentario);
 

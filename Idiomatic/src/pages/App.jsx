@@ -23,8 +23,14 @@ import CreateSentences from './ApartadoJuegos/CreateSentences';
 import Vocabulary from './ApartadoJuegos/Vocabulary'
 import PageVideos from './ApartadoVideos/PageVideos';
 import AudioIA from './ApartadoJuegos/AudioIA';
-import EjercicioAudio from './ApartadoVLA/EjercicioAudio';
+import EjercicioAudio from './Apartado_VLAJ_temas/EjercicioAudio';
 import Datos from '../contexto/ProvedorContexto';
+import ApartadoTemasVideos from './Apartado_VLAJ_temas/ApartadoTemasVideo';
+import ApartadoTemaAudio from './Apartado_VLAJ_temas/ApartadoTemaAudios';
+import ApartadoTemaEjercicios from './Apartado_VLAJ_temas/ApartadoTemaJuegos';
+import ApartadoTemaJuegos from './Apartado_VLAJ_temas/ApartadoTemaJuegos';
+import ApartadoTemasLecturas from './Apartado_VLAJ_temas/ApartadoTemaLectura';
+import PageLecturas from './ApartadoVideos/PageLecturas';
 function App() {
   
 
@@ -46,6 +52,13 @@ function App() {
                 <Route  path='/User_Home' element={<User_Home/>} />
                 <Route  path='/User_Cursos' element={<User_Cursos/>} />
 
+                {//Apartado temas VLAJ
+                }
+                <Route path='/TemasVideos' element={<ApartadoTemasVideos/>} /> 
+                <Route path='/TemasAudios' element={<ApartadoTemaAudio />} /> 
+                <Route path='/TemasJuegos' element={<ApartadoTemaJuegos />} /> 
+                <Route path='/TemasLecturas' element={<ApartadoTemasLecturas />} /> 
+
 
                 <Route path='/Ejercicios' element={<ApartadoEjercicios/>} />
                 <Route path='/Videos' element={<ApartadoVideos/>} />
@@ -58,6 +71,12 @@ function App() {
                 <Route path='/DragImage' element={<DragImage/>}/>
                 <Route path='/CreateSentences' element={<CreateSentences/>} />
                 <Route path='/Vocabulary' element={<Vocabulary/>} />
+
+
+                {// pagina Lecturas
+                }
+                <Route path='/PageLecturas' element={<PageLecturas /> } />
+
 
 
                 {/* Ejercicio Audio*/}

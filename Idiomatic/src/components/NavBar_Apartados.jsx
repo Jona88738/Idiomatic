@@ -13,10 +13,10 @@ export default function NavBar_Apartados(){
       
         <Container sx={{display:'flex',justifyContent:'right',position:'relative',bottom:'50px'}}>
             <h2 style={{margin:"0",marginRight:"25px"}}>Barra provicional</h2>
-        <Button href="/Videos" sx={{bottom:'5px',color:'black'}}>Videos</Button>
-        <Button href="/Audios" sx={{bottom:'5px',color:'black'}}>Audios</Button>
-        <Button href="/Lecturas" sx={{bottom:'5px',color:'black'}}>Lecturas</Button>
-        <Button href="/Ejercicios" sx={{bottom:'5px',color:'black'}}>Ejercicios</Button>
+        <Button href="/TemasVideos" sx={{bottom:'5px',color:'black'}}>Videos</Button>
+        <Button href="/TemasAudios" sx={{bottom:'5px',color:'black'}}>Audios</Button>
+        <Button href="/TemasLecturas" sx={{bottom:'5px',color:'black'}}>Lecturas</Button>
+        <Button href="/TemasJuegos" sx={{bottom:'5px',color:'black'}}>Ejercicios</Button>
         <Button  className='btnOpcion' href="/User_Home" >salir</Button>
         
         </Container>

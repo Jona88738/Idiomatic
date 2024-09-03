@@ -225,6 +225,7 @@
    /*  Apartado User_Home*/
 
     .TitleUserHome{
+        margin-top: 5% !important;
         background:rgba(119, 102, 198, 0.3);
         width:100%;
         border-Radius:50px;
@@ -260,7 +261,7 @@
     }
 
     .ContenedorProgreso{
-
+        margin-bottom: 3% !important;
         height:20%;
         width:40% !important;
         background:rgba(70, 70, 122, 0.15);

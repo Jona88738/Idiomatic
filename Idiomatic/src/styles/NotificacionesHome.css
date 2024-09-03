@@ -14,6 +14,8 @@
 @media screen and (min-width:1024px){
 
     .ContenedorMain{
+
+        margin-top: 5% !important;
         background:rgba(119, 102, 198, 0.3);
         width:100%;
         border-Radius:50px;
@@ -32,6 +34,8 @@
     }
 
     .btonFiltrar{
+        margin-top: 3% !important;
+        margin-bottom: 3% !important;
         color: black !important;
         border-radius: 45px !important;
         width:  25%;
@@ -39,7 +43,8 @@
     }
 
     .ContenedorNoti{
-        box-Shadow:0px 3px 1px rgba(31, 25, 47, 0.5);
+        background: rgba(255, 199, 39, 0.7);
+        position: relative !important;
     }
 
 }

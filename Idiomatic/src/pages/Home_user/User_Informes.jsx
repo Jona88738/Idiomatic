@@ -8,14 +8,14 @@ function User_Informes({dataUser}) {
   return (
     <>
       
-      <Container sx={{background:'rgba(249, 176, 195, 1)',width:'100%',borderRadius:'50px', margin:'0'}}>
+      <Container sx={{marginTop:"5% !important",background:'rgba(249, 176, 195, 1)',width:'100%',borderRadius:'50px', margin:'0'}}>
           <h1 style={{color:'black',left:'20%',fontSize:'4vw'}}>Informes</h1>
           <h3 style={{color:'black',textAlign:'center',fontSize:'2vw'}}>Resumen sobre tus cursos</h3>
-          <img src="/src/images/iconoInformes.svg" width="25%"  style={{position:'absolute',right:'20px',top:'2px',minHeight:'25%'}}   alt="Logo de mi página"/>
+          <img src="/src/images/iconoInformes.svg" width="20%"  style={{position:'absolute',right:'20px',top:'2px',minHeight:'25%'}}   alt="Logo de mi página"/>
         
         </Container>
 
-        <h1 style={{fontSize:'2vw', boxShadow:'0px 3px 1px rgba(31, 25, 47, 0.5) '}}>Lunes (Fecha)</h1>
+        <h1 style={{fontSize:'2vw', boxShadow:'0px 3px 1px rgba(31, 25, 47, 0.5) ',marginBottom:"5%"}}>Lunes (Fecha)</h1>
       
         <Container sx={{display:"flex"}}>
           
@@ -70,16 +70,7 @@ function User_Informes({dataUser}) {
 
        
 
-        <LineChart sx={{marginRight:"5%"}}
-              xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-              series={[
-                {
-                  data: [2, 5.5, 2, 8.5, 1.5, 5],
-                },
-              ]}
-              width={500}
-              height={300}
-/>
+        
       
           </Container>
     </>

@@ -8,11 +8,15 @@ import Container from '@mui/material/Container';
 import { Gauge, gaugeClasses } from '@mui/x-charts';
 import { useEffect, useRef,useState  } from 'react';
 import Avatar from '@mui/material/Avatar';
+import CloseIcon from '@mui/icons-material/Close';
+
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function User_Home() {
   const [count, setCount] = useState(0);
   const [info, setInfo] = useState({});
-
+  const [notificacion, setNotificacion] = useState([])
 
   const navigate = useNavigate();
 
@@ -24,6 +28,37 @@ function User_Home() {
       .then(res => setInfo(res))
 
   },[])
+
+  useEffect(() =>{
+    
+    fetch("/api/notificaciones")
+          .then(res => res.json())
+          .then(res=> {
+            const [noti, pausarNoti,avisos] = res;
+            setNotificacion(avisos)
+          })
+  },[])
+
+  function onDelete(indice){
+    
+      const nuevoArreglo = notificacion.filter((noti,i) => i !== indice)
+        setNotificacion(nuevoArreglo)
+  }
+
+
+  function Notificacion({indice,titulo,texto}){
+    console.log(indice)
+    return(<>
+      <Container className='ContenedorNoti' >
+          <h2>{titulo} </h2>
+          <p>{texto}</p>
+          <br/>   
+          
+          <button style={{background:"red",position:"absolute",right:"0",top:"0",width:"5%",height:"5vh",cursor:"pointer"}} onClick={() => onDelete(indice)}><CloseIcon/></button>
+        </Container>
+        </>
+  )
+  }
 
 
   //XD
@@ -67,7 +102,13 @@ function User_Home() {
         </Container>
         
         <h1 className='subtema3' >Avisos</h1>
+        {/*
         <h1 className='subtema2' >Estas al dia</h1>
+        */}
+        {notificacion.map((aviso,index) => {
+
+         return  <Notificacion key={index} indice={index} titulo={aviso.Titulo} texto={aviso.texto}/>
+        })}
         
 
     </>)

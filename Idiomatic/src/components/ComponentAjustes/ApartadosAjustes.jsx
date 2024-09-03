@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
+
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -10,11 +10,42 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { json } from "react-router-dom";
 import SimpleDialogDemo from "../CambiarAvatar"
-
+import Switch from '@mui/material/Switch';
 export function Notificaciones(){
 
-    
+    useEffect(()=>{
 
+        fetch("/api/notificaciones")
+            .then(res => res.json())
+            .then(res => {
+                const [pausarNotificacion,segundo] = res;
+                if(segundo === 1){
+                    setChecked(true)
+                }else{
+                    setChecked(false)
+                }
+                console.log(segundo)
+            })
+    },[])
+    
+    const [checked, setChecked] = useState(false);
+
+    function handleChange(e){
+        let result = 0; 
+        console.log(typeof e.target.checked)
+        if(e.target.checked === true){
+            result = 1;
+        }else{
+            result = 0;
+        }
+        const metodo = {
+            method:"PATCH"
+        }
+
+        fetch(`/api/notificaciones?pausar=${result}`,metodo)
+            .then(res => res.json())
+            .then(res => setChecked(!checked))
+    }
     
 
     return(<>
@@ -28,13 +59,13 @@ export function Notificaciones(){
          
                 </p>
 
-                <FormControlLabel
-                    value="top"
-                    control={<Switch color="primary" />}
-                    label="off/on"
-                    labelPlacement="top"
-                    
-                    />
+                <Switch
+                    checked={checked}
+                    onChange={handleChange}
+                    inputProps={{ 'aria-label': 'controlled' }}
+                />
+
+               
         </Container>
         
         </>
@@ -127,7 +158,7 @@ export function Fedback(){
           onChange={(e) =>{setComentario(e.target.value);}}
         />
         <br/>
-            <Button variant="contained">Cancelar</Button>
+            
             <Button  onClick={handleClick}  variant="contained"sx={{marginLeft:"25px"}} >Enviar</Button>
             <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
             <Alert

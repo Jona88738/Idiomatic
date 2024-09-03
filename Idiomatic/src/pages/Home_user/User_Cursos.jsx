@@ -7,7 +7,7 @@ import { useNavigate  } from 'react-router-dom';
     <Card onClick={miFuncion} sx={{  minWidth: 45,maxWidth: 300,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"38px",marginLeft:"3%" }}>
       <CardMedia
         sx={{ height: 140 }}
-        image="/src/images/vector(cursoGramatica).svg"
+        image="/src/images/ApartadosTemas/VerbToBe.png"
         title={titulo}
       />
       <CardContent sx={{paddingBottom:"5px !important"}}>
@@ -33,7 +33,7 @@ function User_Cursos() {
 
   function to(){
     console.log("Entro xD")
-    navigate('/Ejercicios')
+    navigate('/TemasJuegos')
   }
 
   return (

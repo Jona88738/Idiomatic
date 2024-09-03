@@ -138,21 +138,63 @@ const progresoUsuario = async (req,res) => {
   })
 }
 
+const progresoUsuarioGeneral = async (req,res) => {
+
+  const {TemaEjercicio} = req.query;
+
+  const [row] = await conn.query(`SELECT * FROM progresousuario where Id_usuario = ?`,[TemaEjercicio])
+  //console.log(typeof row[0].porcentajeGeneral);
+  const porcentaje = (100 * (row[0].porcentajeGeneral+1))/60;
+  
+  console.log(porcentaje)
+
+  res.json({
+
+  })
+}
+
   
 
 const notificaciones = async (req,res) =>{
 
   const [row] = await conn.query("select * from notificaciones where Id_usuario= ?",[req.session.idUser])
-      console.log("Aqui esta el dato",row[0].notificacion.Notificacion[0])
+      console.log("Aqui esta el dato",row[0].notificacion.Avisos[0])
   res.status(200).json([
-      row[0].notificacion.Notificacion[0]
+      row[0].notificacion.Notificacion,
+      row[0].pausarNotificacion,
+      row[0].notificacion.Avisos
+
+
   ])
 }
 
 
-const listaVideos = async (req,res) =>{
+const pausarNotification = async (req,res) => {
+    
+    const {pausar} = req.query;
+    //const resultado = 
+    
+   // let str = 'true';
+    let boolValue =  Number(pausar)
+  
+//str = 'false';
+    //boolValue = (pausar === 'false'); // false
 
-  const [row] = await conn.query("select * from video");
+
+    
+   // console.log(boolValue,"result",pausar)
+    const [row] = await conn.query("update notificaciones set pausarNotificacion = ? where Id_usuario = ?",[boolValue,req.session.idUser])
+    
+
+  res.json({
+      message:"true"
+  })
+}
+
+const listaVideos = async (req,res) =>{
+  const {tema} = req.query;
+console.log(tema)
+  const [row] = await conn.query("select * from video where tema = ?",[tema]);
   console.log(row)
   res.json(
       row
@@ -161,7 +203,8 @@ const listaVideos = async (req,res) =>{
 
 const listaAudios = async (req,res) => {
 
-  const [row] = await conn.query("select * from audio");
+  const {tema} = req.query
+  const [row] = await conn.query("select * from audio where tema = ?",[tema]);
   console.log(row);
 
   res.json(row)
@@ -189,9 +232,11 @@ export default {
     comentario,
     testAprendizaje,
     progresoUsuario,
+    progresoUsuarioGeneral,
     listaVideos,
     listaAudios,
     recursoVideos,
     Logout,
-    notificaciones 
+    notificaciones,
+    pausarNotification
 }
