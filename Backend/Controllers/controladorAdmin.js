@@ -21,6 +21,32 @@ const createAdmin = async (req,res) => {
     })
 }
 
+const adminGetUsers = async (req,res) => {
+
+    const [rows] = await conn.query("SELECT idusuario, nombre, rol,tipo_aprendizaje FROM usuario");
+    
+    console.log(rows)
+
+    res.json(rows)
+}
+
+const comentarioUser = async (req,res) => {
+
+    const [rows] = await conn.query('select  nombre,UserComentario(idusuario) from usuario;')
+
+  
+
+    const arrDatos  =  rows.map((objeto) =>{
+
+        const { 'UserComentario(idusuario)': { comentario } } = objeto;
+
+        return {"nombre":objeto.nombre,"comentario":comentario}
+    })
+
+    //console.log(arrDatos)
+    res.json(arrDatos)
+}
+
 const ModificarAdmin = (req,res) => {
 
 
@@ -48,5 +74,8 @@ export default {
     deleteAdmin,
     addContentEdu,
     modificarContentEdu,
-    deleteContentEdu
+    deleteContentEdu,
+    comentarioUser,
+    adminGetUsers
+
 }

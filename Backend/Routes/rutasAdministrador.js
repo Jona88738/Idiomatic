@@ -4,6 +4,10 @@ const routers = Router()
 
 routers.put("/",cAdmin.createAdmin);
 
+routers.get("/comentarioUser",cAdmin.comentarioUser)
+
+routers.get("/adminGetUsers",cAdmin.adminGetUsers)
+
 routers.patch((req,res) =>{
 
     res.send("Hola xD")
