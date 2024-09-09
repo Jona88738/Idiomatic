@@ -21,13 +21,14 @@ console.log('Datos recibidos:', username, email);
       console.log('Contraseña encriptada:', passHashed);  // Verifica la contraseña encriptada
 
       // Insertar el usuario en la base de datos
-      const [result] = await conn.query('INSERT INTO usuario (nombre, correo, contraseña, foto, rol, suscripcion) VALUES (?, ?, ?, ?, ?, ?)', [
+      const [result] = await conn.query('INSERT INTO usuario (nombre, correo, contraseña, foto, rol, suscripcion,tipo_aprendizaje) VALUES (?, ?, ?, ?, ?, ?,?)', [
           username,
           email,
           passHashed,
           "/uploads/FotoPerfil/init.png",
           0, // Rol por defecto
-          true // Suscripción por defecto
+          true, // Suscripción por defecto,
+          "dsf"
       ]);
 
       console.log('Resultado de la inserción:', result);  // Verifica el resultado de la consulta
