@@ -3,6 +3,8 @@ import TestAprendizaje from './TestAprendizaje';
 import Login from './Login';
 import Home from './Home';
 import Sign_up from './Sign_up';
+import PasswordRecovery from './PasswordRecovery'
+import UpdatePassword from './UpdatePassword'
 import Error404 from './Error404'
 import Nosotros from './Nosotros';
 import Cursos from './Cursos';
@@ -43,6 +45,9 @@ function App() {
                 <Route  path='/' element={<Home/>} />
                 <Route  path='/Login' element={  <Datos> <Login/> </Datos>} />
                 <Route  path='/Sign_up' element={<Sign_up/>} />
+                <Route  path='/PasswordRecovery' element={<PasswordRecovery/>} />
+                <Route  path='/UpdatePassword' element={<UpdatePassword/>} />
+
                 <Route  path='/Nosotros' element={<Nosotros/>} />
                 <Route  path='/Cursos' element={<Cursos/>} />
                 

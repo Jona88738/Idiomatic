@@ -20,6 +20,7 @@
     "@mui/icons-material": "^5.15.21",
     "@mui/material": "^5.15.21",
     "@mui/x-charts": "^7.9.0",
+    "@tanstack/react-query": "^5.55.4",
     "file-saver": "^2.0.5",
     "lamejs": "^1.2.1",
     "react": "^18.2.0",

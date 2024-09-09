@@ -65,15 +65,16 @@ const LoginPage = () => {
       <div className="login-container">
         {/* Sección Izquierda */}
         <div className="welcome-section">
-          <h2>¿Nuevo/a aquí?</h2>
-          <p>¡Bienvenido/a! 🎉 Aprende inglés con nosotros. </p>
-          <p>¡Explora, practica y disfruta del viaje lingüístico!</p>
-          <button className="register-button" onClick={() => window.location.href = '/Sign_up'}>Registrarme</button>
-        </div>
+  <h2 className="new-here-heading">¿Nuevo/a aquí?</h2>
+  <p>¡Bienvenido/a! 🎉 Aprende inglés con nosotros. </p>
+  <p>¡Explora, practica y disfruta del viaje lingüístico!</p>
+  <button className="register-button" onClick={() => window.location.href = '/Sign_up'}>Registrarse</button>
+</div>
 
-        {/* Sección Derecha (Formulario) */}
-        <div className="form-section">
-          <h2>Sign In</h2>
+<div className="form-section">
+  <h2 className="sign-in-heading">Sign In</h2>
+
+
 
           <FormProvider {...methods}>
             <form onSubmit={onSubmit} className="login-form">
@@ -129,13 +130,15 @@ const LoginPage = () => {
               <br /><br />
 
               <p style={{ textAlign: 'center' }}>
-                <a href="/forgot-password" className="forgot-password-link">¿Olvidaste tu contraseña?</a>
+                <a href="/PasswordRecovery" className="forgot-password-link">¿Olvidaste tu contraseña?</a>
               </p>
               <button type="submit" className="login-btn">Ingresar</button>
+              <div className="line-below"></div>
+
             </form>
           </FormProvider>
 
-          <p className="social-login-text">Ingresa con</p>
+          <p className="social-login-text">Ingresar con</p>
           <div className="social-login-buttons">
             <button className="social-btn google">
               <GoogleIcon style={{ marginRight: '8px' }} />
@@ -153,12 +156,7 @@ const LoginPage = () => {
         </div>
       </div>
 
-      {userData && (
-        <div className="user-info">
-          <h2>Información del Usuario</h2>
-          <p>{JSON.stringify(userData)}</p>
-        </div>
-      )}
+      
     </div>
   );
 };

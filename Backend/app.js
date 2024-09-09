@@ -2,6 +2,8 @@ import express from 'express'
 import morgan  from 'morgan'
 import rutasUsuario from './Routes/rutasUsuarios.js'
 import rutasAdministrador from './Routes/rutasAdministrador.js'
+import passwordrecovery from './Routes/password-recovery.js'
+import updatePassword from './Routes/update-password.js'
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import { createRequire } from 'module';
@@ -47,6 +49,14 @@ console.log(__dirname)
 
 app.use("/api",rutasUsuario)
 app.use("/api",rutasAdministrador)
+app.use("/api",passwordrecovery)
+app.use("/api",updatePassword)
+
+
+app.post('/api/forgot-password', (req, res) => {
+
+    res.json({ success: true }); 
+  });
 
 app.use((req,res) => {
 

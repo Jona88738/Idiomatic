@@ -5,9 +5,10 @@ import NavBar from '../components/NavBar_Home';
 import UserIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
-import '../styles/App.css'; 
-import '../styles/Register.css'; 
-
+import GoogleIcon from '@mui/icons-material/Google';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import AppleIcon from '@mui/icons-material/Apple';
+import '../styles/Register.css';
 
 function Register() {
   const [datos, setDatos] = useState({
@@ -33,7 +34,7 @@ function Register() {
       return;
     }
 
-    fetch('/api/register', {
+    fetch('/api/createUser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,13 +45,15 @@ function Register() {
       .then(data => {
         console.log(data);
         if (data.success) {
+          alert('Usuario registrado exitosamente');  // Alerta de éxito
           navigate('/User_Home');
         } else {
-          console.log('Error de registro');
+          alert('Error de registro. Inténtalo de nuevo.');
         }
       })
       .catch(error => {
         console.error('Error:', error);
+        alert('Hubo un problema en el servidor. Inténtalo de nuevo más tarde.');
       });
   }
 
@@ -60,7 +63,7 @@ function Register() {
       <div className="register-container">
         {/* Sección Izquierda */}
         <div className="register-section">
-          <h2>Sign Up</h2>
+          <h2 className="sign-up-heading">Sign Up</h2>
           <form className="register-form" onSubmit={handleSubmit}>
             <TextField
               name='username'
@@ -128,23 +131,30 @@ function Register() {
             />
             <br />
             <br />
-            <Button className= "sign-up-button" type="submit" variant="contained" color="primary" fullWidth>
+            <Button className="sign-up-button" type="submit" variant="contained" color="primary" fullWidth>
               Registrarse
             </Button>
-            <p>o regístrate usando</p>
-            <div className="social-login">
-              <Button className="social-btn google">Google</Button>
-              <Button className="social-btn facebook">Facebook</Button>
-              <Button className="social-btn apple">Apple</Button>
+            <div className="line-below-button"></div>
+            <p className="social-text">Registrarse con</p>
+            <div className="social-reg-buttons">
+              <Button className="social-btn google" startIcon={<GoogleIcon />} fullWidth>
+                Google
+              </Button>
+              <Button className="social-btn facebook" startIcon={<FacebookIcon />} fullWidth>
+                Facebook
+              </Button>
+              <Button className="social-btn apple" startIcon={<AppleIcon />} fullWidth>
+                Apple
+              </Button>
             </div>
           </form>
         </div>
 
         {/* Sección Derecha */}
         <div className="welcome-section">
-          <h2>¿Uno de nosotros?</h2>
+          <h2 className="one-of-us-heading">¿Uno de nosotros?</h2>
           <p>¡Hola de nuevo! ¡Sigue aprendiendo y practicando con nosotros!</p>
-          <Button className="sign-in-button" onClick={() => window.location.href = '/Panel_user'}>Iniciar sesión</Button>
+          <Button className="sign-in-button" onClick={() => window.location.href = '/Login'}>Iniciar sesión</Button>
         </div>
       </div>
     </div>
