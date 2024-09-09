@@ -38,89 +38,105 @@
   }
   
   .create-account-btn {
-    background-color: #FFC212;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
+    background-color: #FFC212 !important; 
+    color: #fff !important; 
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 20px !important;
+    cursor: pointer !important;
   }
   
   .welcome-section {
-    display: flex;
-    flex-direction: column;
+    display: flex!important;
+    flex-direction: column !important;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
-    height: 100%; /* O el tamaño que quieras darle a la sección */
+    color: #fff !important;
+    height: 100%; 
     padding: 10px;
-    padding-left: 3rem; /* Ajusta este valor para mover más hacia la izquierda */
+    padding-left: 3rem !important; 
   }
   .register-page {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: url('/src/images/fondo2s.png');
-    background-size: cover;
-    background-position: center;
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+    background: url('/src/images/fondo_reg.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
   }
   
   .register-container {
-    margin-top: 30px;
-    display: flex;
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
+    margin-top: 20px !important;
+    display: flex !important;
+    border-radius: 10px !important;
+    width: 100% !important;
+    height: 100% !important;
     max-width: 1100px;
     background: url('/src/images/fonde_registro.png') no-repeat center center; /* Mantener la imagen de fondo */
     background-size: cover;
   }
   
   .register-section {
-    flex: 1;
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinear al inicio para mover el formulario a la izquierda */
-    justify-content: center;
+    flex: 1 !important;
+    padding: 50px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
   }
   
   .register-section h2 {
-    margin-bottom: 30px;
+    margin-bottom: 10px !important;
+    color: #1F192F !important;
+    font-size: 35px !important;
+    margin-left: 9rem !important;
+  }
+
+    .sign-up-heading {
     color: #1F192F;
     font-size: 35px;
+    text-align: left;
+    margin-bottom: 20px;
   }
   
+  .one-of-us-heading {
+    color: #fff;
+    font-size: 27px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  
   .register-form {
-    width: 100%;
-    max-width: 400px;
+    width: 100% !important;
+    max-width: 400px !important;
   }
   
   .welcome-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 10px !important;
   }
   
   .register-form input {
-    width: 24rem;
-    padding: 10px;
-    border: 2px solid #ccc;
-    text-align: center;
-    border-radius: 30px;
+    width: 24rem !important;
+    padding: 10px !important;
+    border: 2px solid #ccc !important;
+    text-align: center !important;
+    border-radius: 30px !important;
   }
   
   .MuiOutlinedInput-root {
-    border: none; /* Quitar borde */
-    background-color: transparent; /* Fondo transparente */
-    box-shadow: none; /* Sin sombra */
+    border: none !important;  /* Quitar borde */
+    background-color: transparent !important; /* Fondo transparente */
+    box-shadow: none !important; /* Sin sombra */
   }
   
   .MuiOutlinedInput-notchedOutline {
@@ -128,24 +144,28 @@
   }
   
   .register-form .input-group {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    margin-left: 10rem;
+    margin-bottom: 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-left: 10rem !important;
   }
   
   .register-form .input-group input {
     flex: 1;
-    padding-left: 10px;
+    padding-left: 10px !important;
   }
   
   .register-form .input-group i {
-    color: #1F192F;
-    font-size: 1.2rem;
-    margin-left: 40px;
+    color: #1F192F !important;
+    font-size: 1.2rem !important;
+    margin-left: 12rem !important;
   }
   
+<<<<<<< HEAD
   .sign-up-button  {
+=======
+  .sign-up-button {
+>>>>>>> 882deaac32b79afe80629cc7e3f5bd65e4a5b5e6
     width: 40% !important;
     padding: 10px !important;
     background-color: #FFC212 !important;
@@ -153,20 +173,29 @@
     border-radius: 25px !important;
     color: white !important;
     cursor: pointer !important;
+<<<<<<< HEAD
     font-size: 1rem !important;
     font-weight: 700 !important;
     margin: 20px auto 0 auto !important; 
     display: block !important; 
+=======
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    margin: 5px auto 0 auto !important; 
+    display: block !important; 
+    margin-left: 9rem !important;
+>>>>>>> 882deaac32b79afe80629cc7e3f5bd65e4a5b5e6
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important; /* Efecto de transición */
   }
   
   /* Efecto de resplandor al hacer hover */
   .sign-up-button:hover {
-    box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5);
-    transform: scale(1.05); /* Agrandar ligeramente el botón */
+    box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5) !important;
+    transform: scale(1.05) !important; /* Agrandar ligeramente el botón */
   }
   
   .sign-in-button {
+<<<<<<< HEAD
     width: 32%;
     padding: 10px;
     background-color: #FFC212;
@@ -179,59 +208,80 @@
     margin: 20px auto 0 auto; 
     display:  block; 
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
+=======
+    width: 30% !important;
+    padding: 10px !important;
+    background-color: #FFC212 !important;
+    border: none !important;
+    border-radius: 25px !important;
+    color: white !important;
+    cursor: pointer !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    margin: 10px auto 0 auto !important; 
+    display: block !important; 
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important; /* Efecto de transición */
+>>>>>>> 882deaac32b79afe80629cc7e3f5bd65e4a5b5e6
   }
   .ejemplo{
     background: chocolate;
   }
   
   .sign-in-button:hover {
-    box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5);
-    transform: scale(1.05); /* Agrandar ligeramente el botón */
+    box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5) !important;
+    transform: scale(1.05)!important; /* Agrandar ligeramente el botón */
   }
   
-  .social-login-text {
-    margin-top: 30px;
-    color: #333;
-    font-size: 15px;
-    margin-left: 13rem;
+  .line-below-button {
+    border-bottom: 1.8px solid #000000; /* Cambia el color y grosor según tu preferencia */
+    width: 80%; /* O ajusta el ancho según lo que necesites */
+    margin-top: 15px;
+    margin-left: 3.5rem;
+  }
+  .social-text {
+    margin-top: 20px !important;
+    color: #181818    !important;
+    font-size: 15px !important;
+    margin-left: 10.5rem !important;
+    font-weight: bold;
   }
   
-  .social-login-buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-    max-width: 80px;
-    margin-top: 20px;
-    margin-left: 1.5rem;
-    gap: 10px;
+  .social-reg-buttons {
+    display: flex !important;
+    justify-content: space-around !important;
+    width: 80% !important;
+    max-width: 80px !important;
+    margin-top: 10px !important;
+    margin-left: 4rem !important;
+    gap: 50px !important;
   }
   
   .social-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    text-align: center;
-    transition: transform 0.2s ease;
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    transition: transform 0.2s ease !important;
   }
   
   .social-btn:hover {
-    transform: scale(1.1); /* Efecto de agrandamiento al pasar el mouse */
+    transform: scale(1.1) !important; /* Efecto de agrandamiento al pasar el mouse */
   }
   
   .google {
     background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0) !important;
   }
   
   .facebook {
     background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0) !important;
   }
   
   .apple {
     background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0) !important;
   }
   

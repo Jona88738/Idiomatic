@@ -9,6 +9,21 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* Estilos para el encabezado "¿Nuevo/a aquí?" */
+.new-here-heading {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el encabezado "Sign In" */
+.sign-in-heading {
+  color: #1F192F;
+  font-size: 35px;
+  margin-left: 12rem;
+}
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -60,7 +75,6 @@ body {
 
 .login-container {
   margin-top: 30px; 
-  
   display: flex;
   border-radius: 10px;
   overflow: hidden;
@@ -75,7 +89,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff;
+  color: #fff !important;
   height: 100%; /* O el tamaño que quieras darle a la sección */
   padding: 10px;
 }
@@ -91,6 +105,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #fff !important;
 }
 
 .form-section h2 {
@@ -131,7 +146,7 @@ body {
   /*text-decoration: none; /* Sin subrayado */
   display: inline-block;
   font-weight: 600;
-  margin-left: 1rem;
+  margin-left: 0.8rem;
 }
 
 .login-btn {
@@ -148,7 +163,6 @@ body {
   display: block; 
   margin-left: 8rem;
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
-
   
 }
 
@@ -157,6 +171,14 @@ body {
   box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5);
   transform: scale(1.05); /* Agrandar ligeramente el botón */
 }
+
+.line-below {
+  border-bottom: 1.8px solid #000000; /* Cambia el color y grosor según tu preferencia */
+  width: 80%; /* O ajusta el ancho según lo que necesites */
+  margin-top: 15px;
+  margin-left: 3.2rem;
+}
+
 .register-button {
   width: 32%;
   padding: 10px;
@@ -165,7 +187,7 @@ body {
   border-radius: 25px;
   color: white;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
   margin: 20px auto 0 auto; 
   display: block; 
@@ -179,93 +201,14 @@ body {
 }
 
 .social-login-text {
-  margin-top: 30px;
-  color: #333;
+  margin-top: 20px;
+  color: #181818;
   font-size: 15px;
   margin-left: 13rem;
-}
-
-.social-login-buttons {
-  display: flex;
-  justify-content: space-around;
-  width: 80%;
-  max-width: 80px;
-  margin-top: 20px;
-  margin-left: 1.5rem;
-  gap: 10px;
-
-}
-
-.social-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.social-btn:hover {
-  transform: scale(1.1); /* Efecto de agrandamiento al pasar el mouse */
-}
-
-
-.google {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-}
-
-.facebook {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-}
-
-.apple {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-}
- /*  REGISTRO */
-
- /* Register css */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #fff;
-}
-
-.logo {
-  width: 150px;
-}
-
-.nav-links {
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-}
-
-.nav-links li {
-  margin-left: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 .create-account-btn {
   background-color: #FFC212;
   color: #fff;
@@ -423,6 +366,8 @@ body {
   margin-left: 13rem;
 }
 
+=======
+>>>>>>> 882deaac32b79afe80629cc7e3f5bd65e4a5b5e6
 .social-login-buttons {
   display: flex;
   justify-content: space-around;
@@ -431,6 +376,7 @@ body {
   margin-top: 20px;
   margin-left: 1.5rem;
   gap: 10px;
+
 }
 
 .social-btn {
@@ -447,6 +393,7 @@ body {
   transform: scale(1.1); /* Efecto de agrandamiento al pasar el mouse */
 }
 
+
 .google {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
@@ -461,3 +408,4 @@ body {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
 }
+ 

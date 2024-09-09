@@ -5,52 +5,78 @@ import { fileURLToPath } from 'url';
 import { resolve,join,dirname } from "path";
 import express from 'express';
 
-const createUser = async (req,res) => {
-     
-    const {nombre,correo,contra} = req.body
+const createUser = async (req, res) => {
+  const { username, email, password } = req.body;
+console.log('Datos recibidos:', username, email);
+  try {
+        // Verifica los datos recibidos
+
+      // Verificar si faltan datos
+      if (!username || !email || !password) {
+          return res.status(400).json({ success: false, message: 'Faltan datos' });
+      }
+
+      // Encriptar la contraseña
+      const passHashed = await encryptPass(password);
+      console.log('Contraseña encriptada:', passHashed);  // Verifica la contraseña encriptada
+
+      // Insertar el usuario en la base de datos
+      const [result] = await conn.query('INSERT INTO usuario (nombre, correo, contraseña, foto, rol, suscripcion) VALUES (?, ?, ?, ?, ?, ?)', [
+          username,
+          email,
+          passHashed,
+          "/uploads/FotoPerfil/init.png",
+          0, // Rol por defecto
+          true // Suscripción por defecto
+      ]);
+
+      console.log('Resultado de la inserción:', result);  // Verifica el resultado de la consulta
+
+      // Verificar si se insertó correctamente
+      if (result.affectedRows === 1) {
+          res.json({ success: true, message: 'Usuario registrado con éxito' });
+      } else {
+          res.json({ success: false, message: 'Error al registrar el usuario' });
+      }
+  } catch (error) {
+      console.error('Error al intentar registrar el usuario:', error);  // Captura cualquier error
+      res.status(500).json({ success: false, message: 'Error en el servidor', error: error.message });
+  }
+};
 
 
-   const passHas = await  encryptPass(contra);
-   
-    const [rows] = await conn.query('INSERT INTO usuario (nombre,correo,contraseña,foto,rol,suscripcion) VALUES(?,?,?,?,?,?)',
-        [nombre,correo,passHas,"/uploads/FotoPerfil/init.png",0,true])
-    
 
-    res.json({
-     resultado:true,
-     message: 'Se inserto '+" " + nombre
-   })
-}
+const sign_in = async (req, res) => {
+  const { correo, password } = req.body;
+  console.log(correo + " : " + password);
 
+  try {
+    const [row] = await conn.query(`SELECT * FROM usuario WHERE correo = ?`, [correo]);
 
-const sign_in = async (req,res) => {
-
-    const {correo,password} =  req.query   
-    console.log(correo+" : " +password) 
-    
-    const [row] =await conn.query(`SELECT * FROM usuario where correo = ?` ,[correo])
-    
-
-    if(row.length <= 0 ){
-       return  res.status(404).json({resultado:false })
-
-    }else{
-
-        const contra = await verificationPass(password,row[0].contraseña);
-        console.log("xs")
-        if(contra === false) return res.status(404).json({resultado:false});
+    if (row.length <= 0) {
+      return res.status(404).json({ resultado: false });
+    } else {
+      const contra = await verificationPass(password, row[0].contraseña);
+      if (contra === false) {
+        return res.status(404).json({ resultado: false });
+      }
     }
 
     req.session.idUser = row[0].idusuario;
     req.session.nombre = row[0].nombre;
     req.session.correo = row[0].correo;
-   // console.log(req.session.idUser);
+
     res.json({
-        resultado: "true",
-        rol:row[0].rol,
-        message: row[0].nombre
-    })
-}
+      resultado: "true",
+      rol: row[0].rol,
+      message: row[0].nombre,
+    });
+  } catch (error) {
+    console.error('Error en la autenticación:', error); // Agregado para identificar errores
+    res.status(500).json({ success: false, message: 'Error en el servidor' });
+  }
+};
+
 
 
 const editUser = (req,res) => {
@@ -81,6 +107,7 @@ const testAprendizaje = (req,res) => {
         resultado:"true",
     })
 }
+
 
 const testIngles = (req,res) => {
 
@@ -124,7 +151,7 @@ const progresoUsuario = async (req,res) => {
   
 
   const [row] = await conn.query(`SELECT * FROM progresousuario where Id_usuario = ?`,[req.session.idUser])
-  console.log(row[0].nombre)
+  //console.log(row[0].nombre)
   console.log(row)
   res.status(200).json({
     "message":true,

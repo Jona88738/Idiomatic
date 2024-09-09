@@ -1,5 +1,7 @@
 import { Router } from "express";
 import cUser from "../Controllers/controladorUser.js"
+import { sendEmail } from '../Controllers/password-recovery.js'; 
+import { updatePassword } from '../Controllers/update-password.js'; 
 import { exec,spawn } from'child_process';
 import multer from "multer";
 import fs from "fs";
@@ -19,9 +21,10 @@ const upload = multer({ storage: storage });
 const routes = Router();
 
 routes.post("/createUser", cUser.createUser ) 
+routes.post("/signUser", cUser.sign_in ) 
 
-routes.get("/signUser", cUser.sign_in ) 
-
+routes.post("/PasswordRecovery", sendEmail)
+routes.post("/UpdatePassword", updatePassword)
 
 
 routes.patch("/editUser", cUser.editUser)
