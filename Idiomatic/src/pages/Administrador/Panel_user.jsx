@@ -40,13 +40,13 @@ function User_Home() {
       {/* Rectángulo con título */}
       <Box 
         sx={{
-          backgroundColor: '#F8D7DA', // Color de fondo (similar al color en la imagen)
-          borderRadius: '8px', // Borde redondeado
-          padding: '16px', // Espaciado interno
+          backgroundColor: '#F8D7DA', 
+          borderRadius: '8px', 
+          padding: '16px',  
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          marginBottom: '20px' // Espacio debajo del rectángulo
+          marginBottom: '20px' 
         }}
       >
         <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
