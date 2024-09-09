@@ -25,7 +25,7 @@ console.log('Datos recibidos:', username, email);
           username,
           email,
           passHashed,
-          "/uploads/FotoPerfil/init.png",
+          "http://localhost:3001/FotoPerfil/init.png",
           0, // Rol por defecto
           true, // Suscripción por defecto,
           "dsf"
@@ -48,7 +48,7 @@ console.log('Datos recibidos:', username, email);
 
 
 const sign_in = async (req, res) => {
-  const { correo, password } = req.body;
+  const { correo, password } = req.query;
   console.log(correo + " : " + password);
 
   try {

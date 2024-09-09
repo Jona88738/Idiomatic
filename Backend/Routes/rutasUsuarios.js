@@ -21,7 +21,7 @@ const upload = multer({ storage: storage });
 const routes = Router();
 
 routes.post("/createUser", cUser.createUser ) 
-routes.post("/signUser", cUser.sign_in ) 
+routes.get("/signUser", cUser.sign_in ) 
 
 routes.post("/PasswordRecovery", sendEmail)
 routes.post("/UpdatePassword", updatePassword)
