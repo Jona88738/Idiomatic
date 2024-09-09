@@ -161,11 +161,7 @@
     margin-left: 12rem !important;
   }
   
-<<<<<<< HEAD
   .sign-up-button  {
-=======
-  .sign-up-button {
->>>>>>> 882deaac32b79afe80629cc7e3f5bd65e4a5b5e6
     width: 40% !important;
     padding: 10px !important;
     background-color: #FFC212 !important;
@@ -173,18 +169,10 @@
     border-radius: 25px !important;
     color: white !important;
     cursor: pointer !important;
-<<<<<<< HEAD
     font-size: 1rem !important;
     font-weight: 700 !important;
     margin: 20px auto 0 auto !important; 
     display: block !important; 
-=======
-    font-size: 0.8rem !important;
-    font-weight: 700 !important;
-    margin: 5px auto 0 auto !important; 
-    display: block !important; 
-    margin-left: 9rem !important;
->>>>>>> 882deaac32b79afe80629cc7e3f5bd65e4a5b5e6
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important; /* Efecto de transición */
   }
   
@@ -195,7 +183,6 @@
   }
   
   .sign-in-button {
-<<<<<<< HEAD
     width: 32%;
     padding: 10px;
     background-color: #FFC212;
@@ -208,20 +195,6 @@
     margin: 20px auto 0 auto; 
     display:  block; 
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
-=======
-    width: 30% !important;
-    padding: 10px !important;
-    background-color: #FFC212 !important;
-    border: none !important;
-    border-radius: 25px !important;
-    color: white !important;
-    cursor: pointer !important;
-    font-size: 0.8rem !important;
-    font-weight: 700 !important;
-    margin: 10px auto 0 auto !important; 
-    display: block !important; 
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important; /* Efecto de transición */
->>>>>>> 882deaac32b79afe80629cc7e3f5bd65e4a5b5e6
   }
   .ejemplo{
     background: chocolate;
