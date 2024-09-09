@@ -45,13 +45,15 @@ function Register() {
       .then(data => {
         console.log(data);
         if (data.success) {
+          alert('Usuario registrado exitosamente');  // Alerta de éxito
           navigate('/User_Home');
         } else {
-          console.log('Error de registro');
+          alert('Error de registro. Inténtalo de nuevo.');
         }
       })
       .catch(error => {
         console.error('Error:', error);
+        alert('Hubo un problema en el servidor. Inténtalo de nuevo más tarde.');
       });
   }
 
@@ -61,8 +63,8 @@ function Register() {
       <div className="register-container">
         {/* Sección Izquierda */}
         <div className="register-section">
-    <h2 className="sign-up-heading">Sign Up</h2>
-        <form className="register-form" onSubmit={handleSubmit}>
+          <h2 className="sign-up-heading">Sign Up</h2>
+          <form className="register-form" onSubmit={handleSubmit}>
             <TextField
               name='username'
               variant="outlined"
@@ -150,7 +152,7 @@ function Register() {
 
         {/* Sección Derecha */}
         <div className="welcome-section">
-        <h2 className="one-of-us-heading">¿Uno de nosotros?</h2>
+          <h2 className="one-of-us-heading">¿Uno de nosotros?</h2>
           <p>¡Hola de nuevo! ¡Sigue aprendiendo y practicando con nosotros!</p>
           <Button className="sign-in-button" onClick={() => window.location.href = '/Login'}>Iniciar sesión</Button>
         </div>
