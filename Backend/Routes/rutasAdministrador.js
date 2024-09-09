@@ -6,7 +6,12 @@ routers.put("/",cAdmin.createAdmin);
 
 routers.get("/comentarioUser",cAdmin.comentarioUser)
 
+routers.delete("/DeleteComentarioUser",cAdmin.DeleteComentarioUser)
+
 routers.get("/adminGetUsers",cAdmin.adminGetUsers)
+
+routers.delete("/adminDeleteUser",cAdmin.AdminDeleteUser)
+
 
 routers.patch((req,res) =>{
 

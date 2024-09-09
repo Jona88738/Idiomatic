@@ -29,15 +29,16 @@ const sign_in = async (req,res) => {
     console.log(correo+" : " +password) 
     
     const [row] =await conn.query(`SELECT * FROM usuario where correo = ?` ,[correo])
-    
+   
+   
 
     if(row.length <= 0 ){
        return  res.status(404).json({resultado:false })
 
     }else{
 
-        const contra = await verificationPass(password,row[0].contraseña);
-        console.log("xs")
+      const contra = await verificationPass(password,row[0].contraseña);
+      console.log("xs",contra)
         if(contra === false) return res.status(404).json({resultado:false});
     }
 
@@ -54,11 +55,35 @@ const sign_in = async (req,res) => {
 }
 
 
-const editUser = (req,res) => {
-     
- res.json({
+const editUser = async (req,res) => {
 
+  const {nombre, correo,contraseña,foto} = req.body;
+
+  console.log("Entro: ", req.body,contraseña);
+  
+  if(contraseña === undefined){
+
+    const [row] = await conn.query('update usuario set nombre = ?, correo = ?, foto = ? where idusuario = ?',[nombre,correo,foto,req.session.idUser])
+   
+  }else{
+
+    const passHas = await  encryptPass(contraseña);
+
+    const [row] = await conn.query('update usuario set nombre = ?, correo = ?,contraseña = ?, foto = ? where idusuario = ?',[nombre,correo,passHas,foto,req.session.idUser])
+   
+     
+
+  }
+
+  req.session.nombre = nombre;
+    req.session.correo = correo;
+    req.session.foto = foto;
+  
+ res.json({
+    "message":true
  })
+
+
 }
 
 const getUser = async (req,res) => {

@@ -1,16 +1,15 @@
 import { Container } from "@mui/material";
-import FormControlLabel from '@mui/material/FormControlLabel';
-
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Avatar from '@mui/material/Avatar';
-import { useEffect, useState } from "react";
+import { createElement, useEffect, useState } from "react";
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { json } from "react-router-dom";
 import SimpleDialogDemo from "../CambiarAvatar"
 import Switch from '@mui/material/Switch';
+
 export function Notificaciones(){
 
     useEffect(()=>{
@@ -176,8 +175,27 @@ export function Fedback(){
 
 export function Main({foto,cambiarFoto}){
 
+
+    
+        const [open, setOpen] = useState(false);
+        const [openError, setOpenError] = useState(false);  //Obligatorio
+        const [openObligatorio, setOpenObligatorio] = useState(false); 
+        const handleClose = (event, reason) => {
+          if (reason === 'clickaway') {
+            return;
+          }
+      
+          setOpen(false);
+          setOpenError(false)
+          setOpenObligatorio(false)
+        };
+      
+      
     const [info, setInfo] = useState([]);
-    const [updateInfo, setUpdateInfo] = useState({"foto":foto.foto})
+
+    // const [updateInfo, setUpdateInfo] = useState({"foto":foto.foto}) correcto
+    const [updateInfo, setUpdateInfo] = useState(foto)
+    console.log("info foto",updateInfo) 
     //console.log("informacion",updateInfo)
     useEffect(() =>{
 
@@ -193,19 +211,112 @@ export function Main({foto,cambiarFoto}){
    // console.log(foto)
    
     function actualizar(){
-            cambiarFoto({
-                ...foto,
-                "foto":"http://localhost:3001/FotoPerfil/mision.png"})
+
+
+        console.log("Cambio foto final",updateInfo.foto)
+
+        const Tnombre = document.getElementById("contra");
+
+        const TCorreo = document.getElementById("contra2");
+        
+        
+        console.log("Contras: ",Tnombre.attributes.value.value);
+        console.log("Contra2: ", TCorreo.attributes.value.value)
+
+        if(updateInfo.nombre === "" || updateInfo.correo === ""){
+            console.log("Rellena los campos obligatorios")
+            setOpenObligatorio(true)
+
+        }else
+        
+        if(Tnombre.attributes.value.value === TCorreo.attributes.value.value ){
+            
+            //if(Tnombre.attributes.value.value === "" ){
+                const options = {
+                    method: 'PATCH',
+                    body: JSON.stringify(updateInfo.nombre),
+                    
+
+                };
+                console.log(updateInfo.nombre)
+                 
+                  
+                  
+
+                fetch("/api/editUser",{
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                      },
+                    body: JSON.stringify(updateInfo),
+                    
+
+                })
+                    .then(res => res.json(res))
+                    
+
+            //}else{
+
+            //}
+            
+            cambiarFoto(updateInfo)
+            setUpdateInfo(updateInfo)
+           
+            console.log("Se logro")
+            setOpen(true);
+            
+          
+        }
+        else{
+            console.log("Las Contraseñas no coinciden ");
+            setOpenError(true);
+
+
+            
+        }
+
+        
     }
 
+    
     function handleChange(e){
-        setUpdateInfo({
-            ...updateInfo,
-            [e.target.name]:e.target.value,
 
-            })
 
-            console.log(updateInfo)
+        const Tnombre = document.getElementById(e.target.attributes.id.value);
+
+            
+        let h1 = document.getElementById(e.target.name);
+
+       if(e.target.value === "" && e.target.name !== "contraseña" && e.target.name !==  "contraseña2"){
+
+        if (!h1) {
+            h1 = document.createElement("h4");
+            h1.textContent = "El campo Nombre es requerido";
+            h1.id = e.target.name; // Asignar un ID único al h1
+            Tnombre.insertAdjacentElement("afterend", h1);
+        }
+
+       
+      }else if(h1){
+
+         // Si el h1 existe y el campo tiene valor, lo eliminamos
+          if (h1.id === "nombre" || h1.id === "correo") {
+             h1.remove();
+         }else{
+
+         }
+        
+
+       }
+       
+       setUpdateInfo({
+        ...updateInfo,
+        [e.target.name]:e.target.value,
+
+        })
+        
+            console.log(e.target.attributes.id.value)
+            console.log(e.target.value)
 
     }
 
@@ -217,22 +328,67 @@ export function Main({foto,cambiarFoto}){
     <Container sx={{background:"rgba(224, 223, 253, 0.5)",borderRadius:"25px", height:"110vh"}}>
 
             <Avatar alt="Remy Sharp" variant="rounded" src={updateInfo.foto} sx={{marginLeft:"35%", width: 164, height: 164 }} />
-            <h3 style={{marginLeft:"30%"}}>Cambiar foto de perfil</h3>
+            
             <SimpleDialogDemo setfoto={setUpdateInfo} info={updateInfo}/>
-            <h3 style={{textAlign:"center"}}>{info.nombre}</h3>
-            <h4 style={{textAlign:"center"}}>{info.correo}</h4>
-
-            <label htmlFor="">Nombre de Usuario</label> <br />
-            <TextField id="outlined-basic" label={info.nombre} name="Nombre" variant="outlined" sx={{width:"100%"}} onChange={handleChange} /> <br />
+           
+            <label htmlFor="">Nombre</label>  
+            
+          <br/>
+            <TextField required variant="outlined"    id="filled-required"label={"Nombre"} value={updateInfo.nombre}  sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
+      border: '2px solid #ced4da',  // Sobrescribe los bordes
+    }}}  name="nombre" onChange={handleChange} /> <br />
+            
             <label htmlFor="">Correo</label> <br />
-            <TextField id="outlined-basic" label={info.correo} name="Correo" variant="outlined" sx={{width:"100%"}} onChange={handleChange} /> <br />
+            <TextField id="outlined-basic" label={foto.correo} value={updateInfo.correo} name="correo" sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
+      border: '2px solid #ced4da',  // Sobrescribe los bordes
+    }}} onChange={handleChange} /> <br />
             <label htmlFor="">Contraseña</label> <br />
-            <TextField id="outlined-basic" label="*****" name="Contraseña" variant="outlined" sx={{width:"100%"}} onChange={handleChange} />
+            <TextField id="contra"  type="password" label="*****" value={updateInfo.contraseña}  name="contraseña" variant="outlined" sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
+      border: '2px solid #ced4da',  // Sobrescribe los bordes
+    } }} onChange={handleChange} />
             <label htmlFor="">Escriba de nuevo la Contraseña</label> <br />
-            <TextField id="outlined-basic" label="*****" name="Contraseña2" variant="outlined" sx={{width:"100%"}} onChange={handleChange} />
+            <TextField  id="contra2"  type="password" label="*****" value={updateInfo.contraseña2} name="contraseña2" variant="outlined" sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
+      border: '2px solid #ced4da',  // Sobrescribe los bordes
+    }}} onChange={handleChange} />
+            
             <Button sx={{marginTop:"2%"}} variant="contained"  onClick={actualizar}>Actualizar</Button>
+            
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity="success"
+                variant="filled"
+                sx={{ width: '100%' }}
+              >
+                Se actualizaron tus datos!!
+              </Alert>
+            </Snackbar>
 
+            <Snackbar open={openError} autoHideDuration={6000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity="success"
+                variant="filled"
+                sx={{ width: '100%', background:'red', color:'white' }}
+              >
+                Las contraseñas no coinciden!!!
+              </Alert>
+            </Snackbar>
+
+            <Snackbar open={openObligatorio} autoHideDuration={6000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity="success"
+                
+                variant="filled"
+                sx={{ width: '100%', background:'red', color:'white' }}
+              >
+                Rellena los campos obligatorios!!!
+              </Alert>
+            </Snackbar>
     </Container>
+
+       
     </>)
 }
 

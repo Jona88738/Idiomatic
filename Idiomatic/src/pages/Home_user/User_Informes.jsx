@@ -1,9 +1,28 @@
 import { useState } from 'react'
 import Container from '@mui/material/Container';
 import { Gauge, gaugeClasses,BarChart,LineChart } from '@mui/x-charts';
+import { PieChart } from '@mui/x-charts/PieChart';
 
 function User_Informes({dataUser}) {
   const [count, setCount] = useState(0)
+
+   function BasicPie() {
+    return (
+      <PieChart
+        series={[
+          {
+            data: [
+              { id: 0, value: 1, label: 'Videos' },
+              { id: 1, value: 1, label: 'Audios' },
+              { id: 2, value: 1, label: 'Ejercicios' },
+            ],
+          },
+        ]}
+        width={400}
+        height={200}
+      />
+    );
+  }
 
   return (
     <>
@@ -53,12 +72,10 @@ function User_Informes({dataUser}) {
               <Container>
                   <h2 style={{marginLeft:"17%"}}>Horas a la semana</h2>  
 
-                  <BarChart
-                      xAxis={[{ scaleType: 'band', data: ['L', 'M','Mi','J'] }]}
-                      series={[{ data: [4,2,4,4] }, { data: [ ] }, { data: [] }]}
-                      width={320}
-                      height={300}
-                    />
+
+                  <BasicPie />
+
+                  
                 
               </Container> 
 

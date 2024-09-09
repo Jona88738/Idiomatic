@@ -10,6 +10,13 @@ export default function PageVideos(){
     const { link } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     console.log(link)
 
+    function handleEnd(){
+
+        console.log("Termino Video");
+
+        
+    }
+
     const [path, setpath] = useState("");
 
     return(<div style={{background:"#E0DFFD",height:"100Vh"}}>
@@ -22,7 +29,7 @@ export default function PageVideos(){
         </Container>
         
 
-        <ReactPlayer style={{marginLeft:"25%",marginTop:"5%"}} url={link} controls/>
+        <ReactPlayer onEnded={handleEnd} style={{marginLeft:"25%",marginTop:"5%"}} url={link} controls/>
     
         </div>)
 }

@@ -31,6 +31,7 @@ import ApartadoTemaEjercicios from './Apartado_VLAJ_temas/ApartadoTemaJuegos';
 import ApartadoTemaJuegos from './Apartado_VLAJ_temas/ApartadoTemaJuegos';
 import ApartadoTemasLecturas from './Apartado_VLAJ_temas/ApartadoTemaLectura';
 import PageLecturas from './ApartadoVideos/PageLecturas';
+import MyHora from '../contexto/contextoHora/ProvedorHoraCon';
 function App() {
   
 
@@ -49,46 +50,56 @@ function App() {
                 <Route  path='/TestAprendizaje' element={<TestAprendizaje/>} />
                 <Route  path='/TestIngles' element={<TestIngles/>} />
 
-                <Route  path='/User_Home' element={<User_Home/>} />
+                
+              <Route element={<MyHora/>}>
+                {/* Apartado Home_user */}
+          
+                <Route  path='/User_Home' element={ <User_Home/>  } />
                 <Route  path='/User_Cursos' element={<User_Cursos/>} />
 
-                {//Apartado temas VLAJ
-                }
+                {/* Temas VLAJ  */}
+
                 <Route path='/TemasVideos' element={<ApartadoTemasVideos/>} /> 
                 <Route path='/TemasAudios' element={<ApartadoTemaAudio />} /> 
                 <Route path='/TemasJuegos' element={<ApartadoTemaJuegos />} /> 
                 <Route path='/TemasLecturas' element={<ApartadoTemasLecturas />} /> 
 
+                {/* Apartado  VLAJ*/}
 
                 <Route path='/Ejercicios' element={<ApartadoEjercicios/>} />
                 <Route path='/Videos' element={<ApartadoVideos/>} />
                 <Route path='/Lecturas' element={<ApartadoLecturas/>} />
                 <Route path='/Audios' element={<ApartadoAudio/>} />
                 
-                {//Juegos
-                }
+                {/* Juegos */}
+
                 <Route path='/CompleteSentences' element={<CompleteSentences/>} />
                 <Route path='/DragImage' element={<DragImage/>}/>
                 <Route path='/CreateSentences' element={<CreateSentences/>} />
                 <Route path='/Vocabulary' element={<Vocabulary/>} />
 
+                {/* Pagina Lecturas  */}
 
-                {// pagina Lecturas
-                }
                 <Route path='/PageLecturas' element={<PageLecturas /> } />
 
+                {/* Ejercicio Audio */}
 
-
-                {/* Ejercicio Audio*/}
                 <Route path='/EjercicioAudio' element={<EjercicioAudio/>} />
 
                 <Route path='/Video' element={<PageVideos/>} />
                 <Route path='/AudioIA' element={<AudioIA/>} />
-                
-                {/*<Route  path='/User_Informes' element={<User_Informes/>} />*/
-}
+
+                {/*  */}
+
                 <Route  path='/User_Notificaciones' element={<User_Notificaciones/>} />
                 <Route  path='/User_Ajustes' element={<User_Ajustes/>} />
+
+              </Route>
+                
+
+                
+              {/* Empiezan Rutas de Admin  */}
+
 
                 <Route  path='/Admin_Home' element={<Admin_Home/>} />
 

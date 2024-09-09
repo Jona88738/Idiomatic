@@ -14,7 +14,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Typography from '@mui/material/Typography';
 import { blue } from '@mui/material/colors';
 
-const emails = ['http://localhost:3001/FotoPerfil/mision.png', 'user02@gmail.com','username@gmail.com'];
+const emails = ['http://localhost:3001/FotoPerfil/mision.png', 'http://localhost:3001/FotoPerfil/init.png','http://localhost:3001/FotoPerfil/vision.png'];
 
 function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
@@ -90,11 +90,11 @@ export default function SimpleDialogDemo({setfoto,info}) {
   return (
     <div>
       <Typography variant="subtitle1" component="div">
-        Selected: {selectedValue}
+        
       </Typography>
       <br />
-      <Button  variant="outlined" onClick={handleClickOpen}>
-        Open simple dialog
+      <Button sx={{left:"28%"}}  variant="outlined" onClick={handleClickOpen}>
+      Cambiar foto de perfil
       </Button>
       <SimpleDialog 
         selectedValue={selectedValue}

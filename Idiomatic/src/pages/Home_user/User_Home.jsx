@@ -9,14 +9,15 @@ import { Gauge, gaugeClasses } from '@mui/x-charts';
 import { useEffect, useRef,useState  } from 'react';
 import Avatar from '@mui/material/Avatar';
 import CloseIcon from '@mui/icons-material/Close';
-
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
-
+import { useContext } from 'react';
+import {HoraContext} from '../../contexto/contextoHora/HoraContext'
 function User_Home() {
   const [count, setCount] = useState(0);
   const [info, setInfo] = useState({});
   const [notificacion, setNotificacion] = useState([])
+
+         
+  const {stopTime} = useContext(HoraContext);
 
   const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ function User_Home() {
       .then(res => res.json(res))
       .then(res => setInfo(res))
 
-  },[])
+  },[setInfo])
 
   useEffect(() =>{
     
@@ -127,6 +128,8 @@ function User_Home() {
         .then(res => console.log("resultado: "+res.message))
 
         .catch(error =>{console.log(error+"errorxD")})
+
+        stopTime()
       navigate('/')
     }
          

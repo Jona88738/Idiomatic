@@ -5,7 +5,6 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import SchoolIcon from '@mui/icons-material/School';
 import ShopIcon from '@mui/icons-material/Shop';
-import { useEffect } from "react";
 import AddCommentIcon from '@mui/icons-material/AddComment';
 import "../../styles/AjustesUser.css"
 function User_Ajustes({foto,cambiarFoto}) {
