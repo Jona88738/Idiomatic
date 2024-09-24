@@ -140,12 +140,14 @@
         border-radius:20px;
         cursor:pointer;
        border:none;
+       margin-bottom: 0;
        
        
       
     }
     .btnDesplegable h2{
         visibility: hidden;
+        margin-bottom: 0;
     } 
 
 
@@ -310,10 +312,15 @@
     cursor:pointer;
    border:none;
    display: flex !important;
-   margin-bottom: 5%;
+   margin-bottom: 5% !important;
    margin-top: 10%;
    margin-left: 10%;
     }
+
+    .btnDesplegable h2{
+       
+        margin-bottom: 0;
+    } 
 
    
    

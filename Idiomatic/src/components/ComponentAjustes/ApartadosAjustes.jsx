@@ -9,7 +9,12 @@ import Alert from '@mui/material/Alert';
 import { json } from "react-router-dom";
 import SimpleDialogDemo from "../CambiarAvatar"
 import Switch from '@mui/material/Switch';
-
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { useNavigate } from "react-router-dom";
 export function Notificaciones(){
 
     useEffect(()=>{
@@ -72,6 +77,69 @@ export function Notificaciones(){
 }
 
 export function Cursos(){
+
+
+  const [open, setOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleCloseSi = () => {
+
+    fetch("/api/deleteUser")
+          
+
+    navigate('/Login')
+    setOpen(false);
+
+  };
+
+  const handleCloseNo = () => {
+    setOpen(false);
+  };
+
+  
+      
+    function DialogEliminar(){
+
+      return(<>
+
+<Dialog
+        open={open}
+        onClose={handleCloseNo}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Eliminar Cuenta"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            ¿Estas Seguro que quieres eliminar tu Cuenta?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseNo}>No</Button>
+          <Button onClick={handleCloseSi} autoFocus>
+            Si
+          </Button>
+        </DialogActions>
+      </Dialog>
+      
+      
+      </>)
+    }
+
+
+
+
+
+
+
+//XD
     return(<>
 
         
@@ -87,7 +155,7 @@ export function Cursos(){
         <img  src="/src/images/cuadrado.png" width="30%" height="50%" style={{marginTop:"0%",paddingRight:"5%"}} alt="" />
         <div style={{paddingLeft:"5%",paddingRight:"5%",boxShadow: "-2px 0px  0px rgba(31, 25, 47, 0.5), 2px 0px 0px rgba(31, 25, 47, 0.5)"}}> <h2 style={{marginTop:"6vh",}}>Ingles</h2>   </div>
         <div style={{paddingLeft:"5%",paddingRight:"5%",boxShadow:" 2px 0px 0px rgba(31, 25, 47, 0.5)"}}>  <h2 style={{marginTop:"6vh"}}>A1</h2> </div>
-        <div style={{width:"20%",paddingLeft:"2%"}}> <button style={{width:"100%",height:"30%",borderRadius:"25px",marginTop:"49%"}}>  <DeleteIcon  /> </button>
+        <div style={{width:"20%",paddingLeft:"2%"}}> <button onClick={handleClickOpen} style={{width:"100%",height:"30%",borderRadius:"25px",marginTop:"49%",cursor:"pointer"}}>  <DeleteIcon  /> </button>
 
         </div>
 
@@ -101,6 +169,10 @@ export function Cursos(){
 
         </Container>
        
+
+        <DialogEliminar/>
+        
+      
 
     </>)
 }
@@ -152,13 +224,15 @@ export function Fedback(){
           maxRows={4}
           fullWidth={true}
 
-          sx={{display:"block"}}
+          sx={{display:"block","& .MuiOutlinedInput-root": {
+      border: '2px solid #ced4da !important',  // Sobrescribe los bordes
+      }}}
           value={comentario}
           onChange={(e) =>{setComentario(e.target.value);}}
         />
         <br/>
             
-            <Button  onClick={handleClick}  variant="contained"sx={{marginLeft:"25px"}} >Enviar</Button>
+            <Button  onClick={handleClick}  variant="contained"sx={{marginLeft:"0px"}} >Enviar</Button>
             <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
             <Alert
             onClose={handleClose}
@@ -335,20 +409,20 @@ export function Main({foto,cambiarFoto}){
             
           <br/>
             <TextField required variant="outlined"    id="filled-required"label={"Nombre"} value={updateInfo.nombre}  sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
-      border: '2px solid #ced4da',  // Sobrescribe los bordes
+      border: '2px solid #ced4da !important',  // Sobrescribe los bordes
     }}}  name="nombre" onChange={handleChange} /> <br />
             
             <label htmlFor="">Correo</label> <br />
             <TextField id="outlined-basic" label={foto.correo} value={updateInfo.correo} name="correo" sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
-      border: '2px solid #ced4da',  // Sobrescribe los bordes
+      border: '2px solid #ced4da !important',  // Sobrescribe los bordes
     }}} onChange={handleChange} /> <br />
             <label htmlFor="">Contraseña</label> <br />
             <TextField id="contra"  type="password" label="*****" value={updateInfo.contraseña}  name="contraseña" variant="outlined" sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
-      border: '2px solid #ced4da',  // Sobrescribe los bordes
+      border: '2px solid #ced4da !important',  // Sobrescribe los bordes
     } }} onChange={handleChange} />
             <label htmlFor="">Escriba de nuevo la Contraseña</label> <br />
             <TextField  id="contra2"  type="password" label="*****" value={updateInfo.contraseña2} name="contraseña2" variant="outlined" sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
-      border: '2px solid #ced4da',  // Sobrescribe los bordes
+      border: '2px solid #ced4da !important',  // Sobrescribe los bordes
     }}} onChange={handleChange} />
             
             <Button sx={{marginTop:"2%"}} variant="contained"  onClick={actualizar}>Actualizar</Button>

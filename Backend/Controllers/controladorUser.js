@@ -112,6 +112,19 @@ const editUser = async (req,res) => {
 
 }
 
+const deleteUser = async (req,res) => {
+
+  const [row] = await conn.query('delete from usuario where idusuario = ?',[req.session.idUser])
+
+  console.log(row)
+  res.json({
+
+    "Message":true
+  })
+
+
+}
+
 const getUser = async (req,res) => {
 
     const [row] = await conn.query(`select * from usuario where idusuario = ?`,[req.session.idUser]);
@@ -124,6 +137,10 @@ const getUser = async (req,res) => {
 
 
   })
+}
+
+const testAprendizajeGet = (req,res) =>{
+  res.json({})
 }
 
 const testAprendizaje = (req,res) => {
@@ -231,9 +248,7 @@ const pausarNotification = async (req,res) => {
   
 //str = 'false';
     //boolValue = (pausar === 'false'); // false
-
-
-    
+   
    // console.log(boolValue,"result",pausar)
     const [row] = await conn.query("update notificaciones set pausarNotificacion = ? where Id_usuario = ?",[boolValue,req.session.idUser])
     
@@ -241,6 +256,17 @@ const pausarNotification = async (req,res) => {
   res.json({
       message:"true"
   })
+}
+
+const ejercicios = async (req,res) => {
+
+  const {juegos} = req.query;
+
+  const [row] =  await conn.query("select * from juegos where tema = ?",[juegos]);
+
+  console.log(row)
+
+  res.json(row)
 }
 
 const listaVideos = async (req,res) =>{
@@ -281,11 +307,13 @@ export default {
     createUser,
     editUser,
     getUser,
+    deleteUser,
     comentario,
     testAprendizaje,
     progresoUsuario,
     progresoUsuarioGeneral,
     listaVideos,
+    ejercicios,
     listaAudios,
     recursoVideos,
     Logout,

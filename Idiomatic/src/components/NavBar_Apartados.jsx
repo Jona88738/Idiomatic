@@ -18,7 +18,7 @@ export default function NavBar_Apartados(){
         
       
         <Container sx={{display:'flex',justifyContent:'right',position:'relative',bottom:'50px'}}>
-            <h2 style={{margin:"0",marginRight:"25px"}}>Barra provicional</h2>
+        <Button onClick={() => {const direccion = "/TemasRecursos"; Redireccionar(direccion);}} sx={{bottom:'5px',color:'black'}}>Recursos</Button>   
         <Button onClick={() => {const direccion = "/TemasVideos"; Redireccionar(direccion);}} sx={{bottom:'5px',color:'black'}}>Videos</Button>
         <Button onClick={() => {const direccion = "/TemasAudios"; Redireccionar(direccion);}} sx={{bottom:'5px',color:'black'}}>Audios</Button>
         <Button onClick={() => {const direccion = "/TemasLecturas"; Redireccionar(direccion);}}   sx={{bottom:'5px',color:'black'}}>Lecturas</Button>

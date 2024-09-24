@@ -9,7 +9,7 @@ export default function ApartadoVideos(){
 
     const location = useLocation();
 
-    const { link } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { link, imagen } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     
 
     useEffect(()=>{
@@ -29,7 +29,7 @@ export default function ApartadoVideos(){
             <Head title={link} mycolor="rgba(255, 194, 18, 0.4)" ruta="/src/images/iconoVideos.svg"/>
             
             {infoVideos.map((video) =>{ 
-               return <MyCard key={video.idvideo} title={video.nombre}  page="/video" link={video.link} introduccion={video.introduccion} /> })}
+               return <MyCard key={video.idvideo} title={video.nombre} imagen={imagen}  page="/video" link={video.link} introduccion={video.introduccion} /> })}
 
                 
             

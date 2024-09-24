@@ -51,7 +51,7 @@ function User_Home() {
     console.log(indice)
     return(<>
       <Container className='ContenedorNoti' >
-          <h2>{titulo} </h2>
+          <h2 style={{marginBottom:"0"}}>{titulo} </h2>
           <p>{texto}</p>
           <br/>   
           

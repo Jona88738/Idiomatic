@@ -28,7 +28,7 @@ function User_Notificaciones() {
     
     return(<>
       <Container className='ContenedorNoti' sx={{background:"rgba(255, 199, 39, 0.7)"}}>
-          <h2>{titulo} </h2>
+          <h2 style={{marginBottom:"0"}}>{titulo} </h2>
           <p>{texto}</p>
           <br/>   
           <button  style={{background:"red",position:"absolute",right:"0",top:"0",width:"5%",height:"5vh"}}  onClick={() => onDelete(indice)} ><CloseIcon/> </button>

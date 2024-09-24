@@ -34,6 +34,9 @@ import ApartadoTemaJuegos from './Apartado_VLAJ_temas/ApartadoTemaJuegos';
 import ApartadoTemasLecturas from './Apartado_VLAJ_temas/ApartadoTemaLectura';
 import PageLecturas from './ApartadoVideos/PageLecturas';
 import MyHora from '../contexto/contextoHora/ProvedorHoraCon';
+import ApartadoTemaRecursos from './Apartado_VLAJ_temas/ApartadoTemaRecursos';
+import UnscrambleSentences from './ApartadoJuegos/unscrambleSentences';
+import ConversacionIA from './ApartadoJuegos/ConversacionIA';
 function App() {
   
 
@@ -68,6 +71,7 @@ function App() {
                 <Route path='/TemasAudios' element={<ApartadoTemaAudio />} /> 
                 <Route path='/TemasJuegos' element={<ApartadoTemaJuegos />} /> 
                 <Route path='/TemasLecturas' element={<ApartadoTemasLecturas />} /> 
+                <Route path='/TemasRecursos' element={<ApartadoTemaRecursos />} /> 
 
                 {/* Apartado  VLAJ*/}
 
@@ -82,6 +86,8 @@ function App() {
                 <Route path='/DragImage' element={<DragImage/>}/>
                 <Route path='/CreateSentences' element={<CreateSentences/>} />
                 <Route path='/Vocabulary' element={<Vocabulary/>} />
+                <Route path='/UnscrambleSentences' element={<UnscrambleSentences/>} />
+                <Route path='/ConversacionIA' element={<ConversacionIA/>} />
 
                 {/* Pagina Lecturas  */}
 

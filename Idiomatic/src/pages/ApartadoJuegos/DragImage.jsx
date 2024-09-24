@@ -39,6 +39,7 @@ export default function DragImage(){
     }
 
     return(<>
+    <br/>
     <Container sx={{background:"rgba(119, 102, 198, 0.4)",borderRadius:"25px",height:"20vh"}} >
 
     <img src="/src/images/svgJuegos/cerebroLentes.svg" width="13%" alt=""  style={{float:"left"}}/>

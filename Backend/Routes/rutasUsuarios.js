@@ -29,6 +29,8 @@ routes.post("/UpdatePassword", updatePassword)
 
 routes.patch("/editUser", cUser.editUser)
 
+routes.get("/deleteUser",cUser.deleteUser);
+
 routes.get("/getUser",cUser.getUser);
 
   
@@ -38,6 +40,8 @@ routes.get("/progresoUsuario",cUser.progresoUsuario)
 routes.patch("/progresoUsuarioGeneral",cUser.progresoUsuarioGeneral)
 
 routes.get("/logout",cUser.Logout)
+
+routes.get("/testAprendizaje")
 
 routes.post("/testAprendizaje",cUser.testAprendizaje)
 
@@ -49,6 +53,8 @@ routes.patch("/comentario",cUser.comentario);
 
 //Recursos de usuarios
 routes.get("/listaVideos",cUser.listaVideos);
+
+routes.get("/ejercicios",cUser.ejercicios);
 
 routes.use("/videos",cUser.recursoVideos);
 
