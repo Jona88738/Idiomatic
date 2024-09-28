@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Avatar, Button, Grid, Box } from '@mui/material';
+import { Container, Avatar, Grid, Box } from '@mui/material';
 import NavBar_User from '../../components/NavBar_User'; 
 
 const AdminDashboard = () => {
   const [adminInfo, setAdminInfo] = useState({ nombre: '', email: '' });
+  const [userComments, setUserComments] = useState([]); // Nuevo estado para los comentarios
 
   useEffect(() => {
+    // Obtener la información del admin
     fetch('/api/getAdminInfo')
       .then((res) => res.json())
       .then((data) => setAdminInfo(data))
       .catch((error) => console.error('Error fetching admin info:', error));
+
+    // Obtener los comentarios de los usuarios
+    fetch('/api/comentarioUser')
+      .then((res) => res.json())
+      .then((data) => setUserComments(data))
+      .catch((error) => console.error('Error fetching user comments:', error));
   }, []);
 
   return (
@@ -29,11 +37,12 @@ const AdminDashboard = () => {
               <h2>Panel de Gestión</h2>
             </Grid>
             <Grid item xs={4}>
-              <img src="/path-to-dashboard-icon.png" alt="Dashboard Icon" style={{ width: '100%', borderRadius: '10px' }} />
+              <img src="/src/images/icondashboard.png" alt="Dashboard Icon" style={{ width: '100%', borderRadius: '10px' }} />
             </Grid>
           </Grid>
         </Box>
 
+        {/* Tabla de comentarios */}
         <Box sx={{ backgroundColor: '#E6E6FA', borderRadius: '10px', padding: '20px', marginBottom: '20px' }}>
           <h3>Messaging - Inbox</h3>
           <Grid container spacing={2}>
@@ -41,20 +50,24 @@ const AdminDashboard = () => {
               <p>From</p>
             </Grid>
             <Grid item xs={6}>
-              <p>Subject</p>
+              <p>Comment</p>
             </Grid>
           </Grid>
-          <Grid container spacing={2}>
-            <Grid item xs={1}>
-              <input type="checkbox" />
+
+          {/* Iterar sobre los comentarios de los usuarios */}
+          {userComments.map((comment, index) => (
+            <Grid container spacing={2} key={index}>
+              <Grid item xs={1}>
+                <input type="checkbox" />
+              </Grid>
+              <Grid item xs={5}>
+                <p>{comment.nombre}</p>
+              </Grid>
+              <Grid item xs={6}>
+                <p>{comment.comentario}</p>
+              </Grid>
             </Grid>
-            <Grid item xs={5}>
-              <p>John Doe</p>
-            </Grid>
-            <Grid item xs={6}>
-              <p>New Update Available</p>
-            </Grid>
-          </Grid>
+          ))}
         </Box>
 
         <Box sx={{ backgroundColor: '#E6E6FA', borderRadius: '10px', padding: '20px' }}>
