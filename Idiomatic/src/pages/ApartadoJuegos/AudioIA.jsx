@@ -3,8 +3,12 @@ import Button from '@mui/material/Button';
 import MicIcon from '@mui/icons-material/Mic';
 import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
+import { useNavigate } from "react-router-dom";
 export default function AudioIA() {
+
+    const navigate = useNavigate();
+
     const [recording, setRecording] = useState(false);
     const [audioUrl, setAudioUrl] = useState(null);
     const mediaRecorderRef = useRef(null);
@@ -17,6 +21,18 @@ export default function AudioIA() {
     // useEffect(() => {
     //     console.log("se puede enviar");
     // }, []);
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    navigate("/Ejercicios",{state:{"link":link,"imagen":imagen}})
+  };
+
+
 
 
 
@@ -61,8 +77,38 @@ export default function AudioIA() {
             body: formData
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+
+
+            console.log(data)
+
+            fetch(`https://api.textgears.com/grammar?text=${data}&language=en-US&ai=true`,{
+                headers:{
+                    Authorization: "Basic d96UAhwRk6kmjSXp"
+                }
+            })
+                    .then(res => res.json())
+                    .then((res) =>{
+                        console.log(res);
+
+
+                        if(res.response.errors.length < 2){
+
+                        }else{
+
+                        }
+                    })
+
+                    
+
+        })
+
+
+
+
         .catch(error => console.error('Error al enviar el audio:', error));
+
+       
     };
 
     
@@ -103,7 +149,14 @@ export default function AudioIA() {
                 Press to stop Record
                 <MicIcon sx={{ fontSize: 50 }} />
             </Button>
+
+
+            {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"/>) : 
+         (<Notificacion open={open} handleClose={handleClose} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+        
             
         </div>
+
+        
     );
 }

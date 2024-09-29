@@ -13,7 +13,7 @@ routers.get("/adminGetUsers",cAdmin.adminGetUsers)
 routers.delete("/adminDeleteUser",cAdmin.AdminDeleteUser)
 
 
-routers.patch((req,res) =>{
+routers.patch("",(req,res) =>{
 
     res.send("Hola xD")
 })

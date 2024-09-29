@@ -178,8 +178,17 @@ export function Cursos(){
 }
 
 export function RestaurarSuscrip(){
+
+  
+  function Comprar(){
+    fetch("/api/CreateOrder")
+      .then(res => res.json())
+      .then(res => window.location.href = res.link)
+  }
+
     return(<>
             <h1>Restaurar Suscripcion</h1>
+            <Button onClick={Comprar}>Comprar Plan Plus</Button>
     </>)
 }
 
