@@ -48,7 +48,6 @@ console.log('Datos recibidos:', username, email);
 };
 
 
-
 const sign_in = async (req, res) => {
   const { correo, password } = req.query;
   console.log(correo + " : " + password);
