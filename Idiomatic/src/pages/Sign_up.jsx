@@ -28,12 +28,13 @@ function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
-
+  
     if (datos.password !== datos.confirmPassword) {
       alert("Las contraseñas no coinciden");
       return;
     }
-
+  
+    // Realizar la solicitud al backend para crear un nuevo usuario
     fetch('/api/createUser', {
       method: 'POST',
       headers: {
@@ -45,8 +46,13 @@ function Register() {
       .then(data => {
         console.log(data);
         if (data.success) {
-          alert('Usuario registrado exitosamente');  // Alerta de éxito
-          navigate('/User_Home');
+          alert('Usuario registrado exitosamente');
+  
+          if (data.rol === 1) { 
+            navigate('/Admin_Home'); // Redirige al dashboard de admin
+          } else { 
+            navigate('/User_Home'); // Redirige al dashboard de usuario
+          }
         } else {
           alert('Error de registro. Inténtalo de nuevo.');
         }
@@ -56,6 +62,7 @@ function Register() {
         alert('Hubo un problema en el servidor. Inténtalo de nuevo más tarde.');
       });
   }
+  
 
   return (
     <div className="register-page" style={{ backgroundImage: `url('/src/images/fondo2s.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>

@@ -31,6 +31,7 @@ routes.patch("/editUser", cUser.editUser)
 
 routes.get("/getUser",cUser.getUser);
 
+//router.get("/comentarioUser", isAuthenticated, cUser.obtenerComentarios);
   
 
 routes.get("/progresoUsuario",cUser.progresoUsuario)
