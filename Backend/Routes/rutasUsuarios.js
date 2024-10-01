@@ -21,7 +21,7 @@ const upload = multer({ storage: storage });
 const routes = Router();
 
 routes.post("/createUser", cUser.createUser ) 
-routes.get("/signUser", cUser.sign_in ) 
+routes.post("/signUser", cUser.sign_in ) 
 
 routes.post("/PasswordRecovery", sendEmail)
 routes.post("/UpdatePassword", updatePassword)
@@ -38,6 +38,8 @@ routes.get("/CreateOrder",cUser.createOrder);
 routes.get("/CaptureOrder",cUser.CaptureOrder);
 
 //routes.get("/CancelOrder",cUser)
+//router.get("/comentarioUser", isAuthenticated, cUser.obtenerComentarios);
+  
 
 routes.get("/progresoUsuario",cUser.progresoUsuario)
 

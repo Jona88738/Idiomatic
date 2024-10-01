@@ -8,19 +8,19 @@ import express from 'express';
 import axios from 'axios';
 
 const createUser = async (req, res) => {
-  const { username, email, password } = req.body;
-console.log('Datos recibidos:', username, email);
+  const { username, email, password, rol = 0 } = req.body;  // Rol por defecto es 0 (usuario)
+
+  console.log('Datos recibidos:', username, email);
+  
   try {
-        // Verifica los datos recibidos
+    // Verificar si faltan datos
+    if (!username || !email || !password) {
+      return res.status(400).json({ success: false, message: 'Faltan datos' });
+    }
 
-      // Verificar si faltan datos
-      if (!username || !email || !password) {
-          return res.status(400).json({ success: false, message: 'Faltan datos' });
-      }
-
-      // Encriptar la contraseña
-      const passHashed = await encryptPass(password);
-      console.log('Contraseña encriptada:', passHashed);  // Verifica la contraseña encriptada
+    // Encriptar la contraseña
+    const passHashed = await encryptPass(password);
+    console.log('Contraseña encriptada:', passHashed);  // Verifica la contraseña encriptada    
 
       // Insertar el usuario en la base de datos
       const [result] = await conn.query('INSERT INTO usuario (nombre, correo, contraseña, foto, rol, suscripcion,tipo_aprendizaje) VALUES (?, ?, ?, ?, ?, ?,?)', [
@@ -33,23 +33,24 @@ console.log('Datos recibidos:', username, email);
           "dsf"
       ]);
 
-      console.log('Resultado de la inserción:', result);  // Verifica el resultado de la consulta
-
-      // Verificar si se insertó correctamente
-      if (result.affectedRows === 1) {
-          res.json({ success: true, message: 'Usuario registrado con éxito' });
-      } else {
-          res.json({ success: false, message: 'Error al registrar el usuario' });
-      }
+    // Verificar si se insertó correctamente
+    if (result.affectedRows === 1) {
+      res.json({ success: true, message: 'Usuario registrado con éxito', rol });
+    } else {
+      res.json({ success: false, message: 'Error al registrar el usuario' });
+    }
   } catch (error) {
-      console.error('Error al intentar registrar el usuario:', error);  // Captura cualquier error
-      res.status(500).json({ success: false, message: 'Error en el servidor', error: error.message });
+    console.error('Error al intentar registrar el usuario:', error);  // Captura cualquier error
+    res.status(500).json({ success: false, message: 'Error en el servidor', error: error.message });
   }
 };
 
 
+
+
+
 const sign_in = async (req, res) => {
-  const { correo, password } = req.query;
+  const { correo, password } = req.body;
   console.log(correo + " : " + password);
 
   try {

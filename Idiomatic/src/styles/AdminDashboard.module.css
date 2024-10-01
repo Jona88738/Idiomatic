@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+  }
+  
+  .mainContent {
+    width: 80%;
+    padding: 20px;
+  }
+  
+  .sidebar {
+    width: 20%;
+    background-color: #4b0082;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  .header {
+    background-color: #e6e6fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .welcomeText {
+    font-weight: bold;
+  }
+  
+  .highlight {
+    color: #ffd700;
+  }
+  
