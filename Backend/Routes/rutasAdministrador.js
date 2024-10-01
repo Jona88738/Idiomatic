@@ -4,9 +4,9 @@ const routers = Router()
 
 routers.put("/",cAdmin.createAdmin);
 
-routers.patch((req,res) =>{
+// routers.patch((req,res) =>{
 
-    res.send("Hola xD")
-})
+//     res.send("Hola xD")
+// })
 
 export default routers;
