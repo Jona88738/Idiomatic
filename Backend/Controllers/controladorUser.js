@@ -3,7 +3,9 @@ import { exec } from'child_process';
 import { encryptPass,verificationPass } from "../utils/fileHelperUser.js";
 import { fileURLToPath } from 'url';
 import { resolve,join,dirname } from "path";
+import { Host,PAYPAL_API, PAYPAL_ID_CLIENT, PAYPAL_SECRET } from "../config.js";
 import express from 'express';
+import axios from 'axios';
 
 const createUser = async (req, res) => {
   const { username, email, password } = req.body;
@@ -138,6 +140,79 @@ const getUser = async (req,res) => {
 
   })
 }
+
+const createOrder = async (req,res) =>{
+
+  const order = {
+    "intent":"CAPTURE",
+    "purchase_units":[
+      {
+        "amount":{
+        "currency_code":"MXN",
+        "value":"30.00"
+        }
+      }
+  ],
+  "payment_source":
+  {
+    "paypal":
+      {
+        "experience_context":{
+
+          "brand_name":"Idiomatic",
+          "landing_page":"NO_PREFERENCE",
+          "user_action":"PAY_NOW",
+          "return_url":"http://localhost:3001/api/CaptureOrder",
+          "cancel_url":`http://localhost:5173/User_Home`,
+
+
+        }
+        
+      },
+  }
+  }
+
+  const params = new URLSearchParams();
+  params.append('grant_type','client_credentials');
+
+  const {data:{access_token}} = await axios.post(`${PAYPAL_API}/v1/oauth2/token`,params,{
+    auth: {
+        username: PAYPAL_ID_CLIENT,
+        password: PAYPAL_SECRET
+    }
+  })
+ // console.log(data)
+ 
+  const respuesta = await axios.post(`${PAYPAL_API}/v2/checkout/orders`,order,{
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    }
+  })
+
+  console.log(respuesta.data.links[1].href)
+
+
+  res.json({"link":respuesta.data.links[1].href})
+
+}
+
+const CaptureOrder = async (req,res) =>{
+
+  const {token} = req.query;
+
+  const respuesta = await axios.post(`${PAYPAL_API}/v2/checkout/orders/${token}/capture`,{},{ 
+    auth: {
+        username: PAYPAL_ID_CLIENT,
+        password: PAYPAL_SECRET,
+    }
+  })
+  console.log(respuesta);
+ 
+  
+  res.redirect('http://localhost:5173/User_Home');
+}
+
+
 
 const testAprendizajeGet = (req,res) =>{
   res.json({})
@@ -309,6 +384,8 @@ export default {
     getUser,
     deleteUser,
     comentario,
+    createOrder,
+    CaptureOrder,
     testAprendizaje,
     progresoUsuario,
     progresoUsuarioGeneral,

@@ -27,7 +27,7 @@ export default function ApartadoTemasVideos(){
 
 <MyCard title={"saludos y despedidas"} imagen="/src/images/ApartadosTemas/greetings and farewells.png"  page="/Videos" link={"saludos y despedidas"}  introduccion={"Empieza y termina tus conversaciones con confianza"} /> 
 <MyCard title={"presentaciones personales"} imagen="/src/images/ApartadosTemas/PersonalPresentations.png"   page="/Videos" link={"presentaciones personales"}  introduccion={"¡Preséntate como un profesional! Mira el video para aprender a destacar en cualquier situación."} />
-<MyCard title={"Dar informacion personal"} imagen="/src/images/ApartadosTemas/PersonaLInformation.png"   page="/Videos" link={"Dar informacion personal"}  introduccion={"Conéctate mejor: Aprende a preguntar y compartir información personal de manera natural."} />
+<MyCard title={"Dar informacion personal"} imagen="/src/images/ApartadosTemas/PersonaLInformation.png"   page="/Videos" link={"Dar informacion personal"}  introduccion={"Aprende a preguntar y compartir información personal de manera natural."} />
 <MyCard title={"verb to be"} imagen="/src/images/ApartadosTemas/VerbToBe.png"   page="/Videos" link={"verb to be"}  introduccion={"Tu primer paso hacia el dominio del inglés: Domina el verbo ‘to be’ con este video."} />
 <MyCard title={"Present Simple"} imagen="/src/images/ApartadosTemas/PresentSimple.png"   page="/Videos" link={"Present Simple"}  introduccion={"El tiempo de tus acciones: Domina el Present Simple y exprésate con confianza.."} />
 <MyCard title={"Present Continuo"} imagen="/src/images/ApartadosTemas/PresentContinuo.png"   page="/Videos" link={"Present Continuo"}  introduccion={"Habla sobre lo que está sucediendo ahora: Domina el Present Continuous."} />

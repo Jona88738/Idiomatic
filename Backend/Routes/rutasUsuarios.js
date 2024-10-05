@@ -33,7 +33,11 @@ routes.get("/deleteUser",cUser.deleteUser);
 
 routes.get("/getUser",cUser.getUser);
 
-  
+routes.get("/CreateOrder",cUser.createOrder);
+
+routes.get("/CaptureOrder",cUser.CaptureOrder);
+
+//routes.get("/CancelOrder",cUser)
 
 routes.get("/progresoUsuario",cUser.progresoUsuario)
 

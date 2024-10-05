@@ -9,6 +9,8 @@ import session from 'express-session';
 import { createRequire } from 'module';
 import { resolve,join,dirname } from "path";
 import { fileURLToPath } from 'url';
+import { PORT } from './config.js'
+
 
 const require = createRequire(import.meta.url);
 const MySQLStore = require('express-mysql-session')(session);
@@ -65,7 +67,7 @@ app.use((req,res) => {
     })
 })
 
-app.listen(3001,()=>{
+app.listen(PORT,()=>{
     console.log("Servidor iniciado xD")
 })
 

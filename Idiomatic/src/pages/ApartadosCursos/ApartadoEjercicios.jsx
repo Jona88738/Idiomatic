@@ -27,7 +27,7 @@ export default function ApartadoEjercicios(){
                 const recursosFront = ejercicio.recursos;
                 const recursoEjercicio = recursosFront.sentencia; 
                 //console.log(recursosFront.sentencia);
-                return  <MyCard title={ejercicio.nombre}  introduccion={ejercicio.introduccion} page={"/"+ejercicio.ejercicio} recursoFrontEje={recursosFront} recursoEjercicio={recursoEjercicio} imagen={imagen}/>
+                return  <MyCard title={ejercicio.nombre}  introduccion={ejercicio.introduccion} page={"/"+ejercicio.ejercicio} recursoFrontEje={recursosFront} recursoEjercicio={recursoEjercicio} imagen={imagen} link={link}/>
             })}
             <MyCard title="Vocabulary"  page="/Vocabulary" imagen={imagen}/>
             <MyCard title="Create Sentences " page="/CreateSentences" />

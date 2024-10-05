@@ -2,12 +2,17 @@ import { Container, Button} from "@mui/material";
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
+import { useState } from "react";
 
 export default function CreateSentences(){
 
     const location = useLocation();
     const navigate = useNavigate();
-    const { recursoFront, recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { link,imagen, recursoFront, recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    
+    const [arre, setArre] = useState([])
+    const [Noti, setNoti] = useState(false);
+    
     
 
     // let arr = ["","","","",""]
@@ -18,6 +23,18 @@ export default function CreateSentences(){
 
     let spa = true; //false
 
+
+    const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    navigate("/Ejercicios",{state:{"link":link,"imagen":imagen}})
+  };
+
     function drag(ev){
         ev.dataTransfer.setData("text",ev.target.id)
     }
@@ -27,9 +44,7 @@ export default function CreateSentences(){
     }
     
     function drop(e){
-        //console.log(e)
-        //console.log(parseInt(e.target.id),"....",arr.length-1)
-       // console.log("Primer console.log: ",arr[parseInt(e.target.id)] )
+        
     if(isNaN(parseInt(e.target.id))){
         console.log("error")
     }else{
@@ -82,17 +97,68 @@ export default function CreateSentences(){
     function enviar(){
         //const arregloFinal = ["","","","",""];
         const respuesta = "Hello!, My name is Idiomatic"
-
+        
         const arrAux = arr.filter(element => element !== "")
-        console.log(arrAux)
+        console.log(arrAux.length)
         const resultado = arrAux.join(' '); 
+
+        // console.log("el resultado es:", resultado,":arr ", arr,"arreglodinamico: ",arre)
+
+        // if(resultado === respuesta) {
+        //     console.log("Felicidades es correcto el ejercicio")
+        //     setNoti(true);
+        //     setArre(resultado);
+           
+        //     handleClickOpen ()
+            
+            
+        // }else if( arre === respuesta){
+        //     console.log("Felicidades es correcto el ejercicio")
+        //     handleClickOpen()
+        // }
+        // else{
+        //     console.log("Tienes un error en la sentencia ")
+          
+        //     handleClickOpen()
+            
+        // }
         console.log(resultado)
-        if(resultado === respuesta){
-            console.log("Felicidades es correcto el ejercicio")
+
+        if(arrAux.length === 5){ 
+
+        
+
+        fetch(`https://api.textgears.com/grammar?text=${resultado}&language=en-US&ai=false`,{
+            headers:{
+                Authorization: "Basic d96UAhwRk6kmjSXp"
+            }
+        })
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                if(res.response.errors.length === 0 ){
+                    console.log("Felicidades es correcto el ejercicio")
+             setNoti(true);
+             setArre(resultado);
+           
+             handleClickOpen ()
+
+                }else{
+
+                 console.log("Tienes un error en la sentencia ")
+          
+                handleClickOpen()
+
+                }
+                
+            })
+
         }else{
+
             console.log("Tienes un error en la sentencia ")
           
-           
+                handleClickOpen()
+
         }
 
     }
@@ -158,6 +224,9 @@ export default function CreateSentences(){
         <Button onClick={enviar} sx={{position:"absolute",background:recursoFront.btnColor,right:"5%",top:"45%", width:"15%",borderRadius:"20px",color:"black",border:"2px solid black"}} variant="contained">Enviar</Button>
 
         </div>
-            
-    </>)
+        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"/>) : 
+         (<Notificacion open={open} handleClose={handleClose} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+        
+         
+        </>)
 }
