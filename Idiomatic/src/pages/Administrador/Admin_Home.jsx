@@ -9,15 +9,16 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     fetch('/api/getUser')
-      .then((res) => res.json())
-      .then((data) => setAdminInfo(data))
-      .catch((error) => console.error('Error fetching admin info:', error));
+    .then((res) => res.json())
+    .then((data) => setAdminInfo(data))
+    .catch((error) => console.error('Error fetching admin info:', error));
 
-    fetch('/api/comentario')
-      .then((res) => res.json())
-      .then((data) => setUserComments(data))
-      .catch((error) => console.error('Error fetching user comments:', error));
-  }, []);
+  // Petición para obtener los comentarios de los usuarios
+  fetch('/api/comentarioUser')  
+    .then((res) => res.json())
+    .then((data) => setUserComments(data))
+    .catch((error) => console.error('Error fetching user comments:', error));
+}, []);
 
   return (
     <Container maxWidth="false" disableGutters>
@@ -49,30 +50,31 @@ const AdminDashboard = () => {
           </Box>
 
           <Box sx={{ backgroundColor: '#E6E6FA', borderRadius: '10px', padding: '20px', marginBottom: '20px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
-            <Typography variant="h5" style={{ fontWeight: 'bold', color: '#4B0082' }}>Mensajes - Bandeja de Entrada</Typography>
-            <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <Typography variant="subtitle1">De</Typography>
-              </Grid>
-              <Grid item xs={6}>
-                <Typography variant="subtitle1">Comentario</Typography>
-              </Grid>
-            </Grid>
+  <Typography variant="h5" style={{ fontWeight: 'bold', color: '#4B0082' }}>Mensajes - Bandeja de Entrada</Typography>
+  <Grid container spacing={2}>
+    <Grid item xs={6}>
+      <Typography variant="subtitle1">De</Typography>
+    </Grid>
+    <Grid item xs={6}>
+      <Typography variant="subtitle1">Comentario</Typography>
+    </Grid>
+  </Grid>
 
-            {userComments.map((comment, index) => (
-              <Grid container spacing={2} key={index} sx={{ '&:hover': { backgroundColor: '#f5f5f5' } }}>
-                <Grid item xs={1}>
-                  <input type="checkbox" />
-                </Grid>
-                <Grid item xs={5}>
-                  <Typography>{comment.nombre}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography>{comment.comentarios}</Typography>
-                </Grid>
-              </Grid>
-            ))}
-          </Box>
+  {userComments.map((comment, index) => (
+    <Grid container spacing={2} key={index} sx={{ '&:hover': { backgroundColor: '#f5f5f5' } }}>
+      <Grid item xs={1}>
+        <input type="checkbox" />
+      </Grid>
+      <Grid item xs={5}>
+        <Typography>{comment.nombre}</Typography> {/* Nombre del usuario */}
+      </Grid>
+      <Grid item xs={6}>
+        <Typography>{comment.comentarios}</Typography> {/* Comentario del usuario */}
+      </Grid>
+    </Grid>
+  ))}
+</Box>
+
 
           <Box sx={{ backgroundColor: '#E6E6FA', borderRadius: '10px', padding: '20px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
             <Typography variant="h5" style={{ fontWeight: 'bold', color: '#4B0082' }}>Progreso General</Typography>

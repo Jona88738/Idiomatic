@@ -33,17 +33,6 @@ routes.get("/deleteUser",cUser.deleteUser);
 
 routes.get("/getUser",cUser.getUser);
 
-<<<<<<< HEAD
-//router.get("/comentarioUser", isAuthenticated, cUser.obtenerComentarios);
-  
-=======
-routes.get("/CreateOrder",cUser.createOrder);
-
-routes.get("/CaptureOrder",cUser.CaptureOrder);
-
-//routes.get("/CancelOrder",cUser)
->>>>>>> Jona
-
 routes.get("/progresoUsuario",cUser.progresoUsuario)
 
 routes.patch("/progresoUsuarioGeneral",cUser.progresoUsuarioGeneral)
