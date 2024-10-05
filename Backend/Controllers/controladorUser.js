@@ -46,9 +46,6 @@ const createUser = async (req, res) => {
 };
 
 
-
-
-
 const sign_in = async (req, res) => {
   const { correo, password } = req.body;
   console.log(correo + " : " + password);
@@ -80,6 +77,20 @@ const sign_in = async (req, res) => {
   }
 };
 
+const obtenerComentarios = async (req, res) => {
+  try {
+    const [row] = await conn.query(`SELECT u.nombre, b.comentarios FROM bitacora b JOIN usuario u ON b.id_usuario = u.idusuario`);
+    
+    if (row.length === 0) {
+      return res.status(404).json({ message: "No hay comentarios disponibles" });
+    }
+
+    res.json(row);
+  } catch (error) {
+    console.error('Error al obtener los comentarios:', error);
+    res.status(500).json({ message: "Error en el servidor", error: error.message });
+  }
+};
 
 
 const editUser = (req,res) => {
