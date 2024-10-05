@@ -21,8 +21,17 @@ dist-ssr
 /recursos/Videos/*
 !/recursos/Videos/.gitkeep
 
-/recursos/Lecturas/*
-!/recursos/Lecturas/.gitkeep
+/recursos/Lecturas/Caperucita_Roja/*
+!/recursos/Lecturas/Caperucita_Roja/.gitkeep
+
+/recursos/Lecturas/El_Niño_Estrella/*
+!/recursos/Lecturas/El_Niño_Estrella/.gitkeep
+
+/recursos/Lecturas/El_Patito_feo/*
+!/recursos/Lecturas/El_Patito_feo/.gitkeep
+
+/recursos/Lecturas/El_Soldadito_De_Plomo/*
+!/recursos/Lecturas/El_Soldadito_De_Plomo/.gitkeep
 
 /audiosTemporales/*
 !/audiosTemporales/.gitkeep
@@ -32,6 +41,7 @@ dist-ssr
 
 /recursos/FotoPerfil/*
 !/recursos/FotoPerfil/.gitkeep
+
 
 # Editor directories and files
 .vscode/*
