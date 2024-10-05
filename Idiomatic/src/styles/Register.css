@@ -161,7 +161,7 @@
     margin-left: 12rem !important;
   }
   
-  .sign-up-button {
+  .sign-up-button  {
     width: 40% !important;
     padding: 10px !important;
     background-color: #FFC212 !important;
@@ -169,11 +169,10 @@
     border-radius: 25px !important;
     color: white !important;
     cursor: pointer !important;
-    font-size: 0.8rem !important;
+    font-size: 1rem !important;
     font-weight: 700 !important;
-    margin: 5px auto 0 auto !important; 
+    margin: 20px auto 0 auto !important; 
     display: block !important; 
-    margin-left: 9rem !important;
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important; /* Efecto de transición */
   }
   
@@ -184,18 +183,21 @@
   }
   
   .sign-in-button {
-    width: 30% !important;
-    padding: 10px !important;
-    background-color: #FFC212 !important;
-    border: none !important;
-    border-radius: 25px !important;
-    color: white !important;
-    cursor: pointer !important;
-    font-size: 0.8rem !important;
-    font-weight: 700 !important;
-    margin: 10px auto 0 auto !important; 
-    display: block !important; 
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important; /* Efecto de transición */
+    width: 32%;
+    padding: 10px;
+    background-color: #FFC212;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin: 20px auto 0 auto; 
+    display:  block; 
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
+  }
+  .ejemplo{
+    background: chocolate;
   }
   
   .sign-in-button:hover {

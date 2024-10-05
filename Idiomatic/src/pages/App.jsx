@@ -25,7 +25,18 @@ import CreateSentences from './ApartadoJuegos/CreateSentences';
 import Vocabulary from './ApartadoJuegos/Vocabulary'
 import PageVideos from './ApartadoVideos/PageVideos';
 import AudioIA from './ApartadoJuegos/AudioIA';
-import EjercicioAudio from './ApartadoVLA/EjercicioAudio';
+import EjercicioAudio from './Apartado_VLAJ_temas/EjercicioAudio';
+import Datos from '../contexto/ProvedorContexto';
+import ApartadoTemasVideos from './Apartado_VLAJ_temas/ApartadoTemasVideo';
+import ApartadoTemaAudio from './Apartado_VLAJ_temas/ApartadoTemaAudios';
+import ApartadoTemaEjercicios from './Apartado_VLAJ_temas/ApartadoTemaJuegos';
+import ApartadoTemaJuegos from './Apartado_VLAJ_temas/ApartadoTemaJuegos';
+import ApartadoTemasLecturas from './Apartado_VLAJ_temas/ApartadoTemaLectura';
+import PageLecturas from './ApartadoVideos/PageLecturas';
+import MyHora from '../contexto/contextoHora/ProvedorHoraCon';
+import ApartadoTemaRecursos from './Apartado_VLAJ_temas/ApartadoTemaRecursos';
+import UnscrambleSentences from './ApartadoJuegos/unscrambleSentences';
+import ConversacionIA from './ApartadoJuegos/ConversacionIA';
 function App() {
   
 
@@ -33,46 +44,73 @@ function App() {
     <>
       <BrowserRouter>
            <Routes>
-
+               
                 <Route  path='/' element={<Home/>} />
-                <Route  path='/Login' element={<Login/>} />
+                <Route  path='/Login' element={  <Datos> <Login/> </Datos>} />
                 <Route  path='/Sign_up' element={<Sign_up/>} />
                 <Route  path='/PasswordRecovery' element={<PasswordRecovery/>} />
                 <Route  path='/UpdatePassword' element={<UpdatePassword/>} />
 
                 <Route  path='/Nosotros' element={<Nosotros/>} />
                 <Route  path='/Cursos' element={<Cursos/>} />
+                
 
                 <Route  path='/TestAprendizaje' element={<TestAprendizaje/>} />
                 <Route  path='/TestIngles' element={<TestIngles/>} />
 
-                <Route  path='/User_Home' element={<User_Home/>} />
+                
+              <Route element={<MyHora/>}>
+                {/* Apartado Home_user */}
+          
+                <Route  path='/User_Home' element={ <User_Home/>  } />
                 <Route  path='/User_Cursos' element={<User_Cursos/>} />
 
+                {/* Temas VLAJ  */}
+
+                <Route path='/TemasVideos' element={<ApartadoTemasVideos/>} /> 
+                <Route path='/TemasAudios' element={<ApartadoTemaAudio />} /> 
+                <Route path='/TemasJuegos' element={<ApartadoTemaJuegos />} /> 
+                <Route path='/TemasLecturas' element={<ApartadoTemasLecturas />} /> 
+                <Route path='/TemasRecursos' element={<ApartadoTemaRecursos />} /> 
+
+                {/* Apartado  VLAJ*/}
 
                 <Route path='/Ejercicios' element={<ApartadoEjercicios/>} />
                 <Route path='/Videos' element={<ApartadoVideos/>} />
                 <Route path='/Lecturas' element={<ApartadoLecturas/>} />
                 <Route path='/Audios' element={<ApartadoAudio/>} />
                 
-                {//Juegos
-                }
+                {/* Juegos */}
+
                 <Route path='/CompleteSentences' element={<CompleteSentences/>} />
                 <Route path='/DragImage' element={<DragImage/>}/>
                 <Route path='/CreateSentences' element={<CreateSentences/>} />
                 <Route path='/Vocabulary' element={<Vocabulary/>} />
+                <Route path='/UnscrambleSentences' element={<UnscrambleSentences/>} />
+                <Route path='/ConversacionIA' element={<ConversacionIA/>} />
 
+                {/* Pagina Lecturas  */}
 
-                {/* Ejercicio Audio*/}
+                <Route path='/PageLecturas' element={<PageLecturas /> } />
+
+                {/* Ejercicio Audio */}
+
                 <Route path='/EjercicioAudio' element={<EjercicioAudio/>} />
 
                 <Route path='/Video' element={<PageVideos/>} />
                 <Route path='/AudioIA' element={<AudioIA/>} />
-                
-                {/*<Route  path='/User_Informes' element={<User_Informes/>} />*/
-}
+
+                {/*  */}
+
                 <Route  path='/User_Notificaciones' element={<User_Notificaciones/>} />
                 <Route  path='/User_Ajustes' element={<User_Ajustes/>} />
+
+              </Route>
+                
+
+                
+              {/* Empiezan Rutas de Admin  */}
+
 
                 <Route  path='/Admin_Home' element={<Admin_Home/>} />
 

@@ -1,7 +1,13 @@
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-
+import { useNavigate } from 'react-router-dom';
 export default function NavBar_Apartados(){
+  const navigate = useNavigate();
+
+  function Redireccionar(direccion){
+    console.log(direccion)
+    navigate(direccion)
+  }
 
         return(<>
         
@@ -12,12 +18,12 @@ export default function NavBar_Apartados(){
         
       
         <Container sx={{display:'flex',justifyContent:'right',position:'relative',bottom:'50px'}}>
-            <h2 style={{margin:"0",marginRight:"25px"}}>Barra provicional</h2>
-        <Button href="/Videos" sx={{bottom:'5px',color:'black'}}>Videos</Button>
-        <Button href="/Audios" sx={{bottom:'5px',color:'black'}}>Audios</Button>
-        <Button href="/Lecturas" sx={{bottom:'5px',color:'black'}}>Lecturas</Button>
-        <Button href="/Ejercicios" sx={{bottom:'5px',color:'black'}}>Ejercicios</Button>
-        <Button  className='btnOpcion' href="/User_Home" >salir</Button>
+        <Button onClick={() => {const direccion = "/TemasRecursos"; Redireccionar(direccion);}} sx={{bottom:'5px',color:'black'}}>Recursos</Button>   
+        <Button onClick={() => {const direccion = "/TemasVideos"; Redireccionar(direccion);}} sx={{bottom:'5px',color:'black'}}>Videos</Button>
+        <Button onClick={() => {const direccion = "/TemasAudios"; Redireccionar(direccion);}} sx={{bottom:'5px',color:'black'}}>Audios</Button>
+        <Button onClick={() => {const direccion = "/TemasLecturas"; Redireccionar(direccion);}}   sx={{bottom:'5px',color:'black'}}>Lecturas</Button>
+        <Button onClick={() => {const direccion = "/TemasJuegos"; Redireccionar(direccion);}}   sx={{bottom:'5px',color:'black'}}>Ejercicios</Button>
+        <Button onClick={() => {const direccion = "/User_Home"; Redireccionar(direccion);}}  className='btnOpcion' >salir</Button>
         
         </Container>
         

@@ -21,7 +21,7 @@ const upload = multer({ storage: storage });
 const routes = Router();
 
 routes.post("/createUser", cUser.createUser ) 
-routes.post("/signUser", cUser.sign_in ) 
+routes.get("/signUser", cUser.sign_in ) 
 
 routes.post("/PasswordRecovery", sendEmail)
 routes.post("/UpdatePassword", updatePassword)
@@ -29,25 +29,45 @@ routes.post("/UpdatePassword", updatePassword)
 
 routes.patch("/editUser", cUser.editUser)
 
+routes.get("/deleteUser",cUser.deleteUser);
+
 routes.get("/getUser",cUser.getUser);
 
+<<<<<<< HEAD
 //router.get("/comentarioUser", isAuthenticated, cUser.obtenerComentarios);
   
+=======
+routes.get("/CreateOrder",cUser.createOrder);
+
+routes.get("/CaptureOrder",cUser.CaptureOrder);
+
+//routes.get("/CancelOrder",cUser)
+>>>>>>> Jona
 
 routes.get("/progresoUsuario",cUser.progresoUsuario)
 
+routes.patch("/progresoUsuarioGeneral",cUser.progresoUsuarioGeneral)
+
 routes.get("/logout",cUser.Logout)
+
+routes.get("/testAprendizaje")
 
 routes.post("/testAprendizaje",cUser.testAprendizaje)
 
 routes.get("/notificaciones",cUser.notificaciones);
+
+routes.patch("/notificaciones",cUser.pausarNotification);
 
 routes.patch("/comentario",cUser.comentario);
 
 //Recursos de usuarios
 routes.get("/listaVideos",cUser.listaVideos);
 
+routes.get("/ejercicios",cUser.ejercicios);
+
 routes.use("/videos",cUser.recursoVideos);
+
+routes.use("/listaAudios",cUser.listaAudios); 
 
 routes.get("/lecturas")
 routes.get("/juegos")

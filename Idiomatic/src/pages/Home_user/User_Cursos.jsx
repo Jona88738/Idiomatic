@@ -2,12 +2,12 @@ import { useState } from 'react'
 import {Container, Card, CardContent, CardMedia,Typography} from '@mui/material';
 import { useNavigate  } from 'react-router-dom';
 
- function MediaCard({miFuncion,titulo}) {
+ function MediaCard({miFuncion,titulo, imagen,introduccion}) {
   return (
     <Card onClick={miFuncion} sx={{  minWidth: 45,maxWidth: 300,background:"rgba(224, 223, 253, 0.41)",borderRadius:"30px",marginTop:"38px",marginLeft:"3%" }}>
       <CardMedia
         sx={{ height: 140 }}
-        image="/src/images/vector(cursoGramatica).svg"
+        image={imagen}
         title={titulo}
       />
       <CardContent sx={{paddingBottom:"5px !important"}}>
@@ -15,8 +15,7 @@ import { useNavigate  } from 'react-router-dom';
           {titulo}
         </Typography>
         <Typography variant="body2" color="black">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {introduccion}
         </Typography>
       </CardContent>
      
@@ -33,7 +32,7 @@ function User_Cursos() {
 
   function to(){
     console.log("Entro xD")
-    navigate('/Ejercicios')
+    navigate('/TemasJuegos')
   }
 
   return (
@@ -66,10 +65,10 @@ function User_Cursos() {
 
 
       
-      <MediaCard miFuncion={to} titulo="Ejercicios"/>
-      <MediaCard miFuncion={to} titulo="Lecturas"/>
-      <MediaCard miFuncion={to} titulo="Videos"/>
-      <MediaCard miFuncion={to} titulo="Audios"/>
+      <MediaCard miFuncion={to} titulo="Ejercicios" imagen='/src/images/MisCursos/ejercicios.png' introduccion="Mejora tu vocabulario, gramática y fluidez con ejercicios diseñados para reforzar lo que has aprendido. ¡Practica y progresa!"/>
+      <MediaCard miFuncion={to} titulo="Lecturas" imagen='/src/images/MisCursos/lecturas.png' introduccion="¡Descubre historias fascinantes y mejora tu inglés mientras lees y descubre un nuevo mundo de palabras!"/>
+      <MediaCard miFuncion={to} titulo="Videos" imagen='/src/images/MisCursos/videos.png' introduccion="Descubre lecciones en video que te ayudarán a entender mejor el inglés hablado. ¡Aprende a tu ritmo mientras ves y escuchas!" />
+      <MediaCard miFuncion={to} titulo="Audios" imagen='/src/images/MisCursos/audios.png' introduccion="Descubre una variedad de audios que te ayudarán a comprender mejor el inglés. ¡Escucha cuando quieras" />
                                               
 
       </Container>

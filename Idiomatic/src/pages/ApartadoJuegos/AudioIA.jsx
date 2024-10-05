@@ -2,12 +2,40 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MicIcon from '@mui/icons-material/Mic';
 import { useEffect, useState, useRef } from 'react';
-
+import { useLocation } from 'react-router-dom';
+import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
+import { useNavigate } from "react-router-dom";
 export default function AudioIA() {
+
+    const navigate = useNavigate();
+
     const [recording, setRecording] = useState(false);
     const [audioUrl, setAudioUrl] = useState(null);
     const mediaRecorderRef = useRef(null);
     const audioChunks = useRef([]);
+
+    const location = useLocation();
+
+    const { recursoFront, recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    
+    // useEffect(() => {
+    //     console.log("se puede enviar");
+    // }, []);
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    navigate("/Ejercicios",{state:{"link":link,"imagen":imagen}})
+  };
+
+
+
+
+
 
     const startRecording = async () => {
         try {
@@ -49,14 +77,41 @@ export default function AudioIA() {
             body: formData
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+
+
+            console.log(data)
+
+            fetch(`https://api.textgears.com/grammar?text=${data}&language=en-US&ai=true`,{
+                headers:{
+                    Authorization: "Basic d96UAhwRk6kmjSXp"
+                }
+            })
+                    .then(res => res.json())
+                    .then((res) =>{
+                        console.log(res);
+
+
+                        if(res.response.errors.length < 2){
+
+                        }else{
+
+                        }
+                    })
+
+                    
+
+        })
+
+
+
+
         .catch(error => console.error('Error al enviar el audio:', error));
+
+       
     };
 
-    useEffect(() => {
-        console.log("se puede enviar");
-    }, []);
-
+    
     return (
         <div style={{ background: "#E0DFFD", height: "100vh" }}>
             <br />
@@ -66,10 +121,11 @@ export default function AudioIA() {
             </Container>
             <h1 style={{ paddingLeft: "5%" }}>Speak this sentence</h1>
             <Container sx={{ display: "flex" }}>
-                <img src="/src/images/svgJuegos/perroDudaIA.png" alt="" width="20%" style={{ marginLeft: "8%" }} />
+                <img src={recursoFront.icono} alt="" width="20%" style={{ marginLeft: "8%" }} />
+                        {/*  ="/src/images/svgJuegos/perroDudaIA.png" */}
                 <Container sx={{}}>
                     <div style={{ background: "rgba(255, 189, 0, 0.95)", height: "15vh", borderRadius: "22px", marginTop: "7%", border: "4px solid black" }}>
-                        <h2 style={{ textAlign: "center", paddingTop: "1%" }}>My father wasn’t at the office yesterday</h2>
+                        <h2 style={{ textAlign: "center", paddingTop: "1%" }}>{recursoEjercicio}</h2>
                     </div>
                 </Container>
             </Container>
@@ -79,7 +135,7 @@ export default function AudioIA() {
                 id="record"
                 onClick={startRecording}
                 variant="outlined"
-                sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background: "rgba(249, 176, 195, 0.57)", color: "black", marginLeft: "20%" }}
+                sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background: recursoFront.btnColor, color: "black", marginLeft: "20%" }}
             >
                 Press to talk
                 <MicIcon sx={{ fontSize: 50 }} />
@@ -88,12 +144,19 @@ export default function AudioIA() {
                 id="stopRecord"
                 onClick={stopRecording}
                 variant="outlined"
-                sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background: "rgba(249, 176, 195, 0.57)", color: "black", marginLeft: "0%" }}
+                sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background:recursoFront.btnColor, color: "black", marginLeft: "0%" }}
             >
                 Press to stop Record
                 <MicIcon sx={{ fontSize: 50 }} />
             </Button>
-            {audioUrl && <audio src={audioUrl} controls />}
+
+
+            {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"/>) : 
+         (<Notificacion open={open} handleClose={handleClose} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+        
+            
         </div>
+
+        
     );
 }

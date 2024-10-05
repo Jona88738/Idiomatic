@@ -12,16 +12,17 @@ dist
 dist-ssr
 *.local
 
+.env
 
 #Recursos 
-/uploads/Audios/*
-!/uploads/Audios/.gitkeep
+/recursos/Audios/*
+!/recursos/Audios/.gitkeep
 
-/uploads/Videos/*
-!/uploads/Videos/.gitkeep
+/recursos/Videos/*
+!/recursos/Videos/.gitkeep
 
-/uploads/Lecturas/*
-!/uploads/Lecturas/.gitkeep
+/recursos/Lecturas/*
+!/recursos/Lecturas/.gitkeep
 
 /audiosTemporales/*
 !/audiosTemporales/.gitkeep
@@ -29,8 +30,8 @@ dist-ssr
 /configModeloIA/*
 !/configModeloIA/.gitkeep
 
-/uploads/FotoPerfil/*
-!/uploads/FotoPerfil/.gitkeep
+/recursos/FotoPerfil/*
+!/recursos/FotoPerfil/.gitkeep
 
 # Editor directories and files
 .vscode/*

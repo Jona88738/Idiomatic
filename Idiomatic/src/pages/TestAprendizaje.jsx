@@ -10,19 +10,17 @@ function TestAprendizaje() {
     setCount(count+1);
   }
   return (
-    <>
-      <Container sx={{background:'#E0DFFD'}}>
-
-      <h1 style={{textAlign:'center',fontSize:'3vw'}}>Test de estilos de aprendizaje numero: {count}</h1>
-      <Button onClick={handleContador}> Preciona</Button>
-
-      <Radio background='green' sx={{accentColor:'rebeccapurple'}}/>
-
-      <input type="radio" name="color"   style={{WebkitAppearance:'none',MozAppearance:'none',appearance:'none',padding:'3px',border:'2px solid blue',borderRadius:'50%',width:'50px',height:'50px',backgroundClip:'content-box',accentColor:'green'}}></input>
+    <div style={{backgroundImage: "url('/src/images/TestAprendizaje/prueba.png')",backgroundSize:"cover",backgroundPosition: "center",height:"150vh"}}>
+      <Container >
+      <img style={{float:"left",position:"absolute",left:"16%"}} src="/src/images/TestAprendizaje/libro.png" width="7%"/>
+      <img style={{float:"right",position:"absolute",right:"16%"}} src="/src/images/TestAprendizaje/materialEscolar.png" width="7%"/>
+      
+      <h1 style={{textAlign:'center',fontSize:'3vw'}}>Test de estilos de aprendizaje</h1>
+      
       </Container>
        
       
-    </>
+      </div>
   )
 }
 

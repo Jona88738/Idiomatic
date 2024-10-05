@@ -1,9 +1,6 @@
 /*Pestaña Home  Movile */
 
 
-
-
-
 @media screen and (max-width:600px) {
     
     
@@ -24,6 +21,7 @@
         position: absolute ;
         width: 20%;
         left: 0;
+        
         align-items: center;
         background: grey;
     }
@@ -51,9 +49,9 @@
     }
 
     .btnAbrir{
-        position: relative;
-        bottom: 29%;
-        left: 58%;
+        position: absolute !important;
+        bottom:18%;
+        left: 78%;
     }
 
     .btnCerrar{
@@ -73,6 +71,8 @@
         background:white;
         display: block;
         margin-Top:5px;
+        height: 85vh;
+        
      }
 
      .PresentacionImage{
@@ -86,7 +86,7 @@
         text-align: center;
         left:8%;
         font-family:helvetica neue;
-        font-Size:10vw;
+        font-Size:8vw;
         
      }
 
@@ -101,14 +101,247 @@
      }
 
     /*  body Home */
-
     .BodyContenedor{
 
         background: rgba(224, 223, 253, 0.5);
-        display: block !important;
+        display: flex !important;
         margin: 0;
         max-Width: 100%;
+        
      }
+
+     .bodyCardInfo{
+
+        display: flex !important;
+
+     }
+
+     .contenedorRosa{
+        margin-left: 5% !important;
+        margin-top: 20px;
+     }
+
+     .cardRosa{
+        background: #F9B0C3 !important;
+        border-radius: 20px !important;
+        height: 100%; 
+     }
+
+     .cardRosa h1{
+        color: white;
+        font-size: 2vw;
+         text-align: center; 
+     }
+
+
+     .contenedorMorado{
+        margin-left: 3% !important;
+     }
+
+     .cardMorado{
+        background: #7766C6 !important;
+        margin-top: 20px;
+        margin-Bottom: 20px;
+        border-radius: 20px !important;
+     }
+
+     .cardMorado h1{
+        color: white;
+        font-size: 2.5vw; 
+     }
+
+     .cardAmarillo{
+        background: #FFC212 !important;
+        border-radius: 20px !important; 
+     }
+
+     .cardAmarillo h1{
+        color: white; 
+        text-align: right;
+        margin: 20px;
+        font-size: 2vw; 
+     }
+
+     .cardNegro{
+        background: #1F192F !important;
+        min-width: 200px;
+        width: 90%; 
+        margin-left: 5%; 
+        margin-top: 20px; 
+        margin-bottom: 20px;
+        border-radius: 20px !important;
+     }
+
+     .cardNegro h1{
+        font-size: 3vw;
+        color: white;
+        margin-left:40px;
+        margin-top: 30px; 
+     }
+     
+
+
+
+
+
+     .ImgRazones{
+        position: relative !important;
+        left: 10px;
+        margin-Top: 120px; 
+     }
+
+     /* Nuestros Idiomas */
+
+     .TituloNuestrosIdiomas{
+
+        text-align:center;
+     }
+
+     .contenedorIngles{
+        display:flex !important;
+        margin:0;
+        max-width:100%; 
+        box-shadow:5px 5px 5px black;
+     }
+
+     .contenedorIngles h1{
+        text-align:center;
+     }
+
+     .contenedorIngles p{
+        font-size:1rem;
+        text-align:justify;
+        
+     }
+
+     .contImagenIngles{
+        width:60% !important;
+     }
+
+     .ContenedorFrances{
+        display:flex !important;
+        margin:0;
+        max-width:100%;
+     }
+
+     .ContenedorimgFran{
+        width:60%  !important;
+     }
+
+     .ContFrancesInfo{
+        background:white;
+     }
+
+     .ContFrancesInfo h1{
+        text-align:center;
+     }
+
+     .ContFrancesInfo p{
+        text-align:justify;
+     }
+
+     /* Ofrecemos */
+
+     .TituloOfrecemos{
+        text-align:center;
+     }
+
+     .ConteOfrecemos{
+        background:rgba(249, 176, 195, 0.44);
+        display:flex !important;
+        justify-content:space-evenly;
+        border-radius:20px !important;
+     }
+
+     .EjercicioNivel h1{
+
+        font-size:2vw;
+        margin-left:7%;
+        margin-right:4% !important;
+     }
+
+     .Adaptacion h1{
+        font-size:2vw;
+     }
+
+     .TestNivel h1{
+
+        font-size:2vw;
+     }
+
+     /* Nuestros Planes */
+
+     .TituloNuestrosPlanes{
+        text-align:center;
+     }
+
+     .ConteNuestrosP{
+        display:flex !important;
+        margin:0;
+        color: black !important;
+     }
+
+     .cardGratuido{
+        border: 4px solid #7766C6;
+        width:70%;
+        height:80% !important;
+        margin-top:8%;
+        margin-left:10%;
+        margin-bottom:10%;
+        margin-right:10%;
+        border-radius:20px !important;
+     }
+
+     .cardGratuido h1{
+        text-align:center;
+     }
+
+     .cardGratuido ul{
+        margin-left:10%;
+     }
+
+     .btnGratuito{
+        width:80%;
+        background:#46467A !important;
+        bottom:5px !important;
+        color:white !important;
+        border-radius:12px !important;
+        left:35px;
+     }
+
+     .cardPlus{
+        border: 8px solid #7766C6;
+        width:70%;
+        height:80%;
+        margin-top:8%;
+        margin-left:10%;
+        margin-bottom:10%;
+        margin-right:10%;
+        border-radius:20px !important;
+     }
+
+     .cardPlus h1{
+
+        text-align:center;
+
+     }
+
+     .cardPlus ul{
+        margin-left:10%;
+     }
+
+     .btnPlus{
+        width:80%;
+        height:20%;
+        left:15%;
+        background:#46467A !important;
+        bottom:5px;
+        color:white !important;
+        border-radius:20px !important;
+     }
+
+
+
 }
 
 @media screen and (min-width:601px) and (max-width:1023px){
@@ -147,9 +380,9 @@
         color:black !important;
     }
 
-    .btnHamburguesa{
+    /* .btnHamburguesa{
         display: none !important;
-    }
+    } */
 
     .btnCrearCuenta{
         color: white !important;
@@ -227,13 +460,239 @@
         display: flex !important;
         margin: 0;
         max-Width: 100%;
+        
      }
+
+     .bodyCardInfo{
+
+        display: flex !important;
+
+     }
+
+     .contenedorRosa{
+        margin-left: 5% !important;
+        margin-top: 20px;
+     }
+
+     .cardRosa{
+        background: #F9B0C3 !important;
+        border-radius: 20px !important;
+        height: 100%; 
+     }
+
+     .cardRosa h1{
+        color: white;
+        font-size: 2vw;
+         text-align: center; 
+     }
+
+
+     .contenedorMorado{
+        margin-left: 3% !important;
+     }
+
+     .cardMorado{
+        background: #7766C6 !important;
+        margin-top: 20px;
+        margin-Bottom: 20px;
+        border-radius: 20px !important;
+     }
+
+     .cardMorado h1{
+        color: white;
+        font-size: 2.5vw; 
+     }
+
+     .cardAmarillo{
+        background: #FFC212 !important;
+        border-radius: 20px !important; 
+     }
+
+     .cardAmarillo h1{
+        color: white; 
+        text-align: right;
+        margin: 20px;
+        font-size: 2vw; 
+     }
+
+     .cardNegro{
+        background: #1F192F !important;
+        min-width: 200px;
+        width: 90%; 
+        margin-left: 5%; 
+        margin-top: 20px; 
+        margin-bottom: 20px;
+        border-radius: 20px !important;
+     }
+
+     .cardNegro h1{
+        font-size: 3vw;
+        color: white;
+        margin-left:40px;
+        margin-top: 30px; 
+     }
+     
+
+
+
+
 
      .ImgRazones{
         position: relative !important;
         left: 10px;
         margin-Top: 120px; 
      }
+
+     /* Nuestros Idiomas */
+
+     .TituloNuestrosIdiomas{
+
+        text-align:center;
+     }
+
+     .contenedorIngles{
+        display:flex !important;
+        margin:0;
+        max-width:100%; 
+        box-shadow:5px 5px 5px black;
+     }
+
+     .contenedorIngles h1{
+        text-align:center;
+     }
+
+     .contenedorIngles p{
+        font-size:1rem;
+        text-align:justify;
+        
+     }
+
+     .contImagenIngles{
+        width:60% !important;
+     }
+
+     .ContenedorFrances{
+        display:flex !important;
+        margin:0;
+        max-width:100%;
+     }
+
+     .ContenedorimgFran{
+        width:60%  !important;
+     }
+
+     .ContFrancesInfo{
+        background:white;
+     }
+
+     .ContFrancesInfo h1{
+        text-align:center;
+     }
+
+     .ContFrancesInfo p{
+        text-align:justify;
+     }
+
+     /* Ofrecemos */
+
+     .TituloOfrecemos{
+        text-align:center;
+     }
+
+     .ConteOfrecemos{
+        background:rgba(249, 176, 195, 0.44);
+        display:flex !important;
+        justify-content:space-evenly;
+        border-radius:20px !important;
+     }
+
+     .EjercicioNivel h1{
+
+        font-size:2vw;
+        margin-left:7%;
+        margin-right:4% !important;
+     }
+
+     .Adaptacion h1{
+        font-size:2vw;
+     }
+
+     .TestNivel h1{
+
+        font-size:2vw;
+     }
+
+     /* Nuestros Planes */
+
+     .TituloNuestrosPlanes{
+        text-align:center;
+     }
+
+     .ConteNuestrosP{
+        display:flex !important;
+        margin:0;
+        color: black !important;
+     }
+
+     .cardGratuido{
+        border: 4px solid #7766C6;
+        width:70%;
+        height:80% !important;
+        margin-top:8%;
+        margin-left:10%;
+        margin-bottom:10%;
+        margin-right:10%;
+        border-radius:20px !important;
+     }
+
+     .cardGratuido h1{
+        text-align:center;
+     }
+
+     .cardGratuido ul{
+        margin-left:10%;
+     }
+
+     .btnGratuito{
+        width:80%;
+        background:#46467A !important;
+        bottom:5px !important;
+        color:white !important;
+        border-radius:12px !important;
+        left:35px;
+     }
+
+     .cardPlus{
+        border: 8px solid #7766C6;
+        width:70%;
+        height:80%;
+        margin-top:8%;
+        margin-left:10%;
+        margin-bottom:10%;
+        margin-right:10%;
+        border-radius:20px !important;
+     }
+
+     .cardPlus h1{
+
+        text-align:center;
+
+     }
+
+     .cardPlus ul{
+        margin-left:10%;
+     }
+
+     .btnPlus{
+        width:80%;
+        height:20%;
+        left:15%;
+        background:#46467A !important;
+        bottom:5px;
+        color:white !important;
+        border-radius:20px !important;
+     }
+
 }
 
 @media  (min-width:1024px){
@@ -273,9 +732,9 @@
         color:black !important;
     }
 
-    .btnHamburguesa{
+    /* .btnHamburguesa{
         display: none !important;
-    }
+    } */
 
     .btnCrearCuenta{
         color: white !important;
@@ -347,12 +806,239 @@
         display: flex !important;
         margin: 0;
         max-Width: 100%;
+        
      }
+
+     .bodyCardInfo{
+
+        display: flex !important;
+
+     }
+
+     .contenedorRosa{
+        margin-left: 5% !important;
+        margin-top: 20px;
+     }
+
+     .cardRosa{
+        background: #F9B0C3 !important;
+        border-radius: 20px !important;
+        height: 100%; 
+     }
+
+     .cardRosa h1{
+        color: white;
+        font-size: 2vw;
+         text-align: center; 
+     }
+
+
+     .contenedorMorado{
+        margin-left: 3% !important;
+     }
+
+     .cardMorado{
+        background: #7766C6 !important;
+        margin-top: 20px;
+        margin-Bottom: 20px;
+        border-radius: 20px !important;
+     }
+
+     .cardMorado h1{
+        color: white;
+        font-size: 2.5vw; 
+     }
+
+     .cardAmarillo{
+        background: #FFC212 !important;
+        border-radius: 20px !important; 
+     }
+
+     .cardAmarillo h1{
+        color: white; 
+        text-align: right;
+        margin: 20px;
+        font-size: 2vw; 
+     }
+
+     .cardNegro{
+        background: #1F192F !important;
+        min-width: 200px;
+        width: 90%; 
+        margin-left: 5%; 
+        margin-top: 20px; 
+        margin-bottom: 20px;
+        border-radius: 20px !important;
+     }
+
+     .cardNegro h1{
+        font-size: 3vw;
+        color: white;
+        margin-left:40px;
+        margin-top: 30px; 
+     }
+     
+
+
+
+
 
      .ImgRazones{
         position: relative !important;
         left: 10px;
         margin-Top: 120px; 
      }
+
+     /* Nuestros Idiomas */
+
+     .TituloNuestrosIdiomas{
+
+        text-align:center;
+     }
+
+     .contenedorIngles{
+        display:flex !important;
+        margin:0;
+        max-width:100%; 
+        box-shadow:5px 5px 5px black;
+     }
+
+     .contenedorIngles h1{
+        text-align:center;
+     }
+
+     .contenedorIngles p{
+        font-size:1rem;
+        text-align:justify;
+        
+     }
+
+     .contImagenIngles{
+        width:60% !important;
+     }
+
+     .ContenedorFrances{
+        display:flex !important;
+        margin:0;
+        max-width:100%;
+     }
+
+     .ContenedorimgFran{
+        width:60%  !important;
+     }
+
+     .ContFrancesInfo{
+        background:white;
+     }
+
+     .ContFrancesInfo h1{
+        text-align:center;
+     }
+
+     .ContFrancesInfo p{
+        text-align:justify;
+     }
+
+     /* Ofrecemos */
+
+     .TituloOfrecemos{
+        text-align:center;
+     }
+
+     .ConteOfrecemos{
+        background:rgba(249, 176, 195, 0.44);
+        display:flex !important;
+        justify-content:space-evenly;
+        border-radius:20px !important;
+     }
+
+     .EjercicioNivel h1{
+
+        font-size:2vw;
+        margin-left:7%;
+        margin-right:4% !important;
+     }
+
+     .Adaptacion h1{
+        font-size:2vw;
+     }
+
+     .TestNivel h1{
+
+        font-size:2vw;
+     }
+
+     /* Nuestros Planes */
+
+     .TituloNuestrosPlanes{
+        text-align:center;
+     }
+
+     .ConteNuestrosP{
+        display:flex !important;
+        margin:0;
+        color: black !important;
+     }
+
+     .cardGratuido{
+        border: 4px solid #7766C6;
+        width:70%;
+        height:80% !important;
+        margin-top:8%;
+        margin-left:10%;
+        margin-bottom:10%;
+        margin-right:10%;
+        border-radius:20px !important;
+     }
+
+     .cardGratuido h1{
+        text-align:center;
+     }
+
+     .cardGratuido ul{
+        margin-left:10%;
+     }
+
+     .btnGratuito{
+        width:80%;
+        background:#46467A !important;
+        bottom:5px !important;
+        color:white !important;
+        border-radius:12px !important;
+        left:35px;
+     }
+
+     .cardPlus{
+        border: 8px solid #7766C6;
+        width:70%;
+        height:80%;
+        margin-top:8%;
+        margin-left:10%;
+        margin-bottom:10%;
+        margin-right:10%;
+        border-radius:20px !important;
+     }
+
+     .cardPlus h1{
+
+        text-align:center;
+
+     }
+
+     .cardPlus ul{
+        margin-left:10%;
+     }
+
+     .btnPlus{
+        width:80%;
+        height:20%;
+        left:15%;
+        background:#46467A !important;
+        bottom:5px;
+        color:white !important;
+        border-radius:20px !important;
+     }
+
+
 
 }

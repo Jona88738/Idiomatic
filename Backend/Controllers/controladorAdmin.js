@@ -21,12 +21,58 @@ const createAdmin = async (req,res) => {
     })
 }
 
+const adminGetUsers = async (req,res) => {
+
+    const [rows] = await conn.query("SELECT idusuario, nombre, rol,tipo_aprendizaje FROM usuario");
+    
+    console.log(rows)
+
+    res.json(rows)
+}
+
+const comentarioUser = async (req,res) => {
+
+    const [rows] = await conn.query('select  idusuario,nombre,UserComentario(idusuario) from usuario;')
+
+  
+
+    const arrDatos  =  rows.map((objeto) =>{
+
+        const { 'UserComentario(idusuario)': { comentario } } = objeto;
+
+        return {"idusuario":objeto.idusuario,"nombre":objeto.nombre,"comentario":comentario}
+    })
+
+    //console.log(arrDatos)
+    res.json(arrDatos)
+}
+
+const DeleteComentarioUser = (req,res) =>{
+
+    const {idusuario} = req.query;
+
+    console.log(idusuario)
+
+}
+
 const ModificarAdmin = (req,res) => {
 
 
 }
 
-const deleteAdmin = (req,res) => {
+const AdminDeleteUser = async  (req,res) => {
+
+    const {idusuario} = req.query
+
+    const id = Number(idusuario)
+
+    const [row] = await conn.query('delete from usuario where idusuario = ?',[id])
+
+    console.log("resultado",row);
+
+    res.json({
+        "message":true,
+    })
 
 }
 
@@ -45,8 +91,12 @@ const deleteContentEdu = (req,res) => {
 export default {
     createAdmin,
     ModificarAdmin,
-    deleteAdmin,
+    AdminDeleteUser,
     addContentEdu,
     modificarContentEdu,
-    deleteContentEdu
+    deleteContentEdu,
+    comentarioUser,
+    DeleteComentarioUser,
+    adminGetUsers
+
 }

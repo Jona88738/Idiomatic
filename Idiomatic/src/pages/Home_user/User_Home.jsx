@@ -8,22 +8,58 @@ import Container from '@mui/material/Container';
 import { Gauge, gaugeClasses } from '@mui/x-charts';
 import { useEffect, useRef,useState  } from 'react';
 import Avatar from '@mui/material/Avatar';
-
+import CloseIcon from '@mui/icons-material/Close';
+import { useContext } from 'react';
+import {HoraContext} from '../../contexto/contextoHora/HoraContext'
 function User_Home() {
   const [count, setCount] = useState(0);
   const [info, setInfo] = useState({});
+  const [notificacion, setNotificacion] = useState([])
 
+         
+  const {stopTime} = useContext(HoraContext);
 
   const navigate = useNavigate();
 
 
   useEffect(() =>{
-
+      console.log("pidio datos progreso usuario")
     fetch("/api/progresoUsuario")
       .then(res => res.json(res))
       .then(res => setInfo(res))
 
+  },[setInfo])
+
+  useEffect(() =>{
+    
+    fetch("/api/notificaciones")
+          .then(res => res.json())
+          .then(res=> {
+            const [noti, pausarNoti,avisos] = res;
+            setNotificacion(avisos)
+          })
   },[])
+
+  function onDelete(indice){
+    
+      const nuevoArreglo = notificacion.filter((noti,i) => i !== indice)
+        setNotificacion(nuevoArreglo)
+  }
+
+
+  function Notificacion({indice,titulo,texto}){
+    console.log(indice)
+    return(<>
+      <Container className='ContenedorNoti' >
+          <h2 style={{marginBottom:"0"}}>{titulo} </h2>
+          <p>{texto}</p>
+          <br/>   
+          
+          <button style={{background:"red",position:"absolute",right:"0",top:"0",width:"5%",height:"5vh",cursor:"pointer"}} onClick={() => onDelete(indice)}><CloseIcon/></button>
+        </Container>
+        </>
+  )
+  }
 
 
   //XD
@@ -67,7 +103,13 @@ function User_Home() {
         </Container>
         
         <h1 className='subtema3' >Avisos</h1>
+        {/*
         <h1 className='subtema2' >Estas al dia</h1>
+        */}
+        {notificacion.map((aviso,index) => {
+
+         return  <Notificacion key={index} indice={index} titulo={aviso.Titulo} texto={aviso.texto}/>
+        })}
         
 
     </>)
@@ -86,6 +128,8 @@ function User_Home() {
         .then(res => console.log("resultado: "+res.message))
 
         .catch(error =>{console.log(error+"errorxD")})
+
+        stopTime()
       navigate('/')
     }
          
@@ -93,8 +137,8 @@ function User_Home() {
   }
 
 
-  
-
+  //"http://localhost:3001/FotoPerfil/init.png"
+//console.log(info.foto)
   return (
     <>
             
@@ -102,7 +146,7 @@ function User_Home() {
 
     <Container  className='ContenedorNav' disableGutters >
 
-      <Avatar alt="Remy Sharp"  variant="rounded" src="http://localhost:3001/FotoPerfil/init.png" sx={{marginTop:"2%",marginLeft:"32%", width: 110, height: 110 }} />
+      <Avatar alt="Remy Sharp"  variant="rounded" src={info.foto} sx={{marginTop:"2%",marginLeft:"32%", width: 110, height: 110 }} />
       <h3 style={{textAlign:"center",margin:"0"}} >{info.nombre}</h3>
       <h3 style={{textAlign:"center",margin:"0"}} >{info.correo}</h3>
       
@@ -114,7 +158,7 @@ function User_Home() {
     
     <Container   > 
      {count === 0 ? (<Home/>): count == 2 ?(<User_Cursos/>): count == 3 ? (<User_Informes dataUser={info}/>): 
-      count == 4 ? (<User_Notificaciones />): count == 5 ? (<User_Ajustes/>): count == 6 ?  (MostrarApartados):33333}
+      count == 4 ? (<User_Notificaciones />): count == 5 ? (<User_Ajustes foto={info} cambiarFoto={setInfo} />): count == 6 ?  (MostrarApartados):33333}
       
     
     </Container>

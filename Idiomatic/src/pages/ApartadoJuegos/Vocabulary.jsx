@@ -8,7 +8,7 @@ function mi(){
 export default function ConstructingSentences(){
     return(<>
             
-            <Container sx={{background:"rgba(119, 102, 198, 0.84)",borderRadius:"25px",height:"20vh",width:"40%",marginLeft:"6%",position:"relative",top:"25px",border:"4px solid black"}}>
+            <Container sx={{background:"rgba(119, 102, 198, 0.84)",borderRadius:"25px",height:"20vh",width:"40%",marginLeft:"6%",position:"relative",top:"10px",border:"4px solid black"}}>
             <br/>
             <img style={{float:"right",position:"relative",bottom:"15%"}} src="/src/images/svgJuegos/dogherramientas.png" alt="" width="25%" />
 
@@ -24,7 +24,11 @@ export default function ConstructingSentences(){
                 <div style={{display:"flex", justifyContent:"space-evenly"}}>
 
                 <div onClick={mi} style={{width:"25%",height:"35vh",background:"gray",border:"2px solid black",borderRadius:"25px"}}></div>
-                <div style={{width:"25%",height:"35vh",background:"gray",border:"2px solid black",borderRadius:"25px"}}></div>
+                <div style={{width:"25%",height:"35vh",background:"gray",border:"2px solid black",borderRadius:"25px"}}>
+                
+                {/* <img style={{float:"right",position:"relative",bottom:"15%"}} src="/src/images/Doctor.png" alt="" width="80%" /> */}
+
+                </div>
                 <div style={{width:"25%",height:"35vh",background:"gray",border:"2px solid black",borderRadius:"25px"}}></div>
                 </div>
 

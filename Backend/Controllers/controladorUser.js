@@ -3,7 +3,9 @@ import { exec } from'child_process';
 import { encryptPass,verificationPass } from "../utils/fileHelperUser.js";
 import { fileURLToPath } from 'url';
 import { resolve,join,dirname } from "path";
+import { Host,PAYPAL_API, PAYPAL_ID_CLIENT, PAYPAL_SECRET } from "../config.js";
 import express from 'express';
+import axios from 'axios';
 
 const createUser = async (req, res) => {
   const { username, email, password, rol = 0 } = req.body;  // Rol por defecto es 0 (usuario)
@@ -47,7 +49,7 @@ const createUser = async (req, res) => {
 
 
 const sign_in = async (req, res) => {
-  const { correo, password } = req.body;
+  const { correo, password } = req.query;
   console.log(correo + " : " + password);
 
   try {
@@ -65,7 +67,8 @@ const sign_in = async (req, res) => {
     req.session.idUser = row[0].idusuario;
     req.session.nombre = row[0].nombre;
     req.session.correo = row[0].correo;
-
+    req.session.foto = row[0].foto;
+   // console.log(req.session.idUser);
     res.json({
       resultado: "true",
       rol: row[0].rol,
@@ -93,11 +96,48 @@ const obtenerComentarios = async (req, res) => {
 };
 
 
-const editUser = (req,res) => {
-     
- res.json({
+const editUser = async (req,res) => {
 
+  const {nombre, correo,contraseña,foto} = req.body;
+
+  console.log("Entro: ", req.body,contraseña);
+  
+  if(contraseña === undefined){
+
+    const [row] = await conn.query('update usuario set nombre = ?, correo = ?, foto = ? where idusuario = ?',[nombre,correo,foto,req.session.idUser])
+   
+  }else{
+
+    const passHas = await  encryptPass(contraseña);
+
+    const [row] = await conn.query('update usuario set nombre = ?, correo = ?,contraseña = ?, foto = ? where idusuario = ?',[nombre,correo,passHas,foto,req.session.idUser])
+   
+     
+
+  }
+
+  req.session.nombre = nombre;
+    req.session.correo = correo;
+    req.session.foto = foto;
+  
+ res.json({
+    "message":true
  })
+
+
+}
+
+const deleteUser = async (req,res) => {
+
+  const [row] = await conn.query('delete from usuario where idusuario = ?',[req.session.idUser])
+
+  console.log(row)
+  res.json({
+
+    "Message":true
+  })
+
+
 }
 
 const getUser = async (req,res) => {
@@ -112,6 +152,83 @@ const getUser = async (req,res) => {
 
 
   })
+}
+
+const createOrder = async (req,res) =>{
+
+  const order = {
+    "intent":"CAPTURE",
+    "purchase_units":[
+      {
+        "amount":{
+        "currency_code":"MXN",
+        "value":"30.00"
+        }
+      }
+  ],
+  "payment_source":
+  {
+    "paypal":
+      {
+        "experience_context":{
+
+          "brand_name":"Idiomatic",
+          "landing_page":"NO_PREFERENCE",
+          "user_action":"PAY_NOW",
+          "return_url":"http://localhost:3001/api/CaptureOrder",
+          "cancel_url":`http://localhost:5173/User_Home`,
+
+
+        }
+        
+      },
+  }
+  }
+
+  const params = new URLSearchParams();
+  params.append('grant_type','client_credentials');
+
+  const {data:{access_token}} = await axios.post(`${PAYPAL_API}/v1/oauth2/token`,params,{
+    auth: {
+        username: PAYPAL_ID_CLIENT,
+        password: PAYPAL_SECRET
+    }
+  })
+ // console.log(data)
+ 
+  const respuesta = await axios.post(`${PAYPAL_API}/v2/checkout/orders`,order,{
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    }
+  })
+
+  console.log(respuesta.data.links[1].href)
+
+
+  res.json({"link":respuesta.data.links[1].href})
+
+}
+
+const CaptureOrder = async (req,res) =>{
+
+  const {token} = req.query;
+
+  const respuesta = await axios.post(`${PAYPAL_API}/v2/checkout/orders/${token}/capture`,{},{ 
+    auth: {
+        username: PAYPAL_ID_CLIENT,
+        password: PAYPAL_SECRET,
+    }
+  })
+  console.log(respuesta);
+ 
+  
+  res.redirect('http://localhost:5173/User_Home');
+}
+
+
+
+const testAprendizajeGet = (req,res) =>{
+  res.json({})
 }
 
 const testAprendizaje = (req,res) => {
@@ -172,28 +289,91 @@ const progresoUsuario = async (req,res) => {
     "nombre":req.session.nombre,
     "correo":req.session.correo,
     "progresoGeneral":row[0].porcentajeGeneral,
-    "horasMes":row[0].tiempoMes
+    "horasMes":row[0].tiempoMes,
+    "foto":req.session.foto
+
+  })
+}
+
+const progresoUsuarioGeneral = async (req,res) => {
+
+  const {TemaEjercicio} = req.query;
+
+  const [row] = await conn.query(`SELECT * FROM progresousuario where Id_usuario = ?`,[TemaEjercicio])
+  //console.log(typeof row[0].porcentajeGeneral);
+  const porcentaje = (100 * (row[0].porcentajeGeneral+1))/60;
+  
+  console.log(porcentaje)
+
+  res.json({
 
   })
 }
 
   
 
-const notificaciones = (req,res) =>{
+const notificaciones = async (req,res) =>{
 
-  res.status(200).json({
+  const [row] = await conn.query("select * from notificaciones where Id_usuario= ?",[req.session.idUser])
+      console.log("Aqui esta el dato",row[0].notificacion.Avisos[0])
+  res.status(200).json([
+      row[0].notificacion.Notificacion,
+      row[0].pausarNotificacion,
+      row[0].notificacion.Avisos
 
-  })
+
+  ])
 }
 
 
-const listaVideos = async (req,res) =>{
+const pausarNotification = async (req,res) => {
+    
+    const {pausar} = req.query;
+    //const resultado = 
+    
+   // let str = 'true';
+    let boolValue =  Number(pausar)
+  
+//str = 'false';
+    //boolValue = (pausar === 'false'); // false
+   
+   // console.log(boolValue,"result",pausar)
+    const [row] = await conn.query("update notificaciones set pausarNotificacion = ? where Id_usuario = ?",[boolValue,req.session.idUser])
+    
 
-  const [row] = await conn.query("select * from video");
+  res.json({
+      message:"true"
+  })
+}
+
+const ejercicios = async (req,res) => {
+
+  const {juegos} = req.query;
+
+  const [row] =  await conn.query("select * from juegos where tema = ?",[juegos]);
+
+  console.log(row)
+
+  res.json(row)
+}
+
+const listaVideos = async (req,res) =>{
+  const {tema} = req.query;
+console.log(tema)
+  const [row] = await conn.query("select * from video where tema = ?",[tema]);
   console.log(row)
   res.json(
       row
   )
+}
+
+const listaAudios = async (req,res) => {
+
+  const {tema} = req.query
+  const [row] = await conn.query("select * from audio where tema = ?",[tema]);
+  console.log(row);
+
+  res.json(row)
 }
 
 
@@ -215,11 +395,18 @@ export default {
     createUser,
     editUser,
     getUser,
+    deleteUser,
     comentario,
+    createOrder,
+    CaptureOrder,
     testAprendizaje,
     progresoUsuario,
+    progresoUsuarioGeneral,
     listaVideos,
+    ejercicios,
+    listaAudios,
     recursoVideos,
     Logout,
-    notificaciones 
+    notificaciones,
+    pausarNotification
 }
