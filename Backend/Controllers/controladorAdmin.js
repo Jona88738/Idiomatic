@@ -32,9 +32,7 @@ const adminGetUsers = async (req,res) => {
 
 const comentarioUser = async (req,res) => {
 
-    const [rows] = await conn.query('select  idusuario,nombre,UserComentario(idusuario) from usuario;')
-
-  
+    const [rows] = await conn.query('select  idusuario,nombre,UserComentario(idusuario) from usuario where rol=0;')
 
     const arrDatos  =  rows.map((objeto) =>{
 
@@ -47,13 +45,32 @@ const comentarioUser = async (req,res) => {
     res.json(arrDatos)
 }
 
-const DeleteComentarioUser = (req,res) =>{
+const DeleteComentarioUser = async (req, res) => {
+    const { idusuario } = req.query;
 
-    const {idusuario} = req.query;
+    console.log('ID de usuario recibido:', idusuario);  // Verifica que el ID esté llegando correctamente
 
-    console.log(idusuario)
+    if (!idusuario) {
+        return res.status(400).json({ message: "ID de usuario no proporcionado" });
+    }
 
-}
+    try {
+        // Realizar la eliminación del comentario en la tabla bitacora para el id_usuario
+        const [result] = await conn.query('DELETE FROM bitacora WHERE id_usuario = ?', [idusuario]);
+
+        if (result.affectedRows > 0) {
+            res.json({ message: 'Comentario eliminado correctamente' });
+        } else {
+            res.status(404).json({ message: 'Comentario no encontrado o ya eliminado' });
+        }
+    } catch (error) {
+        console.error('Error al eliminar el comentario:', error);  // Verifica el error
+        res.status(500).json({ message: 'Error al eliminar el comentario' });
+    }
+};
+
+
+  
 
 const ModificarAdmin = (req,res) => {
 

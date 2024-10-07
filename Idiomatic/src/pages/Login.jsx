@@ -44,34 +44,25 @@ const LoginPage = () => {
   }, []);
 
   const onSubmit = methods.handleSubmit((data) => {
-    fetch(`/api/signUser`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        correo: data.correo,
-        password: data.contraseña,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.resultado === "true") {
-          // Verificar el rol y redirigir a la página correspondiente
-          if (res.rol === 1) {
-            navigate("/Admin_Home");  // Redirigir al dashboard de administrador
-          } else if (res.rol === 0) {
-            navigate("/User_Home");   // Redirigir al dashboard de usuario
-          } else {
-            console.log("Rol no válido");
-          }
+    fetch(`/api/signUser?correo=${data.correo}&password=${data.contraseña}`)
+    .then(res => res.json())
+    .then(res => {
+      if (res.resultado === "true") {
+        if (res.rol === 1) {
+          navigate("/Admin_Home");
+        } else if (res.rol === 0) {
+          navigate("/User_Home");
         } else {
-          console.log("El usuario no existe o credenciales incorrectas");
+          console.log("Rol no válido");
         }
-      })
-      .catch(error => {
-        console.error("Hubo un error", error);
-      });
+      } else {
+        console.log("El usuario no existe o credenciales incorrectas");
+      }
+    })
+    .catch(error => {
+      console.error("Hubo un error", error);
+    });
+  
   });
   
   
