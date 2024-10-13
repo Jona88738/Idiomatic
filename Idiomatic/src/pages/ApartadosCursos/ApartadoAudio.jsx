@@ -9,7 +9,7 @@ export default function ApartadoAudio(){
 
     const location = useLocation();
 
-    const { link } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { link,imagen } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     
 
     useEffect(()=>{
@@ -23,7 +23,11 @@ export default function ApartadoAudio(){
             
             <Head title="Audios" mycolor="rgba(0, 26, 255, 0.4)" ruta="/src/images/iconoAudios.svg"/>
 
-            {infoAudios.map(audio => <MyCard key={audio.idaudio} title={audio.nombre}  page="/EjercicioAudio" link={audio.link} introduccion={audio.introduccion} />)}
+            {infoAudios.map(audio => {
+            const recursoEjercicio = audio.respuesta;
+             return   <MyCard key={audio.idaudio} imagen={imagen} title={audio.nombre}  page="/EjercicioAudio" recursoEjercicio={recursoEjercicio}  link={audio.link} introduccion={audio.introduccion} />    
+                
+})}
 
 
             

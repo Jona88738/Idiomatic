@@ -32,7 +32,7 @@ export default function CreateSentences(){
 
   const handleClose = () => {
     setOpen(false);
-    navigate("/Ejercicios",{state:{"link":link,"imagen":imagen}})
+    //navigate("/Ejercicios",{state:{"link":link,"imagen":imagen}})
   };
 
     function drag(ev){

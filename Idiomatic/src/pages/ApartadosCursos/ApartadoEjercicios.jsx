@@ -29,12 +29,12 @@ export default function ApartadoEjercicios(){
                 //console.log(recursosFront.sentencia);
                 return  <MyCard title={ejercicio.nombre}  introduccion={ejercicio.introduccion} page={"/"+ejercicio.ejercicio} recursoFrontEje={recursosFront} recursoEjercicio={recursoEjercicio} imagen={imagen} link={link}/>
             })}
-            <MyCard title="Vocabulary"  page="/Vocabulary" imagen={imagen}/>
+            {/* <MyCard title="Vocabulary"  page="/Vocabulary" imagen={imagen}/>
             <MyCard title="Create Sentences " page="/CreateSentences" />
             <MyCard title="Memorama" page />
             <MyCard title="personal pronouns" page="/DragImage" />
             <MyCard title="Complete Sentences" page="/CompleteSentences" />
             <MyCard title="Audio IA" page="/AudioIA" />
-            
+             */}
     </>)
 }

@@ -42,12 +42,13 @@ app.use(session({
 app.use(express.static('recursos'))
 
 
-// Necesario para obtener la ruta del archivo en ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-console.log(__dirname)
-// Define la ruta para servir los archivos de video con el prefijo /api/videos
-//app.use('/api/videos', express.static(join(__dirname, 'recursos/Videos')));
+
+// // Necesario para obtener la ruta del archivo en ESM
+ const __filename = fileURLToPath(import.meta.url);
+ const __dirname = dirname(__filename);
+// console.log("mI Ruta",__dirname)
+// // Define la ruta para servir los archivos de video con el prefijo /api/videos
+// //app.use('/api/videos', express.static(join(__dirname, 'recursos/Videos')));
 
 app.use("/api",rutasUsuario)
 app.use("/api",rutasAdministrador)
@@ -59,6 +60,17 @@ app.post('/api/forgot-password', (req, res) => {
 
     res.json({ success: true }); 
   });
+
+
+//Apartado 
+
+app.use(express.static('dist'))
+
+
+app.get('*', (req, res) => {
+    res.sendFile(join(__dirname, 'dist', 'index.html'));
+  });
+
 
 app.use((req,res) => {
 
