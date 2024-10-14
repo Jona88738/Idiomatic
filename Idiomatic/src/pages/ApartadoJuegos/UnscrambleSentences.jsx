@@ -102,12 +102,12 @@ export default function UnscrambleSentences(){
 
         <Container   sx={{width:"15%"}}>
 
-            <img src="/src/images/UnscrambleSentences/numero1.png" width="50%" style={{display:"block",marginTop:"15%",marginLeft:"45%"}} alt="" />
-            <img src="/src/images/UnscrambleSentences/numero2.png" width="50%" style={{display:"block",marginTop:"45%",marginLeft:"45%"}} alt="" />
-            <img src="/src/images/UnscrambleSentences/numero3.png" width="40%" style={{display:"block",marginTop:"50%",marginLeft:"53%"}} alt="" />
-            <img src="/src/images/UnscrambleSentences/numero4.png" width="40%" style={{display:"block",marginTop:"50%",marginLeft:"53%"}} alt="" />
-            <img src="/src/images/UnscrambleSentences/numero5.png" width="40%" style={{display:"block",marginTop:"50%",marginLeft:"53%"}} alt="" />
-            <img src="/src/images/UnscrambleSentences/numero6.png" width="40%" style={{display:"block",marginTop:"50%",marginLeft:"53%"}} alt="" />
+            <img src="/images/UnscrambleSentences/numero1.png" width="50%" style={{display:"block",marginTop:"15%",marginLeft:"45%"}} alt="" />
+            <img src="/images/UnscrambleSentences/numero2.png" width="50%" style={{display:"block",marginTop:"45%",marginLeft:"45%"}} alt="" />
+            <img src="/images/UnscrambleSentences/numero3.png" width="40%" style={{display:"block",marginTop:"50%",marginLeft:"53%"}} alt="" />
+            <img src="/images/UnscrambleSentences/numero4.png" width="40%" style={{display:"block",marginTop:"50%",marginLeft:"53%"}} alt="" />
+            <img src="/images/UnscrambleSentences/numero5.png" width="40%" style={{display:"block",marginTop:"50%",marginLeft:"53%"}} alt="" />
+            <img src="/images/UnscrambleSentences/numero6.png" width="40%" style={{display:"block",marginTop:"50%",marginLeft:"53%"}} alt="" />
         </Container>
 
         <Container sx={{}}>

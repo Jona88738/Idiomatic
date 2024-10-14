@@ -44,7 +44,7 @@ function User_Notificaciones() {
       <Container className='ContenedorMain' >
           <h1 className='TituloNoti' >Notificaciones</h1>
           <h3 className='SubTNoti' >Resumen sobre tus cursos</h3>
-          <img src="/src/images/IconoNotifi.svg" width="20%"  style={{position:'absolute',right:'30px',top:'2px',minHeight:'25%'}}   alt="Logo de mi página"/>
+          <img src="/images/IconoNotifi.svg" width="20%"  style={{position:'absolute',right:'30px',top:'2px',minHeight:'25%'}}   alt="Logo de mi página"/>
         
         </Container>
       

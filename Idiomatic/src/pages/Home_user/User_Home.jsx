@@ -72,7 +72,7 @@ function User_Home() {
         <Container className='TitleUserHome'   >
           <h1 className='TituloMain' >Bienvenido {info.nombre}</h1>
           <h3 className='subTituloMain' >¿Listo para iniciar?</h3>
-          <img className='imgHomeUser' src="/src/images/iconoHomeUser.svg" width="20%"    alt="Logo de mi página"/>
+          <img className='imgHomeUser' src="/images/iconoHomeUser.svg" width="20%"    alt="Logo de mi página"/>
         
          
         </Container>
@@ -82,7 +82,7 @@ function User_Home() {
 
         <Container className='ContenedorProgreso' >
 
-        <img className='imgBandera' src="/src/images/cuadrado.png" width="40%" height="80%"   alt="Logo de mi página"/>
+        <img className='imgBandera' src="/images/cuadrado.png" width="40%" height="80%"   alt="Logo de mi página"/>
         
           
         <Gauge width={130} height={135} value={info.progresoGeneral}  

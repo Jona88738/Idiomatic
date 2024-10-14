@@ -54,7 +54,7 @@ export default function CompleteSentences(){
         <img src={recursoFront.icono1} width="15%" alt="" style={{float:"left"}} />
        
         <h1 style={{textAlign:"center",marginTop:"50px",marginLeft:"20%",display:"inline-block"}}>Complete Sentences</h1>
-        <img src='/src/images/svgJuegos/perroDuda.png' width="15%" style={{float:"right"}} />
+        <img src='/images/svgJuegos/perroDuda.png' width="15%" style={{float:"right"}} />
 
         </Container>
 

@@ -44,7 +44,7 @@ function User_Cursos() {
       <Container sx={{background:'rgba(70, 70, 122, 1)',width:'100%',borderRadius:'50px',marginTop:'3.5%'}}>
           <h1 style={{color:'#F9FAFD',marginLeft:"15%",fontSize:'4vw',marginTop:"0",marginBottom:"0"}}>Mis Cursos</h1>
           <h3 style={{color:'#F9FAFD',marginLeft:"20%",fontSize:'2vw',marginBottom:"0"}}>Aqui tenemos tu seleccion de cursos</h3>
-          <img src="/src/images/logoCursos.svg" width="15%"  style={{position:'absolute',right:'60px',top:'2px',minHeight:'25%'}}   alt="Logo de mi página"/>
+          <img src="/images/logoCursos.svg" width="15%"  style={{position:'absolute',right:'60px',top:'2px',minHeight:'25%'}}   alt="Logo de mi página"/>
                                                
       </Container>
      
@@ -54,7 +54,7 @@ function User_Cursos() {
 
       <Container style={{background:"rgba(249, 176, 195, 0.3)",borderRadius:'33px',width:"30%",height:"10%",paddingBottom:"10px",maxWidth:"35%"}}>
 
-      <img src="/src/images/VectorA1.svg" width="20%"  style={{float:'left',marginTop:'5%'}}   alt="Logo "/>
+      <img src="/images/VectorA1.svg" width="20%"  style={{float:'left',marginTop:'5%'}}   alt="Logo "/>
       <h1  style={{fontSize:"2vw",marginLeft:'35%',marginTop:"0",marginBottom:"0",paddingTop:"8%"}}>Begginer</h1> 
 
       </Container>
@@ -65,10 +65,10 @@ function User_Cursos() {
 
 
       
-      <MediaCard miFuncion={to} titulo="Ejercicios" imagen='/src/images/MisCursos/ejercicios.png' introduccion="Mejora tu vocabulario, gramática y fluidez con ejercicios diseñados para reforzar lo que has aprendido. ¡Practica y progresa!"/>
-      <MediaCard miFuncion={to} titulo="Lecturas" imagen='/src/images/MisCursos/lecturas.png' introduccion="¡Descubre historias fascinantes y mejora tu inglés mientras lees y descubre un nuevo mundo de palabras!"/>
-      <MediaCard miFuncion={to} titulo="Videos" imagen='/src/images/MisCursos/videos.png' introduccion="Descubre lecciones en video que te ayudarán a entender mejor el inglés hablado. ¡Aprende a tu ritmo mientras ves y escuchas!" />
-      <MediaCard miFuncion={to} titulo="Audios" imagen='/src/images/MisCursos/audios.png' introduccion="Descubre una variedad de audios que te ayudarán a comprender mejor el inglés. ¡Escucha cuando quieras" />
+      <MediaCard miFuncion={to} titulo="Ejercicios" imagen='/images/MisCursos/ejercicios.png' introduccion="Mejora tu vocabulario, gramática y fluidez con ejercicios diseñados para reforzar lo que has aprendido. ¡Practica y progresa!"/>
+      <MediaCard miFuncion={to} titulo="Lecturas" imagen='/images/MisCursos/lecturas.png' introduccion="¡Descubre historias fascinantes y mejora tu inglés mientras lees y descubre un nuevo mundo de palabras!"/>
+      <MediaCard miFuncion={to} titulo="Videos" imagen='/images/MisCursos/videos.png' introduccion="Descubre lecciones en video que te ayudarán a entender mejor el inglés hablado. ¡Aprende a tu ritmo mientras ves y escuchas!" />
+      <MediaCard miFuncion={to} titulo="Audios" imagen='/images/MisCursos/audios.png' introduccion="Descubre una variedad de audios que te ayudarán a comprender mejor el inglés. ¡Escucha cuando quieras" />
                                               
 
       </Container>

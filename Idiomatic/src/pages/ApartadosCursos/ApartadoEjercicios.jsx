@@ -21,7 +21,7 @@ export default function ApartadoEjercicios(){
             <NavBar_Apartados/>
 
             
-            <Head title="Ejercicios" mycolor="rgba(255, 0, 0, 0.4)" ruta="/src/images/iconoEjercicios.svg"/>
+            <Head title="Ejercicios" mycolor="rgba(255, 0, 0, 0.4)" ruta="/images/iconoEjercicios.svg"/>
             
             {ejercicios.map((ejercicio) =>{
                 const recursosFront = ejercicio.recursos;

@@ -180,10 +180,10 @@ export default function CreateSentences(){
 
             <Container sx={{display:"flex",flexDirection:"column",width:"10%",margin:"0"}} >
 
-                <img src="/src/images/svgJuegos/star.svg" alt="" />
-                <img src="/src/images/svgJuegos/star.svg" alt="" />
-                <img src="/src/images/svgJuegos/star.svg" alt="" />
-                <img src="/src/images/svgJuegos/star.svg" alt="" />
+                <img src="/images/svgJuegos/star.svg" alt="" />
+                <img src="/images/svgJuegos/star.svg" alt="" />
+                <img src="/images/svgJuegos/star.svg" alt="" />
+                <img src="/images/svgJuegos/star.svg" alt="" />
                 
             </Container>
 

@@ -13,7 +13,7 @@ export default function NavBar_Apartados(){
         
         <Container maxWidth="cadena" sx={{background: '#F9FAFD', height:'10vh',     boxShadow:'0px 6px 2px GRAY'}}>
       
-      <img src="/src/images/Logo.png" width="60vw" height="60vh" alt="Logo de mi página"/>
+      <img src="/images/Logo.png" width="60vw" height="60vh" alt="Logo de mi página"/>
 
         
       

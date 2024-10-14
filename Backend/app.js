@@ -9,7 +9,7 @@ import session from 'express-session';
 import { createRequire } from 'module';
 import { resolve,join,dirname } from "path";
 import { fileURLToPath } from 'url';
-import { PORT } from './config.js'
+import { PORT, HOST_BD, PORT_BD, USER_BD, PASSWORD_BD, DATABASE } from './config.js'
 
 
 const require = createRequire(import.meta.url);
@@ -21,11 +21,11 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 const options = {
-    host:'localhost',
-    port:3306,
-    user:'root',
-    password:'root',
-    database:'idiomatic'
+    host:HOST_BD,
+    port:PORT_BD,
+    user:USER_BD,
+    password:PASSWORD_BD,
+    database:DATABASE
 }
 
 const sessionStore = new MySQLStore(options);

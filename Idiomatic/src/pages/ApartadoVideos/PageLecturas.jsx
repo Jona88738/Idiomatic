@@ -40,7 +40,7 @@ return (<>
     <br/>
 <Container disableGutters sx={{ width: "90%", height: "15vh",borderRadius:"25px", background: "rgba(255, 0, 0, 0.4)", margin: "0", maxWidth: "1440px !important",marginLeft:"5%" }}>
 
-    <img src="/src/images/ApartadosV/HeadVi.svg" alt="" width="9%" style={{ float: "left", marginLeft: "2%" }} />
+    <img src="/images/ApartadosV/HeadVi.svg" alt="" width="9%" style={{ float: "left", marginLeft: "2%" }} />
     <h1 style={{marginTop: "0", textAlign: "center", position: "relative", right: "8%", top: "18%", color: "black" }} >{page.length === 0 ? (""):page[0].titulo}</h1>
 
 

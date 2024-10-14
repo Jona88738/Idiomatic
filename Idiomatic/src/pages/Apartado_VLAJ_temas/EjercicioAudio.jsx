@@ -106,7 +106,7 @@ export default function EjercicioAudio(){
         <br />
         <Container sx={{background:"rgba(255, 194, 18, 0.65)",height:"20vh",borderRadius:"20px"}}>
         <br />
-        <img src="/src/images/svgJuegos/speak.svg" width="250px"  style={{float:"right",position:"relative",bottom:"55%"}} />
+        <img src="/images/svgJuegos/speak.svg" width="250px"  style={{float:"right",position:"relative",bottom:"55%"}} />
                 
         <h1 style={{marginTop:"0%"}}>Apartado Audio</h1>
         </Container>
@@ -120,7 +120,7 @@ export default function EjercicioAudio(){
 
                 <div style={{display:"flex",height:"50%"}}>
                     
-                <img src="/src/images/svgJuegos/perroDudaIA.png" alt="" width="20%" style={{marginLeft:"8%"}}/>
+                <img src="/images/svgJuegos/perroDudaIA.png" alt="" width="20%" style={{marginLeft:"8%"}}/>
 
                 <h1>XD</h1>   
                 <audio controls>

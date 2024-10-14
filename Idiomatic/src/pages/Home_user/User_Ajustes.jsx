@@ -18,7 +18,7 @@ function User_Ajustes({foto,cambiarFoto}) {
       <Container className='ContainerHead' >
           <h1 className='TitleHead' >Ajustes</h1>
           <h3 className='subTitleHead' >¡Arreglemos Esto!</h3>
-          <img className='imgHead' src="/src/images/IconoAjus.svg" width="25%"     alt="Logo de mi página"/>
+          <img className='imgHead' src="/images/IconoAjus.svg" width="25%"     alt="Logo de mi página"/>
         
           
       </Container >
