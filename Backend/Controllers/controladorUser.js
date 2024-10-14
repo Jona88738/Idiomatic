@@ -6,6 +6,8 @@ import { resolve,join,dirname } from "path";
 import { Host,PAYPAL_API, PAYPAL_ID_CLIENT, PAYPAL_SECRET } from "../config.js";
 import express from 'express';
 import axios from 'axios';
+import * as fs from 'node:fs';
+
 
 const createUser = async (req, res) => {
   const { username, email, password, rol = 0 } = req.body;  // Rol por defecto es 0 (usuario)
@@ -231,6 +233,38 @@ const testIngles = (req,res) => {
 
 }
 
+const recursos =  (req,res) => {
+
+  const {tema} = req.query;
+
+  const [row] =  conn.query("select * from recursos where tema = ?",[tema]);
+
+    console.log(row)
+
+  res.json(row)
+}
+
+const getLectura = (req, res) =>{
+
+  const {lectura} = req.query;
+  console.log(lectura)
+
+   const data = fs.readFileSync("./recursos/Lecturas"+lectura)
+
+   const carros = JSON.parse(data);
+   
+   
+   res.json(carros)
+}
+
+
+const getAllLecturas = async (req,res) => {
+
+  const [row] = await conn.query("select * from lecturas");
+
+  res.json(row)
+}
+
 const LecturaGuardada = (req,res) => {
 
 }
@@ -369,7 +403,7 @@ const listaAudios = async (req,res) => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
   
-   console.log("mi ruta"+__dirname)
+   console.log("mi ruta XD"+__dirname)
    // Construir la ruta para acceder a la carpeta uploads/Videos
  const videosPath = join(__dirname, '../recursos/Videos');
 
@@ -389,9 +423,12 @@ export default {
     testAprendizaje,
     progresoUsuario,
     progresoUsuarioGeneral,
+    recursos,
     listaVideos,
     ejercicios,
     listaAudios,
+    getLectura,
+    getAllLecturas,
     recursoVideos,
     Logout,
     notificaciones,

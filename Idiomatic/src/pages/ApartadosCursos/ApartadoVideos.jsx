@@ -26,7 +26,7 @@ export default function ApartadoVideos(){
             <NavBar_Apartados/>
 
             
-            <Head title={link} mycolor="rgba(255, 194, 18, 0.4)" ruta="/src/images/iconoVideos.svg"/>
+            <Head title={link} mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.svg"/>
             
             {infoVideos.map((video) =>{ 
                return <MyCard key={video.idvideo} title={video.nombre} imagen={imagen}  page="/video" link={video.link} introduccion={video.introduccion} /> })}

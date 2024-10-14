@@ -28,7 +28,7 @@ export default function ConversacionIA(){
            
             </div>
             {/* "/src/images/ConversacionIA/dog.png" */}
-             <img src="/src/images/ConversacionIA/cuadroDog.png" width="52%" style={{position:"absolute",right:"45%",top:"-28%"}} alt="" />
+             <img src="/images/ConversacionIA/cuadroDog.png" width="52%" style={{position:"absolute",right:"45%",top:"-28%"}} alt="" />
             <img src={recursoFront.iconoDog} width="15%" style={{float:"right",marginBottom:"6%",position:"relative",right:"30%",top:"54px"}}  alt="XD" />
 
         </Container>
@@ -40,7 +40,7 @@ export default function ConversacionIA(){
                     <h1 style={{left:"30%",marginTop:"10%",fontSize:"1.5vw"}}>{recursoFront.sentencia2}</h1>
             
                 </div>
-                <img src="/src/images/ConversacionIA/cuadroIzquierdo.png" width="75%"  alt="" />
+                <img src="/images/ConversacionIA/cuadroIzquierdo.png" width="75%"  alt="" />
                 <br />
                 <img src={recursoFront.iconoIzquierda} width="18%" alt="" />
 
@@ -54,7 +54,7 @@ export default function ConversacionIA(){
                 </div>
 
         
-                <img src="/src/images/ConversacionIA/cuadroDerecho.png" width="73%"  alt="" />
+                <img src="/images/ConversacionIA/cuadroDerecho.png" width="73%"  alt="" />
                 <br />
                 <img src={recursoFront.iconoDerecha} width="18%" style={{float:"right",marginRight:"20%"}} alt="" />
 

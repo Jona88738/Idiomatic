@@ -32,7 +32,7 @@ export default function CreateSentences(){
 
   const handleClose = () => {
     setOpen(false);
-    navigate("/Ejercicios",{state:{"link":link,"imagen":imagen}})
+    //navigate("/Ejercicios",{state:{"link":link,"imagen":imagen}})
   };
 
     function drag(ev){
@@ -180,10 +180,10 @@ export default function CreateSentences(){
 
             <Container sx={{display:"flex",flexDirection:"column",width:"10%",margin:"0"}} >
 
-                <img src="/src/images/svgJuegos/star.svg" alt="" />
-                <img src="/src/images/svgJuegos/star.svg" alt="" />
-                <img src="/src/images/svgJuegos/star.svg" alt="" />
-                <img src="/src/images/svgJuegos/star.svg" alt="" />
+                <img src="/images/svgJuegos/star.svg" alt="" />
+                <img src="/images/svgJuegos/star.svg" alt="" />
+                <img src="/images/svgJuegos/star.svg" alt="" />
+                <img src="/images/svgJuegos/star.svg" alt="" />
                 
             </Container>
 

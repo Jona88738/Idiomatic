@@ -47,7 +47,7 @@ function Nosotros() {
 
         <Container disableGutters sx={{ display: 'flex', justifyContent: 'center', position: 'relative', bottom: '81px' }}>
 
-          <img src="/src/images/gifSobreNosotros.gif" width="30%" height="auto" style={{ position: 'relative', bottom: '0%' }} alt="Logo de mi página" />
+          <img src="/images/gifSobreNosotros.gif" width="30%" height="auto" style={{ position: 'relative', bottom: '0%' }} alt="Logo de mi página" />
 
 
         </Container>
@@ -69,7 +69,7 @@ function Nosotros() {
 
         <Container disableGutters >
 
-          <img src="/src/images/mision.png" width="80%" height="auto" style={{ position: 'relative', bottom: '0%' }} alt="Logo de mi página" />
+          <img src="/images/mision.png" width="80%" height="auto" style={{ position: 'relative', bottom: '0%' }} alt="Logo de mi página" />
 
         </Container>
 
@@ -79,7 +79,7 @@ function Nosotros() {
   <Container disableGutters sx={{display:'flex'}}  >
 
         <Container disableGutters sx={{justifyContent:'center'}} >
-          <img src="/src/images/Vision.png" width="80%" height="auto" style={{ position: 'relative', bottom: '0%' }} alt="Logo de mi página" />
+          <img src="/images/Vision.png" width="80%" height="auto" style={{ position: 'relative', bottom: '0%' }} alt="Logo de mi página" />
 
         </Container>
 

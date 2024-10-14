@@ -7,7 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
-export default function Notificacion({open, handleClose,titulo,img,btnTexto}) {
+export default function Notificacion({open, handleClose,titulo,img,btnTexto,texto,indice = 8}) {
   
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialog-paper': {
@@ -40,7 +40,11 @@ export default function Notificacion({open, handleClose,titulo,img,btnTexto}) {
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <img src={img} width="40%" alt="XD" style={{position:"relative",left:"28%"}} />
-           
+           {indice === 8 ? (""):(
+            
+            indice.map(Element => <p>{Element + texto}</p>)
+            )}
+            
           </DialogContentText>
         </DialogContent>
         <DialogActions >

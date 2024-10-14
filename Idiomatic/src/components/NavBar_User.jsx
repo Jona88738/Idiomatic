@@ -23,13 +23,13 @@ export default function NavBar_User({funcion}) {
        
        <Container className='ContenedorBotonesUser' disableGutters >
 
-       <button className="btn" ><img myvalor={0}  src="/src/images/dashboardHome.svg" width="40vw" height="40vh" alt="Home"/></button>
-       <button className="btn" ><img myvalor={2}  src="/src/images/curses-lenguage.svg" width="40vw" height="40vh" alt="Mis Cursos"/></button>
-       <button className="btn" ><img myvalor={3}  src="/src/images/Informacion.svg" width="40vw" height="40vh" alt="Informacion"/></button>
+       <button className="btn" ><img myvalor={0}  src="/images/dashboardHome.svg" width="40vw" height="40vh" alt="Home"/></button>
+       <button className="btn" ><img myvalor={2}  src="/images/curses-lenguage.svg" width="40vw" height="40vh" alt="Mis Cursos"/></button>
+       <button className="btn" ><img myvalor={3}  src="/images/Informacion.svg" width="40vw" height="40vh" alt="Informacion"/></button>
        
-       <button className="btn" ><img myvalor={4}  src="/src/images/IconoNotificacion.svg" width="40vw" height="40vh" alt="Notificaciones"/></button>
-       <button className="btn" ><img myvalor={5}  src="/src/images/IconoConfig.svg" width="40vw" height="40vh" alt="Ajustes"/></button>
-       <button className="btn"  ><img myvalor={6}   src="/src/images/IconSalir.svg" width="40vw" height="40vh" alt="Salir"/></button>
+       <button className="btn" ><img myvalor={4}  src="/images/IconoNotificacion.svg" width="40vw" height="40vh" alt="Notificaciones"/></button>
+       <button className="btn" ><img myvalor={5}  src="/images/IconoConfig.svg" width="40vw" height="40vh" alt="Ajustes"/></button>
+       <button className="btn"  ><img myvalor={6}   src="/images/IconSalir.svg" width="40vw" height="40vh" alt="Salir"/></button>
    
 
        </Container>
