@@ -233,11 +233,11 @@ const testIngles = (req,res) => {
 
 }
 
-const recursos =  (req,res) => {
+const recursos = async (req,res) => {
 
   const {tema} = req.query;
 
-  const [row] =  conn.query("select * from recursos where tema = ?",[tema]);
+  const [row] = await conn.query("select * from recursos where tema = ?",[tema]);
 
     console.log(row)
 
@@ -373,7 +373,7 @@ const ejercicios = async (req,res) => {
 
   const [row] =  await conn.query("select * from juegos where tema = ?",[juegos]);
 
-  console.log(row)
+  //console.log(row)
 
   res.json(row)
 }
