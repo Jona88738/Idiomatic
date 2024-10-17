@@ -152,7 +152,7 @@ export function Cursos(){
 
 
 
-        <img  src="/src/images/cuadrado.png" width="30%" height="50%" style={{marginTop:"0%",paddingRight:"5%"}} alt="" />
+        <img  src="/images/cuadrado.png" width="30%" height="50%" style={{marginTop:"0%",paddingRight:"5%"}} alt="" />
         <div style={{paddingLeft:"5%",paddingRight:"5%",boxShadow: "-2px 0px  0px rgba(31, 25, 47, 0.5), 2px 0px 0px rgba(31, 25, 47, 0.5)"}}> <h2 style={{marginTop:"6vh",}}>Ingles</h2>   </div>
         <div style={{paddingLeft:"5%",paddingRight:"5%",boxShadow:" 2px 0px 0px rgba(31, 25, 47, 0.5)"}}>  <h2 style={{marginTop:"6vh"}}>A1</h2> </div>
         <div style={{width:"20%",paddingLeft:"2%"}}> <button onClick={handleClickOpen} style={{width:"100%",height:"30%",borderRadius:"25px",marginTop:"49%",cursor:"pointer"}}>  <DeleteIcon  /> </button>

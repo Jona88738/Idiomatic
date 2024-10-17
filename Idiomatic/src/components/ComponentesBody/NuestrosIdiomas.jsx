@@ -19,7 +19,7 @@ export default function NuestrosIdiomas(){
           </Container>
 
           <Container className="contImagenIngles" disableGutters >
-          <img src="/src/images/cuadrado.png" width="70%" height="60%"style={{position:'relative',left:'15%',top:'9%'}}   alt="Logo de mi página"/>
+          <img src="/images/cuadrado.png" width="70%" height="60%"style={{position:'relative',left:'15%',top:'9%'}}   alt="Logo de mi página"/>
           </Container>
     </Container>
 
@@ -32,7 +32,7 @@ export default function NuestrosIdiomas(){
           
           <Container className="ContenedorimgFran" disableGutters >
             
-          <img src="/src/images/francia.png" width="70%" height="60%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
+          <img src="/images/francia.png" width="70%" height="60%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
           
           
 
@@ -55,7 +55,7 @@ export default function NuestrosIdiomas(){
         
         <Container disableGutters className="EjercicioNivel">
 
-            <img src="/src/images/ElipseA1.png" width="70%" height="70%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
+            <img src="/images/ElipseA1.png" width="70%" height="70%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
           
             <h1 >Ejercicios nivel A1 para ambos idiomas</h1>
 
@@ -64,7 +64,7 @@ export default function NuestrosIdiomas(){
 
         <Container disableGutters className="Adaptacion" >
         
-        <img src="/src/images/EyesPana.png" width="70%" height="70%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
+        <img src="/images/EyesPana.png" width="70%" height="70%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
           
         <h1 >Adaptación a su estilo de aprendizaje</h1>
 
@@ -72,7 +72,7 @@ export default function NuestrosIdiomas(){
         <Container disableGutters className="TestNivel">
 
 
-        <img src="/src/images/Ontest-pana.png" width="70%" height="70%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
+        <img src="/images/Ontest-pana.png" width="70%" height="70%"style={{position:'relative',left:'12%',top:'9%'}}   alt="Logo de mi página"/>
          
             <h1 >Test de nivelación y tipo de aprendizaje</h1>
         </Container>

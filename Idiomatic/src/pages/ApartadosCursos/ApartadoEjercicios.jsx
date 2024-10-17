@@ -21,7 +21,7 @@ export default function ApartadoEjercicios(){
             <NavBar_Apartados/>
 
             
-            <Head title="Ejercicios" mycolor="rgba(255, 0, 0, 0.4)" ruta="/src/images/iconoEjercicios.svg"/>
+            <Head title="Ejercicios" mycolor="rgba(255, 0, 0, 0.4)" ruta="/images/iconoEjercicios.svg"/>
             
             {ejercicios.map((ejercicio) =>{
                 const recursosFront = ejercicio.recursos;
@@ -29,12 +29,12 @@ export default function ApartadoEjercicios(){
                 //console.log(recursosFront.sentencia);
                 return  <MyCard title={ejercicio.nombre}  introduccion={ejercicio.introduccion} page={"/"+ejercicio.ejercicio} recursoFrontEje={recursosFront} recursoEjercicio={recursoEjercicio} imagen={imagen} link={link}/>
             })}
-            <MyCard title="Vocabulary"  page="/Vocabulary" imagen={imagen}/>
+            {/* <MyCard title="Vocabulary"  page="/Vocabulary" imagen={imagen}/>
             <MyCard title="Create Sentences " page="/CreateSentences" />
             <MyCard title="Memorama" page />
             <MyCard title="personal pronouns" page="/DragImage" />
             <MyCard title="Complete Sentences" page="/CompleteSentences" />
             <MyCard title="Audio IA" page="/AudioIA" />
-            
+             */}
     </>)
 }

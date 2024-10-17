@@ -10,13 +10,13 @@ export default function ConstructingSentences(){
             
             <Container sx={{background:"rgba(119, 102, 198, 0.84)",borderRadius:"25px",height:"20vh",width:"40%",marginLeft:"6%",position:"relative",top:"10px",border:"4px solid black"}}>
             <br/>
-            <img style={{float:"right",position:"relative",bottom:"15%"}} src="/src/images/svgJuegos/dogherramientas.png" alt="" width="25%" />
+            <img style={{float:"right",position:"relative",bottom:"15%"}} src="/images/svgJuegos/dogherramientas.png" alt="" width="25%" />
 
             <h1 style={{marginTop:"5%"}}>Jobs and occupations</h1>
             
             </Container>
 
-            <Container sx={{backgroundImage:"url('/src/images/svgJuegos/fondoVocabulario.png')",width:"95%",height:"75vh",border:"4px solid black",borderRadius:"25px"}}>
+            <Container sx={{backgroundImage:"url('/images/svgJuegos/fondoVocabulario.png')",width:"95%",height:"75vh",border:"4px solid black",borderRadius:"25px"}}>
 
                 <h1> Selecciona la imagen de la profesion que se te indica
 

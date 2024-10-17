@@ -116,7 +116,7 @@ export default function AudioIA() {
         <div style={{ background: "#E0DFFD", height: "100vh" }}>
             <br />
             <Container sx={{ background: "rgba(255, 194, 18, 0.65)", borderRadius: "25px", height: "25vh" }}>
-                <img src="/src/images/svgJuegos/speak.svg" width="250px" style={{ float: "right", position: "relative", bottom: "18%" }} />
+                <img src="/images/svgJuegos/speak.svg" width="250px" style={{ float: "right", position: "relative", bottom: "18%" }} />
                 <h1 style={{ paddingTop: "5%" }}>Speaking.- Was/Were</h1>
             </Container>
             <h1 style={{ paddingLeft: "5%" }}>Speak this sentence</h1>

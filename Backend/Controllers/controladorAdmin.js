@@ -32,7 +32,7 @@ const adminGetUsers = async (req,res) => {
 
 const comentarioUser = async (req,res) => {
 
-    const [rows] = await conn.query('select  idusuario,nombre,UserComentario(idusuario) from usuario;')
+    const [rows] = await conn.query('select  idusuario,nombre,UserComentario(idusuario) from usuario where rol = 0')
 
   
 

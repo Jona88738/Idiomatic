@@ -13,7 +13,7 @@ export default function Presentacion_Home() {
       </Container>
       
       <Container className='ContenedorGif' >
-      <img className='PresentacionGif' src="/src/images/4GIF_SINFONDOFINAL.gif" width="90%" height="80%"  alt="Logo de mi página"/>
+      <img className='PresentacionGif' src="/images/4GIF_SINFONDOFINAL.gif" width="90%" height="80%"  alt="Logo de mi página"/>
       </Container>
       </div>
     </>

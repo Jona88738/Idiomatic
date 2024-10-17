@@ -27,12 +27,12 @@ export function Head({ruta,title,mycolor}){
     </>)
 }
 
-export function MyCard({title,page,link,introduccion,imagen,recursoFrontEje,recursoEjercicio}){
+export function MyCard({title,page,link,introduccion,imagen,recursoFrontEje,recursoEjercicio,lectura}){
   const navigate = useNavigate();
 
     return(
     
-    <Card onClick={()=> navigate(page,{state:{"link":link,"imagen":imagen,"recursoFront":recursoFrontEje,"recursoEjercicio":recursoEjercicio}})}  sx={{display:"inline-block", width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",border:"1px solid black",borderRadius:"30px",marginTop:"50px",marginLeft:"5%" }}>
+    <Card onClick={()=> navigate(page,{state:{"link":link,"imagen":imagen,"recursoFront":recursoFrontEje,"recursoEjercicio":recursoEjercicio,"lectura":lectura}})}  sx={{display:"inline-block", width: "50%", minWidth: 45,maxWidth: 350,background:"rgba(224, 223, 253, 0.41)",border:"1px solid black",borderRadius:"30px",marginTop:"50px",marginLeft:"5%" }}>
       <CardMedia
         sx={{ height: 140 }}
         image={imagen}

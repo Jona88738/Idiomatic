@@ -42,17 +42,17 @@ export default function DragImage(){
     <br/>
     <Container sx={{background:"rgba(119, 102, 198, 0.4)",borderRadius:"25px",height:"20vh"}} >
 
-    <img src="/src/images/svgJuegos/cerebroLentes.svg" width="13%" alt=""  style={{float:"left"}}/>
+    <img src="/images/svgJuegos/cerebroLentes.svg" width="13%" alt=""  style={{float:"left"}}/>
     <h1> Arrastra donde corresponde xD</h1>
 
     </Container>
     
     <div onDrop={drop} onDragOver={allodrop} id="0" style={{display:"flex", flexWrap:"wrap", width:"100%",height:"33vh",justifyContent:"space-evenly"}}>
-    <img style={{borderRadius:"25px",border:"4px solid black",marginLeft:"8%",marginTop:"3%"}} src="/src/images/dragImage/they.png" width="200" height="180"  draggable="true" onDragStart={drag} id="they"/>
+    <img style={{borderRadius:"25px",border:"4px solid black",marginLeft:"8%",marginTop:"3%"}} src="/images/dragImage/they.png" width="200" height="180"  draggable="true" onDragStart={drag} id="they"/>
 
-    <img style={{borderRadius:"25px",border:"4px solid black",marginLeft:"8%",marginTop:"3%"}} src="/src/images/dragImage/he.png" width="200" height="180" draggable="true" onDragStart={drag} id="he"/>
+    <img style={{borderRadius:"25px",border:"4px solid black",marginLeft:"8%",marginTop:"3%"}} src="/images/dragImage/he.png" width="200" height="180" draggable="true" onDragStart={drag} id="he"/>
 
-    <img style={{borderRadius:"25px",border:"4px solid black",marginLeft:"8%",marginTop:"3%"}} src="/src/images/dragImage/it.png" width="200" height="180"  draggable="true" onDragStart={drag} id="it"/>
+    <img style={{borderRadius:"25px",border:"4px solid black",marginLeft:"8%",marginTop:"3%"}} src="/images/dragImage/it.png" width="200" height="180"  draggable="true" onDragStart={drag} id="it"/>
 
     
     </div>      
