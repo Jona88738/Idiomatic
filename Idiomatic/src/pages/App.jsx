@@ -36,8 +36,9 @@ import ApartadoTemasLecturas from './Apartado_VLAJ_temas/ApartadoTemaLectura';
 import PageLecturas from './ApartadoVideos/PageLecturas';
 import MyHora from '../contexto/contextoHora/ProvedorHoraCon';
 import ApartadoTemaRecursos from './Apartado_VLAJ_temas/ApartadoTemaRecursos';
-import UnscrambleSentences from './ApartadoJuegos/unscrambleSentences';
+import UnscrambleSentences from './ApartadoJuegos/UnscrambleSentences';
 import ConversacionIA from './ApartadoJuegos/ConversacionIA';
+<<<<<<< HEAD
 import Panel_user from './Administrador/Panel_user';
 import PresentSimple from './Recursos/PresentSimple';
 import PresentContinuous from './Recursos/PresentContinuous';
@@ -49,6 +50,9 @@ import ModalMust from './Recursos/ModalMust';
 
 
 
+=======
+import ApartadoRecursos from './ApartadosCursos/ApartadoRecursos';
+>>>>>>> Jona
 function App() {
   
 
@@ -93,6 +97,7 @@ function App() {
                 <Route path='/Videos' element={<ApartadoVideos/>} />
                 <Route path='/Lecturas' element={<ApartadoLecturas/>} />
                 <Route path='/Audios' element={<ApartadoAudio/>} />
+                <Route path='/Recursos' element={<ApartadoRecursos />} />
                 
                 {/* Juegos */}
 

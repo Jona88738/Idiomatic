@@ -9,7 +9,7 @@ import session from 'express-session';
 import { createRequire } from 'module';
 import { resolve,join,dirname } from "path";
 import { fileURLToPath } from 'url';
-import { PORT } from './config.js'
+import { PORT, HOST_BD, PORT_BD, USER_BD, PASSWORD_BD, DATABASE } from './config.js'
 
 
 const require = createRequire(import.meta.url);
@@ -26,6 +26,12 @@ const options = {
     user:'root',
     password:'root',
     database:'idiomaticact'
+    /*host:HOST_BD,
+    port:PORT_BD,
+    user:USER_BD,
+    password:PASSWORD_BD,
+    database:DATABASE */
+    
 }
 
 const sessionStore = new MySQLStore(options);
@@ -42,12 +48,13 @@ app.use(session({
 app.use(express.static('recursos'))
 
 
-// Necesario para obtener la ruta del archivo en ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-console.log(__dirname)
-// Define la ruta para servir los archivos de video con el prefijo /api/videos
-//app.use('/api/videos', express.static(join(__dirname, 'recursos/Videos')));
+
+// // Necesario para obtener la ruta del archivo en ESM
+ const __filename = fileURLToPath(import.meta.url);
+ const __dirname = dirname(__filename);
+// console.log("mI Ruta",__dirname)
+// // Define la ruta para servir los archivos de video con el prefijo /api/videos
+// //app.use('/api/videos', express.static(join(__dirname, 'recursos/Videos')));
 
 app.use("/api",rutasUsuario)
 app.use("/api",rutasAdministrador)
@@ -59,6 +66,17 @@ app.post('/api/forgot-password', (req, res) => {
 
     res.json({ success: true }); 
   });
+
+
+//Apartado 
+
+app.use(express.static('dist'))
+
+
+app.get('*', (req, res) => {
+    res.sendFile(join(__dirname, 'dist', 'index.html'));
+  });
+
 
 app.use((req,res) => {
 

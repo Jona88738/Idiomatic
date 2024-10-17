@@ -56,6 +56,9 @@ routes.patch("/notificaciones",cUser.pausarNotification);
 routes.patch("/comentario",cUser.comentario);
 
 //Recursos de usuarios
+
+routes.get("/recursos",cUser.recursos);
+
 routes.get("/listaVideos",cUser.listaVideos);
 
 routes.get("/ejercicios",cUser.ejercicios);
@@ -64,9 +67,12 @@ routes.use("/videos",cUser.recursoVideos);
 
 routes.use("/listaAudios",cUser.listaAudios); 
 
-routes.get("/lecturas")
-routes.get("/juegos")
-routes.get("/audios")
+routes.get("/getLectura",cUser.getLectura);
+
+routes.get("/getAllLecturas",cUser.getAllLecturas)
+
+// routes.get("/juegos")
+// routes.get("/audios")
 
 
 routes.post("/audioIA", upload.single("audio") ,(req, res) => {

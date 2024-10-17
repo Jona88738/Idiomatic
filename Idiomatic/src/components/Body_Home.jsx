@@ -18,7 +18,7 @@ export default function Body_Home() {
 
               <Card className="cardRosa" >
                 <h1 >Variedad en recursos</h1>
-                <img src="/src/images/Informacion.png" width="80%" height="80%" style={{ position: 'relative', left: '14%', bottom: '0%' }} alt="Logo de mi página" />
+                <img src="/images/Informacion.png" width="80%" height="80%" style={{ position: 'relative', left: '14%', bottom: '0%' }} alt="Logo de mi página" />
 
               </Card>
 
@@ -29,13 +29,13 @@ export default function Body_Home() {
 
               <Card className="cardMorado" >
 
-                <img src="/src/images/Reloj.png" width="50%" height="50%" style={{ float: 'left' }} alt="Logo de mi página" />
+                <img src="/images/Reloj.png" width="50%" height="50%" style={{ float: 'left' }} alt="Logo de mi página" />
                 <h1 >Material Siempre disponible</h1>
               </Card>
 
               <Card className="cardAmarillo" >
 
-                <img src="/src/images/Reproducir.png" width="50%" height="50%" style={{ float: 'left', marginTop: '15px' }} alt="Logo de mi página" />
+                <img src="/images/Reproducir.png" width="50%" height="50%" style={{ float: 'left', marginTop: '15px' }} alt="Logo de mi página" />
 
                 <h1 >Material basado en el tipo de aprendizaje</h1>
               </Card>
@@ -46,7 +46,7 @@ export default function Body_Home() {
           </Container>
 
           <Card className="cardNegro">
-            <img src="/src/images/cerebro.png" width="20%" height="20%" style={{ float: 'right', marginRight: '30px' }} alt="Logo de mi página" />
+            <img src="/images/cerebro.png" width="20%" height="20%" style={{ float: 'right', marginRight: '30px' }} alt="Logo de mi página" />
             <h1 >Materiales didácticos e <br />interactivos</h1>
 
 
@@ -56,7 +56,7 @@ export default function Body_Home() {
 
         <Container disableGutters sx={{ width: '65%' }}>
 
-          <img className="ImgRazones" src="/src/images/Group.png" width="72%"  alt="Logo de mi página" />
+          <img className="ImgRazones" src="/images/Group.png" width="72%"  alt="Logo de mi página" />
 
 
 
