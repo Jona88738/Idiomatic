@@ -22,6 +22,7 @@ import ApartadoAudio from './ApartadosCursos/ApartadoAudio';
 import CompleteSentences from './ApartadoJuegos/CompleteSentences';
 import DragImage from './ApartadoJuegos/DragImage';
 import CreateSentences from './ApartadoJuegos/CreateSentences';
+import Memorama from './ApartadoJuegos/Memorama';
 import Vocabulary from './ApartadoJuegos/Vocabulary'
 import PageVideos from './ApartadoVideos/PageVideos';
 import AudioIA from './ApartadoJuegos/AudioIA';
@@ -37,6 +38,17 @@ import MyHora from '../contexto/contextoHora/ProvedorHoraCon';
 import ApartadoTemaRecursos from './Apartado_VLAJ_temas/ApartadoTemaRecursos';
 import UnscrambleSentences from './ApartadoJuegos/unscrambleSentences';
 import ConversacionIA from './ApartadoJuegos/ConversacionIA';
+import Panel_user from './Administrador/Panel_user';
+import PresentSimple from './Recursos/PresentSimple';
+import PresentContinuous from './Recursos/PresentContinuous';
+import PastSimple from './Recursos/PastSimple';
+import FutureSimple from './Recursos/FutureSimple';
+import ModalCan from './Recursos/ModalCan';
+import ModalMay from './Recursos/ModalMay';
+import ModalMust from './Recursos/ModalMust';
+
+
+
 function App() {
   
 
@@ -50,6 +62,8 @@ function App() {
                 <Route  path='/Sign_up' element={<Sign_up/>} />
                 <Route  path='/PasswordRecovery' element={<PasswordRecovery/>} />
                 <Route  path='/UpdatePassword' element={<UpdatePassword/>} />
+
+                <Route  path='/Panel_user' element={<Panel_user/>} />
 
                 <Route  path='/Nosotros' element={<Nosotros/>} />
                 <Route  path='/Cursos' element={<Cursos/>} />
@@ -87,6 +101,7 @@ function App() {
                 <Route path='/CreateSentences' element={<CreateSentences/>} />
                 <Route path='/Vocabulary' element={<Vocabulary/>} />
                 <Route path='/UnscrambleSentences' element={<UnscrambleSentences/>} />
+                <Route path='/Memorama' element={<Memorama/>} />
                 <Route path='/ConversacionIA' element={<ConversacionIA/>} />
 
                 {/* Pagina Lecturas  */}
@@ -104,6 +119,19 @@ function App() {
 
                 <Route  path='/User_Notificaciones' element={<User_Notificaciones/>} />
                 <Route  path='/User_Ajustes' element={<User_Ajustes/>} />
+
+                {/* Recursos*/}
+                <Route  path='/PresentSimple' element={<PresentSimple/>} />
+                <Route  path='/PresentContinuous' element={<PresentContinuous/>} />
+                <Route  path='/PastSimple' element={<PastSimple/>} />
+                <Route  path='/FutureSimple' element={<FutureSimple/>} />
+                <Route  path='/ModalCan' element={<ModalCan/>} />
+                <Route  path='/ModalMay' element={<ModalMay/>} />
+                <Route  path='/ModalMust' element={<ModalMust/>} />
+
+
+
+
 
               </Route>
                 

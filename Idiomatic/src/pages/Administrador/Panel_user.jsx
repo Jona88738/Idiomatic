@@ -19,8 +19,8 @@ function User_Home() {
 
   useEffect(() => {
     // Fetch users data from API
-    fetch("/api/users")
-      .then(res => res.json())
+    fetch("/api/adminGetUsers")
+    .then(res => res.json())
       .then(data => setUsers(data))
       .catch(error => console.error('Error fetching users:', error));
   }, []);
@@ -61,7 +61,6 @@ function User_Home() {
               <TableCell>ID</TableCell>
               <TableCell>Imagen</TableCell>
               <TableCell>Nombre</TableCell>
-              <TableCell>Idioma</TableCell>
               <TableCell>Tipo</TableCell>
               <TableCell>Acciones</TableCell>
             </TableRow>

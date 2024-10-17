@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Cards from './components/Cards';
-import Timer from './components/Timer';
+//import Timer from './components/Timer';
 import '../../styles/Memorama.css';
 
 function App() {

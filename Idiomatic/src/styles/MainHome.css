@@ -751,8 +751,8 @@
     }
 
     .btnAbrir{
-        display: none;
-        position: relative;
+        display: none !important; 
+        position: relative !important;
         bottom: 29%;
         left: 65%;
     }

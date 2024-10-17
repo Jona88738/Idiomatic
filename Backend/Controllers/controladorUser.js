@@ -21,8 +21,6 @@ const createUser = async (req, res) => {
     // Encriptar la contraseña
     const passHashed = await encryptPass(password);
     console.log('Contraseña encriptada:', passHashed);  // Verifica la contraseña encriptada    
-
-<<<<<<< HEAD
     // Insertar el usuario en la base de datos
     const [result] = await conn.query('INSERT INTO usuario (nombre, correo, contraseña, foto, rol, suscripcion, tipo_aprendizaje) VALUES (?, ?, ?, ?, ?, ?, ?)', [
       username,
@@ -35,19 +33,6 @@ const createUser = async (req, res) => {
     ]);
 
     console.log('Resultado de la inserción:', result);  // Verifica el resultado de la consulta
-=======
-      // Insertar el usuario en la base de datos
-      const [result] = await conn.query('INSERT INTO usuario (nombre, correo, contraseña, foto, rol, suscripcion,tipo_aprendizaje) VALUES (?, ?, ?, ?, ?, ?,?)', [
-          username,
-          email,
-          passHashed,
-          "http://localhost:3001/FotoPerfil/init.png",
-          0, // Rol por defecto
-          true, // Suscripción por defecto,
-          "dsf"
-      ]);
->>>>>>> test
-
     // Verificar si se insertó correctamente
     if (result.affectedRows === 1) {
       res.json({ success: true, message: 'Usuario registrado con éxito', rol });

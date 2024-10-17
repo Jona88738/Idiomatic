@@ -21,29 +21,45 @@ const createAdmin = async (req,res) => {
     })
 }
 
-const adminGetUsers = async (req,res) => {
+const adminGetUsers = async (req, res) => {
+    try {
+        const [rows] = await conn.query("SELECT idusuario, nombre, rol, tipo_aprendizaje FROM usuario");
+        res.json(rows);
+    } catch (error) {
+        console.error('Error al obtener usuarios:', error);
+        res.status(500).json({ error: 'Error al obtener usuarios' });
+    }
+};
 
-    const [rows] = await conn.query("SELECT idusuario, nombre, rol,tipo_aprendizaje FROM usuario");
-    
-    console.log(rows)
 
-    res.json(rows)
-}
+const comentarioUser = async (req, res) => {
+    try {
+        const [rows] = await conn.query('SELECT idusuario, nombre, UserComentario(idusuario) AS comentarios FROM usuario WHERE rol = 0;');
 
-const comentarioUser = async (req,res) => {
+        const arrDatos = rows
+            .map((objeto) => {
+                const { comentarios } = objeto;
+                const { comentario } = comentarios;
 
-    const [rows] = await conn.query('select  idusuario,nombre,UserComentario(idusuario) from usuario where rol=0;')
+                const comentariosSeparados = Array.isArray(comentario) 
+                    ? comentario.filter(c => c.trim() !== '') 
+                    : [];
 
-    const arrDatos  =  rows.map((objeto) =>{
+                return {
+                    idusuario: objeto.idusuario,
+                    nombre: objeto.nombre,
+                    comentarios: comentariosSeparados
+                };
+            })
+            // Filtrar usuarios que no tienen comentarios
+            .filter(usuario => usuario.comentarios.length > 0);
 
-        const { 'UserComentario(idusuario)': { comentario } } = objeto;
-
-        return {"idusuario":objeto.idusuario,"nombre":objeto.nombre,"comentario":comentario}
-    })
-
-    //console.log(arrDatos)
-    res.json(arrDatos)
-}
+        res.json(arrDatos);
+    } catch (error) {
+        console.error('Error al obtener comentarios de usuarios:', error);
+        res.status(500).json({ error: 'Error al obtener comentarios de usuarios' });
+    }
+};
 
 const DeleteComentarioUser = async (req, res) => {
     const { idusuario } = req.query;
@@ -55,19 +71,27 @@ const DeleteComentarioUser = async (req, res) => {
     }
 
     try {
-        // Realizar la eliminación del comentario en la tabla bitacora para el id_usuario
-        const [result] = await conn.query('DELETE FROM bitacora WHERE id_usuario = ?', [idusuario]);
+        // Confirmar eliminación
+        const confirm = req.body.confirm; 
+        if (!confirm) {
+            return res.status(400).json({ message: 'Confirmación de eliminación no proporcionada' });
+        }
+
+        // Actualiza el campo comentarios a NULL para el id_usuario
+        const [result] = await conn.query('UPDATE usuario SET comentarios = NULL WHERE idusuario = ?', [idusuario]);
 
         if (result.affectedRows > 0) {
-            res.json({ message: 'Comentario eliminado correctamente' });
+            res.json({ message: 'Comentarios eliminados correctamente' });
         } else {
-            res.status(404).json({ message: 'Comentario no encontrado o ya eliminado' });
+            res.status(404).json({ message: 'Comentarios no encontrados o ya eliminados' });
         }
     } catch (error) {
-        console.error('Error al eliminar el comentario:', error);  // Verifica el error
-        res.status(500).json({ message: 'Error al eliminar el comentario' });
+        console.error('Error al eliminar comentarios:', error);  
+        res.status(500).json({ message: 'Error al eliminar comentarios' });
     }
 };
+
+
 
 
   

@@ -15,7 +15,7 @@ const AdminMenu = () => {
       {/* Usuarios */}
       <ListItem 
         button 
-        onClick={() => navigate('/usuarios')}  // Redirige a la página de usuarios
+        onClick={() => navigate('/Panel_user')}  // Redirige a la página de usuarios
         sx={{ borderRadius: '8px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' } }}
       >
         <ListItemIcon sx={{ '&:hover': { transform: 'scale(1.2)', transition: 'transform 0.3s' } }}>

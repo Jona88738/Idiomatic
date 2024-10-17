@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import '../styles/PasswordRec.css';
 
+// Definición del esquema de validación
 const schema = yup.object().shape({
   correo: yup
     .string()
@@ -21,18 +22,19 @@ const ForgotPasswordPage = () => {
 
   const onSubmit = methods.handleSubmit(async (data) => {
     try {
-      const response = await fetch('/api/PasswordRecovery', {
+      const response = await fetch('/api/Password-Recovery', { // Asegúrate de que la ruta sea correcta
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ emailRecovery: data.correo }),
       });
+
       const result = await response.json();
       if (result.success) {
         alert('Si el correo está registrado, recibirás instrucciones para recuperar tu contraseña.');
       } else {
-        console.log('Error en la recuperación de contraseña');
+        console.log('Error en la recuperación de contraseña:', result.message);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -44,10 +46,7 @@ const ForgotPasswordPage = () => {
       <NavBar />
       <div className="forgot-password-container">
         <div className="login-card">
-          <div className="login-icon">
-          </div>
           <h2>Recuperar Contraseña</h2>
-
           <FormProvider {...methods}>
             <form onSubmit={onSubmit} className="forgot-password-form">
               <TextField
