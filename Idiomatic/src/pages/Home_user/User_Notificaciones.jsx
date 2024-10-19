@@ -48,7 +48,7 @@ function User_Notificaciones() {
         
         </Container>
       
-        <Button className='btonFiltrar' >Filtrar por</Button>
+        {/* <Button className='btonFiltrar' >Filtrar por</Button> */}
         {notificacion.map((info,index) =>{
          return <Notificacion key={index} indice={index} titulo={info.Titulo} texto={info.texto} />
         })}

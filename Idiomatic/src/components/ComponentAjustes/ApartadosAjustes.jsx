@@ -177,8 +177,8 @@ export function Cursos(){
     </>)
 }
 
-export function RestaurarSuscrip(){
-
+export function RestaurarSuscrip({suscripcion}){
+  
   
   function Comprar(){
     fetch("/api/CreateOrder")
@@ -188,7 +188,12 @@ export function RestaurarSuscrip(){
 
     return(<>
             <h1>Restaurar Suscripcion</h1>
-            <Button onClick={Comprar}>Comprar Plan Plus</Button>
+
+            {suscripcion.suscrip === 1 ? (<h3 style={{marginTop:"5%"}}>Ya tienes una suscripcion Actualmente</h3> ):(<h3>En estos momentos no tienes una suscripcion</h3>)            }
+            
+            <Button sx={{marginTop:"6%"}} variant="contained" onClick={Comprar}>Comprar Plan Plus</Button>
+{/*             
+            <Button onClick={Comprar}>Comprar Plan Plus</Button> */}
     </>)
 }
 

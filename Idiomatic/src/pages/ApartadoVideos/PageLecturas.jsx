@@ -1,7 +1,9 @@
-import { Container } from "@mui/material";
+import { Container,Button } from "@mui/material";
 import "../../styles/Libro.css"
 import { useEffect, useState } from "react";
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
+import ReplyIcon from '@mui/icons-material/Reply';
+
 export default function PageLecturas() {
 
 
@@ -9,6 +11,7 @@ export default function PageLecturas() {
     const { lectura } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     console.log(lectura)
 
+    const navigate = useNavigate();
 
     const [page, setPage] = useState([]);
 
@@ -19,6 +22,9 @@ export default function PageLecturas() {
     },[])
 
 
+    function handleOnclick(){
+        navigate(-1);
+    }
     
    
 
@@ -38,14 +44,15 @@ console.log(typeof portada)
 return (<>
 <div style={{background:"rgba(119, 102, 198, 0.4)"}}>
     <br/>
-<Container disableGutters sx={{ width: "90%", height: "15vh",borderRadius:"25px", background: "rgba(255, 0, 0, 0.4)", margin: "0", maxWidth: "1440px !important",marginLeft:"5%" }}>
+<Container disableGutters sx={{ width: "90%", height: "12vh",borderRadius:"25px", background: "rgba(255, 0, 0, 0.4)", margin: "0", maxWidth: "1440px !important",marginLeft:"5%" }}>
 
-    <img src="/images/ApartadosV/HeadVi.svg" alt="" width="9%" style={{ float: "left", marginLeft: "2%" }} />
+    <img src="/images/ApartadosV/HeadVi.svg" alt="" width="8%" style={{ float: "left", marginLeft: "2%" }} />
     <h1 style={{marginTop: "0", textAlign: "center", position: "relative", right: "8%", top: "18%", color: "black" }} >{page.length === 0 ? (""):page[0].titulo}</h1>
 
 
 </Container>
-
+<Button variant="text" onClick={handleOnclick} style={{position:"absolute",left:"2%",top:"16%",fontSize:"1.2vw"}}> <ReplyIcon fontSize="large" style={{fontSize:"50px"}}/>Regresar</Button>
+<br/>
 <div className="ContenedorLibro">
     
     <div class="book" id="Createinput">
@@ -78,8 +85,8 @@ return (<>
                     </div>
 
                     <div class="front">
-                        <h2 style={{margin:"0",color:"orange",textAlign:"center"}}>{element.titulo }</h2>
-                        <p style={{fontSize:"1.5vw",textAlign:"justify",marginTop:"40%"}}>{element.info}</p>
+                        <h2 style={{fontFamily:"Times New Roman",fontSize:"1.9vw",margin:"0",color:"orange",textAlign:"center"}}>{element.titulo }</h2>
+                        <p style={{paddingLeft:"5%",paddingRight:"4%",fontSize:"1.6vw",textAlign:"justify",marginTop:"40%",fontFamily:"Times New Roman", lineHeight: "1.5"}}>{element.info}</p>
                         <label class="next-btn" htmlFor={"c"+index}>Next</label>
                     </div>
                 </div>

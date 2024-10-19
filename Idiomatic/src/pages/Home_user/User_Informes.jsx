@@ -6,15 +6,20 @@ import { PieChart } from '@mui/x-charts/PieChart';
 function User_Informes({dataUser}) {
   const [count, setCount] = useState(0)
 
+    console.log(dataUser)
+    const fechaActual = new Date();
+    const fechaLegible = fechaActual.toLocaleDateString(); // Devuelve la fecha en formato local
+    
+
    function BasicPie() {
     return (
       <PieChart
         series={[
           {
             data: [
-              { id: 0, value: 1, label: 'Videos' },
-              { id: 1, value: 1, label: 'Audios' },
-              { id: 2, value: 1, label: 'Ejercicios' },
+              { id: 0, value: dataUser.completeVideo === 0 ? (1):(dataUser.completeVideo ) , label: 'Videos' },
+              { id: 1, value: dataUser.completeAudio === 0 ? (1):(dataUser.completeAudio ) , label: 'Audios' },
+              { id: 2, value: dataUser.completeEjercicio === 0 ? (1):(dataUser.completeEjercicio ) , label: 'Ejercicios' },
             ],
           },
         ]}
@@ -34,7 +39,7 @@ function User_Informes({dataUser}) {
         
         </Container>
 
-        <h1 style={{fontSize:'2vw', boxShadow:'0px 3px 1px rgba(31, 25, 47, 0.5) ',marginBottom:"5%"}}>Lunes (Fecha)</h1>
+        <h1 style={{fontSize:'2vw', boxShadow:'0px 3px 1px rgba(31, 25, 47, 0.5) ',marginBottom:"5%"}}>{fechaLegible}</h1>
       
         <Container sx={{display:"flex"}}>
           
@@ -65,12 +70,18 @@ function User_Informes({dataUser}) {
 
                   <Container sx={{background:"rgba(70, 70, 122, 1)",borderRadius:"25px",marginTop:"19%"}}>
                     <h2 style={{color:"white"}}>Ingles</h2>
-                    <h1 style={{textAlign:"end",color:"white",fontSize:"3.5vw"}}>{dataUser.horasMes} Hrs</h1>
+                    <h1 style={{textAlign:"center",color:"white",fontSize:"3.5vw"}}>
+                      
+                      {
+                      dataUser.tiempoHoras === 0 ? (dataUser.tiempoMinutos+" Min" ):(dataUser.tiempoHoras+":"+dataUser.tiempoMinutos+"Hrs" )
+                      
+                      
+                      } </h1>
                   </Container>
               </Container>
 
               <Container>
-                  <h2 style={{marginLeft:"17%"}}>Horas a la semana</h2>  
+                  <h2 style={{marginLeft:"17%"}}>Progreso por apartado</h2>  
 
 
                   <BasicPie />

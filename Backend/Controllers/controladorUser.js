@@ -31,7 +31,7 @@ console.log('Datos recibidos:', username, email);
           passHashed,
           "http://localhost:3001/FotoPerfil/init.png",
           0, // Rol por defecto
-          true, // Suscripción por defecto,
+          false, // Suscripción por defecto,
           "dsf"
       ]);
 
@@ -71,6 +71,7 @@ const sign_in = async (req, res) => {
     req.session.nombre = row[0].nombre;
     req.session.correo = row[0].correo;
     req.session.foto = row[0].foto;
+    req.session.suscripcion = row[0].suscripcion
    // console.log(req.session.idUser);
     res.json({
       resultado: "true",
@@ -217,7 +218,145 @@ const CaptureOrder = async (req,res) =>{
 
 
 const testAprendizajeGet = (req,res) =>{
-  res.json({})
+  res.json([{
+    "in":"1",
+    "pregunta":"1.-Me resultan mas faciles los examenes: ",
+    "res1":{"tipo":"Kinestesico",
+            "res":"Practicos "
+           },
+
+     "res2":{"tipo":"Visual",
+            "res":"Teoricos escritos"
+           },
+
+      "res3":{"tipo":"Auditivo",
+            "res":"Teoricos orales"
+           },
+    
+    
+  },
+  {
+    "in":"2",
+    "pregunta":"2.-Recuerdo mejor:",
+    "res1":{"tipo":"Auditivo",
+            "res":"Una cancion "
+           },
+
+     "res2":{"tipo":"Visual",
+            "res":"Una imagen"
+           },
+
+      "res3":{"tipo":"Kinestésico",
+            "res":"Una ruta o camino"
+           },
+  },
+  {
+    "in":"3",
+    "pregunta":"3.-Mi tecnica para estudiar es:",
+    "res1":{"tipo":"Visual",
+            "res":"Hacer esquemas y dibujos "
+           },
+
+     "res2":{"tipo":"Kinestésico",
+            "res":"Practicar"
+           },
+
+      "res3":{"tipo":"Auditivo",
+            "res":"Explicar y repetir en voz alta"
+           },
+
+  },
+  {
+    "in":"4",
+    "pregunta":"4.-Entre estos 3 trabajos elegiria:",
+    "res1":{"tipo":"Auditivo",
+            "res":"Locutor de radio"
+           },
+
+     "res2":{"tipo":"Visual",
+            "res":"Editor en una revista"
+           },
+
+      "res3":{"tipo":"Kinestésico",
+            "res":"Director de un club deportivo"
+           },
+
+  },
+
+  //
+
+  {
+    "in":"5",
+    "pregunta":"5.-Mi entretenimiento favorito es:",
+    "res1":{"tipo":"Kinestésico",
+            "res":"Actividades"
+           },
+
+     "res2":{"tipo":"Visual",
+            "res":"La television"
+           },
+
+      "res3":{"tipo":"Auditivo",
+            "res":"La radio o audiolibros"
+           },
+
+  },
+  {
+    "in":"6",
+    "pregunta":"6.-Prefiero acudir a:",
+    "res1":{"tipo":"Auditivo",
+            "res":"Un concierto"
+           },
+
+     "res2":{"tipo":"Kinestésico",
+            "res":"Una clase de baile"
+           },
+
+      "res3":{"tipo":"Visual",
+            "res":"Una exposicion de arte"
+           },
+           
+  
+  },
+
+  //XD
+
+  {
+    "in":"7",
+    "pregunta":"7.-Prefiero aprender:",
+    "res1":{"tipo":"Visual",
+            "res":"Leyendo el libro"
+           },
+
+     "res2":{"tipo":"Auditivo",
+            "res":"Escuchando al profesor"
+           },
+
+      "res3":{"tipo":"Kinestesico",
+            "res":"Haciendo actividades practicas"
+           },
+
+  },
+  {
+    "in":"8",
+    "pregunta":"8.-Me gusta:",
+    "res1":{"tipo":"Visual",
+            "res":"Ver paisajes bonitos"
+           },
+
+     "res2":{"tipo":"Auditivo",
+            "res":"Escuchar a los demas"
+           },
+
+      "res3":{"tipo":"Kinestesico",
+            "res":"Desmontar y montar"
+           },
+
+  },
+
+
+
+])
 }
 
 const testAprendizaje = (req,res) => {
@@ -231,6 +370,7 @@ const testAprendizaje = (req,res) => {
 
 const testIngles = (req,res) => {
 
+  
 }
 
 const recursos =  (req,res) => {
@@ -299,6 +439,34 @@ const Logout = (req,res) => {
   });
 }
 
+const tiempo = async (req,res) =>{
+
+  const {minutos} = req.query;
+  console.log("Los minutos que llegaron: ",minutos)
+  
+  const [row] = await conn.query("SELECT tiempoHoras,tiempoMinutos FROM  progresousuario where Id_usuario = ? ",[12])
+  
+  const tiempoTotalMinutos = row[0].tiempoMinutos + Number(minutos);
+  console.log("Total minutos",tiempoTotalMinutos)
+
+  if(tiempoTotalMinutos < 60 ){
+
+    const [rowMinutos] = await conn.query("update progresousuario set tiempoMinutos = ? where Id_usuario = ?",[tiempoTotalMinutos,12])
+
+    console.log(rowMinutos)
+  }else{
+
+    const hours = Math.floor(tiempoTotalMinutos / 60); // Horas
+    const remainingMinutes = tiempoTotalMinutos % 60; // Minutos restantes
+
+    const [rowHoras] = await conn.query("update progresousuario set tiempoHoras = ?, tiempoMinutos = ? where  Id_usuario = ?",[hours,remainingMinutes,12])
+
+  }
+  console.log(row[0].tiempoHoras)
+
+  res.json(row)
+}
+
 const progresoUsuario = async (req,res) => {
   
 
@@ -310,8 +478,13 @@ const progresoUsuario = async (req,res) => {
     "nombre":req.session.nombre,
     "correo":req.session.correo,
     "progresoGeneral":row[0].porcentajeGeneral,
-    "horasMes":row[0].tiempoMes,
-    "foto":req.session.foto
+    "tiempoHoras":row[0].tiempoHoras,
+    "tiempoMinutos":row[0].tiempoMinutos,
+    "foto":req.session.foto,
+    "suscrip":req.session.suscripcion,
+    "completeVideo":row[0].numLeccion_video,
+    "completeAudio":row[0].numLeccion_audio,
+    "completeEjercicio":row[0].numLeccion_juegos
 
   })
 }
@@ -418,9 +591,11 @@ export default {
     getUser,
     deleteUser,
     comentario,
+    testIngles,
     createOrder,
     CaptureOrder,
     testAprendizaje,
+    testAprendizajeGet,
     progresoUsuario,
     progresoUsuarioGeneral,
     recursos,
@@ -431,6 +606,7 @@ export default {
     getAllLecturas,
     recursoVideos,
     Logout,
+    tiempo,
     notificaciones,
     pausarNotification
 }

@@ -37,7 +37,7 @@ export default function UnscrambleSentences(){
     function enviar(){
         
        
-       let num = [];
+      // let num = [];
         let contador  = 0;
         recursoFront.respuesta.map((element, index) =>{
 
