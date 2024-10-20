@@ -54,7 +54,7 @@ function User_Cursos() {
 
       <Container style={{background:"rgba(249, 176, 195, 0.3)",borderRadius:'33px',width:"30%",height:"10%",paddingBottom:"10px",maxWidth:"35%"}}>
 
-      <img src="/images/VectorA1.svg" width="20%"  style={{float:'left',marginTop:'5%'}}   alt="Logo "/>
+      <img src="/images/vectorA1.svg" width="20%"  style={{float:'left',marginTop:'2%'}}   alt="Logo "/>
       <h1  style={{fontSize:"2vw",marginLeft:'35%',marginTop:"0",marginBottom:"0",paddingTop:"8%"}}>Begginer</h1> 
 
       </Container>

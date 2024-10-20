@@ -1,7 +1,7 @@
 import { Container } from "@mui/system"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
 export default function EjercicioAudio(){
@@ -16,6 +16,11 @@ export default function EjercicioAudio(){
     const [Noti, setNoti] = useState(false);
     
     const [open, setOpen] = useState(false);
+
+    const [numError, setnumError] = useState([]);
+
+    const navigate = useNavigate();
+    //let numError = [];
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -37,60 +42,71 @@ export default function EjercicioAudio(){
        // console.log("mi letra",text[0])
         let contador = 0;
         let aciertos = 0;
+        //let respuestaApi = respuestaUser;
 
         let sinEspacioUser = respuestaUser.replace(/\s+/g, '')
-
+        console.log("Esta es la respuesta User",sinEspacioUser)
         for (const letra of text) {
 
+            console.log(contador," letra: ",letra,"text:", sinEspacioUser[contador])
+            //if(  sinEspacioUser.length <=  text.length ){
+                console.log("entro")
 
-            console.log("letra: ",letra,"text:", sinEspacioUser[contador])
-            if(  sinEspacioUser.length <=  text.length ){
-
-                if(letra === sinEspacioUser[contador]){
+                if(letra.toUpperCase() === sinEspacioUser[contador].toUpperCase()){
                    
                     aciertos++;
                     contador++;
+                    
                 }
                 
                 
-            }
+            //}
         }
 
-        // for (const letra of sinEspacioUser) {
-        //     //console.log(letra); // Imprime cada letra
-        //     console.log("letra: ",letra,"text:", text[contador])
-        //     if(  sinEspacioUser.length <=  text.length ){
-
-        //         if(letra === text[contador]){
-                   
-        //             aciertos++;
-        //             contador++;
-        //         }
-                
-                
-        //     }
-               
-        //   }
 
           console.log(contador)
           let porcentajeAcierto = ((aciertos * 100)/text.length)
         
         console.log("Respuesta verificada",porcentajeAcierto)
 
-         if(porcentajeAcierto >= 85){
 
-            if(porcentajeAcierto === 100){
+        if(porcentajeAcierto=== 100){
+
+            
                 console.log("Felicidades Completaste el ejercicio")
                 setNoti(true);
                 handleClickOpen();
-            }else{
-                console.log("Verifique bien la sentencia")
-                setNoti(false);
-                handleClickOpen();
-            }
+            
 
+         }else if(porcentajeAcierto >45){
+            
+
+            fetch(`https://api.textgears.com/grammar?text=${respuestaUser}&language=en-US&ai=true`,{
+                headers:{
+                    Authorization: "Basic d96UAhwRk6kmjSXp"
+                }
+            })
+                .then(res => res.json())
+                .then((res) => {
+                    console.log(res)
+                    setnumError(res.response.errors);
+                } )
+                .then((res) => {
+
+                    setNoti(false);
+                    handleClickOpen();
+
+                    console.log("Mis errores: ", numError[0].description.en)
+
+                })
+            
+            //setNoti(false);
+            //handleClickOpen();
+
+           // console.log("Reformula completamente la sentecia por que no coincide ")
          }else{
-            console.log("Reformula completamente la sentecia por que no coincide ")
+            setNoti(false);
+            handleClickOpen();
          }
         console.log("aciertos:", aciertos,"Total letras:",text.length)
     }
@@ -122,7 +138,7 @@ export default function EjercicioAudio(){
                     
                 <img src="/images/svgJuegos/perroDudaIA.png" alt="" width="20%" style={{marginLeft:"8%"}}/>
 
-                <h1>XD</h1>   
+                <h1></h1>   
                 <audio controls>
                 <source src={link} type="audio/mpeg" />
                 Your browser does not support the audio element.
@@ -132,7 +148,7 @@ export default function EjercicioAudio(){
                 <input type="text" onChange={handleChange} placeholder="Escribe xD" style={{height:"8vh",width:"60%",borderRadius:"5px", paddingLeft:"5%",border:"2px solid black",marginLeft:"25%"}} />
 
                
-                {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"  texto="Tuviste un Error"/>) : 
+                {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png" indice={numError}  texto="Tuviste un Error"/>) : 
          (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png" />)}
         
 

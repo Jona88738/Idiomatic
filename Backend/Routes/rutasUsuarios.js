@@ -45,7 +45,9 @@ routes.patch("/progresoUsuarioGeneral",cUser.progresoUsuarioGeneral)
 
 routes.get("/logout",cUser.Logout)
 
-routes.get("/testAprendizaje")
+routes.post("/tiempo",cUser.tiempo)
+
+routes.get("/testAprendizaje",cUser.testAprendizajeGet)
 
 routes.post("/testAprendizaje",cUser.testAprendizaje)
 

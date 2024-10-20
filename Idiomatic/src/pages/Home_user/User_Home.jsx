@@ -149,7 +149,9 @@ function User_Home() {
       <Avatar alt="Remy Sharp"  variant="rounded" src={info.foto} sx={{marginTop:"2%",marginLeft:"32%", width: 110, height: 110 }} />
       <h3 style={{textAlign:"center",margin:"0"}} >{info.nombre}</h3>
       <h3 style={{textAlign:"center",margin:"0"}} >{info.correo}</h3>
-      
+      <h3 style={{textAlign:"center",margin:"0",color:"blue"}} >
+        {info.suscrip === 1 ? ("Plan Premium "): ("Plan basico")}
+        </h3>
        <NavBar_User funcion={MostrarApartados}/>
      
      
