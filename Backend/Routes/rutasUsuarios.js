@@ -32,14 +32,12 @@ routes.patch("/editUser", cUser.editUser)
 routes.get("/deleteUser",cUser.deleteUser);
 
 routes.get("/getUser",cUser.getUser);
-
 routes.get("/CreateOrder",cUser.createOrder);
 
 routes.get("/CaptureOrder",cUser.CaptureOrder);
 
 //routes.get("/CancelOrder",cUser)
 //router.get("/comentarioUser", isAuthenticated, cUser.obtenerComentarios);
-  
 
 routes.get("/progresoUsuario",cUser.progresoUsuario)
 

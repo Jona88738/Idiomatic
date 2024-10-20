@@ -43,6 +43,8 @@ const LoginPage = () => {
       });
   }, []);
 
+  //Revisar cada que se haga merge
+
   const onSubmit = methods.handleSubmit((data) => {
     fetch(`/api/signUser`, {
       method: 'POST',
@@ -65,13 +67,14 @@ const LoginPage = () => {
           } else {
             console.log("Rol no válido");
           }
-        } else {
-          console.log("El usuario no existe o credenciales incorrectas");
-        }
-      })
-      .catch(error => {
-        console.error("Hubo un error", error);
-      });
+      } else {
+        console.log("El usuario no existe o credenciales incorrectas");
+      }
+    })
+    .catch(error => {
+      console.error("Hubo un error", error);
+    });
+  
   });
   
   

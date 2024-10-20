@@ -23,18 +23,18 @@ const createUser = async (req, res) => {
     // Encriptar la contraseña
     const passHashed = await encryptPass(password);
     console.log('Contraseña encriptada:', passHashed);  // Verifica la contraseña encriptada    
+    // Insertar el usuario en la base de datos
+    const [result] = await conn.query('INSERT INTO usuario (nombre, correo, contraseña, foto, rol, suscripcion, tipo_aprendizaje) VALUES (?, ?, ?, ?, ?, ?, ?)', [
+      username,
+      email,
+      passHashed,
+      "/uploads/FotoPerfil/init.png",
+      rol, // Usar el valor de rol recibido o 0 por defecto
+      true, // Suscripción por defecto
+      '' // Valor vacío para tipo_aprendizaje
+    ]);
 
-      // Insertar el usuario en la base de datos
-      const [result] = await conn.query('INSERT INTO usuario (nombre, correo, contraseña, foto, rol, suscripcion,tipo_aprendizaje) VALUES (?, ?, ?, ?, ?, ?,?)', [
-          username,
-          email,
-          passHashed,
-          "http://localhost:3001/FotoPerfil/init.png",
-          0, // Rol por defecto
-          true, // Suscripción por defecto,
-          "dsf"
-      ]);
-
+    console.log('Resultado de la inserción:', result);  // Verifica el resultado de la consulta
     // Verificar si se insertó correctamente
     if (result.affectedRows === 1) {
       res.json({ success: true, message: 'Usuario registrado con éxito', rol });
@@ -46,9 +46,6 @@ const createUser = async (req, res) => {
     res.status(500).json({ success: false, message: 'Error en el servidor', error: error.message });
   }
 };
-
-
-
 
 
 const sign_in = async (req, res) => {
@@ -83,6 +80,20 @@ const sign_in = async (req, res) => {
   }
 };
 
+const obtenerComentarios = async (req, res) => {
+  try {
+    const [row] = await conn.query(`SELECT u.nombre, b.comentarios FROM bitacora b JOIN usuario u ON b.id_usuario = u.idusuario`);
+    
+    if (row.length === 0) {
+      return res.status(404).json({ message: "No hay comentarios disponibles" });
+    }
+
+    res.json(row);
+  } catch (error) {
+    console.error('Error al obtener los comentarios:', error);
+    res.status(500).json({ message: "Error en el servidor", error: error.message });
+  }
+};
 
 
 const editUser = async (req,res) => {
