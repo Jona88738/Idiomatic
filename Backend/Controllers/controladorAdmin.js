@@ -93,10 +93,6 @@ const DeleteComentarioUser = async (req, res) => {
 
 
 
-<<<<<<< HEAD
-=======
-    const [rows] = await conn.query('select  idusuario,nombre,UserComentario(idusuario) from usuario where rol = 0')
->>>>>>> Jona
 
   
 

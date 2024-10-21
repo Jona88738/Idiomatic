@@ -22,10 +22,10 @@ function PresentSimpleInfo() {
           }}>
             <Grid container spacing={2}>
               <Grid item xs={8}>
-                <Typography variant="h3" style={{ fontWeight: 'bold', color: '#000000', padding: '25px' }}>
+                <Typography variant="h3" style={{ fontWeight: 'bold', color: '#000000', padding: '25px' , marginLeft: '50px'}}>
                   Simple Present
                 </Typography>
-                <Typography variant="h4" style={{ fontWeight: 'bold', color: '#46467A', marginTop: '-25px' }}>
+                <Typography variant="h4" style={{ fontWeight: 'bold', color: '#46467A', marginTop: '-25px' , marginLeft: '110px'}}>
                   Presente Simple
                 </Typography>
               </Grid>

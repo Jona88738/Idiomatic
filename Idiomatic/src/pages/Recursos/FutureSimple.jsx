@@ -25,7 +25,7 @@ function FutureSimpleInfo() {
               <Typography variant="h3" style={{ fontWeight: 'bold', color: '#000000', padding: '25px' }}>
                 Future Simple
               </Typography>
-              <Typography variant="h4" style={{ fontWeight: 'bold', color: '#46467A', marginTop: '-25px' }}>
+              <Typography variant="h4" style={{ fontWeight: 'bold', color: '#46467A', marginTop: '-25px' , marginLeft:'60px'}}>
                 Futuro Simple
               </Typography>
             </Grid>
