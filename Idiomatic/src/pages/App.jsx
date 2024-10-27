@@ -39,7 +39,7 @@ import ApartadoTemaRecursos from './Apartado_VLAJ_temas/ApartadoTemaRecursos';
 import UnscrambleSentences from './ApartadoJuegos/UnscrambleSentences';
 import ConversacionIA from './ApartadoJuegos/ConversacionIA';
 import ApartadoRecursos from './ApartadosCursos/ApartadoRecursos';
-import Panel_user from './Administrador/Panel_user';
+// import Panel_user from './Administrador/Panel_user';
 import Contenidos from './Administrador/Contenidos';
 import ContLectura from './Administrador/Contenidos/ContLectura';
 import ContEjercicioTema from './Administrador/Contenidos/ContEjercicio';
@@ -52,6 +52,30 @@ import ContAudioTema from './Administrador/Contenidos/ContAudio';
 // import ModalCan from './Recursos/ModalCan';
 // import ModalMay from './Recursos/ModalMay';
 // import ModalMust from './Recursos/ModalMust';
+import Panel_user from './Administrador/Panel_user';
+import PresentSimple from './Recursos/PresentSimple';
+import PresentContinuous from './Recursos/PresentContinuous';
+import PastSimple from './Recursos/PastSimple';
+import FutureSimple from './Recursos/FutureSimple';
+import ModalCan from './Recursos/ModalCan';
+import ModalMay from './Recursos/ModalMay';
+import ModalMust from './Recursos/ModalMust';
+import VerbTobe from './Recursos/VerbTobe';
+import Vocabulariobasico from './Recursos/Vocabulariobasico';
+import Clothes from './Recursos/Clothes';
+import Family from './Recursos/Family';
+import Clock from './Recursos/Clock';
+import Numbers from './Recursos/Numbers';
+import Colors from './Recursos/Colors';
+import Food from './Recursos/Food';
+import Greetings from './Recursos/Greetings';
+import Presentations from './Recursos/Presentations';
+import Giveinformation from './Recursos/Giveinformation';
+import Formaltitles from './Recursos/Formaltitles';
+import Nationalities from './Recursos/Nationalities';
+import Jobs from './Recursos/Jobs';
+
+
 
 
 
@@ -99,7 +123,7 @@ function App() {
                 <Route path='/Videos' element={<ApartadoVideos/>} />
                 <Route path='/Lecturas' element={<ApartadoLecturas/>} />
                 <Route path='/Audios' element={<ApartadoAudio/>} />
-                <Route path='/Recursos' element={<ApartadoRecursos />} />
+                <Route path='/Recursos' element={<ApartadoTemaRecursos />} />
                 
                 {/* Juegos */}
 
@@ -128,14 +152,29 @@ function App() {
                 <Route  path='/User_Ajustes' element={<User_Ajustes/>} />
 
                 {/* Recursos*/}
-                {/* <Route  path='/PresentSimple' element={<PresentSimple/>} />
+                <Route  path='/PresentSimple' element={<PresentSimple/>} />
                 <Route  path='/PresentContinuous' element={<PresentContinuous/>} />
                 <Route  path='/PastSimple' element={<PastSimple/>} />
                 <Route  path='/FutureSimple' element={<FutureSimple/>} />
                 <Route  path='/ModalCan' element={<ModalCan/>} />
                 <Route  path='/ModalMay' element={<ModalMay/>} />
                 <Route  path='/ModalMust' element={<ModalMust/>} />
- */}
+                <Route  path='/VerbTobe' element={<VerbTobe/>} />
+                <Route  path='/Vocabulariobasico' element={<Vocabulariobasico/>} />
+                <Route  path='/Clothes' element={<Clothes/>} />
+                <Route  path='/Family' element={<Family/>} />
+                <Route  path='/Clock' element={<Clock/>} />
+                <Route  path='/Numbers' element={<Numbers/>} />
+                <Route  path='/Colors' element={<Colors/>} />
+                <Route  path='/Food' element={<Food/>} />
+                <Route  path='/Greetings' element={<Greetings/>} />
+                <Route  path='/Presentations' element={<Presentations/>} />
+                <Route  path='/Giveinformation' element={<Giveinformation/>} />
+                <Route  path='/Formaltitles' element={<Formaltitles/>} />
+                <Route  path='/Nationalities' element={<Nationalities/>} />
+                <Route  path='/Jobs' element={<Jobs/>} />
+
+
 
 
 

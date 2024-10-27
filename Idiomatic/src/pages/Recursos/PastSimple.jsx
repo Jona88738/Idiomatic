@@ -22,10 +22,10 @@ function PastSimpleInfo() {
         }}>
           <Grid container spacing={2}>
             <Grid item xs={8}>
-              <Typography variant="h3" style={{ fontWeight: 'bold', color: '#000000', padding: '25px' }}>
+              <Typography variant="h3" style={{ fontWeight: 'bold', color: '#000000', padding: '25px', marginLeft: '30px' }}>
                 Simple Past
               </Typography>
-              <Typography variant="h4" style={{ fontWeight: 'bold', color: '#e0dffd', marginTop: '-25px' }}>
+              <Typography variant="h4" style={{ fontWeight: 'bold', color: '#e0dffd', marginTop: '-25px', marginLeft: '60px' }}>
                 Pasado Simple
               </Typography>
             </Grid>

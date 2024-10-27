@@ -204,6 +204,9 @@
 
 
 @media  (min-width:1024px){
+    .ContainerPageNoti{
+        height: 100vh;
+    }
 
     .Contenedormain{
         display:flex !important;
