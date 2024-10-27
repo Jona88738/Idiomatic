@@ -3,14 +3,23 @@ import Button from '@mui/material/Button';
 import "../styles/MainHome.css";
 import { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useNavigate } from 'react-router-dom';
 
 export default function NavBar() {
+
+        const navigate = useNavigate();
 
         const [navH, setnavH] = useState(false);
 
         function cambioNav(){
           setnavH(!navH);
         }
+
+        function Redireccionar(direccion){
+          console.log(direccion)
+          navigate(direccion)
+        }
+
   return (
     <>
       
@@ -25,10 +34,10 @@ export default function NavBar() {
 
         <Button className='btnCerrar'>Cerrar</Button> 
 
-        <Button className='btnOpcion' href="/" title='inicio'> Inicio </Button>
-        <Button  className='btnOpcion' href="/Cursos" >Cursos</Button>
-        <Button  className='btnOpcion' href="/Login" >Login</Button>
-        <Button  className='btnOpcion' href="/Nosotros" >Nosotros</Button>
+        <Button className='btnOpcion' onClick={() => {const direccion = "/"; Redireccionar(direccion);}}  title='inicio'> Inicio </Button>
+        <Button  className='btnOpcion' onClick={() => {const direccion = "/Cursos"; Redireccionar(direccion);}} >Cursos</Button>
+        <Button  className='btnOpcion' onClick={() => {const direccion = "/Login"; Redireccionar(direccion);}} >Login</Button>
+        <Button  className='btnOpcion' onClick={() => {const direccion = "/Nosotros"; Redireccionar(direccion);}}   >Nosotros</Button>
         
         <Button className='btnCrearCuenta' href='/Sign_up'  variant="outlined"sx={{}}>Crear Cuenta</Button>
       

@@ -1,11 +1,84 @@
 
 
-.opcionMenu{
-    bottom: 5px ;
-    color:black !important;
+@media screen and (max-width:600px) {
+    .ContainerNavBarApartado{
+        background: #F9FAFD;
+        height:10vh;
+        box-shadow:0px 6px 2px GRAY;
+        position: relative;
+
+    }
+    .ContainerOpcionesNavApartados{
+        background: gray;
+        display:flex !important;
+        flex-direction: column;
+        justify-content:right;
+        position:relative !important;
+
+        bottom:10px;
+    }
+    .NavBarOpcionesApartadoOcultar {
+        display: none !important;
+    }
+    .btnAbrirApartado{
+        position: absolute !important;
+        right: 0;
+        top: 10%;
+    }
+    
+    .opcionMenu{
+        bottom: 5px ;
+        color:black !important;
+    }
+    
+    
+    .opcionMenu:focus{
+        background-color: aqua !important;   
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
 }
 
 
-.opcionMenu:focus{
-    background-color: aqua !important;   
+@media  (min-width:1024px){
+
+    .ContainerNavBarApartado{
+        background: #F9FAFD;
+        height:10vh;
+        box-shadow:0px 6px 2px GRAY;
+
+    }
+    .ContainerOpcionesNavApartados{
+        display:flex !important;
+        justify-content:right;
+        position:relative;
+        bottom:50px;
+    }
+    
+    .opcionMenu{
+        bottom: 5px ;
+        color:black !important;
+    }
+    
+    
+    .opcionMenu:focus{
+        background-color: aqua !important;   
+    }
+    .btnAbrirApartado{
+        position: none !important;
+        
+    }
+    .NavBarOpcionesApartadoOcultar {
+        /* background: gray; */
+        display:flex !important;
+        /* flex-direction: column; */
+        justify-content:right;
+        position:relative !important;
+
+        bottom:50px;
+    }
+
 }
+

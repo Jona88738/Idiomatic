@@ -9,7 +9,7 @@ export default function UnscrambleSentences(){
 
     const location = useLocation();
 
-    const { recursoFront, recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { recursoFront, recursoEjercicio,juegoID,index } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     
     const [respuestas,setRespuestas] = useState({})
 
@@ -62,6 +62,53 @@ export default function UnscrambleSentences(){
         } )
 
         if(contador === 6){
+
+
+            let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
+        
+            completeJuego[0].Total += 1;
+        console.log("El tipo es: ",completeJuego[index].TotalComplete);
+        
+        if(completeJuego[index].TotalComplete <=  juegoID){
+
+            completeJuego[index].TotalComplete = completeJuego[index].TotalComplete +1;
+        console.log("entro")
+        
+        console.log(completeJuego[index].TotalComplete )
+
+        sessionStorage.setItem('completeJuego',JSON.stringify(completeJuego) );
+        console.log("Objeto actualizado: ",JSON.parse(sessionStorage.getItem('completeJuego')))
+        completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'));
+
+
+
+
+            //let complete = Number(sessionStorage.getItem('completeVideo')) +1;
+            console.log("entro al if xD")
+
+           // sessionStorage.setItem('completeVideo', complete);
+    
+          //  console.log("NumLeccionVideo: ",sessionStorage.getItem('completeVideo'));
+    
+            fetch(`/api/progresoUsuarioGeneral?TemaEjercicio=ejercicio&completeV=${completeJuego}`,{
+                method:"PATCH",
+                headers:{
+    
+                    "Content-Type":'application/json'
+                },
+                body: JSON.stringify({
+                    "completeVideo": completeJuego,
+                  }),
+            })
+            .then(res => res.json())
+            .then(res => console.log(res))
+
+        }
+
+
+
+
+
             console.log("Felicidades ganaste el juego xD"+ contador);
             setNoti(true);
             handleClickOpen();

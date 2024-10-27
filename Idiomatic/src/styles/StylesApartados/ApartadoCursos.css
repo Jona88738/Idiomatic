@@ -1,0 +1,53 @@
+@media screen and (max-width:600px) {
+
+    .CardApartados{
+
+        position:relative !important;
+        display:inline-block;
+        width: 80% !important;
+        min-width: 45px;
+        max-width: 350px;
+        background:rgba(224, 223, 253, 0.41);
+        border-radius:30px !important;
+        margin-top:50px;
+        margin-left:10%;
+        cursor:pointer;
+         /* '&:hover': { transform: 'scale(1.1)', transition: 'transform 0.3s', boxShadow: "0 6px 10px rgba(0, 0, 0, 4.4)"
+     */
+        }
+    .CardApartados:hover{
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
+}
+
+
+@media  (min-width:1024px){
+    .CardApartados{
+
+        position:relative !important;
+        display:inline-block;
+        width: 50% !important;
+        min-width: 45px;
+        max-width: 350px;
+        background:rgba(224, 223, 253, 0.41);
+        border-radius:30px !important;
+        margin-top:50px;
+        margin-left:5%;
+        cursor:pointer;
+         /* '&:hover': { transform: 'scale(1.1)', transition: 'transform 0.3s', boxShadow: "0 6px 10px rgba(0, 0, 0, 4.4)"
+     */
+        }
+    .CardApartados:hover{
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
+
+}
+

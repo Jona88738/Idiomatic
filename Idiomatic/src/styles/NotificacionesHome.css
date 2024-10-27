@@ -3,6 +3,67 @@
 
 @media screen and (max-width: 600px){
 
+    .ContenedorMain{
+
+        margin-top: 5% !important;
+        background:rgba(119, 102, 198, 0.3);
+        width:100%;
+        height: 20vh;
+        border-Radius:50px;
+        margin-bottom: 6%;
+    }
+
+    .TituloNoti{
+        color:black;
+        left:20%;
+        font-Size:5vh;
+    }
+
+    .SubTNoti{
+        color:black;
+        text-Align:center;
+        font-Size:6vw;
+    }
+
+    .btonFiltrar{
+        margin-top: 3% !important;
+        margin-bottom: 3% !important;
+        color: black !important;
+        border-radius: 45px !important;
+        width:  25%;
+        background:greenyellow !important;
+    }
+
+    .ContenedorNoti{
+        background: rgba(255, 199, 39, 0.7);
+        position: relative !important;
+        margin-top: 10%;
+    }
+    .btnBorrarNoti{
+        background:red;
+        position:absolute;
+        right:0%;
+        top:0;
+        width:11%;
+        height:5vh;
+        cursor:pointer;
+    }
+    .btnUser_NotificacionPage{
+        background:red;
+        position:absolute;
+        right:1%;
+        top:0;
+        width:11%;
+        height:5vh;
+    }
+    .imgContPage{
+        position:absolute;
+        right:20px;
+        width: 35%;
+        top:14%;
+        /* min-height:25%; */
+    }
+
 }
 
 
@@ -46,6 +107,24 @@
     .ContenedorNoti{
         background: rgba(255, 199, 39, 0.7);
         position: relative !important;
+    }
+
+    .btnBorrarNoti{
+        background:red;
+        position:absolute;
+        right:0;
+        top:0;
+        width:5%;
+        height:5vh;
+        cursor:pointer;
+    }
+    .btnUser_NotificacionPage{
+        background:red;
+        position:absolute;
+        right:0;
+        top:0;
+        width:5%;
+        height:5vh;
     }
 
 }

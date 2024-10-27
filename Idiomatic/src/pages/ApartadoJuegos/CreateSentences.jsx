@@ -8,7 +8,7 @@ export default function CreateSentences(){
 
     const location = useLocation();
     const navigate = useNavigate();
-    const { link,imagen, recursoFront, recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { link,imagen, recursoFront, recursoEjercicio,juegoID,index } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     
     const [arre, setArre] = useState([])
     const [Noti, setNoti] = useState(false);
@@ -102,26 +102,6 @@ export default function CreateSentences(){
         console.log(arrAux.length)
         const resultado = arrAux.join(' '); 
 
-        // console.log("el resultado es:", resultado,":arr ", arr,"arreglodinamico: ",arre)
-
-        // if(resultado === respuesta) {
-        //     console.log("Felicidades es correcto el ejercicio")
-        //     setNoti(true);
-        //     setArre(resultado);
-           
-        //     handleClickOpen ()
-            
-            
-        // }else if( arre === respuesta){
-        //     console.log("Felicidades es correcto el ejercicio")
-        //     handleClickOpen()
-        // }
-        // else{
-        //     console.log("Tienes un error en la sentencia ")
-          
-        //     handleClickOpen()
-            
-        // }
         console.log(resultado)
 
         if(arrAux.length === 5){ 
@@ -137,11 +117,65 @@ export default function CreateSentences(){
             .then(res => {
                 console.log(res)
                 if(res.response.errors.length === 0 ){
+
+
+                    let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
+        
+                    completeJuego[0].Total += 1;
+                    console.log("El tipo es: ",completeJuego[index].TotalComplete);
+                    
+                    if(completeJuego[index].TotalComplete <=  juegoID){
+            
+                        completeJuego[index].TotalComplete = completeJuego[index].TotalComplete +1;
+                    console.log("entro")
+                    
+                    console.log(completeJuego[index].TotalComplete )
+            
+                    sessionStorage.setItem('completeJuego',JSON.stringify(completeJuego) );
+                    console.log("Objeto actualizado: ",JSON.parse(sessionStorage.getItem('completeJuego')))
+                    completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'));
+            
+            
+            
+            
+                        //let complete = Number(sessionStorage.getItem('completeVideo')) +1;
+                        console.log("entro al if xD")
+            
+                       // sessionStorage.setItem('completeVideo', complete);
+                
+                      //  console.log("NumLeccionVideo: ",sessionStorage.getItem('completeVideo'));
+                
+                        fetch(`/api/progresoUsuarioGeneral?TemaEjercicio=ejercicio&completeV=${completeJuego}`,{
+                            method:"PATCH",
+                            headers:{
+                
+                                "Content-Type":'application/json'
+                            },
+                            body: JSON.stringify({
+                                "completeVideo": completeJuego,
+                              }),
+                        })
+                        .then(res => res.json())
+                        .then(res => console.log(res))
+            
+                    }
+
+
+
+
+
+
+
                     console.log("Felicidades es correcto el ejercicio")
              setNoti(true);
              setArre(resultado);
            
              handleClickOpen ()
+
+
+
+
+
 
                 }else{
 

@@ -2,25 +2,34 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import "../styles/NavbarApartado.css"
+import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from 'react';
+
 export default function NavBar_Apartados(){
   const navigate = useNavigate();
+
+  const [navH, setnavH] = useState(false);
 
   function Redireccionar(direccion){
     console.log(direccion)
     navigate(direccion)
+  }
+  function cambioNav(){
+    setnavH(!navH);
   }
 
  
 
         return(<>
         
-        <Container maxWidth="cadena" sx={{background: '#F9FAFD', height:'10vh',     boxShadow:'0px 6px 2px GRAY'}}>
+        <Container className='ContainerNavBarApartado' maxWidth="cadena" >
       
       <img src="/images/Logo.png" width="60vw" height="60vh" alt="Logo de mi página"/>
 
         
-      
-        <Container sx={{display:'flex',justifyContent:'right',position:'relative',bottom:'50px'}}>
+      <Button className='btnAbrirApartado' onClick={cambioNav}><MenuIcon className='btnCerrar'  fontSize='large'/></Button> 
+
+        <Container className={navH ? 'ContainerOpcionesNavApartados':'NavBarOpcionesApartadoOcultar'} >
         <Button onClick={() => {const direccion = "/TemasRecursos"; Redireccionar(direccion);}} className='opcionMenu' >Recursos</Button>   
         <Button onClick={() => {const direccion = "/TemasVideos"; Redireccionar(direccion);}} className='opcionMenu'  >Videos</Button>
         <Button onClick={() => {const direccion = "/TemasAudios"; Redireccionar(direccion);}} className='opcionMenu'  >Audios</Button>

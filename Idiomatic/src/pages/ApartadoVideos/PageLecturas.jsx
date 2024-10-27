@@ -9,7 +9,7 @@ export default function PageLecturas() {
 
     const location = useLocation();
     const { lectura } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
-    console.log(lectura)
+    //console.log(lectura)
 
     const navigate = useNavigate();
 
@@ -34,13 +34,13 @@ export default function PageLecturas() {
         Myinput.type = "checkbox"
         div.appendChild(Myinput);
     
-        console.log("xD")
+       // console.log("xD")
      }
 
 
 
 let portada = page.length;
-console.log(typeof portada)
+//console.log(typeof portada)
 return (<>
 <div style={{background:"rgba(119, 102, 198, 0.4)"}}>
     <br/>
@@ -74,7 +74,7 @@ return (<>
         <div class="flip-book">  
 
     {page.map((element,index) =>{
-        console.log("numero z-index: ",element.info)
+       // console.log("numero z-index: ",element.info)
         return(<>
                             
                 <div class="flip" id={"p"+index}>

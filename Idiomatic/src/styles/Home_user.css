@@ -1,9 +1,13 @@
 
 @media screen and (max-width:600px) {
+    .ContainerPageNoti{
+        height: 100vh;
+    }
 
     .Contenedormain{
+        position: relative;
         /*display:block !important;
-*/        margin:0;
+*/       padding-bottom:21%;
         width:100%;
         
     }
@@ -13,6 +17,26 @@
         position:absolute  !important; 
         
         bottom:0;
+    }
+
+    .fotoPerfil{
+        display: none !important;
+        margin-top:2%;
+        margin-left:32%;
+        width: 110px !important;
+        height: 110px !important;
+    }
+    .NomCorreoTitle {
+        display: none !important;
+        text-align:center;
+        margin:0;
+    }
+
+    .planTitle{
+        display: none;
+        text-align:center;
+        margin:0;
+        color:blue;
     }
 
     .btn{
@@ -62,36 +86,40 @@
      .TitleUserHome{
         background:rgba(119, 102, 198, 0.3);
         width:100%;
-        border-Radius:50px;
+        border-Radius:30px;
+        height: 20vh;
         margin:0;
+        margin-top: 8%;
 }
 
 
     .TituloMain{
         
         text-Align:center;
-        font-Size:8vw;
+        font-Size:5vh;
     }
 
     .subTituloMain{
         text-Align:center;
-        font-Size:6vw;
+        font-Size:8vw;
     }
 
     .imgHomeUser{
         position:absolute;
         right:30px;
-        top:2px;
+        top:13%;
+        width: 35%;
         min-Height:25%;
     }
 
     .subtema{
         box-Shadow:0px 3px 1px rgba(31, 25, 47, 0.5);
-        font-Size:6vw;
+        font-Size:9vw;
     }
 
     .subtema2{
-        font-Size:6vw;
+        text-align: center;
+        font-Size:7vw;
     }
 
     .ContenedorProgreso{
@@ -101,13 +129,14 @@
         background:rgba(70, 70, 122, 0.15);
         border-Radius:25px;
         display:flex !important;
+        margin-bottom: 5%;
     }
 
     .imgBandera{
 
-        position:sticky !important;
-        left:10%;
-        top:38%;
+        position:relative !important;
+        left:5%;
+        top:32px;
         width: 35%;
         height: 50%;
         /* margin-top: 36%;*/
@@ -124,7 +153,7 @@
     .navDesple{
        
 
-        position:absolute  !important;
+        /* position:absolute  !important; */
         padding: 0 !important;
         bottom:0;
         border-Radius:50px;
@@ -155,8 +184,9 @@
     display: flex !important;
     padding: 0 !important;
     flex-direction: row;
-    position:static;
-    top:8%;
+    /* position:absolute; */
+    top:0;
+    bottom: 0;
     right:15px;
     }
 
@@ -185,6 +215,26 @@
     .ContenedorNav{
         margin:0;
         width:30% !important;
+    }
+
+    .fotoPerfil{
+        margin-top:2%;
+        margin-left:32%;
+        width: 110px !important;
+        height: 110px !important;
+    }
+
+    .NomCorreoTitle {
+
+        text-align:center;
+        margin:0;
+    }
+
+    .planTitle{
+
+        text-align:center;
+        margin:0;
+        color:blue;
     }
  
     .btn{
@@ -315,6 +365,7 @@
    margin-bottom: 5% !important;
    margin-top: 10%;
    margin-left: 10%;
+   /* font-size: 1.5vw; */
     }
 
     .btnDesplegable h2{

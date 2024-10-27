@@ -8,7 +8,7 @@ export default function EjercicioAudio(){
 
     const location = useLocation();
 
-    const { link,recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { link,recursoEjercicio,index,audioID } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
 //     console.log(recursoEjercicio)
 
     const [respuestaUser, setRespuestaUser] = useState("")
@@ -72,6 +72,46 @@ export default function EjercicioAudio(){
 
         if(porcentajeAcierto=== 100){
 
+            let completeAudio = JSON.parse(sessionStorage.getItem('completeAudio'))
+        
+            completeAudio[0].Total += 1;
+            console.log("El tipo es: ",completeAudio[index].TotalComplete);
+            
+            if(completeAudio[index].TotalComplete <=  audioID){
+    
+                completeAudio[index].TotalComplete = completeAudio[index].TotalComplete +1;
+            console.log("entro")
+            
+            console.log(completeAudio[index].TotalComplete )
+    
+            sessionStorage.setItem('completeAudio',JSON.stringify(completeAudio) );
+            console.log("Objeto actualizado: ",JSON.parse(sessionStorage.getItem('completeAudio')))
+            completeAudio = JSON.parse(sessionStorage.getItem('completeAudio'));
+    
+    
+    
+    
+                //let complete = Number(sessionStorage.getItem('completeVideo')) +1;
+                console.log("entro al if xD")
+    
+               // sessionStorage.setItem('completeVideo', complete);
+        
+              //  console.log("NumLeccionVideo: ",sessionStorage.getItem('completeVideo'));
+        
+                fetch(`/api/progresoUsuarioGeneral?TemaEjercicio=audio&completeV=${completeAudio}`,{
+                    method:"PATCH",
+                    headers:{
+        
+                        "Content-Type":'application/json'
+                    },
+                    body: JSON.stringify({
+                        "completeVideo": completeAudio,
+                      }),
+                })
+                .then(res => res.json())
+                .then(res => console.log(res))
+    
+            }
             
                 console.log("Felicidades Completaste el ejercicio")
                 setNoti(true);

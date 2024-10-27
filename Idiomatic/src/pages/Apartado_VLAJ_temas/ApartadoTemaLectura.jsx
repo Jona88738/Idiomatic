@@ -26,7 +26,7 @@ export default function ApartadoTemasLecturas(){
             <Head title="Lecturas" mycolor="rgba(249, 176, 195, 0.54)" ruta="/images/iconoLecturas.svg"/>
            
             {lecturas.map((element,index) =>{
-               return <MyCard key={index} title={element.nombre} imagen="/images/ApartadosTemas/greetings and farewells.png"  page="/PageLecturas" lectura={element.rutaLectura}    introduccion={element.introduccion} /> 
+               return <MyCard key={index} title={element.nombre} imagen="/images/ApartadosTemas/greetings and farewells.png"  page="/PageLecturas" lectura={element.rutaLectura}    introduccion={element.introduccion} boxshadow={0}  /> 
             })}
             
             

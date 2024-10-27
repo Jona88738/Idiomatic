@@ -825,11 +825,17 @@
         border-radius: 20px !important;
         height: 100%; 
      }
+     .cardRosa:hover{
+       transform: scale(1.1);
+        transition: transform 0.3s; 
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+     }
 
      .cardRosa h1{
         color: white;
         font-size: 2vw;
          text-align: center; 
+         
      }
 
 
@@ -843,6 +849,12 @@
         margin-Bottom: 20px;
         border-radius: 20px !important;
      }
+     .cardMorado:hover{
+      transform: scale(1.1);
+      transition: transform 0.3s; 
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
+
 
      .cardMorado h1{
         color: white;
@@ -853,6 +865,13 @@
         background: #FFC212 !important;
         border-radius: 20px !important; 
      }
+
+     .cardAmarillo:hover{
+      transform: scale(1.1);
+       transition: transform 0.3s; 
+     box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
+
 
      .cardAmarillo h1{
         color: white; 
@@ -870,6 +889,12 @@
         margin-bottom: 20px;
         border-radius: 20px !important;
      }
+
+     .cardNegro:hover{
+      transform: scale(1.1);
+       transition: transform 0.3s; 
+     box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
 
      .cardNegro h1{
         font-size: 3vw;
@@ -950,6 +975,7 @@
         display:flex !important;
         justify-content:space-evenly;
         border-radius:20px !important;
+        box-shadow: 0 9px 14px rgba(0, 0, 0, 5.4);
      }
 
      .EjercicioNivel h1{
@@ -991,6 +1017,12 @@
         border-radius:20px !important;
      }
 
+     .cardGratuido:hover{
+      transform: scale(1.1);
+       transition: transform 0.3s; 
+     box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
+
      .cardGratuido h1{
         text-align:center;
      }
@@ -1018,6 +1050,11 @@
         margin-right:10%;
         border-radius:20px !important;
      }
+     .cardPlus:hover{
+      transform: scale(1.1);
+       transition: transform 0.3s; 
+     box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
 
      .cardPlus h1{
 

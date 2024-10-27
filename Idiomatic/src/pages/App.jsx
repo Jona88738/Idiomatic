@@ -40,6 +40,11 @@ import UnscrambleSentences from './ApartadoJuegos/UnscrambleSentences';
 import ConversacionIA from './ApartadoJuegos/ConversacionIA';
 import ApartadoRecursos from './ApartadosCursos/ApartadoRecursos';
 import Panel_user from './Administrador/Panel_user';
+import Contenidos from './Administrador/Contenidos';
+import ContLectura from './Administrador/Contenidos/ContLectura';
+import ContEjercicioTema from './Administrador/Contenidos/ContEjercicio';
+import ContTemaVideo from './Administrador/Contenidos/ContVideo';
+import ContAudioTema from './Administrador/Contenidos/ContAudio';
 // import PresentSimple from './Recursos/PresentSimple';
 // import PresentContinuous from './Recursos/PresentContinuous';
 // import PastSimple from './Recursos/PastSimple';
@@ -143,8 +148,14 @@ function App() {
 
 
                 <Route  path='/Admin_Home' element={<Admin_Home/>} />
+                <Route  path='/contenidos' element={<Contenidos/>} />
 
+                {/* Contenidos  Admin*/}
 
+                <Route  path='/ContLectura' element={<ContLectura/>} />
+                <Route  path='/ContEjercicio' element={<ContEjercicioTema/>} />
+                <Route  path='/ContVideoTema' element={<ContTemaVideo/>} />
+                <Route  path='/ContAudioTema' element={<ContAudioTema/>} />
 
                 <Route  path='*' element={<Error404/>} />
                 

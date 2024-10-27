@@ -12,8 +12,8 @@ function User_Ajustes({foto,cambiarFoto}) {
 
  
   return (
-    <>
-    <Container>
+    
+    <Container className='ContainerMainAjustes'>
       <Container className='ContainerHead' >
           <h1 className='TitleHead' >Ajustes</h1>
           <h3 className='subTitleHead' >¡Arreglemos Esto!</h3>
@@ -28,15 +28,15 @@ function User_Ajustes({foto,cambiarFoto}) {
       <Container className='ApartadosAjustes'>
         
         <h2 className='ApartadoBody'>Cuenta</h2>
-        <button onClick={() => setApartados(0)} className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"1%"}}><PersonIcon/>  Perfil</button>
-        <button onClick={() => setApartados(1)} className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%"}}> <NotificationsIcon sx={{position:"relative",top:"2px"}}/>  Notificaciones</button>
-        <button onClick={() => setApartados(2)}  className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%"}}><SchoolIcon/> Cuenta</button>
+        <button onClick={() => setApartados(0)} className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"1%",cursor:"pointer"}}><PersonIcon/>  Perfil</button>
+        <button onClick={() => setApartados(1)} className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%",cursor:"pointer"}}> <NotificationsIcon sx={{position:"relative",top:"2px"}}/>  Notificaciones</button>
+        <button onClick={() => setApartados(2)}  className='btnAjustes' style={{fontSize:"1.5vw",marginTop:"4%",cursor:"pointer"}}><SchoolIcon/> Cuenta</button>
       
         <h2 className='ApartadoBody'>Suscripcion</h2>
 
-        <button onClick={() => setApartados(3)}  className='btnAjustes' style={{fontSize:"1.5vw"}}><ShopIcon /> Restaurar Suscripcion</button>
+        <button onClick={() => setApartados(3)}  className='btnAjustes' style={{fontSize:"1.5vw",cursor:"pointer"}}><ShopIcon /> Restaurar Suscripcion</button>
         <h2 className='ApartadoBody'>Soporte</h2>    
-        <button onClick={() => setApartados(4)}  className='btnAjustes' style={{fontSize:"1.5vw"}}><AddCommentIcon/> Feedback</button>  
+        <button onClick={() => setApartados(4)}  className='btnAjustes' style={{fontSize:"1.5vw",cursor:"pointer"}}><AddCommentIcon/> Feedback</button>  
       </Container>
 
       <Container>
@@ -56,7 +56,7 @@ function User_Ajustes({foto,cambiarFoto}) {
       
       
 
-    </>
+    
   )
 }
 

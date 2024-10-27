@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import "../../styles/NotificacionesHome.css"
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
+import '../../styles/StyleHomeUser/UserNotificacion.css'
 function User_Notificaciones() {
   const [notificacion, setNotificacion] = useState([])
 
@@ -31,20 +32,20 @@ function User_Notificaciones() {
           <h2 style={{marginBottom:"0"}}>{titulo} </h2>
           <p>{texto}</p>
           <br/>   
-          <button  style={{background:"red",position:"absolute",right:"0",top:"0",width:"5%",height:"5vh"}}  onClick={() => onDelete(indice)} ><CloseIcon/> </button>
+          <button className='btnUser_NotificacionPage'  onClick={() => onDelete(indice)} ><CloseIcon/> </button>
         </Container>
         </>
   )
   }
 
   return (
-    <>
+    <div className='ContainerPageNoti'>
       
       
       <Container className='ContenedorMain' >
           <h1 className='TituloNoti' >Notificaciones</h1>
           <h3 className='SubTNoti' >Resumen sobre tus cursos</h3>
-          <img src="/images/IconoNotifi.svg" width="20%"  style={{position:'absolute',right:'30px',top:'2px',minHeight:'25%'}}   alt="Logo de mi página"/>
+          <img className='imgContPage' src="/images/IconoNotifi.svg" width="20%"    alt="Logo de mi página"/>
         
         </Container>
       
@@ -54,7 +55,7 @@ function User_Notificaciones() {
         })}
        
        
-    </>
+    </div>
   )
 }
 

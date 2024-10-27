@@ -483,7 +483,7 @@ const progresoUsuario = async (req,res) => {
 
   const [row] = await conn.query(`SELECT * FROM progresousuario where Id_usuario = ?`,[req.session.idUser])
   //console.log(row[0].nombre)
-  console.log(row)
+  //console.log(row[0].Id_contenido)
   res.status(200).json({
     "message":true,
     "nombre":req.session.nombre,
@@ -495,24 +495,29 @@ const progresoUsuario = async (req,res) => {
     "suscrip":req.session.suscripcion,
     "completeVideo":row[0].numLeccion_video,
     "completeAudio":row[0].numLeccion_audio,
-    "completeEjercicio":row[0].numLeccion_juegos
+    "completeEjercicio":row[0].numLeccion_juegos,
+    "IdContenido":row[0].Id_contenido
 
   })
 }
 
 const progresoUsuarioGeneral = async (req,res) => {
 
-  const {TemaEjercicio} = req.query;
-
-  const [row] = await conn.query(`SELECT * FROM progresousuario where Id_usuario = ?`,[TemaEjercicio])
-  //console.log(typeof row[0].porcentajeGeneral);
-  const porcentaje = (100 * (row[0].porcentajeGeneral+1))/60;
+  const {TemaEjercicio,completeV} = req.query;
+  const {completeVideo} = req.body;
+  console.log(completeVideo)
+  console.log("Entron xD")
+  const progresoJSON = JSON.stringify(completeVideo);
+  // const [row] = await conn.query(`SELECT * FROM progresousuario where Id_usuario = ?`,[TemaEjercicio])
+  // //console.log(typeof row[0].porcentajeGeneral);
+  // const porcentaje = (100 * (row[0].porcentajeGeneral+1))/60;
   
-  console.log(porcentaje)
+  // console.log(porcentaje)
+  const [row] = await conn.query("CALL ActualizarProgresoUsuario(?,?,?)",[req.session.idUser,TemaEjercicio,progresoJSON]);
 
-  res.json({
+  console.log(row)
 
-  })
+  res.json(row)
 }
 
   

@@ -13,9 +13,11 @@ export default function ConversacionIA(){
 
     const location = useLocation();
 
-    const { recursoFront, recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { recursoFront, recursoEjercicio,juegoID,index } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
      // Inicio 
      const navigate = useNavigate();
+
+     const [test, setTest] = useState("");
 
     const [recording, setRecording] = useState(false);
     const [audioUrl, setAudioUrl] = useState(null);
@@ -107,85 +109,99 @@ export default function ConversacionIA(){
                 "description":{"en":"Possible spelling mistake"}
             })
 
-            let contador = 0;
+            let contadorRes = 0;
+            let contadorIncorrecta = 0;
 
             let respuestaUser = data.message.replace(/\s+/g, '');           //.split("")
-            respuestaUser = letras.split("")
+            respuestaUser = respuestaUser.split("")
             let respuestaCorrecta = recursoFront.respuesta;
+            let respuestaIncorrecta = recursoFront.incorrecta;
 
             let respuestaSinEspacio = respuestaCorrecta.replace(/\s+/g, '')
+            let IncorrectaSinEspacio = respuestaIncorrecta.replace(/\s+/g, '')
 
-            console.log("respuestaFinal",respuestaSinEspacio[0])
+            console.log("respuestaFinal",respuestaSinEspacio)
+            console.log("respuestaUser: ",respuestaUser)
 
-            respuestaUser.map((element,index) => {
+            respuestaUser.map((element,num) => {
 
-                if(element === respuestaSinEspacio[index]){
+                if(element === respuestaSinEspacio[num].toUpperCase()){
 
-                    contador++;
+                    contadorRes++;
 
-                }else{
+                }else if(element === IncorrectaSinEspacio[num].toUpperCase()) {
 
+                    contadorIncorrecta++;
                 }
 
-                let porcentaje = (contador* 100)/recursoEjercicio.length;
-                console.log(porcentaje)
-                //console.log("Letras: ",element);
-                //console.log("SinESpacio: ", )
-               
             })
+
+            console.log("Mi contador: ",contadorRes)
+            console.log("Incorrecta: ",contadorIncorrecta)
+
+            let porcentaje = (contadorRes* 100)/recursoEjercicio.length;
+            console.log(porcentaje)
+
+            let porcentajeIncorrecto = (contadorIncorrecta* 100)/recursoEjercicio.length;
+            console.log(porcentajeIncorrecto)
             
-            //console.log(letras);
+            if(porcentaje > 28 ){
+                console.log("Felicidades respondiste bien ")
+                let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
+        
+                completeJuego[0].Total += 1;
+        console.log("El tipo es: ",completeJuego[index].TotalComplete);
+        
+        if(completeJuego[index].TotalComplete <=  juegoID){
 
-            // letras.map((Element) => {
+            completeJuego[index].TotalComplete = completeJuego[index].TotalComplete +1;
+        console.log("entro")
+        
+        console.log(completeJuego[index].TotalComplete )
 
-            // })
-
-            // fetch(`https://api.textgears.com/grammar?text=${data.message}&language=en-US&ai=true`,{
-            //     headers:{
-            //         Authorization: "Basic d96UAhwRk6kmjSXp"
-            //     }
-            // })
-            //         .then(res => res.json())
-            //         .then((res) =>{
-            //             setOpenBackDrop(false)
-            //             let contador = 0;
-            //             console.log(res);
-            //             console.log(data.messag)
-
-            //             console.log("arregloApi",res.response.errors.length)
-            //             let texto = data.message;
-            //             let respuestaF = recursoEjercicio.toUpperCase();
-            //             let letras = texto.split("");
-            //             let letrasREs = respuestaF.split("");
-            //             console.log(recursoEjercicio.length)
+        sessionStorage.setItem('completeJuego',JSON.stringify(completeJuego) );
+        console.log("Objeto actualizado: ",JSON.parse(sessionStorage.getItem('completeJuego')))
+        completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'));
 
 
 
-            //             letras.forEach((element,indice) => {
-            //                 console.log(indice);
-                            
-            //                 if(element === letrasREs[indice]){
-                               
-            //                     contador++;
-            //                 }
-            //             });
-            //             setnumError(resulFinal);
 
-            //             console.log("mi contador: ",contador);
-            //             console.log(numError)
+            //let complete = Number(sessionStorage.getItem('completeVideo')) +1;
+            console.log("entro al if xD")
 
-            //             let porcentaje = (contador* 100)/recursoEjercicio.length;
-            //             console.log(porcentaje)
-            //             if(res.response.errors.length < 2 && porcentaje > 80){
+           // sessionStorage.setItem('completeVideo', complete);
+    
+          //  console.log("NumLeccionVideo: ",sessionStorage.getItem('completeVideo'));
+    
+            fetch(`/api/progresoUsuarioGeneral?TemaEjercicio=video&completeV=${completeJuego}`,{
+                method:"PATCH",
+                headers:{
+    
+                    "Content-Type":'application/json'
+                },
+                body: JSON.stringify({
+                    "completeVideo": completeJuego,
+                  }),
+            })
+            .then(res => res.json())
+            .then(res => console.log(res))
 
-            //                 setNoti(true);
-            //                 handleClickOpen();
-
-            //             }else{
-            //                 setNoti(false);
-            //                 handleClickOpen()
-            //             }
-            //         })
+        }
+                setTest("Felicidades respondiste bien")
+                setNoti(true);
+            handleClickOpen();
+            }else if(porcentajeIncorrecto > 25 ){
+                console.log("La respuesta es incorrecta")
+                setTest("La respuesta es incorrecta")
+                setNoti(false);
+            handleClickOpen();
+            }else {
+                setTest("No lo pronunciaste bien, Vuelve a intentarlo");
+                setNoti(false);
+                handleClickOpen();
+                console.log("No lo pronunciaste bien, Vuelve a intentarlo")
+            }
+           
 
                     
 
@@ -283,8 +299,8 @@ export default function ConversacionIA(){
                     </Button></>
                 )}
 
-        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"indice={numError}  texto="Tuviste un Error"/>) : 
-         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"indice={numError} test={test}  texto="Tuviste un Error"/>) : 
+         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" test={test} img="/src/images/svgJuegos/dogFelicidades.png"/>)}
         
 
 

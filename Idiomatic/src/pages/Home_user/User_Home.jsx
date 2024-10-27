@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import CloseIcon from '@mui/icons-material/Close';
 import { useContext } from 'react';
 import {HoraContext} from '../../contexto/contextoHora/HoraContext'
+import { Padding } from '@mui/icons-material';
 function User_Home() {
   const [count, setCount] = useState(0);
   const [info, setInfo] = useState({});
@@ -26,7 +27,18 @@ function User_Home() {
       console.log("pidio datos progreso usuario")
     fetch("/api/progresoUsuario")
       .then(res => res.json(res))
-      .then(res => setInfo(res))
+      .then(res =>{
+        console.log("Video",res.IdContenido)
+       // sessionStorage.setItem('completeVideo', res.completeVideo);
+        sessionStorage.setItem('completeV', JSON.stringify( res.completeVideo));
+        sessionStorage.setItem('completeAudio', JSON.stringify( res.completeAudio));
+        sessionStorage.setItem('completeJuego', JSON.stringify( res.completeEjercicio));
+        console.log("info progreso",JSON.parse(sessionStorage.getItem('completeAudio')))
+        // sessionStorage.setItem('rol', 'admin');
+
+
+        setInfo(res)
+      } )
 
   },[setInfo])
 
@@ -55,7 +67,7 @@ function User_Home() {
           <p>{texto}</p>
           <br/>   
           
-          <button style={{background:"red",position:"absolute",right:"0",top:"0",width:"5%",height:"5vh",cursor:"pointer"}} onClick={() => onDelete(indice)}><CloseIcon/></button>
+          <button className='btnBorrarNoti' style={{}} onClick={() => onDelete(indice)}><CloseIcon/></button>
         </Container>
         </>
   )
@@ -146,10 +158,12 @@ function User_Home() {
 
     <Container  className='ContenedorNav' disableGutters >
 
-      <Avatar alt="Remy Sharp"  variant="rounded" src={info.foto} sx={{marginTop:"2%",marginLeft:"32%", width: 110, height: 110 }} />
-      <h3 style={{textAlign:"center",margin:"0"}} >{info.nombre}</h3>
-      <h3 style={{textAlign:"center",margin:"0"}} >{info.correo}</h3>
-      <h3 style={{textAlign:"center",margin:"0",color:"blue"}} >
+      <Avatar className='fotoPerfil' alt="Remy Sharp"  variant="rounded" src={info.foto} sx={{}} />
+      
+     
+      <h3  className='NomCorreoTitle'  >{info.nombre}</h3>
+      <h3  className='NomCorreoTitle' >{info.correo}</h3>
+      <h3 className='planTitle'  >
         {info.suscrip === 1 ? ("Plan Premium "): ("Plan basico")}
         </h3>
        <NavBar_User funcion={MostrarApartados}/>
@@ -158,7 +172,7 @@ function User_Home() {
     </Container>
     
     
-    <Container   > 
+    <Container   sx={{padding:"0"}}> 
      {count === 0 ? (<Home/>): count == 2 ?(<User_Cursos/>): count == 3 ? (<User_Informes dataUser={info}/>): 
       count == 4 ? (<User_Notificaciones />): count == 5 ? (<User_Ajustes foto={info} cambiarFoto={setInfo} />): count == 6 ?  (MostrarApartados):33333}
       

@@ -1,0 +1,162 @@
+@media screen and (max-width:600px) {
+    .ContainerTitleI{
+        margin-top:5% !important;
+        background:rgba(249, 176, 195, 1);
+        height: 20vh;
+        width:100%;
+        border-radius:50px;
+        margin:0;
+
+    }
+    .TitleInfor{
+        color:black;
+        left:20%;
+        font-size:5vh;
+    }
+    .subInfor{
+        color:black;
+        text-align:center;
+        font-size:6vw;
+    }
+    .imgContainerIn{
+        position:absolute;
+        right:30px;
+        width: 40%;
+        top:14%;
+        /* min-height:25%; */
+    }
+    .fechaInf{
+        font-size:7vw;
+        box-shadow:0px 3px 1px rgba(31, 25, 47, 0.5);
+        margin-bottom:5%;
+    }
+    .ContaBodyInfor{
+        display:flex !important;
+        flex-direction: column;
+    }
+    .ContainerProgreso{
+        border:2px solid rgba(224, 224, 224, 1);
+        border-radius:20px;
+        height: 40vh;
+        width:65% !important;
+    }
+    .titleProgreso{
+        margin-left:23%;
+    }
+    .progresoGauge{
+        margin-left:15%;
+    }
+    .titleInglesInf{
+        margin-left:28%;
+    }
+    .HoraMInformes{
+        text-align:center !important;
+    }
+    .ContainerHoraInfor{
+        background:rgba(70, 70, 122, 1);
+        border-radius:25px;
+        margin-top:1%;
+    }
+    .titleHoraIngles{
+        color:white;
+
+    }
+    .HoraInfor{
+        text-align:center;
+        color:white;
+        font-size:8vh;
+    }
+    .ProgresoApartado{
+        margin-left:12%;
+    }
+    .PieChartt{
+        width:350px !important;
+        height:150px !important;
+        position: relative;
+        right: 18%;
+    }
+
+}
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
+}
+
+
+@media  (min-width:1024px){
+
+    .ContainerTitleI{
+        margin-top:5% !important;
+        background:rgba(249, 176, 195, 1);
+        width:100%;
+        border-radius:50px;
+        margin:0;
+
+    }
+    .TitleInfor{
+        color:black;
+        left:20%;
+        font-size:4vw;
+    }
+    .subInfor{
+        color:black;
+        text-align:center;
+        font-size:2vw;
+    }
+    .imgContainerIn{
+        position:absolute;
+        right:20px;
+        top:2px;
+        min-height:25%;
+    }
+    .fechaInf{
+        font-size:2vw;
+        box-shadow:0px 3px 1px rgba(31, 25, 47, 0.5);
+        margin-bottom:5%;
+    }
+    .ContaBodyInfor{
+        display:flex !important;
+    }
+    .containerProgresoApartado{
+        height: 25vh !important;
+    }
+    .ContainerProgreso{
+        border:2px solid rgba(224, 224, 224, 1);
+        border-radius:20px;
+        height: 50vh;
+        width:70% !important;
+    }
+    .titleProgreso{
+        margin-left:25%;
+    }
+    .progresoGauge{
+        margin-left:15%;
+    }
+    .titleInglesInf{
+        margin-left:28%;
+    }
+    .HoraMInformes{
+        text-align:center;
+    }
+    .ContainerHoraInfor{
+        background:rgba(70, 70, 122, 1);
+        border-radius:25px;
+        margin-top:19%;
+    }
+    .titleHoraIngles{
+        color:white;
+    }
+    .HoraInfor{
+        text-align:center;
+        color:white;
+        font-size:3.5vw;
+    }
+    .ProgresoApartado{
+        margin-left:17%;
+    }
+    .PieChart{
+        width:400px;
+        height:200px;
+    }
+
+}
