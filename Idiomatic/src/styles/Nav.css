@@ -1,0 +1,35 @@
+/* Mantén tus estilos existentes y solo agrega o ajusta estos */
+
+.NavBarOpciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Resaltar las letras al pasar el puntero */
+  .btnOpcion {
+    color: #333;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btnOpcion:hover {
+    color: #0073e6; /* Cambia a un color azul claro en hover */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño en hover */
+  }
+  
+  /* Botón Crear Cuenta con degradado */
+  .btnCrearCuenta {
+    background: linear-gradient(45deg, #4CAF50, #81C784); /* Degradado verde */
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btnCrearCuenta:hover {
+    background: linear-gradient(45deg, #388E3C, #66BB6A); /* Degradado más oscuro en hover */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño en hover */
+  }
+  

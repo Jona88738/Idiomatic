@@ -23,13 +23,15 @@ const createAdmin = async (req,res) => {
 
 const adminGetUsers = async (req, res) => {
     try {
-        const [rows] = await conn.query("SELECT idusuario, nombre, rol, tipo_aprendizaje FROM usuario");
+        const [rows] = await conn.query("SELECT idusuario, foto, nombre, rol, tipo_aprendizaje FROM usuario");
+        console.log('Rows fetched:', rows); // Añade este log para verificar los datos
         res.json(rows);
     } catch (error) {
         console.error('Error al obtener usuarios:', error);
         res.status(500).json({ error: 'Error al obtener usuarios' });
     }
 };
+
 
 
 const comentarioUser = async (req, res) => {
@@ -92,30 +94,61 @@ const DeleteComentarioUser = async (req, res) => {
 };
 
 
+const ModificarAdmin = async (req, res) => {
+    try {
+        const { idusuario, tipo_aprendizaje, rol } = req.body;
+
+        // Verificar que el ID de usuario y los campos necesarios estén presentes
+        if (!idusuario || tipo_aprendizaje === undefined || rol === undefined) {
+            return res.status(400).json({ message: "Datos incompletos para la actualización" });
+        }
+
+        // Actualizar tipo de aprendizaje y rol en la base de datos
+        const [result] = await conn.query(
+            'UPDATE usuario SET tipo_aprendizaje = ?, rol = ? WHERE idusuario = ?',
+            [tipo_aprendizaje, rol, idusuario]
+        );
+
+        // Verificar si se actualizó alguna fila
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: "Usuario no encontrado o no se pudo actualizar" });
+        }
+
+        res.status(200).json({ message: "Usuario actualizado correctamente" });
+    } catch (error) {
+        console.error("Error al actualizar usuario:", error);
+        res.status(500).json({ message: "Error al actualizar usuario" });
+    }
+};
 
 
+const AdminDeleteUser = async (req, res) => {
+    try {
+      const { idusuario } = req.query;
   
-
-const ModificarAdmin = (req,res) => {
-
-
-}
-
-const AdminDeleteUser = async  (req,res) => {
-
-    const {idusuario} = req.query
-
-    const id = Number(idusuario)
-
-    const [row] = await conn.query('delete from usuario where idusuario = ?',[id])
-
-    console.log("resultado",row);
-
-    res.json({
-        "message":true,
-    })
-
-}
+      // Verifica si idusuario es un número
+      if (!idusuario || isNaN(idusuario)) {
+        return res.status(400).json({ message: "ID de usuario inválido" });
+      }
+  
+      const id = Number(idusuario);
+      
+      // Realiza la consulta de eliminación
+      const [result] = await conn.query('DELETE FROM usuario WHERE idusuario = ?', [id]);
+  
+      // Verifica si se eliminó alguna fila
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ message: "Usuario no encontrado" });
+      }
+  
+      console.log("Usuario eliminado:", id);
+      res.status(200).json({ message: true });
+    } catch (error) {
+      console.error("Error al eliminar usuario:", error);
+      res.status(500).json({ message: "Error al eliminar usuario" });
+    }
+  };
+  
 
 const addContentEdu = (req,res) => {
 

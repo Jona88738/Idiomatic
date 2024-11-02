@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,7 +10,6 @@ export default defineConfig({
       '@mui/material/Tooltip'
     ],
   },
-
   plugins: [react()],
   server: {
     proxy: {
@@ -21,5 +20,9 @@ export default defineConfig({
       },
     },
   },
-})
-
+  test: {
+    environment: 'jsdom', // Configura el entorno de pruebas en jsdom
+    globals: true,        // Activa el uso de describe, it, y expect globales
+    setupFiles: './setupTests.js', // Opcional, si tienes un archivo de configuración adicional
+  },
+});

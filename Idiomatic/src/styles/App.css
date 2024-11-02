@@ -9,6 +9,12 @@ body {
   font-family: Arial, sans-serif;
 }
 
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+}
+
 /* Estilos para el encabezado "¿Nuevo/a aquí?" */
 .new-here-heading {
   color: #fff;
@@ -23,7 +29,6 @@ body {
   margin-left: 12rem;
 }
 
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -31,7 +36,6 @@ body {
   padding: 10px 20px;
   background-color: #fff;
 }
-
 
 .logo {
   width: 150px;
@@ -64,7 +68,7 @@ body {
 
 .login-page {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -74,7 +78,7 @@ body {
 }
 
 .login-container {
-  margin-top: 30px; 
+  margin-top: 30px;
   display: flex;
   border-radius: 10px;
   overflow: hidden;
@@ -90,9 +94,11 @@ body {
   align-items: center;
   text-align: center;
   color: #fff !important;
-  height: 100%; /* O el tamaño que quieras darle a la sección */
+  height: 100%;
   padding: 10px;
+  padding-left: 3rem;
 }
+
 .welcome-img {
   width: 100%;
   margin-top: 20px;
@@ -130,21 +136,18 @@ body {
 }
 
 .MuiOutlinedInput-root {
-  border: none; /* Quitar borde */
-  background-color: transparent; /* Fondo transparente */
-  box-shadow: none; /* Sin sombra */
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .MuiOutlinedInput-notchedOutline {
-  display: none; /* Eliminar la outline del borde */
+  display: none;
 }
 
-
 .forgot-password-link {
-  font-size: 0.875rem; /* Tamaño de fuente más pequeño */
-  color: #1F192F; /* Color negro */
-  /*text-decoration: none; /* Sin subrayado */
-  display: inline-block;
+  font-size: 0.875rem;
+  color: #1F192F;
   font-weight: 600;
   margin-left: 0.8rem;
 }
@@ -159,22 +162,20 @@ body {
   cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
-  margin: 20px auto 0 auto; 
-  display: block; 
+  margin: 20px auto 0 auto;
+  display: block;
   margin-left: 8rem;
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
-  
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Efecto de resplandor al hacer hover */
 .login-btn:hover {
   box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5);
-  transform: scale(1.05); /* Agrandar ligeramente el botón */
+  transform: scale(1.05);
 }
 
 .line-below {
-  border-bottom: 1.8px solid #000000; /* Cambia el color y grosor según tu preferencia */
-  width: 80%; /* O ajusta el ancho según lo que necesites */
+  border-bottom: 1.8px solid #000000;
+  width: 80%;
   margin-top: 15px;
   margin-left: 3.2rem;
 }
@@ -189,15 +190,14 @@ body {
   cursor: pointer;
   font-size: 0.9rem;
   font-weight: 700;
-  margin: 20px auto 0 auto; 
-  display: block; 
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
-
+  margin: 20px auto 0 auto;
+  display: block;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .register-button:hover {
   box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5);
-  transform: scale(1.05); /* Agrandar ligeramente el botón */
+  transform: scale(1.05);
 }
 
 .social-login-text {
@@ -208,29 +208,9 @@ body {
   font-weight: bold;
 }
 
-.create-account-btn {
-  background-color: #FFC212;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.welcome-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  height: 100%; /* O el tamaño que quieras darle a la sección */
-  padding: 10px;
-  padding-left: 3rem; /* Ajusta este valor para mover más hacia la izquierda */
-}
 .register-page {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -246,7 +226,7 @@ body {
   width: 100%;
   height: 100%;
   max-width: 1100px;
-  background: url('/src/images/fonde_registro.png') no-repeat center center; /* Mantener la imagen de fondo */
+  background: url('/src/images/fonde_registro.png') no-repeat center center;
   background-size: cover;
 }
 
@@ -255,7 +235,7 @@ body {
   padding: 50px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinear al inicio para mover el formulario a la izquierda */
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -270,32 +250,12 @@ body {
   max-width: 400px;
 }
 
-.welcome-section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-}
-
 .register-form input {
   width: 24rem;
   padding: 10px;
   border: 2px solid #ccc;
   text-align: center;
   border-radius: 30px;
-}
-
-.MuiOutlinedInput-root {
-  border: none; /* Quitar borde */
-  background-color: transparent; /* Fondo transparente */
-  box-shadow: none; /* Sin sombra */
-}
-
-.MuiOutlinedInput-notchedOutline {
-  display: none; /* Eliminar la outline del borde */
 }
 
 .register-form .input-group {
@@ -326,15 +286,14 @@ body {
   cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
-  margin: 20px auto 0 auto; 
-  display: block; 
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
+  margin: 20px auto 0 auto;
+  display: block;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Efecto de resplandor al hacer hover */
 .sign-up-button:hover {
   box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5);
-  transform: scale(1.05); /* Agrandar ligeramente el botón */
+  transform: scale(1.05);
 }
 
 .sign-in-button {
@@ -347,22 +306,14 @@ body {
   cursor: pointer;
   font-size: 0.8rem;
   font-weight: 700;
-  margin: 20px auto 0 auto; 
-  display: block; 
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
-
-} 
+  margin: 20px auto 0 auto;
+  display: block;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
 
 .sign-in-button:hover {
   box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5);
-  transform: scale(1.05); /* Agrandar ligeramente el botón */
-}
-
-.social-login-text {
-  margin-top: 30px;
-  color: #333;
-  font-size: 15px;
-  margin-left: 13rem;
+  transform: scale(1.05);
 }
 
 .social-login-buttons {
@@ -373,7 +324,6 @@ body {
   margin-top: 20px;
   margin-left: 1.5rem;
   gap: 10px;
-
 }
 
 .social-btn {
@@ -387,22 +337,73 @@ body {
 }
 
 .social-btn:hover {
-  transform: scale(1.1); /* Efecto de agrandamiento al pasar el mouse */
+  transform: scale(1.1);
 }
 
-
-.google {
-  background-color: #ffffff;
+.google, .facebook, .apple {
   color: rgb(0, 0, 0);
 }
 
-.facebook {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-}
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 767px) {
+  /* Estilos específicos para móviles */
 
-.apple {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
+  .login-page {
+    align-items: flex-start;
+    min-height: 100vh;
+    background-image: url("/src/images/pruebaimg.png");
+
+  }
+
+  .login-container, .register-container {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .social-login-text{
+    font-size: 16px;
+    margin-left: 0;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .sign-in-heading {
+    font-size: 10px;
+    margin-top: 160px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .form-section h2 {
+    font-size: 26px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .login-form, .register-form {
+    margin: 0;
+    max-width: 90%;
+    width: 100%;
+  }
+
+  .login-form input, .register-form input {
+    width: 100%;
+    text-align: center;
+  }
+
+  .social-login-buttons {
+    justify-content: center;
+    margin: 0 auto;  }
+
+  .social-btn {
+    padding: 8px 15px;
+    font-size: 0.7rem;
+  }
+
+  .login-btn, .register-button, .sign-in-button, .sign-up-button {
+    width: 40%;
+    margin: 20px auto 0;    
+  }
+
 }
- 

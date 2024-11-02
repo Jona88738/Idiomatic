@@ -37,8 +37,20 @@
         background: grey;
     }
 
-    .btnCrearCuenta{
-       display: none !important;
+    .btnCrearCuenta {
+      background: linear-gradient(45deg, #b39ddb, #fbc02d) !important; /* Degradado lila a amarillo */
+      color: white !important;
+      font-weight: bold !important;
+      padding: 8px 16px;
+      border-radius: 30px !important; /* Borde redondeado */
+      transition: background 0.3s ease, transform 0.3s ease !important;
+      border: none !important; /* Sin borde */
+      text-transform: lowercase !important; /* Texto en minúsculas */
+    }
+    
+    .btnCrearCuenta:hover {
+      background: linear-gradient(45deg, #9575cd, #ffca28) !important; /* Un degradado ligeramente más oscuro en hover */
+      transform: scale(1.05) !important; /* Aumenta ligeramente el tamaño en hover */
     }
 
     .btnOpcion{
