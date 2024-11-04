@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
 import { useState } from "react";
+import '../../styles/StyleApartadoJuegos/CreateSentences.css'
 
 export default function CreateSentences(){
 
@@ -12,12 +13,17 @@ export default function CreateSentences(){
     
     const [arre, setArre] = useState([])
     const [Noti, setNoti] = useState(false);
+
+    let valor = recursoEjercicio.length+1;
+    const arr = new Array(valor).fill("");
+
+
+    const [ArreRespuestaUser,setArreRespuestaUser]  = useState(arr)
     
     
 
     // let arr = ["","","","",""]
-    let valor = recursoEjercicio.length+1;
-    const arr = new Array(valor).fill("");
+    
     
     //console.log(arr)
 
@@ -200,19 +206,19 @@ export default function CreateSentences(){
     return(<>
 
 
-            <Container sx={{marginLeft:"4%",marginRight:"2%",background:"rgba(119, 102, 198, 0.4)",borderRadius:"25px",height:"25vh",marginTop:"5vh"}} >
-            <img src={recursoFront.icono} width="16%" alt="" style={{float:"left"}}/>             
-            <h1  >Create Sentences</h1>
+            <Container className="ContainerTitleCreateSentences"  >
+            <img className="imgTitleCreateSen" src={recursoFront.icono}  alt="" />             
+            <h1 className="TitleCreateSen" >Create Sentences</h1>
             </Container>
 
             
-            <p style={{marginLeft:"5% ",marginTop:"5vh",marginBottom:"5vh"}} >Look at the sentences. Arrange the words so that they are grammatically correct,
+            <p className="ExplicacionCreateSen"  >Look at the sentences. Arrange the words so that they are grammatically correct,
                 paying attention to the position of the adverbs and using appropiate puntuaction.
             </p>
 
-        <Container sx={{display:"flex",margin:"0"}}>
+        <Container className="ContainerresCreateSen" >
 
-            <Container sx={{display:"flex",flexDirection:"column",width:"10%",margin:"0"}} >
+            <Container className="ContainerStars"  >
 
                 <img src="/images/svgJuegos/star.svg" alt="" />
                 <img src="/images/svgJuegos/star.svg" alt="" />
@@ -223,41 +229,36 @@ export default function CreateSentences(){
 
 
 
-            <div onDrop={drop} onDragOver={allodrop} id={recursoEjercicio.length} style={{display:"flex", flexWrap:"wrap", width:"60%",margin:"0"}}>
+            <div className="respuestasCreateSen" onDrop={drop} onDragOver={allodrop} id={recursoEjercicio.length} style={{}}>
 
                 {recursoEjercicio.map((palabra,index) => {
-                    return  <h3 key={index} style={{background:"rgba(119, 102, 198, 0.4)",height:"7vh",width:"135px",marginLeft:"2%",textAlign:"center",fontSize:"25px",display:"inline-block",borderRadius:"25px",marginTop:"0"}} name={palabra}  draggable="true" onDragStart={drag} id={palabra} >{palabra}</h3>
+                    return  <h3 className="respuestaFinalCreateSen" key={index}  name={palabra}  draggable="true" onDragStart={drag} id={palabra} >{palabra}</h3>
             
                 } )}
             
-            {/* <h3 style={{background:"rgba(119, 102, 198, 0.4)",height:"7vh",width:"135px",marginLeft:"2%",textAlign:"center",fontSize:"25px",display:"inline-block",borderRadius:"25px",marginTop:"0"}}  draggable="true" onDragStart={drag} id="aus" >Australia</h3>
-            <h3 style={{background:"rgba(119, 102, 198, 0.4)",height:"7vh",width:"135px",marginLeft:"2%",textAlign:"center",fontSize:"25px",display:"inline-block",borderRadius:"25px",marginTop:"0"}}  draggable="true" onDragStart={drag} id="am" >Am</h3>
-            <h3 style={{background:"rgba(119, 102, 198, 0.4)",height:"7vh",width:"135px",marginLeft:"2%",textAlign:"center",fontSize:"25px",display:"inline-block",borderRadius:"25px",marginTop:"0"}}  draggable="true" onDragStart={drag} id="from" >from</h3>
-            <h3 style={{background:"rgba(119, 102, 198, 0.4)",height:"7vh",width:"135px",marginLeft:"2%",textAlign:"center",fontSize:"25px",display:"inline-block",borderRadius:"25px",marginTop:"0"}}  draggable="true" onDragStart={drag} id="I" >I</h3>
-             */}
+            
             </div>
 
         
         </Container>
 
         
-        <div style={{display:"flex", position:"relative"}}>
-            <div style={{width:"70%",height:"20vh",marginTop:"2%",display:"flex"}} >
+        <div className="ContainerComprobarCreate" >
+            <div className="campoResCreateSen"  >
 
             {recursoEjercicio.map((palabra,index) => {
-                    return  <div key={index} style={{background:recursoFront.inputColor,marginLeft:"4%",width:"15%",height:"7vh",marginTop:"4%",borderRadius:"25px"}} name={palabra}  id={index} onDrop={drop} onDragOver={allodrop}></div>
+                    return  <div className="campoRespuestaCreate" key={index} style={{background:recursoFront.inputColor,}} name={palabra}  id={index} onDrop={drop} onDragOver={allodrop}></div>
             
                 } )}
 
-            {/* <div style={{background:"rgba(119, 102, 198, 0.4)",marginLeft:"4%",width:"15%",height:"7vh",marginTop:"4%",borderRadius:"25px"}}  id="1" onDrop={drop} onDragOver={allodrop}></div>
-            <div style={{background:"rgba(119, 102, 198, 0.4)",marginLeft:"4%",width:"15%",height:"7vh",marginTop:"4%",borderRadius:"25px"}}  id="2" onDrop={drop} onDragOver={allodrop}></div>
-            <div style={{background:"rgba(119, 102, 198, 0.4)",marginLeft:"4%",width:"15%",height:"7vh",marginTop:"4%",borderRadius:"25px"}}  id="3" onDrop={drop} onDragOver={allodrop}></div>
-            <div style={{background:"rgba(119, 102, 198, 0.4)",marginLeft:"4%",width:"15%",height:"7vh",marginTop:"4%",borderRadius:"25px"}}  id="4" onDrop={drop} onDragOver={allodrop}></div> */}
-
+            
         </div>
-        <Button onClick={enviar} sx={{position:"absolute",background:recursoFront.btnColor,right:"5%",top:"45%", width:"15%",borderRadius:"20px",color:"black",border:"2px solid black"}} variant="contained">Enviar</Button>
 
+        
+        
         </div>
+        <Button className="btnCreateSen" onClick={enviar} sx={{background:recursoFront.btnColor}} variant="contained">Enviar</Button>
+
         {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"/>) : 
          (<Notificacion open={open} handleClose={handleClose} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
         

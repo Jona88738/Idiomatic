@@ -9,7 +9,12 @@ export default function ApartadoTemaAudio(){
     let completeAudio = JSON.parse(sessionStorage.getItem('completeAudio'))
     console.log(completeAudio[0].Total )
 
-    const Card = [
+    let TemasAudios = JSON.parse(sessionStorage.getItem('TemasAudios'))
+    // console.log(completeJuego[i.TotalComplete )
+    console.log("XD",TemasAudios.length )
+
+    const Card = 
+    [
         {
          "Total":0,
          "title":"saludos y despedidas",
@@ -87,6 +92,7 @@ export default function ApartadoTemaAudio(){
 
 
 
+    //  [{"Total":0,"title":"saludos y despedidas"},{"Total":1,"title":"presentaciones personales"},{"Total":2,"title":"Dar informacion personal"},{"Total":3,"title":"verb to be"},{"Total":4,"title":"Present Simple"},{"Total":5,"title":"Present Continuo"},{"Total":6,"title":"Futuro Will"},{"Total":7,"title":"Pasado Simple"}]
 
 
    
@@ -98,15 +104,23 @@ export default function ApartadoTemaAudio(){
 
             {Card.map((Element,index) =>{
                 console.log(Element.Total)
+
+                let contador;
+                if(index < TemasAudios.length-1){
+                    contador = index +1;
+                }else{
+                    contador = index;
+                }
+
             return( 
             
-                completeAudio[0].Total < Element.Total  ?
+                completeAudio[0].Total < TemasAudios[index].Total   ?
                 (<MyCard title={Element.title} imagen={Element.imagen}  index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  opacity="0.5"  pointerEvents="none"/>):   //opacity="0.5"  pointerEvents="none"
-                completeAudio[0].Total === Element.Total ?
+                completeAudio[0].Total < TemasAudios[contador].Total  ?
 
                 (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  boxshadow={0}  />): //completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)"
                 
-                completeAudio[0].Total > Element.Total ?  
+                completeAudio[0].Total > TemasAudios[index].Total  ?  
                 (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion} completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" />):
                 ""
             )

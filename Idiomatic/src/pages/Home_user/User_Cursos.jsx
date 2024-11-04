@@ -44,7 +44,7 @@ function User_Cursos() {
       <Container className='ContainerTitle' >
           <h1 className='Title' >Mis Cursos</h1>
           <h3 className='subtitle' >Aqui tenemos tu seleccion de cursos</h3>
-          <img className='imgContainer' src="/images/logoCursos.svg" width="15%"    alt="Logo de mi página"/>
+          <img className='imgContainer' src="/images/logoCursos.svg"     alt="Logo de mi página"/>
                                                
       </Container>
      

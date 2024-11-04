@@ -28,7 +28,7 @@ const createUser = async (req, res) => {
       username,
       email,
       passHashed,
-      "/uploads/FotoPerfil/init.png",
+      "/api/FotoPerfil/init.png",
       rol, // Usar el valor de rol recibido o 0 por defecto
       true, // Suscripción por defecto
       '' // Valor vacío para tipo_aprendizaje
@@ -63,12 +63,18 @@ const sign_in = async (req, res) => {
         return res.status(404).json({ resultado: false });
       }
     }
+    const [row2] = await conn.query(`SELECT TemaJuegos,TemaAudios,TemaVideos FROM temasapartados WHERE idTemasApartados = ?`, [1]);
 
+    console.log(row2[0].TemaJuegos)
     req.session.idUser = row[0].idusuario;
     req.session.nombre = row[0].nombre;
     req.session.correo = row[0].correo;
     req.session.foto = row[0].foto;
-    req.session.suscripcion = row[0].suscripcion
+    req.session.suscripcion = row[0].suscripcion;
+    req.session.TemasEjercicios = row2[0].TemaJuegos;
+    req.session.TemaAudios = row2[0].TemaAudios;
+    req.session.TemaVideos = row2[0].TemaVideos;
+
    // console.log(req.session.idUser);
     res.json({
       resultado: "true",
@@ -496,7 +502,10 @@ const progresoUsuario = async (req,res) => {
     "completeVideo":row[0].numLeccion_video,
     "completeAudio":row[0].numLeccion_audio,
     "completeEjercicio":row[0].numLeccion_juegos,
-    "IdContenido":row[0].Id_contenido
+    "IdContenido":row[0].Id_contenido,
+    "temasJuegos": req.session.TemasEjercicios,
+    "temaAudios":req.session.TemaAudios,
+    "temaVideos":req.session.TemaVideos
 
   })
 }

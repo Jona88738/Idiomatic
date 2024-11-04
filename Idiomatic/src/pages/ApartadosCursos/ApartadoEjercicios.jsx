@@ -28,20 +28,32 @@ export default function ApartadoEjercicios(){
             
             <Head title="Ejercicios" mycolor="rgba(255, 0, 0, 0.4)" ruta="/images/iconoEjercicios.svg"/>
             
-            {ejercicios.map((ejercicio) =>{ 
+            {ejercicios.map((ejercicio,contador) =>{ 
                  const recursosFront = ejercicio.recursos;
                  const recursoEjercicio = recursosFront.sentencia; 
                  return (
                     // Number(sessionStorage.getItem('completeVideo')) >= video.id_leccion ? 
-                    completeJuego[index].TotalComplete < ejercicio.id_leccion ? 
+
+                    completeJuego[index].TotalComplete < contador ? 
                     (<MyCard title={ejercicio.nombre}  imagen={imagen} index={index} page={"/"+ejercicio.ejercicio} link={link}  introduccion={ejercicio.introduccion} recursoFrontEje={recursosFront} recursoEjercicio={recursoEjercicio}   opacity="0.5"  pointerEvents="none" juegoID={ejercicio.id_leccion} />)://Bloqueado   //opacity="0.5"  pointerEvents="none"
-                    completeJuego[index].TotalComplete === ejercicio.id_leccion ?
+                    completeJuego[index].TotalComplete === contador ?
                 
                     (<MyCard title={ejercicio.nombre}  imagen={imagen} index={index} page={"/"+ejercicio.ejercicio} link={link}  introduccion={ejercicio.introduccion} recursoFrontEje={recursosFront} recursoEjercicio={recursoEjercicio}   boxshadow={0}  juegoID={ejercicio.id_leccion}  />): // falta de realizar //completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)"
                     
-                    completeJuego[index].TotalComplete  > ejercicio.id_leccion ?  
+                    completeJuego[index].TotalComplete  > contador ?  
                     (<MyCard title={ejercicio.nombre}  imagen={imagen} index={index} page={"/"+ejercicio.ejercicio} link={link}  introduccion={ejercicio.introduccion} recursoFrontEje={recursosFront} recursoEjercicio={recursoEjercicio}   completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" juegoID={ejercicio.id_leccion}  />): // completado
                     "XD")
+
+
+                    // completeJuego[index].TotalComplete < ejercicio.id_leccion ? 
+                    // (<MyCard title={ejercicio.nombre}  imagen={imagen} index={index} page={"/"+ejercicio.ejercicio} link={link}  introduccion={ejercicio.introduccion} recursoFrontEje={recursosFront} recursoEjercicio={recursoEjercicio}   opacity="0.5"  pointerEvents="none" juegoID={ejercicio.id_leccion} />)://Bloqueado   //opacity="0.5"  pointerEvents="none"
+                    // completeJuego[index].TotalComplete === ejercicio.id_leccion ?
+                
+                    // (<MyCard title={ejercicio.nombre}  imagen={imagen} index={index} page={"/"+ejercicio.ejercicio} link={link}  introduccion={ejercicio.introduccion} recursoFrontEje={recursosFront} recursoEjercicio={recursoEjercicio}   boxshadow={0}  juegoID={ejercicio.id_leccion}  />): // falta de realizar //completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)"
+                    
+                    // completeJuego[index].TotalComplete  > ejercicio.id_leccion ?  
+                    // (<MyCard title={ejercicio.nombre}  imagen={imagen} index={index} page={"/"+ejercicio.ejercicio} link={link}  introduccion={ejercicio.introduccion} recursoFrontEje={recursosFront} recursoEjercicio={recursoEjercicio}   completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" juegoID={ejercicio.id_leccion}  />): // completado
+                    // "XD")
 
                 })}
 

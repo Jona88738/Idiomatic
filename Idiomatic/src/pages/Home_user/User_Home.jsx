@@ -33,7 +33,13 @@ function User_Home() {
         sessionStorage.setItem('completeV', JSON.stringify( res.completeVideo));
         sessionStorage.setItem('completeAudio', JSON.stringify( res.completeAudio));
         sessionStorage.setItem('completeJuego', JSON.stringify( res.completeEjercicio));
-        console.log("info progreso",JSON.parse(sessionStorage.getItem('completeAudio')))
+        console.log("Estos son los temas Videos ",res.temaVideos);
+        sessionStorage.setItem('TemasJuegos', JSON.stringify( res.temasJuegos));
+        sessionStorage.setItem('TemasAudios', JSON.stringify( res.temaAudios));
+        sessionStorage.setItem('TemasVideos', JSON.stringify( res.temaVideos));
+
+        // console.log("info progreso",JSON.parse(sessionStorage.getItem('completeAudio')))
+        
         // sessionStorage.setItem('rol', 'admin');
 
 

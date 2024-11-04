@@ -1,20 +1,21 @@
 import { Container } from "@mui/material";
+import '../styles/FoodeHome.css';
 
 export default function Footer_Home(){
     return(<>
     
     
       
-      <Container disableGutters  maxWidth="cadena" sx={{display:'flex',background: '#3A3160',     boxShadow:'0px 6px 2px GRAY'}}>
+      <Container disableGutters className="ContainerMainFooderHome"  maxWidth="cadena" >
       
       
         <Container disableGutters >
 
-            <h1 style={{color:'white',fontSize:"3vw"}}>Nuestros Cursos</h1>
+            <h1 className="TitleMainCont" >Nuestros Cursos</h1>
             <ul>
 
-              <li style={{color:'white',fontSize:"2vw"}}>Curso de ingles</li>
-              <li style={{color:'white',fontSize:"2vw"}}>Curso de frances</li>
+              <li className="listaContain" >Curso de ingles</li>
+              <li className="listaContain">Curso de frances</li>
             </ul>
 
         </Container>
@@ -24,23 +25,23 @@ export default function Footer_Home(){
 
         <Container disableGutters >
 
-        <h1 style={{color:'white',fontSize:"3vw"}}>Recursos</h1>
+        <h1 className="TitleMainCont">Recursos</h1>
             <ul>
 
-              <li style={{color:'white',fontSize:"2vw"}}>Test nivel de  ingles</li>
-              <li style={{color:'white',fontSize:"2vw"}}>Test nivel de frances</li>
-              <li style={{color:'white',fontSize:"2vw"}}>Test Tipo de aprendizaje</li>
+              <li className="listaContain">Test nivel de  ingles</li>
+              <li className="listaContain">Test nivel de frances</li>
+              <li className="listaContain">Test Tipo de aprendizaje</li>
             </ul>
 
         </Container>
       
         <Container disableGutters  sx={{}}>
-        <h1 style={{color:'white',fontSize:"3vw"}}>Sobre Nosotros</h1>
+        <h1 className="TitleMainCont" >Sobre Nosotros</h1>
             <ul>
 
-              <li style={{color:'white',fontSize:"2vw"}}>Vision/Mision</li>
-              <li style={{color:'white',fontSize:"2vw"}}>Preguntas frecuentes</li>
-              <li style={{color:'white',fontSize:"2vw"}}>Opiniones</li>
+              <li className="listaContain">Vision/Mision</li>
+              <li className="listaContain">Preguntas frecuentes</li>
+              <li className="listaContain">Opiniones</li>
             </ul>
         </Container>
         

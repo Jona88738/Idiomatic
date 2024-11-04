@@ -6,10 +6,17 @@ export default function ApartadoTemaJuegos(){
 
 
     let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
-    console.log(completeJuego[0].Total )
+    
+
+    let TemasJuegos = JSON.parse(sessionStorage.getItem('TemasJuegos'))
+    // console.log(completeJuego[i.TotalComplete )
+    console.log("XD",TemasJuegos.length )
+
+    // [{"Total":0,"title":"saludos y despedidas"},{"Total":3,"title":"presentaciones personales"},{"Total":5,"title":"Dar informacion personal"},{"Total":8,"title":"verb to be"},{"Total":11,"title":"Present Simple"},{"Total":14,"title":"Present Continuo"},{"Total":17,"title":"Futuro Will"},{"Total":20,"title":"Pasado Simple"}]
 
 
-    const Card = [
+    const Card = 
+    [
         {
          "Total":0,
          "title":"saludos y despedidas",
@@ -88,7 +95,7 @@ export default function ApartadoTemaJuegos(){
      
      
 
-
+//[{"Tema": "saludos y despedidas", "Total": 0, "TotalComplete": 2}, {"Tema": "presentaciones personales","TotalEjerciciosTema":3, "TotalComplete": 0}, {"Tema": "Dar informacion personal","TotalEjerciciosTema":3, "Total": 0, "TotalComplete": 0}, {"Tema": "verb to be","TotalEjerciciosTema":3, "TotalComplete": 0}, {"Tema": "Present Simple","TotalEjerciciosTema":3, "Total": 0, "TotalComplete": 0}, {"Tema": "Present Continuo","TotalEjerciciosTema":3, "TotalComplete": 0}, {"Tema": "Futuro Will","TotalEjerciciosTema":3, "Total": 0, "TotalComplete": 0}, {"Tema": "Pasado Simple","TotalEjerciciosTema":3, "TotalComplete": 0}]
 
 
     
@@ -102,17 +109,42 @@ export default function ApartadoTemaJuegos(){
 
             {Card.map((Element,index) =>{
                 console.log(Element.Total)
-            return( 
-            
-                completeJuego[0].Total < Element.Total  ?
-                (<MyCard title={Element.title} imagen={Element.imagen}  index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  opacity="0.5"  pointerEvents="none"/>):   //opacity="0.5"  pointerEvents="none"
-                completeJuego[0].Total === Element.Total || completeJuego[0].Total === 2?
 
-                (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  boxshadow={0}  />): //completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)"
+                let contador;
+                if(index < TemasJuegos.length){
+                    contador = index +1;
+                }else{
+                    contador = index;
+                }
                 
-                completeJuego[0].Total > Element.Total ?  
-                (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion} completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" />):
-                ""
+            return( 
+
+                // if(completeJuego[0].Total < TemasJuegos[index].Total ){
+
+                // }
+                
+
+                completeJuego[0].Total < TemasJuegos[index].Total  ?
+                (<MyCard title={Element.title} imagen={Element.imagen}  index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  opacity="0.5"  pointerEvents="none"/>):   //opacity="0.5"  pointerEvents="none"
+                
+                completeJuego[0].Total < TemasJuegos[contador].Total ?
+                    (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  boxshadow={0}  />)://completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)"
+                                
+                completeJuego[0].Total > TemasJuegos[index].Total ?  
+                (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion} completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" />):""
+                
+                
+            
+                // completeJuego[0].Total < Element.Total  ?
+                // (<MyCard title={Element.title} imagen={Element.imagen}  index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  opacity="0.5"  pointerEvents="none"/>):   //opacity="0.5"  pointerEvents="none"
+                // completeJuego[0].Total === Element.Total || completeJuego[0].Total === 2?
+
+                // (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  boxshadow={0}  />): //completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)"
+                
+                // completeJuego[0].Total > Element.Total ?  
+                // (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion} completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" />):
+                // ""
+
             )
 
             })}

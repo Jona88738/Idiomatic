@@ -1,137 +1,137 @@
 [
     {
-        "titulo": "Goldilocks and the Three_Bears",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page2Goldilocks.jpg",
+        "titulo": "Goldilocks and Three_Bears",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page2Goldilocks.jpg",
         "info": "Once upon a time lived Goldilocks and The Three Bears."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page3Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page3Goldilocks.jpg",
         "info":"One day, Goldilocks went for a walk in the forest and found a house. She knocked, and when nobody answered, she decided to go inside."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page4Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page4Goldilocks.jpg",
         "info":"At the table, there were three bowls of porridge. Goldilocks was hungry."
     },
      {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page5Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page5Goldilocks.jpg",
         "info":"She tasted the porridge from the large bowl. “This porridge is too salty!” she said."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page6Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page6Goldilocks.jpg",
         "info":"She tasted the porridge from the medium sized bowl. “This porridge is too sweet!” she said."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page7Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page7Goldilocks.jpg",
         "info":"She tasted the porridge from the small bowl. “This porridge is just right,” she said and she ate it all up."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page8Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page8Goldilocks.jpg",
         "info":"Goldilocks felt tired, so she walked into the living room and saw three chairs."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page9Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page9Goldilocks.jpg",
         "info":"She sat in the large chair to rest her feet. “This chair is too big!” she said."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page10Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page10Goldilocks.jpg",
         "info":"She sat in the medium sized chair. “This chair is too big, too!” she said."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page11Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page11Goldilocks.jpg",
         "info":"She sat in the small chair. “This chair is just right,” she sighed."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page12Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page12Goldilocks.jpg",
         "info":"Just as Goldilocks settled down into the chair to rest, it broke into pieces!"
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page13Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page13Goldilocks.jpg",
         "info":"By now, Goldilocks was very tired, so she went upstairs to the bedroom."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page14Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page14Goldilocks.jpg",
         "info":"She lay down on the large bed. “This bed is too hard!” she said."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page15Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page15Goldilocks.jpg",
         "info":"She lay down on the medium sized bed. 'This bed is too soft!' she said."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page16Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page16Goldilocks.jpg",
         "info":"She lay down on the small bed. 'This bed is just right,' she sighed. She curled up and fell asleep."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page17Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page17Goldilocks.jpg",
         "info":"As she was sleeping, The Three Bears came home."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page18Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page18Goldilocks.jpg",
         "info":"“Someone’s been eating my porridge,” growled Daddy Bear"
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page19Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page19Goldilocks.jpg",
         "info":"“Someone’s been eating my porridge,” said Mummy Bear."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page20Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page20Goldilocks.jpg",
         "info":"“Someone’s been eating my porridge and it’s all gone!” cried Baby Bear."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page21Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page21Goldilocks.jpg",
         "info":"“Someone’s been sitting in my chair!” growled Daddy Bear."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page22Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page22Goldilocks.jpg",
         "info":"“Someone’s been sitting in my chair!” said Mummy Bear."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page23Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page23Goldilocks.jpg",
         "info":"“Someone’s been sitting in my chair and it’s broken!” cried Baby Bear."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page24Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page24Goldilocks.jpg",
         "info":"When they got upstairs to the bedroom, Daddy Bear growled, “Someone’s been sleeping on my bed.”"
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page25Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page25Goldilocks.jpg",
         "info":"“Someone’s been sleeping on my bed too,” said the Mummy Bear"
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page26Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page26Goldilocks.jpg",
         "info":"“Someone’s been sleeping in my bed, and she’s still there!” cried Baby Bear."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/page27Goldilocks.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/page27Goldilocks.jpg",
         "info":"Just then Goldilocks woke up and saw The Three Bears. “Help!” she screamed."
     },
     {
         "titulo": "",
-        "img": "http://localhost:3001/Lecturas/Goldilocks_and_the_Three_Bears/GoldilockPortada.jpg",
+        "img": "/api/Lecturas/Goldilocks_and_the_Three_Bears/GoldilockPortada.jpg",
         "info":"Goldilocks ran down the stairs and into the forest. And she never went back into the woods again"
     }
 

@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
+import '../../styles/StylesApartados/EjercicioAudio.css'
 export default function EjercicioAudio(){
 
     const location = useLocation();
@@ -52,13 +53,18 @@ export default function EjercicioAudio(){
             //if(  sinEspacioUser.length <=  text.length ){
                 console.log("entro")
 
+                if(sinEspacioUser[contador] === undefined){
+
+                }else{
+                
+
                 if(letra.toUpperCase() === sinEspacioUser[contador].toUpperCase()){
                    
                     aciertos++;
                     contador++;
                     
                 }
-                
+            }
                 
             //}
         }
@@ -157,46 +163,50 @@ export default function EjercicioAudio(){
          
     }
 
-    return(<>
+    return(<div style={{height:"91vh"}}>
 
-        <br />
-        <Container sx={{background:"rgba(255, 194, 18, 0.65)",height:"20vh",borderRadius:"20px"}}>
-        <br />
-        <img src="/images/svgJuegos/speak.svg" width="250px"  style={{float:"right",position:"relative",bottom:"55%"}} />
+        
+       
+        <Container className="ContainerTitleEjerAudio"  >
+        
+        <img className="ContainerImgEjerAudio" src="/images/svgJuegos/speak.svg"  />
                 
-        <h1 style={{marginTop:"0%"}}>Apartado Audio</h1>
+        <h1  className="TitleEjerAudio" >Apartado Audio</h1>
         </Container>
 
-        <br />
+        
 
-        <div style={{background:"rgba(224, 223, 253, 1)",width:"90%",marginLeft:"5%",height:"50vh",borderRadius:"20px"}}>
+        <div className="ContainerMainEjerAudio" >
 
-                <h2 style={{textAlign:"center"}}>listen and write the correct sentence</h2>
+                <h2 className="ContMainTitle" >listen and write the correct sentence</h2>
 
 
-                <div style={{display:"flex",height:"50%"}}>
+                <div className="MainEjercicio" >
                     
-                <img src="/images/svgJuegos/perroDudaIA.png" alt="" width="20%" style={{marginLeft:"8%"}}/>
+                <img className="imgDogMainEjer" src="/images/svgJuegos/perroDudaIA.png" alt=""  />
 
-                <h1></h1>   
-                <audio controls>
+                {/* <h1></h1>    */}
+                <audio controls className="MiAudioXD">
                 <source src={link} type="audio/mpeg" />
                 Your browser does not support the audio element.
                 </audio>
                 </div>
 
-                <input type="text" onChange={handleChange} placeholder="Escribe xD" style={{height:"8vh",width:"60%",borderRadius:"5px", paddingLeft:"5%",border:"2px solid black",marginLeft:"25%"}} />
+                <input className="inputAudioEjercicio" type="text" onChange={handleChange} placeholder="Escribe xD"  />
 
                
-                {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png" indice={numError}  texto="Tuviste un Error"/>) : 
+                
+
+        </div>
+
+        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png" indice={numError}  texto="Tuviste un Error"/>) : 
          (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png" />)}
         
 
-        </div>
-        <Button onClick={enviar} variant="contained" sx={{background:"rgba(249, 176, 195, 0.57)",color:"black",border:"2px solid black",width:"20%",marginTop:"5%",marginLeft:"40%",borderRadius:"20px"}}>Enviar</Button>
+        <Button className="btnResEjercicioAudio" onClick={enviar} variant="contained" >Enviar</Button>
         
     
             
     
-    </>)
+    </div>)
 }

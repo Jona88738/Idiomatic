@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 
 
-export default function NotificacionAdmin({open, handleClose,titulo,img,btnTexto,texto,indice = [],test = ""}) {
+export default function NotificacionAdmin({open, handleClose,titulo,img,btnTexto,texto,indice = [],test = "",handleCloseBorrar,condicion="1"}) {
   console.log("ultimo test: ",test.length)
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialog-paper': {
@@ -66,9 +66,18 @@ export default function NotificacionAdmin({open, handleClose,titulo,img,btnTexto
           {/* <Button onClick={handleClose}  autoFocus>
             Salir
           </Button> */}
-          <Button onClick={handleClose} sx={{position:"relative",background:"rgba(255, 194, 18, 1)",right:"20%", width:"35%",borderRadius:"20px",color:"black",border:"2px solid black"}} variant="contained">NO</Button>
-          <Button onClick={handleClose} sx={{position:"relative",background:"rgba(255, 194, 18, 1)",right:"15%", width:"35%",borderRadius:"20px",color:"black",border:"2px solid black"}} variant="contained">Si</Button>
+          {condicion === "0" ? (
+              <Button onClick={handleClose} sx={{position:"relative",background:"rgba(255, 194, 18, 1)",right:"25%", width:"55%",borderRadius:"20px",color:"black",border:"2px solid black"}} variant="contained">Salir</Button>
+          ):(
+            <>
+            <Button onClick={handleClose} sx={{position:"relative",background:"rgba(255, 194, 18, 1)",right:"20%", width:"35%",borderRadius:"20px",color:"black",border:"2px solid black"}} variant="contained">NO</Button>
+            <Button onClick={handleCloseBorrar} sx={{position:"relative",background:"rgba(255, 194, 18, 1)",right:"15%", width:"35%",borderRadius:"20px",color:"black",border:"2px solid black"}} variant="contained">Si</Button>
 
+            
+            </>
+          )
+          }
+          
         </DialogActions>
       {/* </Dialog> */}
 

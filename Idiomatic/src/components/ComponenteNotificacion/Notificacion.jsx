@@ -7,7 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
-
+import '../../styles/StylesApartados/NotificacionJuego.css'
 
 export default function Notificacion({open, handleClose,titulo,img,btnTexto,texto,indice = [],test = ""}) {
   console.log("ultimo test: ",test.length)
@@ -74,7 +74,7 @@ export default function Notificacion({open, handleClose,titulo,img,btnTexto,text
           {/* <Button onClick={handleClose}  autoFocus>
             Salir
           </Button> */}
-          <Button onClick={handleClose} sx={{position:"relative",background:"rgba(255, 194, 18, 1)",right:"35%", width:"35%",borderRadius:"20px",color:"black",border:"2px solid black"}} variant="contained">{btnTexto}</Button>
+          <Button className='btnNotiJuego' onClick={handleClose} sx={{}} variant="contained">{btnTexto}</Button>
 
         </DialogActions>
       {/* </Dialog> */}

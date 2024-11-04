@@ -31,17 +31,17 @@ const LoginPage = () => {
     resolver: yupResolver(schema),
   });
 
-  useEffect(() => {
-    fetch("/api/signUser?nombre=Jonathan")
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setUserData(data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api/signUser?nombre=Jonathan")
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log(data);
+  //       setUserData(data);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching data:', error);
+  //     });
+  // }, []);
 
   //Revisar cada que se haga merge
 

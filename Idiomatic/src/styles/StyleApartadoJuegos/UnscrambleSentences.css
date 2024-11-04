@@ -1,0 +1,188 @@
+
+@media screen and (max-width:600px) {
+
+    .imgMainUnscrambleSen{
+
+        float:left;
+        position:absolute !important;
+        left:0%;
+        top:0%;
+        width:24%;
+
+    }
+    .ContainerMainTitleUnscramble{
+        background:rgba(119, 102, 198, 0.5);
+        width:80% !important;
+        margin-left:15% !important;
+        margin-right:0% !important;
+        border-radius:10px;
+        height:14vh;
+        margin-top:3%;
+    }
+    .TitleMainUnscramble{
+        position:relative;
+        
+        text-align:center;
+        font-size: 5vw;
+    }
+    .ContainerPregunta{
+        margin-top:2%;
+        display:flex;
+    }
+    .imgNumUnscramble{
+        display:block;
+        float:left;
+        margin-top:0%;
+        margin-right:2%;
+        width:8%;
+    }
+    .oracionUnscramble{
+        margin:0;
+        margin-top:2%;
+        color:black;
+        font-size: 6vw;
+    }
+    .inputUnscrambleSenten{
+        display:inline-block;
+        border-radius:25px;
+        margin-top:2%;
+        width:90%;
+        height:40px;
+        padding-left:2%;
+        font-size:22px;
+    }
+    .btnUnscrambleEnviar{
+        color:black !important;
+        position:relative !important;
+        left:27%;
+        margin-bottom:1%;
+        border-radius:25px !important;
+        width:44%;
+        top: 20px;
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
+
+    .imgMainUnscrambleSen{
+
+        float:left;
+        position:absolute !important;
+        left:0%;
+        top:0%;
+        width:12%;
+    }
+    .ContainerMainTitleUnscramble{
+        background:rgba(119, 102, 198, 0.5);
+        width:80% !important;
+        margin-left:15% !important;
+        margin-right:0% !important;
+        border-radius:10px;
+        height:17vh;
+        margin-top:3%;
+    }
+    .TitleMainUnscramble{
+        position:relative;
+        /* top:23%; */
+        text-align:center;
+        font-size: 4vw;
+    }
+    .ContainerPregunta{
+        margin-top:2%;
+        display:flex;
+    }
+    .imgNumUnscramble{
+        display:block;
+        float:left;
+        margin-top:0%;
+        margin-right:2%;
+        width:5%;
+    }
+    .oracionUnscramble{
+        margin:0;
+        margin-top:2%;
+        color:black;
+        font-size: 4vw;
+       
+    }
+    .inputUnscrambleSenten{
+        display:inline-block;
+        border-radius:25px;
+        margin-top:2%;
+        width:78%;
+        height:40px;
+        padding-left:2%;
+        font-size:22px;
+    }
+    .btnUnscrambleEnviar{
+        color:black !important;
+        position:relative;
+        left:79%;
+        margin-bottom:1%;
+        border-radius:25px !important;
+        width:18%;
+    }
+
+}
+
+
+@media  (min-width:1024px){
+
+    .imgMainUnscrambleSen{
+
+        float:left;
+        position:absolute !important;
+        left:0%;
+        top:0%;
+        width:12%;
+    }
+    .ContainerMainTitleUnscramble{
+        background:rgba(119, 102, 198, 0.5);
+        width:80% !important;
+        margin-left:15% !important;
+        margin-right:0% !important;
+        border-radius:10px;
+        height:14vh;
+        margin-top:3%;
+    }
+    .TitleMainUnscramble{
+        position:relative;
+        top:23%;
+        text-align:center;
+    }
+    .ContainerPregunta{
+        margin-top:2%;
+        display:flex;
+    }
+    .imgNumUnscramble{
+        display:block;
+        float:left;
+        margin-top:0%;
+        margin-right:2%;
+        width:5%;
+    }
+    .oracionUnscramble{
+        margin:0;
+        margin-top:2%;
+        color:black;
+       
+    }
+    .inputUnscrambleSenten{
+        display:inline-block;
+        border-radius:25px;
+        margin-top:2%;
+        width:40%;
+        height:40px;
+        padding-left:2%;
+        font-size:22px;
+    }
+    .btnUnscrambleEnviar{
+        color:black !important;
+        position:relative;
+        left:75%;
+        margin-bottom:1%;
+        border-radius:25px !important;
+        width:15%;
+    }
+}

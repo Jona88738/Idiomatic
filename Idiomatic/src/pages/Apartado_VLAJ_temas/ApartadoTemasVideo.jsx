@@ -6,11 +6,16 @@ export default function ApartadoTemasVideos(){
 
     let completeV = JSON.parse(sessionStorage.getItem('completeV'))
     console.log(completeV[0].Total )
+
+    let TemasVideos = JSON.parse(sessionStorage.getItem('TemasVideos'))
+    // console.log(completeJuego[i.TotalComplete )
+    console.log("XD",TemasVideos.length )
     
 
     //Prueba xD
 
-    const Card = [
+    const Card = 
+    [
        {
         "Total":0,
         "title":"saludos y despedidas",
@@ -87,6 +92,7 @@ export default function ApartadoTemasVideos(){
     ]
 
 
+    // [{"Total":0,"title":"saludos y despedidas"},{"Total":2,"title":"presentaciones personales"},{"Total":3,"title":"Dar informacion personal"},{"Total":4,"title":"verb to be"},{"Total":5,"title":"Present Simple"},{"Total":6,"title":"Present Continuo"},{"Total":7,"title":"Futuro Will"},{"Total":8,"title":"Pasado Simple"}]
 
 
 
@@ -101,17 +107,24 @@ export default function ApartadoTemasVideos(){
 
 {Card.map((Element,index) =>{
     console.log(Element.Total)
+
+    let contador = 0;
+    if(index < TemasVideos.length-1){
+        contador = index +1;
+    }else{
+        contador = index;
+    }
    return( 
    
-    completeV[0].Total < Element.Total  ?
+    completeV[0].Total < TemasVideos[index].Total  ?
     (<MyCard title={Element.title} imagen={Element.imagen}  index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  opacity="0.5"  pointerEvents="none"/>):   //opacity="0.5"  pointerEvents="none"
-    completeV[0].Total === Element.Total || completeV[0].Total === 1?
+    completeV[0].Total <  TemasVideos[contador].Total  ?
 
     (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  boxshadow={0}  />): //completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)"
     
-    completeV[0].Total > Element.Total ?  
+    completeV[0].Total > TemasVideos[index].Total ?  
     (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion} completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" />):
-    ""
+    (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  boxshadow={0}  />)
    )
 
 })}

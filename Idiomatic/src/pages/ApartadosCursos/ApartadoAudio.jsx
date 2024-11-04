@@ -3,6 +3,7 @@ import {Head,MyCard} from "../../components/ApartadosCursos"
 import { useEffect, useState } from "react"
 import { useLocation } from 'react-router-dom';
 
+
 export default function ApartadoAudio(){
 
     const [infoAudios, setInfoAudios] = useState([])

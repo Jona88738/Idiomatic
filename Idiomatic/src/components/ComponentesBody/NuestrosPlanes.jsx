@@ -2,12 +2,12 @@ import { Container } from "@mui/material";
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 
-
-
-
-
+import { useNavigate } from 'react-router-dom';
 
 export default function NuestrosPlanes(){
+
+  const navigate = useNavigate();
+
     return(<>
     
     <h1 className="TituloNuestrosPlanes" >Nuestros Planes</h1>
@@ -26,7 +26,7 @@ export default function NuestrosPlanes(){
                 <li>Pruebas de tipo de aprendizaje y <br/>  de nivelacion</li>
            </ul>
 
-           <Button className="btnGratuito" >Registrarse ahora</Button>
+           <Button className="btnGratuito" onClick={() => { navigate("/Login")}} >Registrarse ahora</Button>
 
 
             </Card>
@@ -46,7 +46,7 @@ export default function NuestrosPlanes(){
                 <li>Contenido apoyo para pruebas de <br/> certificacion   </li>
            </ul>
 
-           <Button  className="btnPlus" >Pruebalo ahora por<br/> $80 MXN/mes</Button>
+           <Button  className="btnPlus" onClick={() => { navigate("/Login")}} >Pruebalo ahora por<br/> $80 MXN/mes</Button>
 
             </Card>
           </Container>

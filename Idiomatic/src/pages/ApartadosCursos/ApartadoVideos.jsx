@@ -38,17 +38,17 @@ export default function ApartadoVideos(){
             
             <Head title={link} mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.svg"/>
             
-            {infoVideos.map((video) =>{ 
+            {infoVideos.map((video,contador) =>{ 
                  return (
                     // Number(sessionStorage.getItem('completeVideo')) >= video.id_leccion ? 
-                    completeV[index].Complete < video.id_leccion ? 
+                    completeV[index].TotalComplete < contador ? 
                     (<MyCard title={video.nombre}  imagen={imagen} index={index} page="/video" link={video.link}  introduccion={video.introduccion}  opacity="0.5"  pointerEvents="none" videoID={video.id_leccion} />)://Bloqueado   //opacity="0.5"  pointerEvents="none"
-                    completeV[index].Complete === video.id_leccion ?
+                    completeV[index].TotalComplete === contador ?
                 
                     (<MyCard title={video.nombre}  imagen={imagen} index={index} page="/video" link={video.link}  introduccion={video.introduccion}  boxshadow={0}  videoID={video.id_leccion}  />): // falta de realizar //completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)"
                     
-                    completeV[index].Complete  > video.id_leccion ?  
-                    (<MyCard title={video.nombre}  imagen={imagen} index={index} page="/video" link={video.link}  introduccion={video.introduccion}  completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" videoID={video.id_leccion}  />): // completado
+                    completeV[index].TotalComplete  > contador ?  
+                    (<MyCard title={video.nombre}  imagen={imagen} index={index} page="/video" link={video.link}  introduccion={video.introduccion}  completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" videoID={contador}  />): // completado
                     "")
 
                 //         (<MyCard key={video.idvideo} title={video.nombre} imagen={imagen} page="/video" link={video.link} introduccion={video.introduccion}  completeStyle="3px solid green" videoID={video.id_leccion}  />)

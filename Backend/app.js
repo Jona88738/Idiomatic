@@ -39,7 +39,7 @@ app.use(session({
     cookie: { secure: false } 
 }))
 
-app.use(express.static('recursos'))
+app.use("/api",express.static('recursos'))
 
 
 

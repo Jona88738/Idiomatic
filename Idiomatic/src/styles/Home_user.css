@@ -1,14 +1,15 @@
 
 @media screen and (max-width:600px) {
     .ContainerPageNoti{
-        height: 100vh;
+        height: 85vh;
     }
 
     .Contenedormain{
         position: relative;
         /*display:block !important;
-*/       padding-bottom:21%;
+*/       padding-bottom:16vw;
         width:100%;
+        /* height: 100vh !important; */
         
     }
     .ContenedorNav{
@@ -72,9 +73,9 @@
 
    .ContenedorBotonesUser{
     display: flex !important;
-   
-    flex-direction: row;
-    position:static;
+    justify-content: space-evenly;
+    /* flex-direction: row;
+    position:static; */
     top:8%;
     right:15px;
 }
@@ -107,8 +108,8 @@
     .imgHomeUser{
         position:absolute;
         right:30px;
-        top:13%;
-        width: 35%;
+        top:10%;
+        width: 27%;
         min-Height:25%;
     }
 
@@ -124,7 +125,7 @@
 
     .ContenedorProgreso{
 
-        height:20%;
+        height:21vh;
         width:70% !important;
         background:rgba(70, 70, 122, 0.15);
         border-Radius:25px;
@@ -136,10 +137,11 @@
 
         position:relative !important;
         left:5%;
-        top:32px;
-        width: 35%;
-        height: 50%;
+        top:30px;
+        width: 38%;
+        height: 62%;
         /* margin-top: 36%;*/
+        max-width: 40%;
     }
 
     .subtema3{
@@ -192,13 +194,187 @@
 
     .ConBotones{
         display: flex !important;
-        
+        justify-content:space-evenly; 
     }
 
 
 }
 
 @media screen and (min-width:601px) and (max-width:1023px){
+    .ContainerPageNoti{
+        height: 100vh;
+    }
+
+    .Contenedormain{
+        display:flex !important;
+        margin:0;
+        width:100% !important;
+        height:100vh;
+    }
+
+    .ContenedorNav{
+        margin:0;
+        width:30% !important;
+    }
+
+    .fotoPerfil{
+        margin-top:2%;
+        margin-left:32%;
+        width: 110px !important;
+        height: 110px !important;
+    }
+
+    .NomCorreoTitle {
+
+        text-align:center;
+        margin:0;
+    }
+
+    .planTitle{
+
+        text-align:center;
+        margin:0;
+        color:blue;
+    }
+ 
+    .btn{
+        border-radius:20px;
+        cursor:pointer;
+       border:none;
+       display: flex;
+       margin-bottom: 5%;
+       margin-top: 60%;
+       margin-left: 10%;
+   }
+   
+   .btn:hover{
+       padding: 5px;
+       box-shadow: 0px 0px 5px  0px gray inset;
+       
+   }
+
+
+   .ContenedorUser{
+        
+        position:relative  !important;
+        top:0%;
+        right:22%;
+        border-Radius:50px;
+        width:70px !important;
+        background: rgba(70, 70, 122, 0.05);
+        height:68vh;  
+        box-Shadow:5px 8px 2px GRAY;
+        margin:0;
+   }
+
+   .ContenedorBotonesUser{
+        position:relative;
+        top:8%;
+        right:15px;
+   }
+
+
+   /*  Apartado User_Home*/
+
+    .TitleUserHome{
+        margin-top: 5% !important;
+        background:rgba(119, 102, 198, 0.3);
+        width:100%;
+        border-Radius:50px;
+        margin:0;
+    }
+
+
+    .TituloMain{
+        
+        text-Align:center;
+        font-Size:4vw;
+    }
+
+    .subTituloMain{
+        text-Align:center;
+        font-Size:3vw;
+    }
+
+    .imgHomeUser{
+        position:absolute;
+        right:10px;
+        top:2px;
+        width: 20%;
+        min-Height:25%;
+    }
+
+    .subtema{
+        box-Shadow:0px 3px 1px rgba(31, 25, 47, 0.5);
+        font-Size:3vw;
+    }
+
+    .subtema2{
+        font-Size:3vw;
+    }
+
+    .ContenedorProgreso{
+        margin-bottom: 3% !important;
+        height:21%;
+        width:40% !important;
+        background:rgba(70, 70, 122, 0.15);
+        border-Radius:25px;
+        display:flex !important;
+    }
+
+    .imgBandera{
+
+        position:relative !important;
+        left:5%;
+        width: 40%;
+        height: 10vw;
+        top:20%;
+    }
+
+    .subtema3{
+        font-Size:2vw;
+        box-Shadow:0px -3px 1px rgba(31, 25, 47, 0.5);
+    }
+
+    /* NavBAr UserDesplegada */
+    .navDesple{
+        position:relative !important;
+        top:0%;
+        border-Radius:50px;
+        width:86% !important;
+        background: rgba(70, 70, 122, 0.05);
+        height:75vh; 
+        box-Shadow:5px 8px 2px GRAY;
+        margin:0;
+
+    }
+
+    .navDespleSgund{
+        position:relative !important;
+        top:8%;
+    }
+
+    .ConBotones{
+        padding:0 !important;
+    }
+
+    
+   .btnDesplegable{
+   
+    border-radius:20px;
+    cursor:pointer;
+   border:none;
+   display: flex !important;
+   margin-bottom: 5% !important;
+   margin-top: 10%;
+   margin-left: 10%;
+   /* font-size: 1.5vw; */
+    }
+
+    .btnDesplegable h2{
+       
+        margin-bottom: 0;
+    } 
 
 }
 
@@ -317,7 +493,7 @@
 
     .ContenedorProgreso{
         margin-bottom: 3% !important;
-        height:20%;
+        height:22%;
         width:40% !important;
         background:rgba(70, 70, 122, 0.15);
         border-Radius:25px;

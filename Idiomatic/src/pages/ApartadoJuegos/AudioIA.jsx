@@ -7,6 +7,8 @@ import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
 import { useNavigate } from "react-router-dom";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import '../../styles/StyleApartadoJuegos/AudioIA.css';
+
 export default function AudioIA() {
 
     const navigate = useNavigate();
@@ -145,6 +147,9 @@ export default function AudioIA() {
                             setNoti(true);
                             handleClickOpen();
 
+
+                            
+
                         }else{
                             setNoti(false);
                             handleClickOpen()
@@ -165,19 +170,20 @@ export default function AudioIA() {
 
     
     return (
-        <div style={{ background: "#E0DFFD", height: "100vh" }}>
+        <div className='ContainerMainAudioIA' >
             <br />
-            <Container sx={{ background: "rgba(255, 194, 18, 0.65)", borderRadius: "25px", height: "25vh" }}>
-                <img src="/images/svgJuegos/speak.svg" width="250px" style={{ float: "right", position: "relative", bottom: "18%" }} />
-                <h1 style={{ paddingTop: "5%" }}>Speaking.- Was/Were</h1>
+            <Container className='ContainerTitleAudioIA' >
+                <img className='imgDogSpeak' src="/images/svgJuegos/speak.svg"   />
+                <h1 className='TitleAudioIA' >Speaking.- Was/Were</h1>
             </Container>
-            <h1 style={{ paddingLeft: "5%" }}>Speak this sentence</h1>
-            <Container sx={{ display: "flex" }}>
-                <img src={recursoFront.icono} alt="" width="20%" style={{ marginLeft: "8%" }} />
+
+            <h1 className='SubtitleAudioIA' >Speak this sentence</h1>
+            <Container className='ContainerEjercicioAudioIA' >
+                <img className='imgDogLeftAudioIA' src={recursoFront.icono} alt=""   />
                         {/*  ="/src/images/svgJuegos/perroDudaIA.png" */}
-                <Container sx={{}}>
-                    <div style={{ background: "rgba(255, 189, 0, 0.95)", height: "15vh", borderRadius: "22px", marginTop: "7%", border: "4px solid black" }}>
-                        <h2 style={{ textAlign: "center", paddingTop: "1%" }}>{recursoEjercicio}</h2>
+                <Container >
+                    <div className='ContainerTitleEjercicioAudioIA' >
+                        <h2 className='TitleEJercicioAudioIA' >{recursoEjercicio}</h2>
                     </div>
                 </Container>
             </Container>
@@ -185,20 +191,20 @@ export default function AudioIA() {
             <MicIcon sx={{ fontSize: 9 }} />
             
             {grabar === true ? (
-            <><Button  id="record" onClick={startRecording} variant="outlined" sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background: recursoFront.btnColor, color: "black", marginLeft: "20%" }}>
+            <><Button className='btnAudioIARecord'  id="record" onClick={startRecording} variant="outlined" sx={{color:"black", background: recursoFront.btnColor, }}>
                     Press to talk
                     <MicIcon sx={{ fontSize: 50 }} />
                 </Button>
-                <Button disabled  id="stopRecord" onClick={stopRecording} variant="outlined" sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background: recursoFront.btnColor, color: "black", marginLeft: "0%" }}>
+                <Button className='btnAudioIAStop'  disabled  id="stopRecord" onClick={stopRecording} variant="outlined" sx={{ background: recursoFront.btnColor, color: "black", }}>
                         Press to stop Record
                         <MicIcon sx={{ fontSize: 50 }} />
                 </Button></>
             ):(
-                <><Button disabled id="record" onClick={startRecording} variant="outlined" sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background: recursoFront.btnColor, color: "black", marginLeft: "20%" }}>
+                <><Button className='btnAudioIARecord'  disabled id="record" onClick={startRecording} variant="outlined" sx={{color:"black",  background: recursoFront.btnColor,  }}>
                         Press to talk
                         <MicIcon sx={{ fontSize: 50 }} />
                     </Button>
-                    <Button  id="stopRecord" onClick={stopRecording} variant="outlined" sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background: recursoFront.btnColor, color: "black", marginLeft: "0%" }}>
+                    <Button  className='btnAudioIAStop'  id="stopRecord" onClick={stopRecording} variant="outlined" sx={{ background: recursoFront.btnColor, color: "black",  }}>
                             Press to stop Record
                             <MicIcon sx={{ fontSize: 50 }} />
                     </Button></>

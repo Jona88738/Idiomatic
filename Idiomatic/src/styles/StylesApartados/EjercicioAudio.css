@@ -1,0 +1,192 @@
+@media screen and (max-width:600px) {
+    .ContainerTitleEjerAudio{
+        background:rgba(255, 194, 18, 0.65);
+        height:17vh;
+        border-radius:20px;
+        margin-top: 5%;
+    }
+    .ContainerImgEjerAudio{
+        float:right;
+        position:absolute;
+        right:0;
+        /* width: 37vw; */
+        max-width: 40%;
+        height: 24vh;
+    }
+    .TitleEjerAudio{
+        font-size: 8vw;
+        margin-left: 10%;
+        margin-top:3%;
+    }
+    .ContainerMainEjerAudio{
+        position: relative;
+        background:rgba(224, 223, 253, 1);
+        width:90%;
+        margin-left:5%;
+        /* height:60vh; */
+        height: 62%;
+        border-radius:20px;
+        margin-top: 4%;
+    }
+    .ContMainTitle{
+        font-size: 5vw;
+        text-align:center;
+        margin: 0;
+    }
+    .MainEjercicio{
+        display:flex;
+        flex-direction: column;
+        height:62%;
+    }
+    .imgDogMainEjer{
+        /* margin-left:8%; */
+        width:20vh;
+        margin-bottom: 7%;
+        /* max-width: 22%; */
+    }
+    .MiAudioXD{
+        position: absolute;
+        top: 50%;
+        width: 91%;
+    }
+    /* XD */
+    .inputAudioEjercicio{
+        height:8vh;
+        width:95%;
+        border-radius:5px;
+        padding-left:5%;
+        border:2px solid black;
+        margin-left:2%;
+        margin-top: 4%;
+    }
+    .btnResEjercicioAudio{
+        background:rgba(249, 176, 195, 0.57);
+        color:black !important;
+        border:2px solid black !important;
+        width:50%;
+        margin-top:2% !important;
+        margin-left:25% !important;
+        border-radius:20px !important;
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
+
+    .ContainerTitleEjerAudio{
+        background:rgba(255, 194, 18, 0.65);
+        height:20vh;
+        border-radius:20px;
+        margin-top: 2%;
+    }
+    .ContainerImgEjerAudio{
+        float:right;
+        position:absolute;
+        top: -3%;
+        right: 0;
+        /* bottom:55%; */
+        /* width: 25%; */
+        height: 32vh;
+        max-width: 28vw;
+
+    }
+    .TitleEjerAudio{
+        margin-top:0%;
+    }
+    .ContainerMainEjerAudio{
+        background:rgba(224, 223, 253, 1);
+        width:90%;
+        margin-left:5%;
+        height:50vh;
+        border-radius:20px;
+        margin-top: 2%;
+    }
+    .ContMainTitle{
+        text-align:center;
+        
+    }
+    .MainEjercicio{
+        display:flex;
+        height:50%;
+    }
+    .imgDogMainEjer{
+        margin-left:8%;
+        width:20%;
+    }
+    /* XD */
+    .inputAudioEjercicio{
+        height:8vh;
+        width:60%;
+        border-radius:5px;
+        padding-left:5%;
+        border:2px solid black;
+        margin-left:25%;
+    }
+    .btnResEjercicioAudio{
+        background:rgba(249, 176, 195, 0.57);
+        color:black !important;
+        border:2px solid black !important;
+        width:20%;
+        margin-top:5% !important;
+        margin-left:40% !important;
+        border-radius:20px !important;
+    }
+
+}
+
+
+@media  (min-width:1024px){
+    .ContainerTitleEjerAudio{
+        background:rgba(255, 194, 18, 0.65);
+        height:20vh;
+        border-radius:20px;
+        margin-top: 2%;
+    }
+    .ContainerImgEjerAudio{
+        float:right;
+        position:relative;
+        bottom:33%;
+        width: 25%;
+    }
+    .TitleEjerAudio{
+        margin-top:0%;
+    }
+    .ContainerMainEjerAudio{
+        background:rgba(224, 223, 253, 1);
+        width:90%;
+        margin-left:5%;
+        height:50vh;
+        border-radius:20px;
+        margin-top: 2%;
+    }
+    .ContMainTitle{
+        text-align:center;
+        
+    }
+    .MainEjercicio{
+        display:flex;
+        height:50%;
+    }
+    .imgDogMainEjer{
+        margin-left:8%;
+        width:20%;
+    }
+    /* XD */
+    .inputAudioEjercicio{
+        height:8vh;
+        width:60%;
+        border-radius:5px;
+        padding-left:5%;
+        border:2px solid black;
+        margin-left:25%;
+    }
+    .btnResEjercicioAudio{
+        background:rgba(249, 176, 195, 0.57);
+        color:black !important;
+        border:2px solid black !important;
+        width:20%;
+        margin-top:5% !important;
+        margin-left:40% !important;
+        border-radius:20px !important;
+    }
+}

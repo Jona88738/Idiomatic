@@ -74,6 +74,9 @@
         height: 85vh;
         
      }
+     .ContenedorTituloAndImg{
+      max-height: 5%;
+     }
 
      .PresentacionImage{
         position:absolute;
@@ -86,7 +89,8 @@
         text-align: center;
         left:8%;
         font-family:helvetica neue;
-        font-Size:8vw;
+        /* font-Size: 5vh; */
+        margin-top: 8%;
         
      }
 
@@ -95,29 +99,31 @@
      }
 
      .PresentacionGif{
-        position:relative;
+        position:absolute;
         left:3%;
-        bottom:0%;
+        bottom:4%;
+        width: 95%;
+        height: 54vh;
      }
 
     /*  body Home */
     .BodyContenedor{
 
         background: rgba(224, 223, 253, 0.5);
-        display: flex !important;
+        /* display: flex !important; */
         margin: 0;
         max-Width: 100%;
         
      }
 
-     .bodyCardInfo{
+     /* .bodyCardInfo{
 
         display: flex !important;
 
-     }
+     } */
 
      .contenedorRosa{
-        margin-left: 5% !important;
+        /* margin-left: 4% !important; */
         margin-top: 20px;
      }
 
@@ -125,41 +131,47 @@
         background: #F9B0C3 !important;
         border-radius: 20px !important;
         height: 100%; 
+        width: 90%;
+        margin-left: 5%;
      }
 
      .cardRosa h1{
-        color: white;
-        font-size: 2vw;
-         text-align: center; 
+      color: white;
+      font-size: 7vw;
+      text-align: center; 
      }
 
 
-     .contenedorMorado{
+     /* .contenedorMorado{
         margin-left: 3% !important;
-     }
+     } */
 
      .cardMorado{
         background: #7766C6 !important;
         margin-top: 20px;
         margin-Bottom: 20px;
         border-radius: 20px !important;
+        width: 90%;
+        margin-left:5%;
      }
 
      .cardMorado h1{
         color: white;
-        font-size: 2.5vw; 
+        font-size: 7vw; 
      }
 
      .cardAmarillo{
         background: #FFC212 !important;
         border-radius: 20px !important; 
+        width: 90%;
+        margin-left: 5%;
      }
 
      .cardAmarillo h1{
         color: white; 
         text-align: right;
         margin: 20px;
-        font-size: 2vw; 
+        font-size: 7vw; 
      }
 
      .cardNegro{
@@ -170,10 +182,11 @@
         margin-top: 20px; 
         margin-bottom: 20px;
         border-radius: 20px !important;
+        margin-left: 5%;
      }
 
      .cardNegro h1{
-        font-size: 3vw;
+        font-size: 7vw;
         color: white;
         margin-left:40px;
         margin-top: 30px; 
@@ -187,7 +200,7 @@
      .ImgRazones{
         position: relative !important;
         left: 10px;
-        margin-Top: 120px; 
+        /* margin-Top: 120px;  */
      }
 
      /* Nuestros Idiomas */
@@ -195,10 +208,11 @@
      .TituloNuestrosIdiomas{
 
         text-align:center;
+        font-size: 5vw;
      }
 
      .contenedorIngles{
-        display:flex !important;
+        /* display:flex !important; */
         margin:0;
         max-width:100%; 
         box-shadow:5px 5px 5px black;
@@ -206,26 +220,29 @@
 
      .contenedorIngles h1{
         text-align:center;
+        margin-top: 4%;
      }
 
      .contenedorIngles p{
-        font-size:1rem;
+        font-size:4vw;
         text-align:justify;
+        /* text-indent: 2rem; */
+        margin: 20px 25px; 
         
      }
 
      .contImagenIngles{
-        width:60% !important;
+        width:40% !important;
      }
 
      .ContenedorFrances{
-        display:flex !important;
+        /* display:flex !important; */
         margin:0;
         max-width:100%;
      }
 
      .ContenedorimgFran{
-        width:60%  !important;
+        width:50%  !important;
      }
 
      .ContFrancesInfo{
@@ -234,10 +251,13 @@
 
      .ContFrancesInfo h1{
         text-align:center;
+
      }
 
      .ContFrancesInfo p{
         text-align:justify;
+        font-size: 4vw;
+        margin: 20px 25px; 
      }
 
      /* Ofrecemos */
@@ -248,43 +268,47 @@
 
      .ConteOfrecemos{
         background:rgba(249, 176, 195, 0.44);
-        display:flex !important;
+        /* display:flex !important; */
         justify-content:space-evenly;
         border-radius:20px !important;
      }
 
      .EjercicioNivel h1{
 
-        font-size:2vw;
-        margin-left:7%;
-        margin-right:4% !important;
+        font-size:4vw;
+        text-align: center;
+        /* margin-left:7%;
+        margin-right:4% !important; */
      }
 
      .Adaptacion h1{
-        font-size:2vw;
+        font-size:4vw;
+        text-align: center;
      }
 
      .TestNivel h1{
 
-        font-size:2vw;
+        font-size:4vw;
+        text-align: center;
      }
 
      /* Nuestros Planes */
 
      .TituloNuestrosPlanes{
+      margin-top: 4%;
         text-align:center;
      }
 
      .ConteNuestrosP{
-        display:flex !important;
+        /* display:flex !important; */
         margin:0;
         color: black !important;
      }
 
      .cardGratuido{
         border: 4px solid #7766C6;
-        width:70%;
-        height:80% !important;
+        width:82%;
+        height:18rem !important;
         margin-top:8%;
         margin-left:10%;
         margin-bottom:10%;
@@ -307,12 +331,13 @@
         color:white !important;
         border-radius:12px !important;
         left:35px;
+        margin-top: 18% !important;
      }
 
      .cardPlus{
         border: 8px solid #7766C6;
-        width:70%;
-        height:80%;
+        width:82%;
+        height:20rem;
         margin-top:8%;
         margin-left:10%;
         margin-bottom:10%;
@@ -338,6 +363,7 @@
         bottom:5px;
         color:white !important;
         border-radius:20px !important;
+        margin-top: 12% !important;
      }
 
 
@@ -562,8 +588,9 @@
      }
 
      .contenedorIngles p{
-        font-size:1rem;
+        font-size:2vw;
         text-align:justify;
+        margin: 20px 25px; 
         
      }
 
@@ -591,6 +618,8 @@
 
      .ContFrancesInfo p{
         text-align:justify;
+        margin: 20px 25px; 
+        font-size: 2vw;
      }
 
      /* Ofrecemos */
@@ -636,7 +665,7 @@
 
      .cardGratuido{
         border: 4px solid #7766C6;
-        width:70%;
+        width:87%;
         height:80% !important;
         margin-top:8%;
         margin-left:10%;
@@ -660,12 +689,13 @@
         color:white !important;
         border-radius:12px !important;
         left:35px;
+        margin-top: 15% !important;
      }
 
      .cardPlus{
         border: 8px solid #7766C6;
-        width:70%;
-        height:80%;
+        width:86%;
+        height:18rem;
         margin-top:8%;
         margin-left:10%;
         margin-bottom:10%;
@@ -691,6 +721,7 @@
         bottom:5px;
         color:white !important;
         border-radius:20px !important;
+        margin-top: 5% !important;
      }
 
 }
@@ -794,7 +825,7 @@
 
      .PresentacionGif{
         position:relative;
-        left:14%;
+        left:10%;
         bottom:0%;
      }
 
@@ -833,7 +864,7 @@
 
      .cardRosa h1{
         color: white;
-        font-size: 2vw;
+        font-size: 2.5vw;
          text-align: center; 
          
      }
@@ -933,8 +964,10 @@
      }
 
      .contenedorIngles p{
-        font-size:1rem;
+        font-size:2vw;
         text-align:justify;
+        line-height: 1.9 !important;
+        margin: 20px 25px;
         
      }
 
@@ -962,6 +995,9 @@
 
      .ContFrancesInfo p{
         text-align:justify;
+        font-size: 2vw;
+        line-height: 1.9 !important;
+        margin: 20px 25px;
      }
 
      /* Ofrecemos */
@@ -998,6 +1034,7 @@
 
      .TituloNuestrosPlanes{
         text-align:center;
+        margin-top: 3%;
      }
 
      .ConteNuestrosP{
@@ -1038,6 +1075,7 @@
         color:white !important;
         border-radius:12px !important;
         left:35px;
+        margin-top: 11% !important;
      }
 
      .cardPlus{
@@ -1074,6 +1112,7 @@
         bottom:5px;
         color:white !important;
         border-radius:20px !important;
+        margin-top: 4% !important;
      }
 
 

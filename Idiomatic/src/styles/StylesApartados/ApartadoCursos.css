@@ -20,9 +20,107 @@
         transition: transform 0.3s;
         box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
     }
+
+    /* Apartado Head */ 
+    .ContainerMainHead{
+        display:flex !important;
+        margin:0 !important;
+    }
+    .MainApartado{
+        height:30vh;
+        border-radius:25px;
+        width:100% !important;
+        margin-top:2%;
+        margin-left:0 !important;
+        display:flex !important;
+        flex-direction: column-reverse;
+        
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+        height: 100%;
+    }
+    .imgMain{
+        width:50%;
+        margin-left: 26%;
+    }
+    .TituloMainApartado{
+        /* margin-top:10%;
+        margin-left:29%; */
+        text-align: center;
+        
+    }
+    .ContainerBuscador{
+        width:50% !important;
+        display: none !important;
+       
+    }
+    .inputBuscador{
+        margin-left:20%;
+        margin-top:40%;
+        width:65%;
+        background:rgba(119, 102, 198, 0.3);
+        border-radius:20px;
+    }
 }
 
 @media screen and (min-width:601px) and (max-width:1023px){
+
+    .CardApartados{
+
+        position:relative !important;
+        display:inline-block;
+        width: 50% !important;
+        min-width: 45px;
+        max-width: 350px;
+        background:rgba(224, 223, 253, 0.41);
+        border-radius:30px !important;
+        margin-top:50px;
+        margin-left:5%;
+        cursor:pointer;
+         /* '&:hover': { transform: 'scale(1.1)', transition: 'transform 0.3s', boxShadow: "0 6px 10px rgba(0, 0, 0, 4.4)"
+     */
+        }
+    .CardApartados:hover{
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
+
+    /* Apartado Head */ 
+    .ContainerMainHead{
+        display:flex !important;
+        margin:0 !important;
+    }
+    .MainApartado{
+        height:30vh;
+        border-radius:25px;
+        width:100% !important;
+        margin-top:2%;
+        margin-left:0 !important;
+        display:flex !important;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
+    .imgMain{
+        width:56%;
+    }
+    .TituloMainApartado{
+        margin-top:10%;
+        /* margin-left:29%; */
+        font-size: 4vw
+        
+    }
+    .ContainerBuscador{
+        display: none !important;
+        width:50% !important;
+       
+    }
+    .inputBuscador{
+        
+        margin-left:20%;
+        margin-top:40%;
+        width:65%;
+        background:rgba(119, 102, 198, 0.3);
+        border-radius:20px;
+    }
 
 }
 
@@ -47,6 +145,41 @@
         transform: scale(1.1);
         transition: transform 0.3s;
         box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
+
+    /* Apartado Head */ 
+    .ContainerMainHead{
+        display:flex !important;
+        margin:0 !important;
+    }
+    .MainApartado{
+        height:30vh;
+        border-radius:25px;
+        width:80% !important;
+        margin-top:2%;
+        margin-left:0 !important;
+        display:flex !important;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 4.4);
+    }
+    .imgMain{
+        width:56%;
+    }
+    .TituloMainApartado{
+        margin-top:10%;
+        margin-left:29%;
+        
+    }
+    .ContainerBuscador{
+        display: none !important;
+        width:50% !important;
+       
+    }
+    .inputBuscador{
+        margin-left:20%;
+        margin-top:40%;
+        width:65%;
+        background:rgba(119, 102, 198, 0.3);
+        border-radius:20px;
     }
 
 }

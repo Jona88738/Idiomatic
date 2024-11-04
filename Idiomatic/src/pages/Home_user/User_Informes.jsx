@@ -31,7 +31,7 @@ function User_Informes({dataUser}) {
   }
 
   return (
-    <>
+    <div style={{width:"100%"}}>
       
       <Container className='ContainerTitleI' >
           <h1 className='TitleInfor' >Informes</h1>
@@ -41,6 +41,10 @@ function User_Informes({dataUser}) {
         </Container>
 
         <h1 className='fechaInf'>{fechaLegible}</h1>
+
+       {/* <h1 className='fechaInf'>{fechaLegible}</h1> */}
+
+
       
         <Container className='ContaBodyInfor' >
           
@@ -93,10 +97,10 @@ function User_Informes({dataUser}) {
               </Container> 
 
           
-        </Container>   
+        </Container>    
 
        
-    </>
+    </div>
   )
 }
 

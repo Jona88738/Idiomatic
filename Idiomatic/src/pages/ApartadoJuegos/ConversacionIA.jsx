@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-
+import '../../styles/StyleApartadoJuegos/ConversationIA.css'
 export default function ConversacionIA(){
 
     const location = useLocation();
@@ -223,52 +223,53 @@ export default function ConversacionIA(){
 
     // XD
     return(<>
-    <div style={{marginLeft:"11%"}}>
+    <div className='ContainMainConversationIA' >
 
-        <Container sx={{background:"rgba(119, 102, 198, 0.5)",marginTop:"1%",borderRadius:"20px",width:"70%",height:"15vh",marginLeft:"5%"}}>
+        <Container className='ContainerTitleConversationIA' >
 
-            <h1 style={{textAlign:"center",position:"relative",top:"25%",fontSize:"2vw"}}> Lee la respuesta correcta según corresponda</h1>
+            <h1 className='titleConvesationIA' > Lee la respuesta correcta según corresponda</h1>
 
 
         </Container>
 
 
-        <Container sx={{marginLeft:"25%",width:"70%",position:"relative",height:"20vh"}}>
+        <Container className='ContainerDogConversation' >
 
-            <div style={{position:"absolute",zIndex:"1",width:"30%",left:"15%",top:"25%",height:"15vh"}}>
-                <h1 style={{left:"30%",marginTop:"5%",fontSize:"1.5vw"}}>{recursoEjercicio}</h1>
+            <div className='ContainerOracionDog' >
+                <h1 className='OracionDog' >{recursoEjercicio}</h1>
            
             </div>
             {/* "/src/images/ConversacionIA/dog.png" */}
-             <img src="/images/ConversacionIA/cuadroDog.png" width="52%" style={{position:"absolute",right:"45%",top:"-28%"}} alt="" />
-            <img src={recursoFront.iconoDog} width="15%" style={{float:"right",marginBottom:"6%",position:"relative",right:"30%",top:"54px"}}  alt="XD" />
+             <img className='imgCuadroDog' src="/images/ConversacionIA/cuadroDog.png"   alt="" />
+            <img className='imgDog' src={recursoFront.iconoDog}   alt="XD" />
 
         </Container>
 
-        <Container sx={{display:"flex"}}>
+        <Container className='ContainerDialogosTextosConIA' >
 
-            <Container>
-                <div style={{position:"absolute",zIndex:"1",width:"30%",left:"15%",top:"48%",height:"15vh"}}>
-                    <h1 style={{position:"relative",left:"17%",marginTop:"10%",fontSize:"1.5vw"}}>{recursoFront.sentencia2}</h1>
+            <Container className='ContainerDialogoIzquierdo'>
+                <div className='ContainerTitleConversationIALeft' >
+                    <h1 className='TitleLeftConversation' >{recursoFront.sentencia2}</h1>
             
                 </div>
-                <img src="/images/ConversacionIA/cuadroIzquierdo.png" width="75%"  alt="" />
+                <img className='imgCuadroLeftConversation' src="/images/ConversacionIA/cuadroIzquierdo.png"  alt="" />
                 <br />
-                <img src={recursoFront.iconoIzquierda} width="18%" alt="" />
+                <img className='imgPersonaIzquierdaConversationIA' src={recursoFront.iconoIzquierda}  alt="" />
 
             </Container>
-            <Container>
+
+            <Container className='ContainerDialogosTextoRightIA'>
 
 
-                <div style={{position:"absolute",zIndex:"1",width:"30%",right:"12%",top:"48%",height:"15vh"}}>
-                    <h1 style={{position:"relative",left:"17%",marginTop:"10%",fontSize:"1.5vw"}}>{recursoFront.sentencia3}</h1>
+                <div className='ContainerTitlePersonaRight' >
+                    <h1 className='TitlePersonaRight' >{recursoFront.sentencia3}</h1>
             
                 </div>
 
         
-                <img src="/images/ConversacionIA/cuadroDerecho.png" width="73%"  alt="" />
+                <img className='imgCuadroRightDerechoConIA' src="/images/ConversacionIA/cuadroDerecho.png"   alt="" />
                 <br />
-                <img src={recursoFront.iconoDerecha} width="18%" style={{float:"right",marginRight:"20%"}} alt="" />
+                <img className='imgPersonaDerechaConvIA' src={recursoFront.iconoDerecha}  alt="" />
 
             </Container>
 
@@ -280,7 +281,7 @@ export default function ConversacionIA(){
      */}
     
         {grabar === true ? (
-            <><Button  id="record" onClick={startRecording} variant="outlined" sx={{position:"relative",bottom:"85px", width: "22%", height: "8vh", fontSize: "18px", borderRadius: "22px", background: recursoFront.btnColor, color: "black", marginLeft: "23%" }}>
+            <><Button className='btnRecordConversationIA'  id="record" onClick={startRecording} variant="outlined" sx={{background: recursoFront.btnColor, }}>
                     Press to talk
                     <MicIcon sx={{ fontSize: 50 }} />
                 </Button>

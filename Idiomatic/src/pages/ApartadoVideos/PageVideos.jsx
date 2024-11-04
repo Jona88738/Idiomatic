@@ -20,7 +20,7 @@ export default function PageVideos(){
         let completeV = JSON.parse(sessionStorage.getItem('completeV'))
         
         completeV[0].Total += 1;
-        console.log("El tipo es: ",completeV[index].TotalComplete);
+        console.log("El tipo es: ",completeV[index].Total);
         
         if(completeV[index].TotalComplete <=  videoID){
 
@@ -72,7 +72,10 @@ export default function PageVideos(){
         </Container>
         
         <div className="ReactPlayerX" >
-        <ReactPlayer  className="react-player" onEnded={handleEnd} width="100%" height="100%" style={{}} url={link} controls/>
+        <ReactPlayer  className="react-player" onEnded={handleEnd} width="100%" height="70vh" style={{}} url={link} controls/>
         </div>
         </div>)
 }
+
+
+[{"Total": 0, "title": "saludos y despedidas"}, {"Total": 2, "title": "presentaciones personales"}, {"Total": 3, "title": "Dar informacion personal"}, {"Total": 4, "title": "verb to be"}, {"Total": 5, "title": "Present Simple"}, {"Total": 6, "title": "Present Continuo"}, {"Total": 7, "title": "Futuro Will"}, {"Total": 8, "title": "Pasado Simple"}]
