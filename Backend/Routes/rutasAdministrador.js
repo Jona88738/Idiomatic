@@ -12,6 +12,8 @@ routers.get("/adminGetUsers",cAdmin.adminGetUsers)
 
 routers.delete("/adminDeleteUser",cAdmin.AdminDeleteUser)
 
+routers.put("/adminUpdateUser", cAdmin.ModificarAdmin); 
+
 
 // routers.patch("",(req,res) =>{
 // // routers.patch((req,res) =>{

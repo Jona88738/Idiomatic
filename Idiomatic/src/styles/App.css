@@ -180,6 +180,13 @@ body {
   margin-left: 3.2rem;
 }
 
+.captcha-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .register-button {
   width: 32%;
   padding: 10px;
@@ -203,7 +210,7 @@ body {
 .social-login-text {
   margin-top: 20px;
   color: #181818;
-  font-size: 15px;
+  font-size: 17px;
   margin-left: 13rem;
   font-weight: bold;
 }
@@ -322,7 +329,7 @@ body {
   width: 80%;
   max-width: 80px;
   margin-top: 20px;
-  margin-left: 1.5rem;
+  margin-left: 13.5rem;
   gap: 10px;
 }
 

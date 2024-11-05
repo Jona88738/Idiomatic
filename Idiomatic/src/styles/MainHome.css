@@ -754,6 +754,11 @@
         height:25px;
     }
 
+    .btnCrearCuenta:hover {
+      background: linear-gradient(45deg, #9575cd, #ffca28) !important; /* Un degradado ligeramente más oscuro en hover */
+      transform: scale(1.05) !important; /* Aumenta ligeramente el tamaño en hover */
+    }
+
 
     .btnOpcion{
  

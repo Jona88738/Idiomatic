@@ -5,13 +5,13 @@ import NavBar from '../components/NavBar_Home';
 import LockIcon from '@mui/icons-material/Lock';
 import EmailIcon from '@mui/icons-material/Email';
 import GoogleIcon from '@mui/icons-material/Google';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import AppleIcon from '@mui/icons-material/Apple';
+import ReCAPTCHA from 'react-google-recaptcha'; // Importa ReCAPTCHA
 import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import '../styles/App.css';
 
+// Esquema de validación
 const schema = yup.object().shape({
   correo: yup
     .string()
@@ -19,17 +19,21 @@ const schema = yup.object().shape({
     .required('El correo es requerido'),
   contraseña: yup
     .string()
-    .min(2, 'La contraseña debe tener al menos 6 caracteres')
+    .min(6, 'La contraseña debe tener al menos 6 caracteres')
     .required('La contraseña es requerida'),
 });
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
-
   const methods = useForm({
     resolver: yupResolver(schema),
   });
+
+  // Función para manejar el cambio en ReCAPTCHA
+  const onRecaptchaChange = (value) => {
+    console.log('Captcha value:', value);
+  };
 
   useEffect(() => {
     fetch("/api/signUser?nombre=Jonathan")
@@ -62,9 +66,7 @@ const LoginPage = () => {
     .catch(error => {
       console.error("Hubo un error", error);
     });
-  
   });
-  
   
 
   return (
@@ -74,16 +76,14 @@ const LoginPage = () => {
       <div className="login-container">
         {/* Sección Izquierda */}
         <div className="welcome-section">
-  <h2 className="new-here-heading">¿Nuevo/a aquí?</h2>
-  <p>¡Bienvenido/a! 🎉 Aprende inglés con nosotros. </p>
-  <p>¡Explora, practica y disfruta del viaje lingüístico!</p>
-  <button className="register-button" onClick={() => window.location.href = '/Sign_up'}>Registrarse</button>
-</div>
+          <h2 className="new-here-heading">¿Nuevo/a aquí?</h2>
+          <p>¡Bienvenido/a! 🎉 Aprende inglés con nosotros.</p>
+          <p>¡Explora, practica y disfruta del viaje lingüístico!</p>
+          <button className="register-button" onClick={() => window.location.href = '/Sign_up'}>Registrarse</button>
+        </div>
 
-<div className="form-section">
-  <h2 className="sign-in-heading">Sign In</h2>
-
-
+        <div className="form-section">
+          <h2 className="sign-in-heading">Sign In</h2>
 
           <FormProvider {...methods}>
             <form onSubmit={onSubmit} className="login-form">
@@ -141,31 +141,28 @@ const LoginPage = () => {
               <p style={{ textAlign: 'center' }}>
                 <a href="/PasswordRecovery" className="forgot-password-link">¿Olvidaste tu contraseña?</a>
               </p>
+              <div className="captcha-wrapper">
+              <ReCAPTCHA
+              sitekey="6LfGom4qAAAAADQWzmsHQvPvycKqQhF3302SDbRt"
+               onChange={onRecaptchaChange}
+               />
+              </div>
+
               <button type="submit" className="login-btn">Ingresar</button>
               <div className="line-below"></div>
-
             </form>
           </FormProvider>
 
           <p className="social-login-text">Ingresar con</p>
           <div className="social-login-buttons">
             <button className="social-btn google">
-              <GoogleIcon style={{ marginRight: '8px' }} />
+              <GoogleIcon style={{ textAlign: 'center' }} />
               Google
             </button>
-            <button className="social-btn facebook">
-              <FacebookIcon style={{ marginRight: '8px' }} />
-              Facebook
-            </button>
-            <button className="social-btn apple">
-              <AppleIcon style={{ marginRight: '8px' }} />
-              Apple
-            </button>
+           
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 };

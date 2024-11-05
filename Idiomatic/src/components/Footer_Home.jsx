@@ -1,52 +1,85 @@
-import { Container } from "@mui/material";
+import { Container, Box, Typography, Link, List, ListItem, IconButton } from "@mui/material";
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
-export default function Footer_Home(){
-    return(<>
-    
-    
-      
-      <Container disableGutters  maxWidth="cadena" sx={{display:'flex',background: '#3A3160',     boxShadow:'0px 6px 2px GRAY'}}>
-      
-      
-        <Container disableGutters >
+export default function Footer_Home() {
+    return (
+        <Box sx={{ backgroundColor: '#3A3160', color: 'white', padding: '40px 0', boxShadow: '0px -6px 10px rgba(0, 0, 0, 0.3)' }}>
+            <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+                
+                {/* Sección de Cursos */}
+                <Box sx={{ marginBottom: '20px' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '10px' }}>Nuestros Cursos</Typography>
+                    <List>
+                        <ListItem sx={{ padding: 0 }}>
+                            <Link href="#" underline="none" color="inherit" sx={{ fontSize: '1rem', '&:hover': { color: '#FFD700' } }}>
+                                Curso de inglés
+                            </Link>
+                        </ListItem>
+                    </List>
+                </Box>
 
-            <h1 style={{color:'white',fontSize:"3vw"}}>Nuestros Cursos</h1>
-            <ul>
+                {/* Sección de Recursos */}
+                <Box sx={{ marginBottom: '20px' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '10px' }}>Recursos</Typography>
+                    <List>
+                        <ListItem sx={{ padding: 0 }}>
+                            <Link href="#" underline="none" color="inherit" sx={{ fontSize: '1rem', '&:hover': { color: '#FFD700' } }}>
+                                Test de nivel de inglés
+                            </Link>
+                        </ListItem>
+                        <ListItem sx={{ padding: 0 }}>
+                            <Link href="#" underline="none" color="inherit" sx={{ fontSize: '1rem', '&:hover': { color: '#FFD700' } }}>
+                                Test de tipo de aprendizaje
+                            </Link>
+                        </ListItem>
+                    </List>
+                </Box>
 
-              <li style={{color:'white',fontSize:"2vw"}}>Curso de ingles</li>
-              <li style={{color:'white',fontSize:"2vw"}}>Curso de frances</li>
-            </ul>
-
-        </Container>
-
-        
-
-
-        <Container disableGutters >
-
-        <h1 style={{color:'white',fontSize:"3vw"}}>Recursos</h1>
-            <ul>
-
-              <li style={{color:'white',fontSize:"2vw"}}>Test nivel de  ingles</li>
-              <li style={{color:'white',fontSize:"2vw"}}>Test nivel de frances</li>
-              <li style={{color:'white',fontSize:"2vw"}}>Test Tipo de aprendizaje</li>
-            </ul>
-
-        </Container>
-      
-        <Container disableGutters  sx={{}}>
-        <h1 style={{color:'white',fontSize:"3vw"}}>Sobre Nosotros</h1>
-            <ul>
-
-              <li style={{color:'white',fontSize:"2vw"}}>Vision/Mision</li>
-              <li style={{color:'white',fontSize:"2vw"}}>Preguntas frecuentes</li>
-              <li style={{color:'white',fontSize:"2vw"}}>Opiniones</li>
-            </ul>
-        </Container>
-        
-      </Container>
-    
-    
-    </>);
-
+                {/* Sección Sobre Nosotros */}
+                <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '10px', textAlign: 'center' }}>Sobre Nosotros</Typography>
+                    <List>
+                        <ListItem sx={{ padding: 0 }}>
+                            <Link href="#" underline="none" color="inherit" sx={{ fontSize: '1rem', '&:hover': { color: '#FFD700' } }}>
+                                Visión/Misión
+                            </Link>
+                        </ListItem>
+                        <ListItem sx={{ padding: 0 }}>
+                            <Link href="#" underline="none" color="inherit" sx={{ fontSize: '1rem', '&:hover': { color: '#FFD700' } }}>
+                                Nosotros
+                            </Link>
+                        </ListItem>
+                        
+                    </List>
+                </Box>
+                
+                {/* Redes Sociales */}
+                <Box sx={{ textAlign: 'center', marginTop: '20px' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '10px' }}>Síguenos</Typography>
+                    <Box>
+                        <IconButton href="https://www.facebook.com" target="_blank" sx={{ color: 'white', '&:hover': { color: '#3b5998' } }}>
+                            <FacebookIcon />
+                        </IconButton>
+                        <IconButton href="https://www.twitter.com" target="_blank" sx={{ color: 'white', '&:hover': { color: '#1DA1F2' } }}>
+                            <TwitterIcon />
+                        </IconButton>
+                        <IconButton href="https://www.instagram.com" target="_blank" sx={{ color: 'white', '&:hover': { color: '#E1306C' } }}>
+                            <InstagramIcon />
+                        </IconButton>
+                        <IconButton href="https://www.linkedin.com" target="_blank" sx={{ color: 'white', '&:hover': { color: '#0A66C2' } }}>
+                            <LinkedInIcon />
+                        </IconButton>
+                    </Box>
+                </Box>
+            </Container>
+            
+            {/* Footer final con derechos reservados */}
+            <Box sx={{ textAlign: 'center', padding: '20px 0', fontSize: '0.875rem', borderTop: '1px solid rgba(255, 255, 255, 0.2)', marginTop: '10px' , marginBottom: '-40px'}}>
+                © 2024 IDIOMATIC. Todos los derechos reservados.
+            </Box>
+        </Box>
+    );
 }

@@ -1,73 +1,63 @@
-// pruebas.test.js
-import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom'; // Para simular la navegación
-import LoginPage from './Login'; // Asegúrate de poner la ruta correcta
+// Register.test.jsx
+import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
+import Register from './Register';
+import { MemoryRouter } from 'react-router-dom';
 
-describe('LoginPage Component', () => {
-  
-  it('renders login form correctly', () => {
+// Mock fetch to simulate the API call
+global.fetch = vi.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({ success: true, rol: 2 }),
+  })
+);
+
+describe('Register Component', () => {
+  it('should show an error when passwords do not match', () => {
     render(
       <MemoryRouter>
-        <LoginPage />
+        <Register />
       </MemoryRouter>
     );
 
-    // Verifica que los elementos principales están en el documento
-    expect(screen.getByPlaceholderText(/Usuario o correo electrónico/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/****************/i)).toBeInTheDocument();
-    expect(screen.getByText(/Sign In/i)).toBeInTheDocument();
+    // Fill in form fields
+    fireEvent.change(screen.getByPlaceholderText('Nombre de usuario'), { target: { value: 'testuser' } });
+    fireEvent.change(screen.getByPlaceholderText('Correo electrónico'), { target: { value: 'test@example.com' } });
+    fireEvent.change(screen.getByPlaceholderText('Contraseña'), { target: { value: 'password123' } });
+    fireEvent.change(screen.getByPlaceholderText('Confirmar contraseña'), { target: { value: 'password124' } });
+
+    // Submit the form
+    fireEvent.click(screen.getByText('Registrarse'));
+
+    // Check for alert
+    expect(screen.queryByText('Las contraseñas no coinciden')).toBeTruthy();
   });
 
-  it('displays validation errors when form is submitted empty', async () => {
+  it('should proceed with registration if data is correct', async () => {
     render(
       <MemoryRouter>
-        <LoginPage />
+        <Register />
       </MemoryRouter>
     );
 
-    // Simular el envío del formulario sin datos
-    fireEvent.click(screen.getByText(/Ingresar/i)); // El botón de enviar
+    // Fill in form fields with matching passwords
+    fireEvent.change(screen.getByPlaceholderText('Nombre de usuario'), { target: { value: 'testuser' } });
+    fireEvent.change(screen.getByPlaceholderText('Correo electrónico'), { target: { value: 'test@example.com' } });
+    fireEvent.change(screen.getByPlaceholderText('Contraseña'), { target: { value: 'password123' } });
+    fireEvent.change(screen.getByPlaceholderText('Confirmar contraseña'), { target: { value: 'password123' } });
 
-    // Verificar que los mensajes de error aparezcan
-    await waitFor(() => {
-      expect(screen.getByText(/El correo es requerido/i)).toBeInTheDocument();
-      expect(screen.getByText(/La contraseña es requerida/i)).toBeInTheDocument();
-    });
-  });
+    // Spy on window alert to check if registration succeeded
+    const alertSpy = vi.spyOn(window, 'alert').mockImplementation(() => {});
 
-  it('submits form with valid data', async () => {
-    // Mockear fetch
-    global.fetch = vi.fn(() =>
-      Promise.resolve({
-        json: () => Promise.resolve({ resultado: 'true', rol: 0 }) // Simula una respuesta exitosa de un usuario
-      })
-    );
+    // Submit the form
+    fireEvent.click(screen.getByText('Registrarse'));
 
-    render(
-      <MemoryRouter>
-        <LoginPage />
-      </MemoryRouter>
-    );
+    // Wait for async operations to complete
+    await screen.findByText('Usuario registrado exitosamente');
+    
+    // Check if the alert has been called with success message
+    expect(alertSpy).toHaveBeenCalledWith('Usuario registrado exitosamente');
 
-    // Rellenar los campos del formulario
-    fireEvent.change(screen.getByPlaceholderText(/Usuario o correo electrónico/i), {
-      target: { value: 'test@correo.com' }
-    });
-    fireEvent.change(screen.getByPlaceholderText(/****************/i), {
-      target: { value: 'password123' }
-    });
-
-    // Simular el envío del formulario
-    fireEvent.click(screen.getByText(/Ingresar/i));
-
-    // Verificar que el fetch fue llamado con los parámetros correctos
-    await waitFor(() => {
-      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining('/api/signUser'), expect.anything());
-    });
-
-    // Limpieza del mock
-    global.fetch.mockClear();
+    // Restore the alert spy after the test
+    alertSpy.mockRestore();
   });
 });

@@ -3,6 +3,10 @@
     "vitest": "^2.1.2"
   },
   "dependencies": {
-    "nodemailer": "^6.9.15"
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.6",
+    "nodemailer": "^6.9.15",
+    "react-google-recaptcha": "^3.1.0"
   }
 }
