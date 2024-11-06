@@ -27,7 +27,7 @@ export default function Presentacion_Home() {
           <img className='PresentacionGif' src="/images/4GIF_SINFONDOFINAL.gif" width="90%" height="80%" alt="Logo de mi página" />
           <Button
             variant="contained"
-            sx={{ padding: '8px 50px', fontSize: '14px', backgroundColor: '#ffc212', color: '#000', marginTop: '10px' , marginLeft: '170px', borderRadius: '10px'}}
+            sx={{ padding: '8px 50px', fontSize: '14px', backgroundColor: '#ffc212', color: '#000', marginTop: '10px' , marginLeft: '170px', borderRadius: '10px', '&:hover':{backgroundColor: '#f9b0c3'}}}
           >Comienza ahora
           </Button>
         </Container>

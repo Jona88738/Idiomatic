@@ -9,6 +9,16 @@ import { useNavigate } from 'react-router-dom';
 const AdminMenu = () => {
   const navigate = useNavigate();
 
+  // Función para manejar el cierre de sesión
+  const handleLogout = () => {
+    // Eliminar el token de localStorage o sessionStorage (según corresponda)
+    localStorage.removeItem('authToken'); // Si usas localStorage
+    sessionStorage.removeItem('authToken'); // Si usas sessionStorage
+
+    // Redirigir al usuario al login
+    navigate('/login'); // O usa el path correcto para tu login
+  };
+
   return (
     <Box 
       style={{ 
@@ -92,7 +102,7 @@ const AdminMenu = () => {
         {/* Salir */}
         <ListItem 
           button 
-          onClick={() => navigate('/salir')}
+          onClick={handleLogout} // Llamamos a handleLogout cuando se hace clic
           sx={{ 
             marginTop: '10px', 
             borderRadius: '8px', 

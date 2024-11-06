@@ -1,6 +1,6 @@
 /* Register css */
 * {
-    margin: 0;
+    margin: 0 ;
     padding: 0;
     box-sizing: border-box;
   }
@@ -9,14 +9,7 @@
     font-family: Arial, sans-serif;
   }
   
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fff;
-  }
-  
+
   .logo {
     width: 150px;
   }
@@ -49,11 +42,11 @@
   .welcome-section {
     display: flex!important;
     flex-direction: column !important;
-    justify-content: center;
+    justify-content: center !important;
     align-items: center;
     text-align: center;
     color: #fff !important;
-    height: 100%; 
+    height: 100% !important; 
     padding: 10px;
     padding-left: 3rem !important; 
   }
@@ -213,13 +206,7 @@
     margin-top: 15px;
     margin-left: 3.5rem;
   }
-  .social-text {
-    margin-top: 20px !important;
-    color: #181818    !important;
-    font-size: 15px !important;
-    margin-left: 10.5rem !important;
-    font-weight: bold;
-  }
+  
   
   .social-reg-buttons {
     display: flex !important;

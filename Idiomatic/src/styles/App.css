@@ -207,13 +207,6 @@ body {
   transform: scale(1.05);
 }
 
-.social-login-text {
-  margin-top: 20px;
-  color: #181818;
-  font-size: 17px;
-  margin-left: 13rem;
-  font-weight: bold;
-}
 
 .register-page {
   display: flex;

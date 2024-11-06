@@ -104,15 +104,15 @@ function User_Home() {
             sx={{
               backgroundColor: '#E0DFFD', 
               borderRadius: '10px', 
-              padding: '16px',  
+              padding: '26px',  
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               marginBottom: '20px', 
-              marginTop: '20px'
+              marginTop: '-10px'
             }}
           >
-            <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+            <Typography variant="h5" sx={{ fontWeight: 'bold' , fontFamily: 'Century Gothic'}}>
               Panel de Usuarios
             </Typography>
             <img 
@@ -122,7 +122,7 @@ function User_Home() {
             />
           </Box>
 
-          <Box sx={{ maxWidth: '100%', margin: '0 auto', padding: '10px' }}>
+          <Box sx={{ maxWidth: '100%', margin: '0 auto', padding: '10px', marginTop: '-10px' }}>
             <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
               <Table>
                 <TableHead>

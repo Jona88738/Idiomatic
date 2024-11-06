@@ -27,10 +27,9 @@ export default function NavBar() {
         <Button className='btnCerrar'>Cerrar</Button> 
 
         <Button className='btnOpcion' href="/" title='inicio'> Inicio </Button>
-        <Button  className='btnOpcion' href="/Cursos" >Cursos</Button>
-        <Button  className='btnOpcion' href="/Login" >Login</Button>
         <Button  className='btnOpcion' href="/Nosotros" >Nosotros</Button>
-        
+        <Button  className='btnOpcion' href="/Login" >Login</Button>
+
         <Button className='btnCrearCuenta' href='/Sign_up'  variant="outlined"sx={{}}>Crear Cuenta</Button>
       
         </Container>

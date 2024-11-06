@@ -149,21 +149,14 @@ const LoginPage = () => {
               </div>
 
               <button type="submit" className="login-btn">Ingresar</button>
-              <div className="line-below"></div>
             </form>
           </FormProvider>
 
-          <p className="social-login-text">Ingresar con</p>
-          <div className="social-login-buttons">
-            <button className="social-btn google">
-              <GoogleIcon style={{ textAlign: 'center' }} />
-              Google
-            </button>
+         
            
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

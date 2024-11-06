@@ -23,7 +23,7 @@ const createAdmin = async (req,res) => {
 
 const adminGetUsers = async (req, res) => {
     try {
-        const [rows] = await conn.query("SELECT idusuario, foto, nombre, rol, tipo_aprendizaje FROM usuario");
+        const [rows] = await conn.query("SELECT idusuario, foto, nombre, rol, suscripcion, tipo_aprendizaje FROM usuario");
         console.log('Rows fetched:', rows); // Añade este log para verificar los datos
         res.json(rows);
     } catch (error) {

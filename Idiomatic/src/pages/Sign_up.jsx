@@ -141,19 +141,7 @@ function Register() {
             <Button className="sign-up-button-reg" type="submit" variant="contained" color="primary" fullWidth>
               Registrarse
             </Button>
-            <div className="line-below-button"></div>
-            <p className="social-text">Registrarse con</p>
-            <div className="social-reg-buttons">
-              <Button className="social-btn google" startIcon={<GoogleIcon />} fullWidth>
-                Google
-              </Button>
-              <Button className="social-btn facebook" startIcon={<FacebookIcon />} fullWidth>
-                Facebook
-              </Button>
-              <Button className="social-btn apple" startIcon={<AppleIcon />} fullWidth>
-                Apple
-              </Button>
-            </div>
+            
           </form>
         </div>
 
