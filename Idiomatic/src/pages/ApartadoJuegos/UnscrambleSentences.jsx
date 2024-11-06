@@ -18,6 +18,8 @@ export default function UnscrambleSentences(){
     
     const [open, setOpen] = useState(false);
 
+    const [mensajeNotificacion,setMensajeNotificacion] = useState("");
+
     const navigate = useNavigate();
     let num = [];
 
@@ -39,7 +41,16 @@ export default function UnscrambleSentences(){
         
        
       // let num = [];
-        let contador  = 0;
+      console.log("respuestas: ",respuestas)
+      let contador  = 0;
+      let faltanRespuestas = false;
+        console.log(respuestas.length)
+        const numeroDeElementos = Object.keys(respuestas).length;
+    console.log("Número de elementos:", numeroDeElementos);
+      if(numeroDeElementos === 6){
+
+      
+        
         recursoFront.respuesta.map((element, index) =>{
 
             let sinEspacio = respuestas[index].replace(/\s+/g, '')
@@ -51,9 +62,11 @@ export default function UnscrambleSentences(){
                 input.style.border = "3px solid green"
                 contador++;
             }else{
+                console.log("No coincide ",element,": ",sinEspacio)
                 console.log(respuestas[index])
                 num.push(index);
                 setNoti(false);
+                
                 let input = document.getElementById(index)
                 input.style.background = recursoFront.inputColor;
                 input.style.border = "3px solid red"
@@ -61,9 +74,16 @@ export default function UnscrambleSentences(){
 
             
         } )
+    }else{
+        faltanRespuestas = true;
+    }
 
+
+if(faltanRespuestas === false ){
+
+        console.log("Mi contador: ",contador);
         if(contador === 6){
-
+            
 
             let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
         
@@ -115,13 +135,22 @@ export default function UnscrambleSentences(){
             handleClickOpen();
           
         }else{
+            setMensajeNotificacion("Cometiste un error en la sentencia.")
             num.map(element => console.log("Te equivocaste en las siguientes ", respuestas[element]))
+            setNoti(false);
             
             handleClickOpen()
 
         }
+    }else{
+        setMensajeNotificacion("Termina de completar los otros campos");
+        setNoti(false);
+        handleClickOpen();
+    }
+
 
     }
+
 
     function handleChange(e){
 
@@ -164,7 +193,7 @@ export default function UnscrambleSentences(){
         
     </div>
     
-    {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png" indice={num} texto="Tuviste un Error"/>) : 
+    {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo={mensajeNotificacion} btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png" indice={num} texto="Tuviste un Error"/>) : 
          (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png" />)}
         
     <Button className='btnUnscrambleEnviar' onClick={enviar} sx={{background:recursoFront.btnColor}} variant='contained'>Enviar</Button> 

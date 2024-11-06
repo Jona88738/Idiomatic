@@ -116,6 +116,7 @@ export default function ConversacionIA(){
             respuestaUser = respuestaUser.split("")
             let respuestaCorrecta = recursoFront.respuesta;
             let respuestaIncorrecta = recursoFront.incorrecta;
+            console.log("respuestaIncorrectas: ",respuestaIncorrecta)
 
             let respuestaSinEspacio = respuestaCorrecta.replace(/\s+/g, '')
             let IncorrectaSinEspacio = respuestaIncorrecta.replace(/\s+/g, '')
@@ -125,6 +126,8 @@ export default function ConversacionIA(){
 
             respuestaUser.map((element,num) => {
 
+            if(num < respuestaSinEspacio.length){
+
                 if(element === respuestaSinEspacio[num].toUpperCase()){
 
                     contadorRes++;
@@ -133,7 +136,7 @@ export default function ConversacionIA(){
 
                     contadorIncorrecta++;
                 }
-
+            }
             })
 
             console.log("Mi contador: ",contadorRes)

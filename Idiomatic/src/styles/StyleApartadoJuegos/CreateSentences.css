@@ -201,6 +201,7 @@
         flex-wrap:wrap;
         width:60%;
         margin:0;
+       
     }
     .ContainerComprobarCreate{
         display:flex;
@@ -241,6 +242,11 @@
         display:inline-block;
         border-radius:25px;
         margin-top:0;
+        cursor: grab;
+    }
+
+    .respuestaFinalCreateSen:active{
+        cursor: grabbing !important;
     }
 
 }

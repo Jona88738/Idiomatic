@@ -111,18 +111,13 @@ export default function ApartadoTemaJuegos(){
                 console.log(Element.Total)
 
                 let contador;
-                if(index < TemasJuegos.length){
+                if(index < TemasJuegos.length-1){
                     contador = index +1;
                 }else{
                     contador = index;
                 }
                 
-            return( 
-
-                // if(completeJuego[0].Total < TemasJuegos[index].Total ){
-
-                // }
-                
+            return(                 
 
                 completeJuego[0].Total < TemasJuegos[index].Total  ?
                 (<MyCard title={Element.title} imagen={Element.imagen}  index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  opacity="0.5"  pointerEvents="none"/>):   //opacity="0.5"  pointerEvents="none"
@@ -131,7 +126,8 @@ export default function ApartadoTemaJuegos(){
                     (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  boxshadow={0}  />)://completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)"
                                 
                 completeJuego[0].Total > TemasJuegos[index].Total ?  
-                (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion} completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" />):""
+                (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion} completeStyle={Element.completeStyle} boxshadow="2px 4px 12px rgba(28, 195, 58, 4.4)" />):
+                (<MyCard title={Element.title} imagen={Element.imagen} index={index}   page={Element.page} link={Element.link}  introduccion={Element.introduccion}  boxshadow={0}  />)
                 
                 
             

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
 import { useState } from "react";
 import '../../styles/StyleApartadoJuegos/CreateSentences.css'
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function CreateSentences(){
 
@@ -13,12 +15,18 @@ export default function CreateSentences(){
     
     const [arre, setArre] = useState([])
     const [Noti, setNoti] = useState(false);
+    const [openBackDrop, setOpenBackDrop] = useState(false);
 
-    let valor = recursoEjercicio.length+1;
-    const arr = new Array(valor).fill("");
+    const [ArreRespuestaUser,setArreRespuestaUser]  = useState(new Array(recursoEjercicio.length+1).fill(""))
 
+    //let valor = recursoEjercicio.length+1;
+    // const arr = new Array(valor).fill("");
+    const arr = ArreRespuestaUser;
+    console.log("",arr)
 
-    const [ArreRespuestaUser,setArreRespuestaUser]  = useState(arr)
+    const [mensaje, setMensaje] = useState("")
+
+    
     
     
 
@@ -41,6 +49,12 @@ export default function CreateSentences(){
     //navigate("/Ejercicios",{state:{"link":link,"imagen":imagen}})
   };
 
+  const handleCloseComplete = () => {
+    setOpen(false);
+    navigate(-1)
+    
+  };
+
     function drag(ev){
         ev.dataTransfer.setData("text",ev.target.id)
     }
@@ -48,57 +62,59 @@ export default function CreateSentences(){
     function allodrop(e){
         e.preventDefault();
     }
-    
+
+   
+
     function drop(e){
         
-    if(isNaN(parseInt(e.target.id))){
-        console.log("error")
-    }else{
-        if(arr[parseInt(e.target.id)] === "" && parseInt(e.target.id) !== arr.length-1){
-
-            if( spa === true){
-
-                console.log("Entro",arr[parseInt(e.target.id)] )
-
-                var data = e.dataTransfer.getData("text");
-                const index = arr.findIndex(elemento => elemento === data);
-                if(index !== -1){
-
-                    arr[index] = "";
-                    console.log(e.target.id)
-                    arr[parseInt(e.target.id)] = data; // ""
-                    e.target.appendChild(document.getElementById(data));
-                    console.log("ya no puedes regresar1" ,arr)
-
-                }else{
-                    console.log(e.target.id)
-                    arr[parseInt(e.target.id)] = data; // ""
-                    e.target.appendChild(document.getElementById(data));
-                    console.log("ya no puedes regresar1" ,arr)
+        if(isNaN(parseInt(e.target.id))){
+            console.log("error")
+        }else{
+            if(arr[parseInt(e.target.id)] === "" && parseInt(e.target.id) !== arr.length-1){
+    
+                if( spa === true){
+    
+                    console.log("Entro",arr[parseInt(e.target.id)] )
+    
+                    var data = e.dataTransfer.getData("text");
+                    const index = arr.findIndex(elemento => elemento === data);
+                    if(index !== -1){
+    
+                        arr[index] = "";
+                        console.log(e.target.id)
+                        arr[parseInt(e.target.id)] = data; // ""
+                        e.target.appendChild(document.getElementById(data));
+                        console.log("ya no puedes regresar1" ,arr)
+    
+                    }else{
+                        console.log(e.target.id)
+                        arr[parseInt(e.target.id)] = data; // ""
+                        e.target.appendChild(document.getElementById(data));
+                        console.log("ya no puedes regresar1" ,arr)
+                    }
+                    
+                    
                 }
                 
+            }else if(arr[parseInt(e.target.id)] !== "" || parseInt(e.target.id) === arr.length-1  ){
+                
+                var data = e.dataTransfer.getData("text");
+                console.log(data)
+                const index = arr.findIndex(elemento => elemento === data);
+                if(index !== -1){
+                    arr[index] = "";
+                    e.target.appendChild(document.getElementById(data));
+                    console.log("ya no puedes regresar2",arr)
+                }
+               
                 
             }
-            
-        }else if(arr[parseInt(e.target.id)] !== "" || parseInt(e.target.id) === arr.length-1  ){
-            
-            var data = e.dataTransfer.getData("text");
-            console.log(data)
-            const index = arr.findIndex(elemento => elemento === data);
-            if(index !== -1){
-                arr[index] = "";
-                e.target.appendChild(document.getElementById(data));
-                console.log("ya no puedes regresar2",arr)
-            }
-           
+        }
+    
+            //verificar que este bien la oracion
+    
             
         }
-    }
-
-        //verificar que este bien la oracion
-
-        
-    }
 
     function enviar(){
         //const arregloFinal = ["","","","",""];
@@ -108,9 +124,9 @@ export default function CreateSentences(){
         console.log(arrAux.length)
         const resultado = arrAux.join(' '); 
 
-        console.log(resultado)
+        console.log()
 
-        if(arrAux.length === 5){ 
+        if(arrAux.length === recursoEjercicio.length){ 
 
         
 
@@ -121,10 +137,10 @@ export default function CreateSentences(){
         })
             .then(res => res.json())
             .then(res => {
-                console.log(res)
+                console.log("Respuesta Api: ",res)
                 if(res.response.errors.length === 0 ){
 
-
+                    setOpenBackDrop(true)
                     let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
         
                     completeJuego[0].Total += 1;
@@ -146,6 +162,7 @@ export default function CreateSentences(){
             
                         //let complete = Number(sessionStorage.getItem('completeVideo')) +1;
                         console.log("entro al if xD")
+                        
             
                        // sessionStorage.setItem('completeVideo', complete);
                 
@@ -184,7 +201,9 @@ export default function CreateSentences(){
 
 
                 }else{
-
+                    console.log(res)
+                    setMensaje("Tienes un error en la sentencia")
+                    setArreRespuestaUser(arr)
                  console.log("Tienes un error en la sentencia ")
           
                 handleClickOpen()
@@ -194,14 +213,19 @@ export default function CreateSentences(){
             })
 
         }else{
-
-            console.log("Tienes un error en la sentencia ")
-          
+            setMensaje("Termina de ordenar la sentencia")
+            console.log("Termina de ordenar la sentencia")
+            setArreRespuestaUser(arr)
                 handleClickOpen()
 
         }
 
     }
+
+    // fetch(()=>{
+    //     console.log("recarga");
+
+    // },[recursoEjercicio])
 
     return(<>
 
@@ -232,6 +256,8 @@ export default function CreateSentences(){
             <div className="respuestasCreateSen" onDrop={drop} onDragOver={allodrop} id={recursoEjercicio.length} style={{}}>
 
                 {recursoEjercicio.map((palabra,index) => {
+                    // console.log("recarga");
+
                     return  <h3 className="respuestaFinalCreateSen" key={index}  name={palabra}  draggable="true" onDragStart={drag} id={palabra} >{palabra}</h3>
             
                 } )}
@@ -259,8 +285,16 @@ export default function CreateSentences(){
         </div>
         <Button className="btnCreateSen" onClick={enviar} sx={{background:recursoFront.btnColor}} variant="contained">Enviar</Button>
 
-        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"/>) : 
-         (<Notificacion open={open} handleClose={handleClose} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+        <Backdrop
+        sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+        open={openBackDrop}
+        // onClick={handleClose} 
+        >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+
+        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo={mensaje} btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"/>) : 
+         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
         
          
         </>)

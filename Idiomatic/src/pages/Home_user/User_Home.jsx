@@ -179,7 +179,7 @@ function User_Home() {
     
     
     <Container   sx={{padding:"0"}}> 
-     {count === 0 ? (<Home/>): count == 2 ?(<User_Cursos/>): count == 3 ? (<User_Informes dataUser={info}/>): 
+     {count === 0 ? (<Home/>): count == 2 ?(<User_Cursos/>): count == 3 ? (<User_Informes dataUser={info}/>):
       count == 4 ? (<User_Notificaciones />): count == 5 ? (<User_Ajustes foto={info} cambiarFoto={setInfo} />): count == 6 ?  (MostrarApartados):33333}
       
     
