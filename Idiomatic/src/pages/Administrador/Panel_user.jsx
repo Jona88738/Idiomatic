@@ -12,8 +12,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Grid from '@mui/material/Grid';
-
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -21,8 +19,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
-import NavBar_Home from '../../components/NavBar_Home';
-import AdminMenu from '../../components/NavBar_admin'; // Importa AdminMenu aquí
+import AdminMenu from '../../components/NavBar_admin'; // Importa el menú de administración
 
 function User_Home() {
   const [users, setUsers] = useState([]);
@@ -94,15 +91,15 @@ function User_Home() {
 
   return (
     <Container maxWidth="false" disableGutters>
+      <Container style={{ display: 'flex', padding: '20px', width: '100%', height: '100vh' }}>
 
-      {/* AdminMenu */}
-      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-        <Box sx={{ width: '20%', backgroundColor: '#46467A', color: 'white', padding: '20px', marginTop: '20PX', borderRadius: '10PX' }}>
-          <AdminMenu />
+        {/* Menú de Administración */}
+        <Box sx={{ width: '20%', marginRight: '20px' }}>
+          <AdminMenu /> {/* Aquí se renderiza el menú de administración */}
         </Box>
 
+        {/* Contenido principal */}
         <Box sx={{ width: '80%', padding: '20px' }}>
-          {/* Panel de Usuarios */}
           <Box 
             sx={{
               backgroundColor: '#E0DFFD', 
@@ -115,8 +112,6 @@ function User_Home() {
               marginTop: '20px'
             }}
           >
-
-             
             <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
               Panel de Usuarios
             </Typography>
@@ -127,7 +122,7 @@ function User_Home() {
             />
           </Box>
 
-          <Box sx={{ maxWidth: '80%', margin: '0 auto', padding: '10px' }}>
+          <Box sx={{ maxWidth: '100%', margin: '0 auto', padding: '10px' }}>
             <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
               <Table>
                 <TableHead>
@@ -165,7 +160,64 @@ function User_Home() {
             </TableContainer>
           </Box>
         </Box>
-      </Box>
+      </Container>
+
+      {/* Modal de Edición */}
+      <Dialog
+        open={openEditModal}
+        onClose={() => setOpenEditModal(false)}
+        PaperProps={{
+          sx: {
+            padding: 2,
+            backgroundImage: 'url(/src/images/fondomodal.png)', // Ruta a tu imagen de fondo
+            backgroundSize: 'cover', // Ajusta la imagen para cubrir todo el fondo
+            backgroundPosition: 'center', // Centra la imagen
+            backgroundRepeat: 'no-repeat', // Evita que la imagen se repita
+            borderRadius: '12px',
+          },
+        }}
+      >
+        <DialogTitle sx={{ backgroundColor: '#E0DFFD', color: '#46467A', textAlign: 'center', fontWeight: 'bold' , borderRadius: '20px', marginBottom: '20px'}}>
+          Editar Usuario
+        </DialogTitle>
+        <DialogContent>
+          <TextField
+            margin="dense"
+            label="Nombre"
+            type="text"
+            fullWidth
+            name="nombre"
+            value={selectedUser?.nombre || ''}
+            onChange={handleInputChange}
+          />
+          <TextField
+            margin="dense"
+            label="Rol"
+            type="text"
+            fullWidth
+            name="rol"
+            value={selectedUser?.rol || ''}
+            onChange={handleInputChange}
+          />
+          <TextField
+            margin="dense"
+            label="Tipo de Aprendizaje"
+            type="text"
+            fullWidth
+            name="tipo_aprendizaje"
+            value={selectedUser?.tipo_aprendizaje || ''}
+            onChange={handleInputChange}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenEditModal(false)} sx={{ backgroundColor: '#E0DFFD', color: '#000000', borderRadius: '5px', '&:hover': { backgroundColor: '#ffc212' } }}>
+            Cancelar
+          </Button>
+          <Button onClick={handleSaveChanges} sx={{ backgroundColor: '#7766c6', borderRadius: '5px', color: '#000000', '&:hover': { backgroundColor: '#E0DFFD' } }}>
+            Guardar Cambios
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Container>
   );
 }
