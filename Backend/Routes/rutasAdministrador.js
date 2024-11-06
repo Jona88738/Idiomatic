@@ -35,6 +35,7 @@ routers.delete("/adminDeleteUser",cAdmin.AdminDeleteUser)
 
 routers.delete("/deleteLectura",cAdmin.deleteLectura)
 
+routers.put("/adminUpdateUser", cAdmin.ModificarAdmin); 
 
 
 // routers.patch("",(req,res) =>{

@@ -12,6 +12,18 @@ const AdminMenu = () => {
 
   return (
     <List style={{ marginTop: '30px' }}>
+    
+      {/* hOME */}
+      <ListItem 
+        button 
+        onClick={() => navigate('/Admin_Home')}  // Redirige a la página de usuarios
+        sx={{ borderRadius: '8px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' } }}
+      >
+        <ListItemIcon sx={{ '&:hover': { transform: 'scale(1.2)', transition: 'transform 0.3s' } }}>
+          <PeopleIcon style={{ color: 'white', fontSize: '30px' }} />
+        </ListItemIcon>
+        <ListItemText primary="Home" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
+      </ListItem>
       {/* Usuarios */}
       <ListItem 
         button 
@@ -34,30 +46,6 @@ const AdminMenu = () => {
           <ContentPasteIcon style={{ color: 'white', fontSize: '30px' }} />
         </ListItemIcon>
         <ListItemText primary="Contenidos" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
-      </ListItem>
-
-      {/* Proyecciones */}
-      <ListItem 
-        button 
-        onClick={() => navigate('/proyecciones')}  // Redirige a la página de proyecciones
-        sx={{ marginTop: '10px', borderRadius: '8px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' } }}
-      >
-        <ListItemIcon sx={{ '&:hover': { transform: 'scale(1.2)', transition: 'transform 0.3s' } }}>
-          <InsightsIcon style={{ color: 'white', fontSize: '30px' }} />
-        </ListItemIcon>
-        <ListItemText primary="Proyecciones" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
-      </ListItem>
-
-      {/* Ajustes */}
-      <ListItem 
-        button 
-        onClick={() => navigate('/ajustes')}  // Redirige a la página de ajustes
-        sx={{ marginTop: '10px', borderRadius: '8px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' } }}
-      >
-        <ListItemIcon sx={{ '&:hover': { transform: 'scale(1.2)', transition: 'transform 0.3s' } }}>
-          <SettingsIcon style={{ color: 'white', fontSize: '30px' }} />
-        </ListItemIcon>
-        <ListItemText primary="Ajustes" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
       </ListItem>
 
       {/* Salir */}

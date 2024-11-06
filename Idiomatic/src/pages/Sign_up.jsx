@@ -138,7 +138,7 @@ function Register() {
             />
             <br />
             <br />
-            <Button className="sign-up-button" type="submit" variant="contained" color="primary" fullWidth>
+            <Button className="sign-up-button-reg" type="submit" variant="contained" color="primary" fullWidth>
               Registrarse
             </Button>
             <div className="line-below-button"></div>
@@ -161,7 +161,7 @@ function Register() {
         <div className="welcome-section">
           <h2 className="one-of-us-heading">¿Uno de nosotros?</h2>
           <p>¡Hola de nuevo! ¡Sigue aprendiendo y practicando con nosotros!</p>
-          <Button className="sign-in-button" onClick={() => window.location.href = '/Login'}>Iniciar sesión</Button>
+          <Button className="sign-in-button-reg" onClick={() => window.location.href = '/Login'}>Iniciar sesión</Button>
         </div>
       </div>
     </div>

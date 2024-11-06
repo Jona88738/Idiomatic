@@ -161,10 +161,11 @@
     margin-left: 12rem !important;
   }
   
-  .sign-up-button  {
+  .sign-up-button-reg  {
     width: 40% !important;
     padding: 10px !important;
     background-color: #FFC212 !important;
+    text-align: center !important;
     border: none !important;
     border-radius: 25px !important;
     color: white !important;
@@ -172,35 +173,36 @@
     font-size: 1rem !important;
     font-weight: 700 !important;
     margin: 20px auto 0 auto !important; 
+    margin-left: 140px !important;
     display: block !important; 
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important; /* Efecto de transición */
   }
   
   /* Efecto de resplandor al hacer hover */
-  .sign-up-button:hover {
+  .sign-up-button-reg:hover {
     box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5) !important;
     transform: scale(1.05) !important; /* Agrandar ligeramente el botón */
   }
   
-  .sign-in-button {
-    width: 32%;
-    padding: 10px;
-    background-color: #FFC212;
-    border: none;
-    border-radius: 25px;
-    color: white;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin: 20px auto 0 auto; 
-    display:  block; 
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Efecto de transición */
+  .sign-in-button-reg {
+    width: 32% !important;
+    padding: 10px !important;
+    background-color: #FFC212 !important;
+    border: none !important;
+    border-radius: 25px !important;
+    color: white !important;
+    cursor: pointer !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    margin: 20px auto 0 auto !important; 
+    display:  block !important; 
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important; /* Efecto de transición */
   }
   .ejemplo{
     background: chocolate;
   }
   
-  .sign-in-button:hover {
+  .sign-in-button-reg:hover {
     box-shadow: 0 0 15px rgba(255, 194, 18, 0.7), 0 0 25px rgba(255, 194, 18, 0.5) !important;
     transform: scale(1.05)!important; /* Agrandar ligeramente el botón */
   }
@@ -258,3 +260,61 @@
     color: rgb(0, 0, 0) !important;
   }
   
+  /* Media query para dispositivos móviles */
+@media screen and (max-width: 767px) {
+  /* Estilos específicos para móviles */
+  
+
+  .register-page {
+      align-items: center;
+      min-height: 100vh;      
+      background-image: url("/src/images/pruebaimg3.png") !important;
+
+  }
+
+  .register-container {
+      flex-direction: column;
+      max-width: 100%;
+      align-items: center;
+      margin: 0 auto;
+  }
+
+  .sign-up-heading, .one-of-us-heading, .register-section h2 {
+      font-size: 24px;
+      margin-left: 0;
+      text-align: center;
+  }
+
+  .register-form {
+      margin: 0;
+      max-width: 90%;
+      width: 100%;
+  }
+
+  .register-form input {
+      width: 100%;
+      text-align: center !important;
+  }
+
+  .social-reg-buttons {
+      text-align: center !important;
+      margin-left: 0;
+  }
+
+  .social-btn {
+      padding: 8px 15px;
+      font-size: 0.7rem;
+  }
+
+  /* Centrando y agregando margen superior a los botones de Registrar y Iniciar sesión */
+  .sign-up-button-reg{
+      margin: 15px auto; /* Para centrar */
+      width: 40% !important;
+      text-align: center !important;
+  }
+  .sign-in-button-reg {
+    margin: 15px auto; /* Para centrar */
+    width: 30% !important;
+    text-align: center !important;
+}
+}
