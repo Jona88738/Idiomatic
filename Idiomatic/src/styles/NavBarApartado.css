@@ -3,7 +3,7 @@
 @media screen and (max-width:600px) {
     .ContainerNavBarApartado{
         background: #F9FAFD;
-        height:10vh;
+        /* height:10vh; */
         box-shadow:0px 6px 2px GRAY;
         position: relative;
 
@@ -41,7 +41,8 @@
 
     .ContainerNavBarApartado{
         background: #F9FAFD;
-        height:10vh;
+        /* height:10vh; */
+        max-height: 4rem;
         box-shadow:0px 6px 2px GRAY;
 
     }
@@ -83,7 +84,8 @@
 
     .ContainerNavBarApartado{
         background: #F9FAFD;
-        height:10vh;
+        /* height:10vh; */
+        max-height: 10.5vh;
         box-shadow:0px 6px 2px GRAY;
 
     }

@@ -8,6 +8,8 @@ export default function ApartadoTemaRecursos(){
 
             <Head title="Temas Recursos" mycolor="rgba(146, 7, 255, 0.4)" ruta="/images/iconoEjercicios.svg"/>
             
+        <div style={{width:"100%",display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}}>
+
             <MyCard title={"Saludos y despedidas"} imagen="/src/images/ApartadosTemas/greetings and farewells.png"  page="/Greetings"  link={""}  introduccion={"Empieza y termina tus conversaciones con confianza"} boxshadow={0}   /> 
             <MyCard title={"Presentaciones personales"} imagen="/src/images/ApartadosTemas/PersonalPresentations.png"  page="/Presentations" link={"presentaciones personales"}  introduccion={"¡Preséntate como un profesional! Mira el video para aprender a destacar en cualquier situación."} boxshadow={0}  />
             <MyCard title={"Dar informacion"} imagen="/src/images/ApartadosTemas/PersonaLInformation.png" page="/Giveinformation"  link={"Dar informacion personal"}  introduccion={"Aprende a preguntar y compartir información personal de manera natural."} boxshadow={0}  />
@@ -22,7 +24,7 @@ export default function ApartadoTemaRecursos(){
             <MyCard title={"Futuro Simple"} imagen="/src/images/ApartadosTemas/FutureWill.png" page="/FutureSimple" link={"Futuro Will"}  introduccion={"Predice el futuro con confianza: Aprende a usar ‘will’ en inglés."} boxshadow={0}  />
             <MyCard title={"Pasado Simple"} imagen="/src/images/ApartadosTemas/PastSimple.png"  page="/PastSimple"  link={"Pasado Simple"}  introduccion={"Revive el pasado: Aprende a usar el Simple Past para hablar de experiencias y eventos."} boxshadow={0}  />
             
-            
+        </div>  
     
     </>)
 }

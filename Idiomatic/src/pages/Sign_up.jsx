@@ -51,7 +51,7 @@ function Register() {
           if (data.rol === 1) { 
             navigate('/Admin_Home'); // Redirige al dashboard de admin
           } else { 
-            navigate('/User_Home'); // Redirige al dashboard de usuario
+            navigate('/Login'); // Redirige al dashboard de usuario. Modificacion de Jona
           }
         } else {
           alert('Error de registro. Inténtalo de nuevo.');

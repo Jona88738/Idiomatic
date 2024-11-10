@@ -1,15 +1,21 @@
 @media screen and (max-width:600px) {
+    .MainContainerCreateSentencesBox{
+        width: 100%;
+        height: 100vh;
+    }
     .ContainerTitleCreateSentences{
         margin-left:4% !important;
+        max-width: 96%; 
         margin-right:2% !important;
         background:rgba(119, 102, 198, 0.4);
         border-radius:25px;
-        height:24vh;
+        /* height:24vh; */
         margin-top:2vh;
+        padding: 5%;
     }
     .imgTitleCreateSen{
         float:left;
-        width:36%;
+        width:20%;
     }
     .TitleCreateSen{
         font-size: 8vw;
@@ -52,14 +58,14 @@
     .campoRespuestaCreate{
         margin-left:4%;
         width:29%;
-        height:7vh;
+        height:3rem;
         margin-top:4%;
         border-radius:25px;
     }
     .btnCreateSen{
         position:relative!important;
         /* right:5%; */
-        margin-top:5% !important;
+        margin-top:25% !important;
         left: 21%;
         width:57%;
         border-radius:20px !important;
@@ -68,7 +74,7 @@
     }
     .respuestaFinalCreateSen{
         background:rgba(119, 102, 198, 0.4);
-        height:6vh;
+        /* height:6vh; */
         width:98%;
         margin-left:2%;
         text-align:center;
@@ -81,24 +87,37 @@
 
 @media screen and (min-width:601px) and (max-width:1023px){
 
+    .MainContainerCreateSentencesBox{
+        width: 100%;
+        height: 98vh;
+    }
+    .EstrellaCreateS{
+        width: 2rem;
+    }
+
     .ContainerTitleCreateSentences{
         margin-left:4% !important;
+        max-width: 96% !important;
         margin-right:2% !important;
         background:rgba(119, 102, 198, 0.4);
         border-radius:25px;
-        height:25vh;
-        margin-top:5vh;
+        /* height:25vh; */
+        height:20%;
+        margin-top:2vh;
     }
     .imgTitleCreateSen{
         float:left;
-        width:16%;
+        min-height: 85%;
+        max-width: 12%;
+        /* width:10%; */
     }
     /* .TitleCreateSen{
 
     } */
     .ExplicacionCreateSen{
+       
         margin-left:5%;
-        margin-top:5vh;
+        margin-top:2%;
         margin-bottom:5vh;
     }
     .ContainerresCreateSen{
@@ -126,22 +145,22 @@
     .campoResCreateSen{
         width:100%;
         height:20vh;
-        margin-top:2%;
+        /* margin-top:2%; */
         display:flex;
         
     }
     .campoRespuestaCreate{
         margin-left:4%;
         width:15%;
-        height:7vh;
-        margin-top:4%;
+        height:3rem;
+        margin-top:2%;
         border-radius:25px;
     }
     .btnCreateSen{
         position:absolute !important;
         right:6%;
         /* top:45%; */
-        bottom: -2%;
+        bottom: 1;
         width:25%;
         border-radius:20px !important;
         color:black !important;
@@ -150,11 +169,11 @@
 
     .respuestaFinalCreateSen{
         background:rgba(119, 102, 198, 0.4);
-        height:7vh;
+        height:2.2rem;
         width:135px;
         margin-left:2%;
         text-align:center;
-        font-size:25px;
+        font-size:2.5vw;
         display:inline-block;
         border-radius:25px;
         margin-top:2%;
@@ -166,24 +185,31 @@
 
 @media  (min-width:1024px){
 
+    .MainContainerCreateSentencesBox{
+        width: 100%;
+        height: 100vh;
+    }
+
     .ContainerTitleCreateSentences{
         margin-left:4% !important;
+        max-width: 96% !important ;
         margin-right:2% !important;
         background:rgba(119, 102, 198, 0.4);
         border-radius:25px;
-        height:25vh;
+        height:20%;
         margin-top:5vh;
     }
     .imgTitleCreateSen{
         float:left;
-        width:16%;
+        width:10%;
     }
     /* .TitleCreateSen{
 
     } */
     .ExplicacionCreateSen{
+        font-size: 1.7vw;
         margin-left:5%;
-        margin-top:5vh;
+        margin-top:1%;
         margin-bottom:5vh;
     }
     .ContainerresCreateSen{

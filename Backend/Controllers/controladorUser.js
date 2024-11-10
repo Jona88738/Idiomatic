@@ -30,10 +30,10 @@ const createUser = async (req, res) => {
       passHashed,
       "/api/FotoPerfil/init.png",
       rol, // Usar el valor de rol recibido o 0 por defecto
-      true, // Suscripción por defecto
+      false, // Suscripción por defecto
       '' // Valor vacío para tipo_aprendizaje
     ]);
-
+// result[0].insertId
     console.log('Resultado de la inserción:', result);  // Verifica el resultado de la consulta
     // Verificar si se insertó correctamente
     if (result.affectedRows === 1) {
@@ -74,6 +74,7 @@ const sign_in = async (req, res) => {
     req.session.TemasEjercicios = row2[0].TemaJuegos;
     req.session.TemaAudios = row2[0].TemaAudios;
     req.session.TemaVideos = row2[0].TemaVideos;
+    req.session.tipoAprendizaje = row[0].tipo_aprendizaje;
 
    // console.log(req.session.idUser);
     res.json({
@@ -376,9 +377,14 @@ const testAprendizajeGet = (req,res) =>{
 ])
 }
 
-const testAprendizaje = (req,res) => {
-    const tipoAprendizaje = req.body;
+const testAprendizaje = async (req,res) => {
+    const {tipoAprendizaje} = req.body;
+
    console.log(tipoAprendizaje)
+
+   const [user] = await conn.query('update usuario set tipo_aprendizaje = ? where idusuario = ? ',[tipoAprendizaje,req.session.idUser]);
+    console.log(user)
+
     res.json({
         resultado:"true",
     })
@@ -468,7 +474,7 @@ const tiempo = async (req,res) =>{
 
   if(tiempoTotalMinutos < 60 ){
 
-    const [rowMinutos] = await conn.query("update progresousuario set tiempoMinutos = ? where Id_usuario = ?",[tiempoTotalMinutos,12])
+    const [rowMinutos] = await conn.query("update progresousuario set tiempoMinutos = ? where Id_usuario = ?",[tiempoTotalMinutos,req.session.idUser])
 
     console.log(rowMinutos)
   }else{
@@ -505,7 +511,8 @@ const progresoUsuario = async (req,res) => {
     "IdContenido":row[0].Id_contenido,
     "temasJuegos": req.session.TemasEjercicios,
     "temaAudios":req.session.TemaAudios,
-    "temaVideos":req.session.TemaVideos
+    "temaVideos":req.session.TemaVideos,
+    "tipoAprendizaje":req.session.tipoAprendizaje 
 
   })
 }

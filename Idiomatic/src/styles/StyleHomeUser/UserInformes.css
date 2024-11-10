@@ -2,7 +2,7 @@
     .ContainerTitleI{
         margin-top:3% !important;
         background:rgba(249, 176, 195, 1);
-        height: 20vh;
+        /* height: 20vh; */
         width:100%;
         border-radius:50px;
         margin:0;
@@ -22,7 +22,7 @@
         position:absolute;
         right:30px;
         width: 31vw;
-        top:7%;
+        top:11%;
         /* min-height:25%; */
     }
     .fechaInf{
@@ -37,7 +37,7 @@
     .ContainerProgreso{
         border:2px solid rgba(224, 224, 224, 1);
         border-radius:20px;
-        height: 48vh;
+        /* height: 48vh; */
         width:65% !important;
     }
     .titleProgreso{
@@ -68,7 +68,7 @@
     .HoraInfor{
         text-align:center;
         color:white;
-        font-size:8vh;
+        font-size:9vw;
     }
     .ProgresoApartado{
         margin-left:12%;
@@ -78,6 +78,7 @@
         height:150px !important;
         position: relative;
         right: 18%;
+        margin-bottom: 13%;
     }
 
 }
@@ -127,7 +128,7 @@
     .ContainerProgreso{
         border:2px solid rgba(224, 224, 224, 1);
         border-radius:20px;
-        height: 50vh;
+        /* height: 50vh; */
         width:70% !important;
     }
     .titleProgreso{
@@ -224,18 +225,22 @@
     .ContainerProgreso{
         border:2px solid rgba(224, 224, 224, 1);
         border-radius:20px;
-        height: 50vh;
+        /* height: 50vh; */
         width:70% !important;
         padding-left:0 !important;
+        padding-right: 0 !important;
     }
     .titleProgreso{
-        margin-left:25%;
+        /* margin-left:25%; */
+        text-align: center;
     }
     .progresoGauge{
-        margin-left:15%;
+        /* margin-left:15%; */
+        width: 100% !important;
     }
     .titleInglesInf{
-        margin-left:28%;
+        /* margin-left:28%; */
+        text-align: center;
     }
     .HoraMInformes{
         text-align:center;

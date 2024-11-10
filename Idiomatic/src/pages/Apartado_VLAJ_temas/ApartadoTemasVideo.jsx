@@ -104,7 +104,8 @@ export default function ApartadoTemasVideos(){
 
             
 <Head title="Temas de Videos" mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.svg"/>
-
+<div style={{width:"100%",display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}}>
+    
 {Card.map((Element,index) =>{
     console.log(Element.Total)
 
@@ -153,7 +154,7 @@ export default function ApartadoTemasVideos(){
 <MyCard title={"Pasado Simple"} imagen="/images/ApartadosTemas/PastSimple.png"   page="/Videos" link={"Pasado Simple"}  introduccion={"Revive el pasado: Aprende a usar el Simple Past para hablar de experiencias y eventos."} />
  
  */}
-
+</div>
     
     </>)
 }

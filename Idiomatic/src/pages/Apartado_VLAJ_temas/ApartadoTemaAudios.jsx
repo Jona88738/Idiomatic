@@ -101,7 +101,7 @@ export default function ApartadoTemaAudio(){
             <NavBar_Apartados/>
             
             <Head title="Temas Audios" mycolor="rgba(0, 26, 255, 0.4)" ruta="/images/iconoAudios.svg"/>
-
+        <div style={{width:"100%",display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}}>
             {Card.map((Element,index) =>{
                 console.log(Element.Total)
 
@@ -139,5 +139,6 @@ export default function ApartadoTemaAudio(){
             <MyCard title={"Pasado Simple"} imagen="/images/ApartadosTemas/PastSimple.png"  page="/Audios"  link={"Pasado Simple"}  introduccion={"Revive el pasado: Aprende a usar el Simple Past para hablar de experiencias y eventos."} />
              */}
 
+                </div>
     </>)
 }

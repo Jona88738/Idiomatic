@@ -15,6 +15,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useNavigate } from "react-router-dom";
+import '../../styles/ApartadosAjustes.css'
 export function Notificaciones(){
 
     useEffect(()=>{
@@ -187,11 +188,21 @@ export function RestaurarSuscrip({suscripcion}){
   }
 
     return(<>
-            <h1>Restaurar Suscripcion</h1>
+            <h1>Comprar Suscripcion</h1>
 
-            {suscripcion.suscrip === 1 ? (<h3 style={{marginTop:"5%"}}>Ya tienes una suscripcion Actualmente</h3> ):(<h3>En estos momentos no tienes una suscripcion</h3>)            }
+            {suscripcion.suscrip === 1 ? (<h3 style={{marginTop:"5%"}}>Ya tienes una suscripcion Actualmente</h3> ):
+            (
+              <>
+
+                <h3>En estos momentos no tienes una suscripcion</h3>
+                <Button sx={{marginTop:"6%"}} variant="contained" onClick={Comprar}>Comprar Plan Plus</Button>
+              
+              </>
             
-            <Button sx={{marginTop:"6%"}} variant="contained" onClick={Comprar}>Comprar Plan Plus</Button>
+            
+            )            }
+            
+            
 {/*             
             <Button onClick={Comprar}>Comprar Plan Plus</Button> */}
     </>)
@@ -411,35 +422,31 @@ export function Main({foto,cambiarFoto}){
     return(<>
     
     
-    <h1 style={{marginTop:"0"}}>Editar Perfil</h1>
+    <h1 className="TitleMainEditar" >Editar Perfil</h1>
 
-    <Container sx={{background:"rgba(224, 223, 253, 0.5)",borderRadius:"25px", height:"110vh"}}>
+    <Container className="ContainerMainEditarP" >
 
-            <Avatar alt="Remy Sharp" variant="rounded" src={updateInfo.foto} sx={{marginLeft:"35%", width: 164, height: 164 }} />
+            <Avatar className="imgAvatarEditarP" alt="Remy Sharp" variant="rounded" src={updateInfo.foto}  />
             
             <SimpleDialogDemo setfoto={setUpdateInfo} info={updateInfo}/>
            
             <label htmlFor="">Nombre</label>  
             
           <br/>
-            <TextField required variant="outlined"    id="filled-required"label={"Nombre"} value={updateInfo.nombre}  sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
-      border: '2px solid #ced4da !important',  // Sobrescribe los bordes
-    }}}  name="nombre" onChange={handleChange} /> <br />
+            <TextField required variant="outlined" className="TextFieldEditarP"    id="filled-required"label={"Nombre"} value={updateInfo.nombre}  
+                    // Sobrescribe los bordes
+                  name="nombre" onChange={handleChange} /> <br />
             
             <label htmlFor="">Correo</label> <br />
-            <TextField id="outlined-basic" label={foto.correo} value={updateInfo.correo} name="correo" sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
-      border: '2px solid #ced4da !important',  // Sobrescribe los bordes
-    }}} onChange={handleChange} /> <br />
-            <label htmlFor="">Contraseña</label> <br />
-            <TextField id="contra"  type="password" label="*****" value={updateInfo.contraseña}  name="contraseña" variant="outlined" sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
-      border: '2px solid #ced4da !important',  // Sobrescribe los bordes
-    } }} onChange={handleChange} />
-            <label htmlFor="">Escriba de nuevo la Contraseña</label> <br />
-            <TextField  id="contra2"  type="password" label="*****" value={updateInfo.contraseña2} name="contraseña2" variant="outlined" sx={{marginTop:"2%",width:"100%","& .MuiOutlinedInput-root": {
-      border: '2px solid #ced4da !important',  // Sobrescribe los bordes
-    }}} onChange={handleChange} />
+            <TextField id="outlined-basic" className="TextFieldEditarP" label={foto.correo} value={updateInfo.correo} name="correo" onChange={handleChange} /> <br />
             
-            <Button sx={{marginTop:"2%"}} variant="contained"  onClick={actualizar}>Actualizar</Button>
+            <label htmlFor="">Contraseña</label> <br />
+            <TextField id="contra" className="TextFieldEditarP"   type="password" label="*****" value={updateInfo.contraseña}  name="contraseña" variant="outlined"  onChange={handleChange} />
+            
+            <label htmlFor="">Escriba de nuevo la Contraseña</label> <br />
+            <TextField  id="contra2" className="TextFieldEditarP"   type="password" label="*****" value={updateInfo.contraseña2} name="contraseña2" variant="outlined" onChange={handleChange} />
+            
+            <Button className="EnviarEditarFoto"variant="contained"  onClick={actualizar}>Actualizar</Button>
             
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
               <Alert

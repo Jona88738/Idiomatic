@@ -12,6 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useContext } from 'react';
 import {HoraContext} from '../../contexto/contextoHora/HoraContext'
 import { Padding } from '@mui/icons-material';
+import Tipo_Aprendizaje from './User_Tipo_Aprendizaje';
 function User_Home() {
   const [count, setCount] = useState(0);
   const [info, setInfo] = useState({});
@@ -21,7 +22,6 @@ function User_Home() {
   const {stopTime} = useContext(HoraContext);
 
   const navigate = useNavigate();
-
 
   useEffect(() =>{
       console.log("pidio datos progreso usuario")
@@ -41,6 +41,8 @@ function User_Home() {
         // console.log("info progreso",JSON.parse(sessionStorage.getItem('completeAudio')))
         
         // sessionStorage.setItem('rol', 'admin');
+        
+      console.log(res.tipoAprendizaje)
 
 
         setInfo(res)
@@ -69,8 +71,8 @@ function User_Home() {
     console.log(indice)
     return(<>
       <Container className='ContenedorNoti' >
-          <h2 style={{marginBottom:"0"}}>{titulo} </h2>
-          <p>{texto}</p>
+          <h2 className='titleNoti' style={{marginBottom:"0"}}>{titulo} </h2>
+          <p className='pNoti'>{texto}</p>
           <br/>   
           
           <button className='btnBorrarNoti' style={{}} onClick={() => onDelete(indice)}><CloseIcon/></button>
@@ -100,20 +102,20 @@ function User_Home() {
 
         <Container className='ContenedorProgreso' >
 
-        <img className='imgBandera' src="/images/cuadrado.png" width="40%" height="80%"   alt="Logo de mi página"/>
+        <img className='imgBandera' src="/images/cuadrado.png"   alt="Logo de mi página"/>
         
           
-        <Gauge width={130} height={135} value={info.progresoGeneral}  
+        <Gauge className='GaugePorcentaje'  value={info.progresoGeneral}  
          innerRadius="78%"
          outerRadius="99%"
          text={
                 ({ value}) => `${value}%`
               } 
-              sx={{marginLeft:"15%",
+              sx={{
 
                 [`& .${gaugeClasses.valueText}`]: {
-                  fontSize: 20,
-                  transform: 'translate(0px, 0px)',
+                  // fontSize: 20,
+                  transform: 'translate(0px, 0px)'
                 }, 
 
               }} />
@@ -158,7 +160,7 @@ function User_Home() {
   //"http://localhost:3001/FotoPerfil/init.png"
 //console.log(info.foto)
   return (
-    <>
+    <div style={{height:"93vh"}}>
             
 <Container className='Contenedormain' maxWidth='false'  disableGutters >
 
@@ -172,21 +174,23 @@ function User_Home() {
       <h3 className='planTitle'  >
         {info.suscrip === 1 ? ("Plan Premium "): ("Plan basico")}
         </h3>
-       <NavBar_User funcion={MostrarApartados}/>
+       <NavBar_User funcion={MostrarApartados} suscripcion={info.suscrip}/>
      
      
     </Container>
     
     
     <Container   sx={{padding:"0"}}> 
-     {count === 0 ? (<Home/>): count == 2 ?(<User_Cursos/>): count == 3 ? (<User_Informes dataUser={info}/>):
+     {count === 0 ? (<Home/>): count == 2 ?(<User_Cursos/>): count == 3 ? (<User_Informes dataUser={info}/>): count == 7 ? (<Tipo_Aprendizaje  suscripcion={info.suscrip} tipoAprendizaje={info.tipoAprendizaje}/>):
       count == 4 ? (<User_Notificaciones />): count == 5 ? (<User_Ajustes foto={info} cambiarFoto={setInfo} />): count == 6 ?  (MostrarApartados):33333}
       
     
     </Container>
 
+    
 
-      
+    {/* <NavBar_User funcion={MostrarApartados} suscripcion={info.suscrip}/>
+       */}
 </Container>
 
       
@@ -194,7 +198,7 @@ function User_Home() {
       
       
 
-    </>
+    </div>
   )
 }
 

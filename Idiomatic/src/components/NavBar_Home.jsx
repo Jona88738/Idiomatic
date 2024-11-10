@@ -36,7 +36,7 @@ export default function NavBar() {
         <Button className='btnCerrar'>Cerrar</Button> 
 
         <Button className='btnOpcion' onClick={() => {const direccion = "/"; Redireccionar(direccion);}}  title='inicio'> Inicio </Button>
-        <Button  className='btnOpcion' onClick={() => {const direccion = "/Cursos"; Redireccionar(direccion);}} >Cursos</Button>
+        {/* <Button  className='btnOpcion' onClick={() => {const direccion = "/Cursos"; Redireccionar(direccion);}}  >Cursos</Button> */}
         <Button  className='btnOpcion' onClick={() => {const direccion = "/Login"; Redireccionar(direccion);}} >Login</Button>
         <Button  className='btnOpcion' onClick={() => {const direccion = "/Nosotros"; Redireccionar(direccion);}}   >Nosotros</Button>
         

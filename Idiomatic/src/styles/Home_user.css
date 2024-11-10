@@ -1,23 +1,35 @@
 
 @media screen and (max-width:600px) {
     .ContainerPageNoti{
-        height: 85vh;
+        height: 100vh;
+    }
+
+    .GaugePorcentaje{
+        width:70% !important;
+        min-height: 80% !important;
+        /* height:100% !important; */
+        /* margin-left:15%; */
+        font-size: 4.9vw;
     }
 
     .Contenedormain{
+        /* max-height: 100vh; */
         position: relative;
-        /*display:block !important;
-*/       padding-bottom:16vw;
+        /*display:block !important;*/
+       /* padding-bottom:16vw; */
         width:100%;
-        /* height: 100vh !important; */
+        height: 90vh !important;
+       
         
     }
     .ContenedorNav{
         margin:0;
         width:100% !important;
-        position:absolute  !important; 
+        position: fixed !important; 
         
         bottom:0;
+        background: white;
+        z-index: 2;
     }
 
     .fotoPerfil{
@@ -43,9 +55,9 @@
     .btn{
         border-radius:20px;
         cursor:pointer;
-       border:none;
-       display: flex;
-       margin-bottom: 5%;
+        border:none;
+        display: flex;
+        margin-bottom: 5%;
        
       
    }
@@ -65,9 +77,10 @@
         bottom:0;
         border-Radius:50px;
         width:100% !important;
-        background: rgba(70, 70, 122, 0.05);
-        
+        /* background: rgba(70, 70, 122, 0.05); */
+        background: white;
         box-Shadow:5px 8px 2px GRAY;
+        z-index: 2;
         margin:0;
    }
 
@@ -88,9 +101,9 @@
         background:rgba(119, 102, 198, 0.3);
         width:100%;
         border-Radius:30px;
-        height: 20vh;
+        /* height: 20vh; */
         margin:0;
-        margin-top: 8%;
+        margin-top: 5%;
 }
 
 
@@ -108,7 +121,7 @@
     .imgHomeUser{
         position:absolute;
         right:30px;
-        top:10%;
+        top:3rem;
         width: 27%;
         min-Height:25%;
     }
@@ -124,9 +137,9 @@
     }
 
     .ContenedorProgreso{
-
-        height:21vh;
-        width:70% !important;
+        height:8rem !important;
+        /* height:21vh; */
+        width:90% !important;
         background:rgba(70, 70, 122, 0.15);
         border-Radius:25px;
         display:flex !important;
@@ -137,11 +150,14 @@
 
         position:relative !important;
         left:5%;
-        top:30px;
+        /* top:30px; */
+        top:10%;
         width: 38%;
-        height: 62%;
+        height: 80%;
+        /* width: 38%;
+        height: 62%; */
         /* margin-top: 36%;*/
-        max-width: 40%;
+        max-width: 35%;
     }
 
     .subtema3{
@@ -198,11 +214,29 @@
     }
 
 
+    .imgIconoNavBarUserDesple{
+        width:9vw !important;
+    }
+    .IconoNavBarUserDespleEstilo{
+        width:9vw !important;
+    }
+
+    .ContNavBottom{
+        background: rgba(119, 102, 198, 0.3);
+        width: 100%;
+        height: 4rem;
+    }
+
 }
 
 @media screen and (min-width:601px) and (max-width:1023px){
     .ContainerPageNoti{
         height: 100vh;
+    }
+
+    .GaugePorcentaje{
+        width:70% !important;
+        height:100% !important;
     }
 
     .Contenedormain{
@@ -220,18 +254,20 @@
     .fotoPerfil{
         margin-top:2%;
         margin-left:32%;
-        width: 110px !important;
-        height: 110px !important;
+        width: 36% !important;
+        height: 16% !important;
+        /* width: 15% !important; */
+        /* height: 10% !important; */
     }
 
     .NomCorreoTitle {
-
+        font-size: 1.5vw;
         text-align:center;
         margin:0;
     }
 
     .planTitle{
-
+        font-size: 1.5vw;
         text-align:center;
         margin:0;
         color:blue;
@@ -270,7 +306,15 @@
    .ContenedorBotonesUser{
         position:relative;
         top:8%;
-        right:15px;
+        right:3px;
+   }
+
+   .titleNoti{
+    margin-bottom:0;
+    font-size: 2vw;
+   }
+   .pNoti{
+    font-size: 2vw;
    }
 
 
@@ -307,10 +351,12 @@
     .subtema{
         box-Shadow:0px 3px 1px rgba(31, 25, 47, 0.5);
         font-Size:3vw;
+        margin-bottom: 3%;
     }
 
     .subtema2{
         font-Size:3vw;
+        margin-bottom: 3%;
     }
 
     .ContenedorProgreso{
@@ -320,15 +366,19 @@
         background:rgba(70, 70, 122, 0.15);
         border-Radius:25px;
         display:flex !important;
+        padding-right: 0 !important;
     }
 
     .imgBandera{
 
         position:relative !important;
+        width: 38%;
+        height: 80%;
         left:5%;
-        width: 40%;
-        height: 10vw;
-        top:20%;
+        top: 10%;
+        /* width: 40%; */
+        /* height: 10vw; */
+        /* top:20%; */
     }
 
     .subtema3{
@@ -376,12 +426,31 @@
         margin-bottom: 0;
     } 
 
+    .imgIconoNavBarUserDesple{
+        width:3vw !important;
+    }
+    .IconoNavBarUserDespleEstilo{
+        width:4vw !important;
+    }
+    .imgIconoNavBarUser{
+
+        width:3vw !important;
+
+    }
+
 }
 
 
 @media  (min-width:1024px){
     .ContainerPageNoti{
         height: 100vh;
+    }
+
+    .GaugePorcentaje{
+        width:20%;
+        height:22%;
+        margin-left:15%;
+        font-size: 1.9vw;
     }
 
     .Contenedormain{
@@ -424,6 +493,7 @@
        margin-bottom: 5%;
        margin-top: 60%;
        margin-left: 10%;
+       
    }
    
    .btn:hover{
@@ -450,6 +520,10 @@
         position:relative;
         top:8%;
         right:15px;
+   }
+
+   .titleNoti{
+    margin-bottom:0;
    }
 
 
@@ -503,6 +577,8 @@
     .imgBandera{
 
         position:relative !important;
+        width: 35%;
+        height: 80%;
         left:10%;
         top:10%;
     }
@@ -552,6 +628,19 @@
         margin-bottom: 0;
     } 
 
+
+    .imgIconoNavBarUserDesple{
+        width:3vw !important;
+    }
+    .IconoNavBarUserDespleEstilo{
+        width:4vw !important;
+    }
+
+    .imgIconoNavBarUser{
+
+        width:3vw !important;
+
+    }
    
    
     

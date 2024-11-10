@@ -41,6 +41,19 @@ function TestAprendizaje() {
   };
 
   const handleCloseComplete = () => {
+    fetch("/api/testAprendizaje",{
+      method:'POST',
+      headers:{
+        
+          'Content-Type': 'application/json',
+        
+      },
+      body:JSON.stringify({
+        "tipoAprendizaje":test
+      })
+
+    })
+      
     setOpen(false);
     navigate(-1)
     
@@ -141,10 +154,12 @@ function TestAprendizaje() {
     }
     
     console.log(`El valor que más se repite es: ${valorMasRepetido} (${maxRepeticiones} veces)`);
-    setTest("Tu tipo de aprendizaje es: "+valorMasRepetido)
+    setTest(valorMasRepetido)
     console.log("Mi test: ",test)
     setNoti(true)
     handleClickOpen();
+
+    
   }
 
   return (
@@ -284,7 +299,7 @@ useEffect(()=>{
        
        
   {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png" texto="Tuviste un Error"/>) : 
-         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" test={test} img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" test={"Tu tipo de aprendizaje es: "+test} img="/src/images/svgJuegos/dogFelicidades.png"/>)}
         
      <img src="/images/svgJuegos//dogSaludando.png" alt="xd"  width="15%" style={{position:"absolute",right:"5%",bottom:"1%"}}/>
       </div>

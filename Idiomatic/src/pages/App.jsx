@@ -74,6 +74,7 @@ import Giveinformation from './Recursos/Giveinformation';
 import Formaltitles from './Recursos/Formaltitles';
 import Nationalities from './Recursos/Nationalities';
 import Jobs from './Recursos/Jobs';
+import Tipo_Aprendizaje from './Home_user/User_Tipo_Aprendizaje';
 
 
 
@@ -108,6 +109,7 @@ function App() {
           
                 <Route  path='/User_Home' element={ <User_Home/>  } />
                 <Route  path='/User_Cursos' element={<User_Cursos/>} />
+                <Route  path='/Estilos' element={<Tipo_Aprendizaje/>} />
 
                 {/* Temas VLAJ  */}
 

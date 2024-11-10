@@ -93,7 +93,7 @@ export default function SimpleDialogDemo({setfoto,info}) {
         
       </Typography>
       <br />
-      <Button sx={{left:"28%"}}  variant="outlined" onClick={handleClickOpen}>
+      <Button className='BtnSimplegDemo' sx={{}}  variant="outlined" onClick={handleClickOpen}>
       Cambiar foto de perfil
       </Button>
       <SimpleDialog 

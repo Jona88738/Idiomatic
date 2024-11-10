@@ -1,17 +1,18 @@
 @media screen and (max-width:600px) {
     .ContainerTitleEjerAudio{
         background:rgba(255, 194, 18, 0.65);
-        height:17vh;
+        /* height:17vh; */
         border-radius:20px;
         margin-top: 5%;
+        padding-bottom: 5rem;
     }
     .ContainerImgEjerAudio{
         float:right;
         position:absolute;
         right:0;
         /* width: 37vw; */
-        max-width: 40%;
-        height: 24vh;
+        max-width: 10rem;
+        height: 10rem;
     }
     .TitleEjerAudio{
         font-size: 8vw;
@@ -27,6 +28,7 @@
         height: 62%;
         border-radius:20px;
         margin-top: 4%;
+        padding-bottom: 30rem;
     }
     .ContMainTitle{
         font-size: 5vw;
@@ -36,11 +38,11 @@
     .MainEjercicio{
         display:flex;
         flex-direction: column;
-        height:62%;
+        /* height:62%; */
     }
     .imgDogMainEjer{
         /* margin-left:8%; */
-        width:20vh;
+        width:50%;
         margin-bottom: 7%;
         /* max-width: 22%; */
     }
@@ -51,13 +53,16 @@
     }
     /* XD */
     .inputAudioEjercicio{
-        height:8vh;
+        height:3rem;
         width:95%;
         border-radius:5px;
         padding-left:5%;
+        
         border:2px solid black;
         margin-left:2%;
-        margin-top: 4%;
+        /* margin-top: 10rem; */
+        position: absolute;
+        top: 21rem;
     }
     .btnResEjercicioAudio{
         background:rgba(249, 176, 195, 0.57);
@@ -97,9 +102,10 @@
         background:rgba(224, 223, 253, 1);
         width:90%;
         margin-left:5%;
-        height:50vh;
+        /* height:50vh; */
         border-radius:20px;
         margin-top: 2%;
+        padding: 2rem;
     }
     .ContMainTitle{
         text-align:center;
@@ -115,7 +121,7 @@
     }
     /* XD */
     .inputAudioEjercicio{
-        height:8vh;
+        height:3rem;
         width:60%;
         border-radius:5px;
         padding-left:5%;

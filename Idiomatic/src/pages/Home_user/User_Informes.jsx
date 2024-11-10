@@ -57,7 +57,7 @@ function User_Informes({dataUser}) {
                         text={
                                 ({ value}) => `${value}%`
                               } 
-                              sx={{marginLeft:"15%",
+                              sx={{
 
                                 [`& .${gaugeClasses.valueText}`]: {
                                   fontSize: 20,
@@ -72,7 +72,7 @@ function User_Informes({dataUser}) {
               </Container>     
 
               <Container>
-                  <h2 className='HoraMInformes' >Horas por mes</h2>  
+                  <h2 className='HoraMInformes' >Total de Horas</h2>  
 
                   <Container className='ContainerHoraInfor'>
                     <h2 className='titleHoraIngles' >Ingles</h2>

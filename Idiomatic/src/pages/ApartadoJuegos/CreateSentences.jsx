@@ -6,6 +6,8 @@ import { useState } from "react";
 import '../../styles/StyleApartadoJuegos/CreateSentences.css'
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
 
 export default function CreateSentences(){
 
@@ -117,6 +119,7 @@ export default function CreateSentences(){
         }
 
     function enviar(){
+        setOpenBackDrop(true)
         //const arregloFinal = ["","","","",""];
         const respuesta = "Hello!, My name is Idiomatic"
         
@@ -130,17 +133,17 @@ export default function CreateSentences(){
 
         
 
-        fetch(`https://api.textgears.com/grammar?text=${resultado}&language=en-US&ai=false`,{
-            headers:{
-                Authorization: "Basic d96UAhwRk6kmjSXp"
-            }
+        fetch(`https://api.textgears.com/grammar?text=${resultado}&language=en-US&ai=false&key=d96UAhwRk6kmjSXp`,{
+            // headers:{
+            //     Authorization: "Basic d96UAhwRk6kmjSXp"
+            // }
         })
             .then(res => res.json())
             .then(res => {
                 console.log("Respuesta Api: ",res)
                 if(res.response.errors.length === 0 ){
 
-                    setOpenBackDrop(true)
+                    
                     let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
         
                     completeJuego[0].Total += 1;
@@ -227,7 +230,7 @@ export default function CreateSentences(){
 
     // },[recursoEjercicio])
 
-    return(<>
+    return(<Box className="MainContainerCreateSentencesBox">
 
 
             <Container className="ContainerTitleCreateSentences"  >
@@ -236,18 +239,18 @@ export default function CreateSentences(){
             </Container>
 
             
-            <p className="ExplicacionCreateSen"  >Look at the sentences. Arrange the words so that they are grammatically correct,
-                paying attention to the position of the adverbs and using appropiate puntuaction.
+            <p className="ExplicacionCreateSen"  >Ordena las palabras de manera que sean gramaticalmente correctas.
+            prestando atención a la posición de los adverbios y utilizando la puntuación adecuada.
             </p>
 
         <Container className="ContainerresCreateSen" >
 
             <Container className="ContainerStars"  >
 
-                <img src="/images/svgJuegos/star.svg" alt="" />
-                <img src="/images/svgJuegos/star.svg" alt="" />
-                <img src="/images/svgJuegos/star.svg" alt="" />
-                <img src="/images/svgJuegos/star.svg" alt="" />
+                <img src="/images/svgJuegos/star.svg" className="EstrellaCreateS" alt="" />
+                <img src="/images/svgJuegos/star.svg" className="EstrellaCreateS"  alt="" />
+                <img src="/images/svgJuegos/star.svg" className="EstrellaCreateS"  alt="" />
+                <img src="/images/svgJuegos/star.svg" className="EstrellaCreateS"  alt="" />
                 
             </Container>
 
@@ -297,5 +300,5 @@ export default function CreateSentences(){
          (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
         
          
-        </>)
+        </Box>)
 }

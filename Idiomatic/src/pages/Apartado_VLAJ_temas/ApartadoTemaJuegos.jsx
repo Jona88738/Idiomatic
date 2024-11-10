@@ -106,7 +106,7 @@ export default function ApartadoTemaJuegos(){
             
             <Head title="Temas Ejercicios" mycolor="rgba(255, 0, 0, 0.4)" ruta="/images/iconoEjercicios.svg"/>
             
-
+        <div style={{width:"100%",display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}}>
             {Card.map((Element,index) =>{
                 console.log(Element.Total)
 
@@ -155,6 +155,6 @@ export default function ApartadoTemaJuegos(){
             <MyCard title={"Pasado Simple"} imagen="/images/ApartadosTemas/PastSimple.png"  page="/Ejercicios"  link={"Pasado Simple"}  introduccion={"Revive el pasado: Aprende a usar el Simple Past para hablar de experiencias y eventos."} />
              */}
             
-            
+          </div>  
     </>)
 }

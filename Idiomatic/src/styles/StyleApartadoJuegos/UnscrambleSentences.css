@@ -16,7 +16,7 @@
         margin-left:15% !important;
         margin-right:0% !important;
         border-radius:10px;
-        height:14vh;
+        /* height:14vh; */
         margin-top:3%;
     }
     .TitleMainUnscramble{
@@ -55,7 +55,8 @@
         color:black !important;
         position:relative !important;
         left:27%;
-        margin-bottom:1%;
+        /* margin-bottom:1%; */
+        bottom: 12rem;
         border-radius:25px !important;
         width:44%;
         top: 20px;
@@ -79,7 +80,7 @@
         margin-left:15% !important;
         margin-right:0% !important;
         border-radius:10px;
-        height:17vh;
+        /* height:17vh; */
         margin-top:3%;
     }
     .TitleMainUnscramble{
@@ -120,6 +121,7 @@
         position:relative;
         left:79%;
         margin-bottom:1%;
+        bottom: 1rem;
         border-radius:25px !important;
         width:18%;
     }
@@ -179,9 +181,10 @@
     }
     .btnUnscrambleEnviar{
         color:black !important;
-        position:relative;
+        position:relative !important;
         left:75%;
-        margin-bottom:1%;
+        margin-bottom:3%;
+        bottom: 1rem;
         border-radius:25px !important;
         width:15%;
     }

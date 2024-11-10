@@ -24,12 +24,12 @@ export default function ApartadoTemasLecturas(){
             <NavBar_Apartados/>
             
             <Head title="Lecturas" mycolor="rgba(249, 176, 195, 0.54)" ruta="/images/iconoLecturas.svg"/>
-           
+        <div style={{width:"100%",display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}}> 
             {lecturas.map((element,index) =>{
                return <MyCard key={index} title={element.nombre} imagen="/images/ApartadosTemas/greetings and farewells.png"  page="/PageLecturas" lectura={element.rutaLectura}    introduccion={element.introduccion} boxshadow={0}  /> 
             })}
             
-            
+           </div> 
 
             
     </>)

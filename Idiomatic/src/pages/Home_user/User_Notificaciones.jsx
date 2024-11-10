@@ -54,6 +54,9 @@ function User_Notificaciones() {
          return <Notificacion key={index} indice={index} titulo={info.Titulo} texto={info.texto} />
         })}
        
+       <div style={{width:"100%",height:"5rem"}}>
+
+       </div>
        
     </div>
   )

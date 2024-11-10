@@ -72,7 +72,7 @@ export default function PageVideos(){
         </Container>
         
         <div className="ReactPlayerX" >
-        <ReactPlayer  className="react-player" onEnded={handleEnd} width="100%" height="70vh" style={{}} url={link} controls/>
+        <ReactPlayer  className="react-player" onEnded={handleEnd} width="100%" height="100%" style={{}} url={link} controls/>
         </div>
         </div>)
 }

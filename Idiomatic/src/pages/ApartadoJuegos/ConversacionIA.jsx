@@ -223,9 +223,7 @@ export default function ConversacionIA(){
 
 
 
-
-    // XD
-    return(<>
+    return(
     <div className='ContainMainConversationIA' >
 
         <Container className='ContainerTitleConversationIA' >
@@ -234,7 +232,7 @@ export default function ConversacionIA(){
 
 
         </Container>
-
+        {/* Ya quedo xD */}
 
         <Container className='ContainerDogConversation' >
 
@@ -242,7 +240,7 @@ export default function ConversacionIA(){
                 <h1 className='OracionDog' >{recursoEjercicio}</h1>
            
             </div>
-            {/* "/src/images/ConversacionIA/dog.png" */}
+            
              <img className='imgCuadroDog' src="/images/ConversacionIA/cuadroDog.png"   alt="" />
             <img className='imgDog' src={recursoFront.iconoDog}   alt="XD" />
 
@@ -280,24 +278,23 @@ export default function ConversacionIA(){
 
         </Container>
     
-        {/* <Button sx={{background:recursoFront.btnColor,color:"black",position:"relative",left:"40%",bottom:"40px",borderRadius:"25px",width:"15%"}} variant='contained'>Enviar</Button> 
-     */}
+       
     
         {grabar === true ? (
             <><Button className='btnRecordConversationIA'  id="record" onClick={startRecording} variant="outlined" sx={{background: recursoFront.btnColor, }}>
                     Press to talk
                     <MicIcon sx={{ fontSize: 50 }} />
                 </Button>
-                <Button disabled  id="stopRecord" onClick={stopRecording} variant="outlined" sx={{position:"relative",bottom:"85px", width: "22%", height: "8vh", fontSize: "18px", borderRadius: "22px", background: recursoFront.btnColor, color: "black", marginLeft: "0%" }}>
+                <Button disabled className='btnStopConversationIA'   id="stopRecord" onClick={stopRecording} variant="outlined" sx={{  background: recursoFront.btnColor}}>
                         Press to stop Record
                         <MicIcon sx={{ fontSize: 50 }} />
                 </Button></>
             ):(
-                <><Button disabled id="record" onClick={startRecording} variant="outlined" sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background: recursoFront.btnColor, color: "black", marginLeft: "10%" }}>
+                <><Button disabled className='btnStopConversationIA2'   id="record" onClick={startRecording} variant="outlined" sx={{  background: recursoFront.btnColor}}>
                         Press to talk
                         <MicIcon sx={{ fontSize: 50 }} />
                     </Button>
-                    <Button  id="stopRecord" onClick={stopRecording} variant="outlined" sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background: recursoFront.btnColor, color: "black", marginLeft: "0%" }}>
+                    <Button className='btnRecordConversationIA2'  id="stopRecord" onClick={stopRecording} variant="outlined" sx={{  background: recursoFront.btnColor }}>
                             Press to stop Record
                             <MicIcon sx={{ fontSize: 50 }} />
                     </Button></>
@@ -311,10 +308,10 @@ export default function ConversacionIA(){
         <Backdrop
         sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
         open={openBackDrop}
-        // onClick={handleClose} 
+        
         >
         <CircularProgress color="inherit" />
       </Backdrop>
         </div>
-    </>)
+    )
 }
