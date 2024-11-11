@@ -4,7 +4,7 @@ import { useNavigate  } from 'react-router-dom';
 import '../../styles/StyleHomeUser/UserCursos.css'
  function MediaCard({miFuncion,titulo, imagen,introduccion}) {
   return (
-    <Card className='Mcard' onClick={miFuncion} >
+    <Card className='Mcard' onClick={()=> miFuncion(titulo)} >
       <CardMedia
         sx={{ height: 140 }}
         image={imagen}
@@ -30,9 +30,9 @@ function User_Cursos() {
 
   const navigate = useNavigate();
 
-  function to(){
-    console.log("Entro xD")
-    navigate('/TemasJuegos')
+  function to(titulo){
+    console.log("Entro xD",titulo)
+    navigate('/Temas'+titulo)
   }
 
   return (
@@ -65,7 +65,7 @@ function User_Cursos() {
 
 
       
-      <MediaCard miFuncion={to} titulo="Ejercicios" imagen='/images/MisCursos/ejercicios.png' introduccion="Mejora tu vocabulario, gramática y fluidez con ejercicios diseñados para reforzar lo que has aprendido. ¡Practica y progresa!" />
+      <MediaCard miFuncion={to} titulo="Juegos" imagen='/images/MisCursos/ejercicios.png' introduccion="Mejora tu vocabulario, gramática y fluidez con ejercicios diseñados para reforzar lo que has aprendido. ¡Practica y progresa!" />
       <MediaCard miFuncion={to} titulo="Lecturas" imagen='/images/MisCursos/lecturas.png' introduccion="¡Descubre historias fascinantes y mejora tu inglés mientras lees y descubre un nuevo mundo de palabras!"/>
       <MediaCard miFuncion={to} titulo="Videos" imagen='/images/MisCursos/videos.png' introduccion="Descubre lecciones en video que te ayudarán a entender mejor el inglés hablado. ¡Aprende a tu ritmo mientras ves y escuchas!" />
       <MediaCard miFuncion={to} titulo="Audios" imagen='/images/MisCursos/audios.png' introduccion="Descubre una variedad de audios que te ayudarán a comprender mejor el inglés. ¡Escucha cuando quieras" />

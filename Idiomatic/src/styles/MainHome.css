@@ -10,7 +10,7 @@
         top:0;
         z-index: 1000;
         background: #F9FAFD;
-        height: 10vh;
+        height: 4rem;
         box-shadow: 0px 6px 2px GRAY;
         width: 100%;
     }
@@ -390,7 +390,8 @@
         top:0;
         z-index: 1000;
         background: #F9FAFD;
-        height: 10vh;
+        /* height: 10vh; */
+      max-height: 12vh;
         box-shadow: 0px 6px 2px GRAY;
         width: 100%;
     }
@@ -741,39 +742,57 @@
 @media  (min-width:1024px){
  
 
-    .NavBarHome{
-        position: sticky;
-        top:0;
-        z-index: 1000;
-        background: #F9FAFD;
-        height: 10vh;
-        box-shadow: 0px 6px 2px GRAY;
-        width: 100%;
-    }
+   .NavBarHome {
+      position: sticky !important;
+      top: 0;
+      z-index: 1000;
+      background: #F9FAFD;
+      /* height: 10vh; */
+      max-height: 11vh;
+      box-shadow: 0px 6px 2px gray;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 4rem !important; /* Espacio a los lados */
+      align-items: center;
+  }
 
-    .NavBarOpciones{
-        
-        display:flex !important ;
-        
-        flex-direction: row;
-        justify-Content:right ;
-        position: relative ;
-        bottom: 50px  ;
-    }
+
+  .NavBarOpciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    gap: 30px !important; /* Espacio entre los botones */
+    position: relative;
+    bottom: 50px;
+    border-radius: 10px;
+    margin-top: 20px !important;
+    text-align: center !important;
+}
 
     .NavBarOpcioness{
         
         display:flex !important ;
-        justify-Content:right ;
+        justify-Content:flex-end ;
         position: relative ;
         bottom: 50px  ;
+        margin-top: 5px !important;
+        text-align: center !important;
+        gap: 20px;
+
     }
 
+    
     .btnOpcion{
 
         bottom:5px;
         color:black !important;
+        border-radius: 10px !important;
+        gap: 40px !important;
     }
+   .btnOpcion:hover{
+         background-color: #EAE9FA  !important; /* Un degradado ligeramente más oscuro en hover */
+      }
 
     /* .btnHamburguesa{
         display: none !important;
@@ -781,14 +800,20 @@
 
     .btnCrearCuenta{
         color: white !important;
-        background: rgba(58, 49, 96, 1) !important;
-        height:25px;
+        background: linear-gradient(45deg, #7766c6, #ffca28) !important; /* Un degradado ligeramente más oscuro en hover */
+        height:28px;
+        border-radius: 10px !important;
+        margin-left: 20px !important;
+        margin-top: -3px !important;
+        margin-right: -20px !important;
     }
 
     .btnCrearCuenta:hover {
-      background: linear-gradient(45deg, #9575cd, #ffca28) !important; /* Un degradado ligeramente más oscuro en hover */
+      background: linear-gradient(45deg, #46467a, #ffca28) !important; /* Un degradado ligeramente más oscuro en hover */
       transform: scale(1.05) !important; /* Aumenta ligeramente el tamaño en hover */
     }
+
+    
 
 
     .btnOpcion{

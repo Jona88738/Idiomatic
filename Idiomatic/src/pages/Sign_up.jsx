@@ -141,19 +141,7 @@ function Register() {
             <Button className="sign-up-button-reg" type="submit" variant="contained" color="primary" fullWidth>
               Registrarse
             </Button>
-            <div className="line-below-button"></div>
-            <p className="social-text">Registrarse con</p>
-            <div className="social-reg-buttons">
-              <Button className="social-btn google" startIcon={<GoogleIcon />} fullWidth>
-                Google
-              </Button>
-              <Button className="social-btn facebook" startIcon={<FacebookIcon />} fullWidth>
-                Facebook
-              </Button>
-              <Button className="social-btn apple" startIcon={<AppleIcon />} fullWidth>
-                Apple
-              </Button>
-            </div>
+            
           </form>
         </div>
 
@@ -161,7 +149,7 @@ function Register() {
         <div className="welcome-section">
           <h2 className="one-of-us-heading">¿Uno de nosotros?</h2>
           <p>¡Hola de nuevo! ¡Sigue aprendiendo y practicando con nosotros!</p>
-          <Button className="sign-in-button-reg" onClick={() => window.location.href = '/Login'}>Iniciar sesión</Button>
+          <Button className="sign-in-button-reg" onClick={() => navigate('/Login')}>Iniciar sesión</Button>
         </div>
       </div>
     </div>

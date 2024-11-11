@@ -13,11 +13,20 @@ import { useContext } from 'react';
 import {HoraContext} from '../../contexto/contextoHora/HoraContext'
 import { Padding } from '@mui/icons-material';
 import Tipo_Aprendizaje from './User_Tipo_Aprendizaje';
+import Cookies from 'js-cookie';
+
 function User_Home() {
   const [count, setCount] = useState(0);
   const [info, setInfo] = useState({});
   const [notificacion, setNotificacion] = useState([])
 
+  // const userId = Cookies.get('userId');
+  // console.log(typeof userId)
+  // if(userId === "1"){
+  //   console.log("Entro")
+  //   setInfo(info)
+  // }
+  // console.log(userId)
          
   const {stopTime} = useContext(HoraContext);
 
@@ -25,6 +34,7 @@ function User_Home() {
 
   useEffect(() =>{
       console.log("pidio datos progreso usuario")
+      console.log("XD")
     fetch("/api/progresoUsuario")
       .then(res => res.json(res))
       .then(res =>{
@@ -42,8 +52,8 @@ function User_Home() {
         
         // sessionStorage.setItem('rol', 'admin');
         
-      console.log(res.tipoAprendizaje)
-
+      console.log(res)
+      // Cookies.remove('userId');
 
         setInfo(res)
       } )
@@ -56,13 +66,25 @@ function User_Home() {
           .then(res => res.json())
           .then(res=> {
             const [noti, pausarNoti,avisos] = res;
+            
             setNotificacion(avisos)
           })
+        
   },[])
 
   function onDelete(indice){
     
-      const nuevoArreglo = notificacion.filter((noti,i) => i !== indice)
+      let nuevoArreglo = notificacion.filter((noti,i) => i !== indice)
+         
+        console.log(nuevoArreglo)
+        // const prueba = {nombre:""}
+        fetch("/api/DeleteNotificacionAvisos",{
+          method:"DELETE",
+          headers:{
+            'Content-Type': 'application/json',   
+          },
+          body: JSON.stringify(nuevoArreglo),
+        })
         setNotificacion(nuevoArreglo)
   }
 

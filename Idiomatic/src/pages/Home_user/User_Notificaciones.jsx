@@ -4,6 +4,8 @@ import "../../styles/NotificacionesHome.css"
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import '../../styles/StyleHomeUser/UserNotificacion.css'
+
+
 function User_Notificaciones() {
   const [notificacion, setNotificacion] = useState([])
 
@@ -16,11 +18,26 @@ function User_Notificaciones() {
           console.log(noti)
           setNotificacion(noti)
         } )
+
+
+
+
   },[]);
 
   function onDelete(indice){
     
     const nuevoArreglo = notificacion.filter((noti,i) => i !== indice)
+
+    console.log(nuevoArreglo)
+    // const prueba = {nombre:""}
+    fetch("/api/DeleteNotificacionNoti",{
+      method:"DELETE",
+      headers:{
+        'Content-Type': 'application/json',   
+      },
+      body: JSON.stringify(nuevoArreglo),
+    })
+
       setNotificacion(nuevoArreglo)
 }
 
@@ -28,7 +45,7 @@ function User_Notificaciones() {
   function Notificacion({titulo,texto,indice}){
     
     return(<>
-      <Container className='ContenedorNoti' sx={{background:"rgba(255, 199, 39, 0.7)"}}>
+      <Container className='ContenedorNoti' sx={{background:"rgba(255, 199, 39, 0.7)",marginTop:"2%"}}>
           <h2 style={{marginBottom:"0"}}>{titulo} </h2>
           <p>{texto}</p>
           <br/>   

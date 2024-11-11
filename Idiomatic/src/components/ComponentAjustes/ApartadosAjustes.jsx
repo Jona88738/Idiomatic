@@ -16,6 +16,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useNavigate } from "react-router-dom";
 import '../../styles/ApartadosAjustes.css'
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
 export function Notificaciones(){
 
     useEffect(()=>{
@@ -180,11 +183,17 @@ export function Cursos(){
 
 export function RestaurarSuscrip({suscripcion}){
   
-  
+  const [openBackDrop, setOpenBackDrop] = useState(false);
   function Comprar(){
+    setOpenBackDrop(true)
     fetch("/api/CreateOrder")
       .then(res => res.json())
-      .then(res => window.location.href = res.link)
+      .then(res => {
+
+       
+        window.location.href = res.link
+        setOpenBackDrop(false)
+      })
   }
 
     return(<>
@@ -201,7 +210,13 @@ export function RestaurarSuscrip({suscripcion}){
             
             
             )            }
-            
+            <Backdrop
+        sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+        open={openBackDrop}
+        // onClick={handleClose} 
+        >
+        <CircularProgress color="inherit" />
+      </Backdrop>
             
 {/*             
             <Button onClick={Comprar}>Comprar Plan Plus</Button> */}
@@ -212,6 +227,7 @@ export function Fedback(){
 
     const [open, setOpen] = useState(false);
     const [comentario, setComentario] = useState();
+    
 
     const handleClick = (e) => {
 
@@ -268,6 +284,8 @@ export function Fedback(){
             Tu comentario se ha enviado con exito 
             </Alert>
         </Snackbar>
+
+        
 
         </>)
 }

@@ -28,7 +28,7 @@ export default function Tipo_Aprendizaje({suscripcion,tipoAprendizaje}){
         
         </Box>
 
-        {tipoAprendizaje !== "" ? (<Button variant="contained" sx={{background:"rgba(119, 102, 198, 0.67)",color:"black"}}>Kinestesico</Button>
+        {tipoAprendizaje !== "" ? (<Button variant="contained" sx={{background:"rgba(119, 102, 198, 0.67)",color:"black"}}>{tipoAprendizaje}</Button>
         ):("")}
 
         <h2>¿Qué es un estilo de aprendizaje?</h2>

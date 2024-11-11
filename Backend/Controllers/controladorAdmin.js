@@ -31,7 +31,7 @@ const createAdmin = async (req,res) => {
 
 const adminGetUsers = async (req, res) => {
     try {
-        const [rows] = await conn.query("SELECT idusuario, foto, nombre, rol, tipo_aprendizaje FROM usuario");
+        const [rows] = await conn.query("SELECT idusuario, foto, nombre, rol, suscripcion, tipo_aprendizaje FROM usuario");
         console.log('Rows fetched:', rows); // Añade este log para verificar los datos
         res.json(rows);
     } catch (error) {
@@ -74,19 +74,11 @@ const comentarioUser = async (req, res) => {
 const DeleteComentarioUser = async (req, res) => {
     const { idusuario } = req.query;
 
-    console.log('ID de usuario recibido:', idusuario);  // Verifica que el ID esté llegando correctamente
-
     if (!idusuario) {
         return res.status(400).json({ message: "ID de usuario no proporcionado" });
     }
 
     try {
-        // Confirmar eliminación
-        const confirm = req.body.confirm; 
-        if (!confirm) {
-            return res.status(400).json({ message: 'Confirmación de eliminación no proporcionada' });
-        }
-
         // Actualiza el campo comentarios a NULL para el id_usuario
         const [result] = await conn.query('UPDATE usuario SET comentarios = NULL WHERE idusuario = ?', [idusuario]);
 
@@ -96,10 +88,11 @@ const DeleteComentarioUser = async (req, res) => {
             res.status(404).json({ message: 'Comentarios no encontrados o ya eliminados' });
         }
     } catch (error) {
-        console.error('Error al eliminar comentarios:', error);  
+        console.error('Error al eliminar comentarios:', error);
         res.status(500).json({ message: 'Error al eliminar comentarios' });
     }
 };
+
 
 
 const ModificarAdmin = async (req, res) => {

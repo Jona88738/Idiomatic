@@ -89,7 +89,7 @@ const LoginPage = () => {
           <h2 className="new-here-heading">¿Nuevo/a aquí?</h2>
           <p>¡Bienvenido/a! 🎉 Aprende inglés con nosotros.</p>
           <p>¡Explora, practica y disfruta del viaje lingüístico!</p>
-          <button className="register-button" onClick={() => window.location.href = '/Sign_up'}>Registrarse</button>
+          <button className="register-button" onClick={() => {const direccion = "/Sign_up"; navigate(direccion);}}>Registrarse</button>
         </div>
 
         <div className="form-section">
@@ -159,21 +159,14 @@ const LoginPage = () => {
               </div>
 
               <button type="submit" className="login-btn">Ingresar</button>
-              <div className="line-below"></div>
             </form>
           </FormProvider>
 
-          <p className="social-login-text">Ingresar con</p>
-          <div className="social-login-buttons">
-            <button className="social-btn google">
-              <GoogleIcon style={{ textAlign: 'center' }} />
-              Google
-            </button>
+         
            
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

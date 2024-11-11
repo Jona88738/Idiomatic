@@ -7,6 +7,7 @@ import { Host,PAYPAL_API, PAYPAL_ID_CLIENT, PAYPAL_SECRET } from "../config.js";
 import express from 'express';
 import axios from 'axios';
 import * as fs from 'node:fs';
+import { elements } from "chart.js";
 
 
 const createUser = async (req, res) => {
@@ -221,6 +222,9 @@ const CaptureOrder = async (req,res) =>{
 
   const {token} = req.query;
 
+  const [row] = await conn.query("update usuario set suscripcion = ? where idusuario = ? ",[1,req.session.idUser])
+
+
   const respuesta = await axios.post(`${PAYPAL_API}/v2/checkout/orders/${token}/capture`,{},{ 
     auth: {
         username: PAYPAL_ID_CLIENT,
@@ -228,7 +232,9 @@ const CaptureOrder = async (req,res) =>{
     }
   })
   console.log(respuesta);
- 
+
+   
+  // res.cookie('userId', 123);
   
   res.redirect('http://localhost:5173/User_Home');
 }
@@ -465,6 +471,8 @@ const Logout = (req,res) => {
 const tiempo = async (req,res) =>{
 
   const {minutos} = req.query;
+  const {Noti} = req.body;
+
   console.log("Los minutos que llegaron: ",minutos)
   
   const [row] = await conn.query("SELECT tiempoHoras,tiempoMinutos FROM  progresousuario where Id_usuario = ? ",[12])
@@ -487,6 +495,44 @@ const tiempo = async (req,res) =>{
   }
   console.log(row[0].tiempoHoras)
 
+  const [tableNoti] = await conn.query("select notificacion from notificaciones where Id_usuario  = ?",[req.session.idUser])//req.session.idUser
+
+
+  if(Noti === "1" && tableNoti[0].notificacion.Notificacion.length === 0){
+   
+    // const [tableNoti] = await conn.query("select notificacion from notificaciones where Id_usuario  = ?",[req.session.idUser])//req.session.idUser
+    console.log("entro")
+    const Notificacion = {"texto":"Sigue adelante con tus metas.","Titulo":"Felicidades empezaste un nuevo Apartado de aprendizaje"}
+
+    tableNoti[0].notificacion.Notificacion.push(Notificacion);
+   //console.log(tableNoti[0].notificacion)
+   //console.log(tableNoti[0])
+
+   const [update] = await conn.query("update notificaciones set notificacion = ? where Id_usuario = ?",[JSON.stringify(tableNoti[0].notificacion),req.session.idUser])
+  
+
+
+   // tableNoti[0]
+  }else{
+
+    let contador = 0;
+
+    tableNoti[0].notificacion.Notificacion.map((element) =>{
+      
+      console.log(element.Titulo)
+
+      if( tableNoti[0].notificacion.Notificacion === "Felicidades empezaste un nuevo Apartado de aprendizaje"){
+        contador++;
+      }
+
+    })
+
+
+    console.log("Mi contador: ",contador)
+    
+   
+
+  }
   res.json(row)
 }
 
@@ -494,6 +540,9 @@ const progresoUsuario = async (req,res) => {
   
 
   const [row] = await conn.query(`SELECT * FROM progresousuario where Id_usuario = ?`,[req.session.idUser])
+  
+  const [user] = await conn.query(`SELECT * FROM usuario WHERE idusuario = ?`, [req.session.idUser]);
+
   //console.log(row[0].nombre)
   //console.log(row[0].Id_contenido)
   res.status(200).json({
@@ -504,7 +553,7 @@ const progresoUsuario = async (req,res) => {
     "tiempoHoras":row[0].tiempoHoras,
     "tiempoMinutos":row[0].tiempoMinutos,
     "foto":req.session.foto,
-    "suscrip":req.session.suscripcion,
+    "suscrip":user[0].suscripcion,
     "completeVideo":row[0].numLeccion_video,
     "completeAudio":row[0].numLeccion_audio,
     "completeEjercicio":row[0].numLeccion_juegos,
@@ -512,7 +561,7 @@ const progresoUsuario = async (req,res) => {
     "temasJuegos": req.session.TemasEjercicios,
     "temaAudios":req.session.TemaAudios,
     "temaVideos":req.session.TemaVideos,
-    "tipoAprendizaje":req.session.tipoAprendizaje 
+    "tipoAprendizaje":user[0].tipo_aprendizaje
 
   })
 }
@@ -571,6 +620,42 @@ const pausarNotification = async (req,res) => {
       message:"true"
   })
 }
+
+const DeleteNotificacionAvisos = async  (req,res) =>{
+
+  const arreglo = req.body;
+  
+  const [row] = await conn.query("select * from notificaciones where Id_usuario= ?",[req.session.idUser])
+  // console.log(row[0])
+  // console.log("Aqui esta el dato",)
+  console.log(row[0].notificacion)
+  row[0].notificacion.Avisos = arreglo;
+   console.log(row[0].notificacion)
+
+  const [update] = await conn.query("update notificaciones set notificacion = ? where Id_usuario = ?",[JSON.stringify(row[0].notificacion),req.session.idUser])
+  
+  console.log(update)
+  res.json({})
+}
+
+const DeleteNotificacionNoti = async (req,res) =>{
+
+
+  const arreglo = req.body;
+  
+  const [row] = await conn.query("select * from notificaciones where Id_usuario= ?",[req.session.idUser])
+  // console.log(row[0])
+  // console.log("Aqui esta el dato",)
+  console.log(row[0].notificacion)
+  row[0].notificacion.Notificacion = arreglo;
+   console.log(row[0].notificacion)
+
+  const [update] = await conn.query("update notificaciones set notificacion = ? where Id_usuario = ?",[JSON.stringify(row[0].notificacion),req.session.idUser])
+  
+
+  res.json({})
+}
+
 
 const ejercicios = async (req,res) => {
 
@@ -640,5 +725,7 @@ export default {
     Logout,
     tiempo,
     notificaciones,
+    DeleteNotificacionAvisos,
+    DeleteNotificacionNoti,
     pausarNotification
 }

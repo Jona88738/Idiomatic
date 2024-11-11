@@ -40,6 +40,10 @@ export default function NavBar() {
         <Button  className='btnOpcion' onClick={() => {const direccion = "/Login"; Redireccionar(direccion);}} >Login</Button>
         <Button  className='btnOpcion' onClick={() => {const direccion = "/Nosotros"; Redireccionar(direccion);}}   >Nosotros</Button>
         
+        {/* <Button className='btnOpcion' href="/" title='inicio'> Inicio </Button>
+        <Button  className='btnOpcion' href="/Nosotros" >Nosotros</Button>
+        <Button  className='btnOpcion' href="/Login" >Login</Button> */}
+
         <Button className='btnCrearCuenta' href='/Sign_up'  variant="outlined"sx={{}}>Crear Cuenta</Button>
       
         </Container>

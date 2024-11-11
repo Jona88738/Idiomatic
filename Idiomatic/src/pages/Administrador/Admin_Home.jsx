@@ -1,25 +1,41 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Avatar, Grid, Box, Typography, Button } from '@mui/material';
-import NavBar_admin from '../../components/NavBar_admin'; 
-import NavBar_Home from '../../components/NavBar_Home'; 
+import { Container, Box, Typography, Grid, Button } from '@mui/material';
+import AdminMenu from '../../components/NavBar_admin'; // Importa el menú de administración
+import { Pie } from 'react-chartjs-2';  // Importa el gráfico tipo Pie
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+
+// Configuración de Chart.js
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const AdminDashboard = () => {
-  const [adminInfo, setAdminInfo] = useState({ nombre: '', email: '' });
   const [userComments, setUserComments] = useState([]);
   const [selectedComments, setSelectedComments] = useState([]);
+  const [userStats, setUserStats] = useState({ usersCount: 0, subscriptionStats: {} });
 
   useEffect(() => {
-    fetchComments();
-  }, []);
-
-  const fetchComments = () => {
+    // Obtiene los comentarios de los usuarios
     fetch('/api/comentarioUser')
       .then((res) => res.json())
       .then((data) => {
         setUserComments(data);
       })
       .catch((error) => console.error('Error fetching user comments:', error));
-  };
+
+    // Obtiene los usuarios y calcula las estadísticas
+    fetch('/api/adminGetUsers') // Ruta del backend para obtener los usuarios
+      .then((res) => res.json())
+      .then((data) => {
+        const usersCount = data.length; // Número total de usuarios
+        const subscriptionStats = data.reduce((acc, user) => {
+          const subscription = user.suscripcion || 'No definida'; // Agrupa por tipo de suscripción
+          acc[subscription] = (acc[subscription] || 0) + 1;
+          return acc;
+        }, {});
+
+        setUserStats({ usersCount, subscriptionStats });
+      })
+      .catch((error) => console.error('Error fetching user data:', error));
+  }, []);
 
   const handleCheckboxChange = (commentId) => {
     setSelectedComments((prev) => {
@@ -31,59 +47,78 @@ const AdminDashboard = () => {
     });
   };
 
-  const handleDeleteComments = () => {
-    const confirmed = window.confirm('¿Está seguro de que desea eliminar los comentarios del usuario seleccionado?');
-
+  const handleDeleteComments = async (userId) => {
+    const confirmed = window.confirm("¿Estás seguro de que deseas eliminar los comentarios de este usuario?");
     if (confirmed) {
-        Promise.all(selectedComments.map((commentId) => {
-            return fetch(`/DeleteComentarioUser?idusuario=${commentId}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ confirm: true }),  // Enviando la confirmación en el cuerpo de la solicitud
-            });
-        }))
-        .then(() => {
-            setSelectedComments([]);  // Limpiar los comentarios seleccionados
-            fetchComments();  // Refrescar la lista de comentarios después de eliminar
-        })
-        .catch((error) => {
-            console.error('Error al eliminar comentarios:', error);
-        });
+      try {
+        const response = await fetch(`/api/DeleteComentarioUser?idusuario=${userId}`, { method: 'DELETE' });
+        const data = await response.json();
+        if (data.message) {
+          alert("Comentarios eliminados correctamente.");
+          // Aquí puedes actualizar el estado de los usuarios para reflejar los cambios.
+        } else {
+          alert("Error al eliminar comentarios. Inténtalo de nuevo.");
+        }
+      } catch (error) {
+        console.error('Error deleting comments:', error);
+        alert("Error al eliminar comentarios. Inténtalo de nuevo.");
+      }
     }
-};
+  };
+
+  // Configuración de la gráfica de tipo de suscripción
+  const subscriptionChartData = {
+    labels: Object.keys(userStats.subscriptionStats),
+    datasets: [
+      {
+        data: Object.values(userStats.subscriptionStats),
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#F7464A'],
+      },
+    ],
+  };
 
   return (
     <Container maxWidth="false" disableGutters>
       {/* Navbar arriba */}
-      <Box>
-        <NavBar_Home />
-      </Box>
-
-      {/* Main Content en columnas */}
       <Container style={{ display: 'flex', padding: '20px', width: '100%', height: '100vh' }}>
-        <Container style={{ width: '120%', padding: '40px', marginRight: '20px' }}>
-          <Box sx={{ 
-              backgroundColor: '#E0DFFD', 
-              borderRadius: '10px', 
-              padding: '30px', // Aumentar padding
-              marginBottom: '50px', 
-              boxShadow: '0 4px 8px rgba(0,0,0,0.1)', 
-              height: '300px' // Aumentar altura
-            }}>
+        
+        {/* Menú de Administración */}
+        <Box sx={{ width: '20%', marginRight: '20px' }}>
+          <AdminMenu /> {/* Aquí se renderiza el menú de administración */}
+        </Box>
+
+        {/* Panel de Gestión y contenido principal */}
+        <Container style={{ width: '100%', padding: '40px' }}>
+          <Box sx={{
+            backgroundColor: '#E0DFFD',
+            borderRadius: '10px',
+            padding: '30px',
+            marginBottom: '50px',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+            height: '300px'
+          }}>
             <Grid container spacing={2}>
               <Grid item xs={8}>
-                <Typography variant="h4" style={{ fontWeight: 'bold', color: '#000000', padding: '20px' }}>Panel de Gestión</Typography> {/* Reduce el padding interno */}
+                <Typography variant="h4" style={{ fontWeight: 'bold', color: '#000000', padding: '20px' }}>
+                  Panel de Gestión
+                </Typography>
               </Grid>
               <Grid item xs={4}>
-                <img src="/src/images/icondashboard.png" alt="Dashboard Icon" style={{ width: '100%', borderRadius: '10px', height: 'auto' }} /> {/* Ajustar el tamaño de la imagen */}
+                <img src="/src/images/icondashboard.png" alt="Dashboard Icon" style={{ width: '100%', borderRadius: '10px', height: 'auto' }} />
               </Grid>
             </Grid>
           </Box>
 
-          <Box sx={{ backgroundColor: '#E6E6FA', borderRadius: '10px', padding: '30px', marginBottom: '20px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}> {/* Aumentar padding */}
-            <Typography variant="h5" style={{ fontWeight: 'bold', color: '#4B0082', marginBottom: '10px' }}>Mensajes - Bandeja de Entrada</Typography>
+          <Box sx={{
+            backgroundColor: '#E6E6FA',
+            borderRadius: '10px',
+            padding: '30px',
+            marginBottom: '20px',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
+          }}>
+            <Typography variant="h5" style={{ fontWeight: 'bold', color: '#4B0082', marginBottom: '10px' }}>
+              Mensajes - Bandeja de Entrada
+            </Typography>
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <Typography variant="subtitle1" style={{ fontWeight: 'bold' }}>USUARIO</Typography>
@@ -94,7 +129,7 @@ const AdminDashboard = () => {
             </Grid>
 
             {userComments.map((user) => (
-              user.comentarios.length > 0 && (  // Verificamos si el usuario tiene comentarios
+              user.comentarios.length > 0 && (
                 <Box key={user.idusuario} sx={{ mb: 2 }}>
                   <Grid container spacing={2} sx={{ '&:hover': { backgroundColor: '#f5f5f5' }, padding: '10px', borderRadius: '8px' }}>
                     <Grid item xs={1}>
@@ -105,10 +140,10 @@ const AdminDashboard = () => {
                       />
                     </Grid>
                     <Grid item xs={5}>
-                      <Typography style={{ fontWeight: 'bold', color: '#4B0082', alignContent: 'left' }}>{user.nombre}</Typography>
+                      <Typography style={{ fontWeight: 'bold', color: '#4B0082' }}>{user.nombre}</Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      {user.comentarios.map((comentario, index) => (  // Muestra cada comentario
+                      {user.comentarios.map((comentario, index) => (
                         <Typography key={index}>{comentario}</Typography>
                       ))}
                     </Grid>
@@ -116,58 +151,80 @@ const AdminDashboard = () => {
                 </Box>
               )
             ))}
-            <Button variant="contained" color="secondary" onClick={handleDeleteComments} style={{ marginTop: '15px', alignContent: 'left' }}>
+            <Button variant="contained" color="secondary" onClick={handleDeleteComments} style={{ marginTop: '15px' }}>
               Eliminar Comentarios
             </Button>
           </Box>
 
-          <Box sx={{ backgroundColor: '#E6E6FA', borderRadius: '10px', padding: '30px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}> {/* Aumentar padding */}
-            <Typography variant="h5" style={{ fontWeight: 'bold', color: '#4B0082' }}>Progreso General</Typography>
-            <img src="/path-to-progress-chart.png" alt="Progress Chart" style={{ width: '100%', borderRadius: '10px' }} />
-          </Box>
-        </Container>
+          <Grid container spacing={3}>
+  {/* Estimación de usuarios registrados */}
+  <Grid item xs={6}>
+    <Box sx={{
+      backgroundColor: '#E6E6FA',
+      borderRadius: '10px',
+      padding: '20px',
+      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+      height: '50%',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center'
+    }}>
+      <Typography variant="h5" style={{ fontWeight: 'bold', color: '#4B0082', marginBottom: '20px' , textAlign: 'center', marginTop: -'100px'}}>
+        Estimado de Usuarios Registrados
+      </Typography>
+      <img 
+      src="/src/images/happy.png" 
+      alt="D" 
+      style={{
+        width: '100px', // Ajusta el tamaño de la imagen
+        height: 'auto', // Mantiene la relación de aspecto
+        display: 'block', 
+        margin: '0 auto', // Centra la imagen horizontalmente
+        marginTop: '10px', // Ajusta el espacio superior
+        marginBottom: '10PX'
+      }}
+/>
+      <Typography variant="h3" style={{ color: '#4B0082', fontWeight: 'bold' , textAlign: 'center'}}>
+        {userStats.usersCount}
+      </Typography>
+    </Box>
+  </Grid>
 
-        {/* Sidebar (Menú) */}
-        <Container className="sidebar" 
-          style={{ 
-            width: '35%', 
-            backgroundColor: '#46467A', 
-            color: 'white', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center', 
-            borderRadius: '20px', 
-            height: '100vh', 
-            overflowY: 'auto', 
-            padding: '20px' // Agregar padding
-          }}>
-          <Avatar 
-            src="/src/images/adminlogo1.png" 
-            sx={{ 
-              width: 120, // Aumentar el tamaño del avatar
-              height: 120, 
-              marginBottom: '20px', 
-              marginTop: '10px', 
-              border: '2px solid #46477A' 
-            }} 
-          />
-          <Typography 
-            variant="h5" 
-            align="left" 
-            style={{ fontWeight: 'bold' }}
-          >
-            Bienvenido <span style={{ color: '#46467A' }}>{adminInfo.nombre}</span>
-          </Typography>
-          <Typography 
-            variant="h6" 
-            align="left" 
-            style={{ fontWeight: 'normal' }}
-          >
-           {adminInfo.email} {/* O el campo que desees mostrar */}
-          </Typography>
-          <Box sx={{ borderRadius: '10px', overflow: 'hidden' }}>
-            <NavBar_admin/>
-          </Box>
+  {/* Distribución de usuarios por tipo de suscripción */}
+  <Grid item xs={6}>
+    <Box sx={{
+      backgroundColor: '#E6E6FA',
+      borderRadius: '10px',
+      padding: '20px',
+      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+      height: '80%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
+      <Typography variant="h6" style={{ fontWeight: 'bold', color: '#4B0082', marginBottom: '10px' , marginTop: '40px', textAlign: 'center'}}>
+        Distribución de Usuarios por Tipo de Suscripción
+      </Typography>
+      <Pie 
+        data={subscriptionChartData} 
+        options={{
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { font: { size: 10 } }
+            }
+          }
+        }} 
+        height={100}
+      />
+    </Box>
+  </Grid>
+</Grid>
+
+
         </Container>
       </Container>
     </Container>
