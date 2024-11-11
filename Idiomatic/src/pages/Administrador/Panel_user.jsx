@@ -18,8 +18,12 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
 import AdminMenu from '../../components/NavBar_admin'; // Importa el menú de administración
+import Notificacion from '../../components/ComponenteNotificacion/Notificacion';
+
 
 function User_Home() {
   const [users, setUsers] = useState([]);
@@ -91,15 +95,31 @@ function User_Home() {
 
   return (
     <Container maxWidth="false" disableGutters>
-      <Container style={{ display: 'flex', padding: '20px', width: '100%', height: '100vh' }}>
+      <Box 
+        sx={{ 
+          display: 'flex', 
+          flexDirection: { xs: 'column', sm: 'row' }, 
+          padding: '20px', 
+          width: '100%', 
+          height: '100vh' 
+        }}
+      >
 
         {/* Menú de Administración */}
-        <Box sx={{ width: '20%', marginRight: '20px' }}>
+        <Box sx={{ 
+          width: { xs: '100%', sm: '20%' }, 
+          marginRight: { xs: '0', sm: '20px' },
+          order: { xs: 2, sm: 1 },
+        }}>
           <AdminMenu /> {/* Aquí se renderiza el menú de administración */}
         </Box>
 
         {/* Contenido principal */}
-        <Box sx={{ width: '80%', padding: '20px' }}>
+        <Box sx={{ 
+          width: { xs: '100%', sm: '80%' }, 
+          padding: '20px', 
+          order: { xs: 1, sm: 2 }, 
+        }}>
           <Box 
             sx={{
               backgroundColor: '#E0DFFD', 
@@ -122,46 +142,46 @@ function User_Home() {
             />
           </Box>
 
-          <Box sx={{ maxWidth: '100%', margin: '0 auto', padding: '10px', marginTop: '-10px' }}>
-            <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
-              <Table>
-                <TableHead>
-                  <TableRow sx={{ backgroundColor: '#f9b0c3' }}>
-                    <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>ID</TableCell>
-                    <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Imagen</TableCell>
-                    <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Nombre</TableCell>
-                    <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Rol</TableCell>
-                    <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Tipo de Aprendizaje</TableCell>
-                    <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Acciones</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {users.map((user, index) => (
-                    <TableRow key={user.idusuario} sx={{ backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F9F9F9', '&:hover': { backgroundColor: '#F9E2E8' } }}>
-                      <TableCell align="center">{user.idusuario}</TableCell>
-                      <TableCell align="center" sx={{ display: 'flex', justifyContent: 'center' }}>
-                        <Avatar src={user.foto} alt={user.nombre} />
-                      </TableCell>
-                      <TableCell align="center">{user.nombre}</TableCell>
-                      <TableCell align="center">{user.rol}</TableCell>
-                      <TableCell align="center">{user.tipo_aprendizaje}</TableCell>
-                      <TableCell align="center">
-                        <IconButton onClick={() => handleEdit(user)} sx={{ color: '#46467A', '&:hover': { color: '#7766c6' } }}>
-                          <EditIcon />
-                        </IconButton>
-                        <IconButton onClick={() => handleDelete(user.idusuario)} sx={{ color: 'error.main', '&:hover': { color: 'error.dark' } }}>
-                          <DeleteIcon />
-                        </IconButton>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Box>
-        </Box>
-      </Container>
+          <Box sx={{ maxWidth: '100%', margin: '0 auto', padding: '10px', marginTop: '-10px', overflowX: 'auto' }}>
+  <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
+    <Table>
+      <TableHead>
+        <TableRow sx={{ backgroundColor: '#ffc212' }}>
+          <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' , fontFamily: 'Century Gothic'}}>ID</TableCell>
+          <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' , fontFamily: 'Century Gothic' }}>Imagen</TableCell>
+          <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' , fontFamily: 'Century Gothic'}}>Nombre</TableCell>
+          <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' , fontFamily: 'Century Gothic'}}>Rol</TableCell>
+          <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' , fontFamily: 'Century Gothic'}}>Tipo de Aprendizaje</TableCell>
+          <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' , fontFamily: 'Century Gothic'}}>Acciones</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {users.map((user, index) => (
+          <TableRow key={user.idusuario} sx={{ backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F9F9F9', '&:hover': { backgroundColor: '#F7F1F1' } }}>
+            <TableCell align="center" fontFamily= 'Century Gothic'>{user.idusuario}</TableCell>
+            <TableCell align="center" sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Avatar src={user.foto} alt={user.nombre} />
+            </TableCell>
+            <TableCell align="center" fontFamily= 'Century Gothic'>{user.nombre}</TableCell>
+            <TableCell align="center" fontFamily= 'Century Gothic'>{user.rol}</TableCell>
+            <TableCell align="center" fontFamily= 'Century Gothic'>{user.tipo_aprendizaje}</TableCell>
+            <TableCell align="center">
+              <IconButton onClick={() => handleEdit(user)} sx={{ color: '#46467A', '&:hover': { color: '#7766c6' } }}>
+                <EditIcon />
+              </IconButton>
+              <IconButton onClick={() => handleDelete(user.idusuario)} sx={{ color: 'error.main', '&:hover': { color: 'error.dark' } }}>
+                <DeleteIcon />
+              </IconButton>
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </TableContainer>
+</Box>
 
+        </Box>
+      </Box>
       {/* Modal de Edición */}
       <Dialog
         open={openEditModal}
@@ -169,45 +189,66 @@ function User_Home() {
         PaperProps={{
           sx: {
             padding: 2,
-            backgroundImage: 'url(/src/images/fondomodal.png)', // Ruta a tu imagen de fondo
-            backgroundSize: 'cover', // Ajusta la imagen para cubrir todo el fondo
-            backgroundPosition: 'center', // Centra la imagen
-            backgroundRepeat: 'no-repeat', // Evita que la imagen se repita
+            backgroundImage: 'url(/src/images/fondomodal.png)', 
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
             borderRadius: '12px',
+            width: '600px'
           },
         }}
       >
-        <DialogTitle sx={{ backgroundColor: '#E0DFFD', color: '#46467A', textAlign: 'center', fontWeight: 'bold' , borderRadius: '20px', marginBottom: '20px'}}>
+        <DialogTitle sx={{ backgroundColor: '#E0DFFD', color: '#46467A', textAlign: 'center', fontWeight: 'bold', borderRadius: '20px', marginBottom: '20px' }}>
           Editar Usuario
         </DialogTitle>
         <DialogContent>
+          {/* Etiqueta y campo de entrada para Nombre */}
+          <Typography variant="subtitle1" sx={{ color: '#46467A', fontWeight: 'bold' }}>Nombre</Typography>
           <TextField
             margin="dense"
-            label="Nombre"
             type="text"
             fullWidth
             name="nombre"
             value={selectedUser?.nombre || ''}
             onChange={handleInputChange}
           />
-          <TextField
+
+          {/* Etiqueta y Select para Rol */}
+          <Typography variant="subtitle1" sx={{ marginTop: 2, color: '#46467A', fontWeight: 'bold' }}>Rol</Typography>
+          <Select
             margin="dense"
-            label="Rol"
-            type="text"
-            fullWidth
+            fullWidth={false}
+            sx={{ width: '250px', backgroundColor: '#EDEDFC' }}
             name="rol"
             value={selectedUser?.rol || ''}
             onChange={handleInputChange}
-          />
-          <TextField
+            displayEmpty
+          >
+            <MenuItem disabled value="">
+              <em>Selecciona un rol</em>
+            </MenuItem>
+            <MenuItem value={0}>Usuario</MenuItem>
+            <MenuItem value={1}>Administrador</MenuItem>
+          </Select>
+
+          {/* Etiqueta y Select para Tipo de Aprendizaje */}
+          <Typography variant="subtitle1" sx={{ marginTop: 2, color: '#46467A', fontWeight: 'bold' }}>Tipo de Aprendizaje</Typography>
+          <Select
             margin="dense"
-            label="Tipo de Aprendizaje"
-            type="text"
-            fullWidth
+            fullWidth={false}
+            sx={{ width: '250px', backgroundColor: '#EDEDFC' }}
             name="tipo_aprendizaje"
             value={selectedUser?.tipo_aprendizaje || ''}
             onChange={handleInputChange}
-          />
+            displayEmpty
+          >
+            <MenuItem disabled value="">
+              <em>Selecciona el tipo de aprendizaje</em>
+            </MenuItem>
+            <MenuItem value="Kinestésico">Kinestésico</MenuItem>
+            <MenuItem value="Visual">Visual</MenuItem>
+            <MenuItem value="Auditivo">Auditivo</MenuItem>
+          </Select>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpenEditModal(false)} sx={{ backgroundColor: '#E0DFFD', color: '#000000', borderRadius: '5px', '&:hover': { backgroundColor: '#ffc212' } }}>

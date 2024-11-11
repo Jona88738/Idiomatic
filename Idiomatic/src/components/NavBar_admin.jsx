@@ -1,122 +1,170 @@
 import React from 'react';
-import { List, ListItem, ListItemIcon, ListItemText, Typography, Avatar, Box } from '@mui/material';
+import { List, ListItem, ListItemIcon, ListItemText, Typography, Avatar, Box, BottomNavigation, BottomNavigationAction } from '@mui/material';
 import PeopleIcon from '@mui/icons-material/People';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from '@mui/material';
 
 const AdminMenu = () => {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery('(max-width:600px)'); // Cambia a diseño móvil en pantallas pequeñas
 
-  // Función para manejar el cierre de sesión
   const handleLogout = () => {
-    // Eliminar el token de localStorage o sessionStorage (según corresponda)
-    localStorage.removeItem('authToken'); // Si usas localStorage
-    sessionStorage.removeItem('authToken'); // Si usas sessionStorage
-
-    // Redirigir al usuario al login
-    navigate('/login'); // O usa el path correcto para tu login
+    localStorage.removeItem('authToken');
+    sessionStorage.removeItem('authToken');
+    navigate('/login');
   };
 
-  return (
-    <Box 
-      style={{ 
-        marginTop: '30px', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center',
-        backgroundColor: '#46467a', // Aplicamos el color al sidebar
-        padding: '20px', // Agregamos padding para que el contenido no toque los bordes
-        height: '100vh', // Asegura que el sidebar ocupe toda la altura de la pantalla
-        width: '250px', // Ajusta el tamaño del sidebar
-        borderRadius: '20px'
-      }}
-    >
-      {/* Avatar con la foto del Administrador */}
-      <Avatar 
-        src="/src/images/adminlogo1.png" 
-        sx={{ 
-          width: 100, 
-          height: 100, 
-          marginBottom: '25px', 
-          border: '2px solid #ffffff', // Cambio a blanco para hacer el borde visible
-          boxShadow: '0px 0px 10px rgba(0,0,0,0.3)'
-        }} 
-      />
-      <Typography 
-        variant="h6" 
-        sx={{ fontWeight: 'bold', color: 'white', marginBottom: '30px' }} // Cambié a 'white' para que se vea el texto
+  if (isMobile) {
+    return (
+      <BottomNavigation
+  sx={{ width: '100%', position: 'fixed', bottom: 0, backgroundColor: '#46467a' }}
+  showLabels
+>
+  <BottomNavigationAction 
+    label="Home" 
+    icon={<HomeIcon style={{ color: 'white' }} />} 
+    onClick={() => navigate('/Admin_Home')}
+    sx={{ 
+      '& .MuiBottomNavigationAction-label': { 
+        color: 'white', 
+        fontWeight: 'bold' 
+      } 
+    }}
+  />
+  <BottomNavigationAction 
+    label="Usuarios" 
+    icon={<PeopleIcon style={{ color: 'white' }} />} 
+    onClick={() => navigate('/Panel_user')}
+    sx={{ 
+      '& .MuiBottomNavigationAction-label': { 
+        color: 'white', 
+        fontWeight: 'bold' 
+      } 
+    }}
+  />
+  <BottomNavigationAction 
+    label="Contenidos" 
+    icon={<ContentPasteIcon style={{ color: 'white' }} />} 
+    onClick={() => navigate('/contenidos')}
+    sx={{ 
+      '& .MuiBottomNavigationAction-label': { 
+        color: 'white', 
+        fontWeight: 'bold' 
+      } 
+    }}
+  />
+  <BottomNavigationAction 
+    label="Salir" 
+    icon={<ExitToAppIcon style={{ color: 'white' }} />} 
+    onClick={handleLogout}
+    sx={{ 
+      '& .MuiBottomNavigationAction-label': { 
+        color: 'white', 
+        fontWeight: 'bold' 
+      } 
+    }}
+  />
+</BottomNavigation>
+
+    );
+  } else {
+    // Diseño de escritorio - Sidebar a la izquierda
+    return (
+      <Box 
+        style={{ 
+          marginTop: '30px', 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center',
+          backgroundColor: '#46467a', 
+          padding: '20px',
+          height: '100vh',
+          width: '250px',
+          borderRadius: '20px'
+        }}
       >
-        Bienvenido Admin
-      </Typography>
+        <Avatar 
+          src="/src/images/adminlogo1.png" 
+          sx={{ 
+            width: 100, 
+            height: 100, 
+            marginBottom: '25px', 
+            border: '2px solid #ffffff', 
+            boxShadow: '0px 0px 10px rgba(0,0,0,0.3)'
+          }} 
+        />
+        <Typography 
+          variant="h6" 
+          sx={{ fontWeight: 'bold', color: 'white', marginBottom: '30px' }}
+        >
+          Bienvenido Admin
+        </Typography>
 
-      {/* Menú de Opciones */}
-      <List style={{ width: '100%' }}>
-        {/* Home */}
-        <ListItem 
-          button 
-          onClick={() => navigate('/Admin_Home')}
-          sx={{ 
-            borderRadius: '8px', 
-            '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)', transform: 'scale(1.05)', transition: 'transform 0.3s' }
-          }}
-        >
-          <ListItemIcon>
-            <HomeIcon style={{ color: 'white', fontSize: '30px' }} />
-          </ListItemIcon>
-          <ListItemText primary="Home" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
-        </ListItem>
-        
-        {/* Usuarios */}
-        <ListItem 
-          button 
-          onClick={() => navigate('/Panel_user')}
-          sx={{ 
-            borderRadius: '8px', 
-            '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)', transform: 'scale(1.05)', transition: 'transform 0.3s' }
-          }}
-        >
-          <ListItemIcon>
-            <PeopleIcon style={{ color: 'white', fontSize: '30px' }} />
-          </ListItemIcon>
-          <ListItemText primary="Usuarios" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
-        </ListItem>
+        <List style={{ width: '100%' }}>
+          <ListItem 
+            button 
+            onClick={() => navigate('/Admin_Home')}
+            sx={{ 
+              borderRadius: '8px', 
+              '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)', transform: 'scale(1.05)', transition: 'transform 0.3s' }
+            }}
+          >
+            <ListItemIcon>
+              <HomeIcon style={{ color: 'white', fontSize: '30px' }} />
+            </ListItemIcon>
+            <ListItemText primary="Home" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
+          </ListItem>
 
-        {/* Contenidos */}
-        <ListItem 
-          button 
-          onClick={() => navigate('/contenidos')}
-          sx={{ 
-            marginTop: '10px', 
-            borderRadius: '8px', 
-            '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)', transform: 'scale(1.05)', transition: 'transform 0.3s' }
-          }}
-        >
-          <ListItemIcon>
-            <ContentPasteIcon style={{ color: 'white', fontSize: '30px' }} />
-          </ListItemIcon>
-          <ListItemText primary="Contenidos" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
-        </ListItem>
+          <ListItem 
+            button 
+            onClick={() => navigate('/Panel_user')}
+            sx={{ 
+              borderRadius: '8px', 
+              '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)', transform: 'scale(1.05)', transition: 'transform 0.3s' }
+            }}
+          >
+            <ListItemIcon>
+              <PeopleIcon style={{ color: 'white', fontSize: '30px' }} />
+            </ListItemIcon>
+            <ListItemText primary="Usuarios" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
+          </ListItem>
 
-        {/* Salir */}
-        <ListItem 
-          button 
-          onClick={handleLogout} // Llamamos a handleLogout cuando se hace clic
-          sx={{ 
-            marginTop: '10px', 
-            borderRadius: '8px', 
-            '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)', transform: 'scale(1.05)', transition: 'transform 0.3s' }
-          }}
-        >
-          <ListItemIcon>
-            <ExitToAppIcon style={{ color: 'white', fontSize: '30px' }} />
-          </ListItemIcon>
-          <ListItemText primary="Salir" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
-        </ListItem>
-      </List>
-    </Box>
-  );
+          <ListItem 
+            button 
+            onClick={() => navigate('/contenidos')}
+            sx={{ 
+              marginTop: '10px', 
+              borderRadius: '8px', 
+              '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)', transform: 'scale(1.05)', transition: 'transform 0.3s' }
+            }}
+          >
+            <ListItemIcon>
+              <ContentPasteIcon style={{ color: 'white', fontSize: '30px' }} />
+            </ListItemIcon>
+            <ListItemText primary="Contenidos" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
+          </ListItem>
+
+          <ListItem 
+            button 
+            onClick={handleLogout}
+            sx={{ 
+              marginTop: '10px', 
+              borderRadius: '8px', 
+              '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)', transform: 'scale(1.05)', transition: 'transform 0.3s' }
+            }}
+          >
+            <ListItemIcon>
+              <ExitToAppIcon style={{ color: 'white', fontSize: '30px' }} />
+            </ListItemIcon>
+            <ListItemText primary="Salir" primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', color: 'white'}} />
+          </ListItem>
+        </List>
+      </Box>
+    );
+  }
 };
 
 export default AdminMenu;
