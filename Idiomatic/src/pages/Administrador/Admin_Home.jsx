@@ -72,7 +72,7 @@ const AdminDashboard = () => {
     datasets: [
       {
         data: Object.values(userStats.subscriptionStats),
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#F7464A'],
+        backgroundColor: ['#FFC212', '#7766c6', '#f0b0c3', '#4BC0C0', '#F7464A'],
       },
     ],
   };
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
         {/* Panel de Gestión y contenido principal */}
         <Container style={{ width: '100%', padding: '40px' }}>
           <Box sx={{
-            backgroundColor: '#E0DFFD',
+            backgroundColor: '#C9C8D9',
             borderRadius: '10px',
             padding: '30px',
             marginBottom: '50px',
@@ -99,7 +99,7 @@ const AdminDashboard = () => {
           }}>
             <Grid container spacing={2}>
               <Grid item xs={8}>
-                <Typography variant="h4" style={{ fontWeight: 'bold', color: '#000000', padding: '20px' }}>
+                <Typography variant="h4" style={{ fontWeight: 'bold', color: '#000000', padding: '20px', marginTop: '70px' }}>
                   Panel de Gestión
                 </Typography>
               </Grid>
@@ -131,7 +131,7 @@ const AdminDashboard = () => {
             {userComments.map((user) => (
               user.comentarios.length > 0 && (
                 <Box key={user.idusuario} sx={{ mb: 2 }}>
-                  <Grid container spacing={2} sx={{ '&:hover': { backgroundColor: '#f5f5f5' }, padding: '10px', borderRadius: '8px' }}>
+                  <Grid container spacing={2} sx={{ '&:hover': { backgroundColor: '#f5f5f5' }, padding: '10px', borderRadius: '8px', fontSize: '12px' }}>
                     <Grid item xs={1}>
                       <input
                         type="checkbox"
@@ -140,7 +140,7 @@ const AdminDashboard = () => {
                       />
                     </Grid>
                     <Grid item xs={5}>
-                      <Typography style={{ fontWeight: 'bold', color: '#4B0082' }}>{user.nombre}</Typography>
+                      <Typography style={{ fontWeight: 'bold', color: '#4B0082' , fontSize: '18px'}}>{user.nombre}</Typography>
                     </Grid>
                     <Grid item xs={6}>
                       {user.comentarios.map((comentario, index) => (
@@ -160,7 +160,7 @@ const AdminDashboard = () => {
   {/* Estimación de usuarios registrados */}
   <Grid item xs={6}>
     <Box sx={{
-      backgroundColor: '#E6E6FA',
+      backgroundColor: '#C9C8D9',
       borderRadius: '10px',
       padding: '20px',
       boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
@@ -176,11 +176,11 @@ const AdminDashboard = () => {
       src="/src/images/happy.png" 
       alt="D" 
       style={{
-        width: '100px', // Ajusta el tamaño de la imagen
-        height: 'auto', // Mantiene la relación de aspecto
+        width: '100px', 
+        height: 'auto', 
         display: 'block', 
-        margin: '0 auto', // Centra la imagen horizontalmente
-        marginTop: '10px', // Ajusta el espacio superior
+        margin: '0 auto', 
+        marginTop: '10px', 
         marginBottom: '10PX'
       }}
 />
@@ -193,7 +193,7 @@ const AdminDashboard = () => {
   {/* Distribución de usuarios por tipo de suscripción */}
   <Grid item xs={6}>
     <Box sx={{
-      backgroundColor: '#E6E6FA',
+      backgroundColor: '#C9C8D9',
       borderRadius: '10px',
       padding: '20px',
       boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
@@ -203,8 +203,8 @@ const AdminDashboard = () => {
       alignItems: 'center',
       justifyContent: 'center'
     }}>
-      <Typography variant="h6" style={{ fontWeight: 'bold', color: '#4B0082', marginBottom: '10px' , marginTop: '40px', textAlign: 'center'}}>
-        Distribución de Usuarios por Tipo de Suscripción
+      <Typography variant="h5" style={{ fontWeight: 'bold', color: '#4B0082', marginBottom: '10px' , marginTop: '60px', textAlign: 'center'}}>
+        Distribución de usuarios por tipo de suscripción
       </Typography>
       <Pie 
         data={subscriptionChartData} 
