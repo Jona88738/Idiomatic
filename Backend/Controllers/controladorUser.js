@@ -548,6 +548,7 @@ const progresoUsuario = async (req,res) => {
   res.status(200).json({
     "message":true,
     "nombre":req.session.nombre,
+    "AudioIA":user[0].idusuario,
     "correo":req.session.correo,
     "progresoGeneral":row[0].porcentajeGeneral,
     "tiempoHoras":row[0].tiempoHoras,

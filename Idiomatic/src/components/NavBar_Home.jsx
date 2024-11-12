@@ -44,7 +44,7 @@ export default function NavBar() {
         <Button  className='btnOpcion' href="/Nosotros" >Nosotros</Button>
         <Button  className='btnOpcion' href="/Login" >Login</Button> */}
 
-        <Button className='btnCrearCuenta' href='/Sign_up'  variant="outlined"sx={{}}>Crear Cuenta</Button>
+        <Button className='btnCrearCuenta' onClick={() => {const direccion = "/Sign_up"; Redireccionar(direccion);}}   variant="outlined"sx={{}}>Crear Cuenta</Button>
       
         </Container>
         

@@ -402,6 +402,7 @@
     .navDespleSgund{
         position:relative !important;
         top:8%;
+        padding: 0 !important;
     }
 
     .ConBotones{
@@ -419,6 +420,7 @@
    margin-top: 10%;
    margin-left: 10%;
    /* font-size: 1.5vw; */
+   width: 100% !important;
     }
 
     .btnDesplegable h2{
@@ -595,7 +597,7 @@
         border-Radius:50px;
         width:86% !important;
         background: rgba(70, 70, 122, 0.05);
-        height:75vh; 
+        height:77vh; 
         box-Shadow:5px 8px 2px GRAY;
         margin:0;
 
@@ -604,6 +606,7 @@
     .navDespleSgund{
         position:relative !important;
         top:8%;
+        padding: 0 !important;
     }
 
     .ConBotones{
@@ -621,6 +624,7 @@
    margin-top: 10%;
    margin-left: 10%;
    /* font-size: 1.5vw; */
+   width: 90% !important;
     }
 
     .btnDesplegable h2{

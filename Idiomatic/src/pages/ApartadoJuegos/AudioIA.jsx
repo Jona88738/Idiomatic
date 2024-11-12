@@ -86,11 +86,16 @@ export default function AudioIA() {
     };
 
     const sendAudioToServer = (blob) => {
+
+        let AudioIA= sessionStorage.getItem('AudioIA')
+
+        console.log(AudioIA)
         const formData = new FormData();
-        formData.append('audio', blob, 'N.wav');
+        // formData.append('audio', blob, 'N.wav'); /Bueno
+        formData.append('file', blob, AudioIA+'.wav');
         setOpenBackDrop(true)
 
-        fetch('/api/audioIA', {
+        fetch('http://54.196.252.8:5000/IA', { //'/api/audioIA'
             method: 'POST',
             body: formData
         })
@@ -98,7 +103,7 @@ export default function AudioIA() {
         .then(data => {
 
 
-            console.log("IA",data.message)
+            console.log("IAXD",data.message)
             let resulFinal = [];
             resulFinal.push({
                 "bad":data.message,

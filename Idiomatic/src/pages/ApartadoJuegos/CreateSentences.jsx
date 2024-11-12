@@ -208,6 +208,7 @@ export default function CreateSentences(){
                     setMensaje("Tienes un error en la sentencia")
                     setArreRespuestaUser(arr)
                  console.log("Tienes un error en la sentencia ")
+                 setOpenBackDrop(false);
           
                 handleClickOpen()
 
@@ -219,9 +220,11 @@ export default function CreateSentences(){
             setMensaje("Termina de ordenar la sentencia")
             console.log("Termina de ordenar la sentencia")
             setArreRespuestaUser(arr)
-                handleClickOpen()
+            handleClickOpen()
+            setOpenBackDrop(false)
 
         }
+        
 
     }
 

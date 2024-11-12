@@ -79,7 +79,7 @@ function User_Informes({dataUser}) {
                     <h1 className='HoraInfor' >
                       
                       {
-                      dataUser.tiempoHoras === 0 ? (dataUser.tiempoMinutos+" Min" ):(dataUser.tiempoHoras+":"+dataUser.tiempoMinutos+"Hrs" )
+                      dataUser.tiempoHoras === 0 ? (dataUser.tiempoMinutos+" Min" ):(dataUser.tiempoHoras+":"+dataUser.tiempoMinutos+" Hrs" )
                       
                       
                       } </h1>

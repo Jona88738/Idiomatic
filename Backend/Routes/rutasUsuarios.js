@@ -80,6 +80,13 @@ routes.get("/getAllLecturas",cUser.getAllLecturas)
 // routes.get("/juegos")
 // routes.get("/audios")
 
+routes.post("/API_IA", upload.single("audio") ,(req, res) => {
+
+    
+
+});
+
+
 
 routes.post("/audioIA", upload.single("audio") ,(req, res) => {
   //console.log("archivo: "+ typeof req.file);
@@ -109,8 +116,8 @@ routes.post("/audioIA", upload.single("audio") ,(req, res) => {
  
   fs.writeFileSync(tempFilePath, fileBuffer);
 
- //                        name
-  exec(`python prueba.py ${name}`, (error, stdout, stderr) => {
+ //     python Anterior            name
+  exec(`python3 prueba.py ${name}`, (error, stdout, stderr) => {
 
        // Eliminar el archivo temporal
     /*   fs.unlink(tempFilePath, (unlinkError) => {

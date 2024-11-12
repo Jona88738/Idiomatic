@@ -4,11 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import "../styles/NavbarApartado.css"
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
+import { useContext } from 'react';
+import {HoraContext} from '../contexto/contextoHora/HoraContext' 
+
 
 export default function NavBar_Apartados(){
   const navigate = useNavigate();
 
   const [navH, setnavH] = useState(false);
+
+  const {stopTime} = useContext(HoraContext);
 
   function Redireccionar(direccion){
     console.log(direccion)
@@ -43,6 +48,7 @@ export default function NavBar_Apartados(){
     localStorage.removeItem("usuarioAutenticado"); // Suponiendo que el token se almacena con esta clave
 
     // Redirige a la página de inicio o login después de cerrar sesión
+    stopTime();
     navigate("/Login"); // O la ruta que desees después del cierre de sesión
   }
 

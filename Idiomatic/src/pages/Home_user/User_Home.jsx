@@ -47,8 +47,8 @@ function User_Home() {
         sessionStorage.setItem('TemasJuegos', JSON.stringify( res.temasJuegos));
         sessionStorage.setItem('TemasAudios', JSON.stringify( res.temaAudios));
         sessionStorage.setItem('TemasVideos', JSON.stringify( res.temaVideos));
-
-        // console.log("info progreso",JSON.parse(sessionStorage.getItem('completeAudio')))
+        sessionStorage.setItem('AudioIA',res.AudioIA);
+        // console.log("info progreso",JSON.parse(sessionStorage.getItem('completeAudio')))  
         
         // sessionStorage.setItem('rol', 'admin');
         
