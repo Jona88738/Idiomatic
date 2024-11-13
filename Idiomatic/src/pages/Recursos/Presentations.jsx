@@ -31,7 +31,7 @@ function PresentationsInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorpresentation.png" 
+                src="/images/vectorpresentation.png" 
                 style={{ width: '80%', borderRadius: '10px', height: 'auto', marginTop: '-58px' }} 
               />
             </Grid>

@@ -31,7 +31,7 @@ function NationalitiesInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectornation.png" 
+                src="/images/vectornation.png" 
                 style={{ width: '90%', borderRadius: '10px', height: 'auto', marginTop: '-68px' }} 
               />
             </Grid>
@@ -54,7 +54,7 @@ function NationalitiesInfo() {
 
           <Box sx={{ textAlign: 'center', marginTop: '80px' }}>
           <img 
-                src="/src/images/nationalies1.png" 
+                src="/images/nationalies1.png" 
                 style={{ width: '50%', borderRadius: '10px', height: 'auto', marginTop: '-68px' }} 
               />
             </Box>
@@ -68,7 +68,7 @@ function NationalitiesInfo() {
           </Box>
           <Box sx={{ textAlign: 'center', marginTop: '80px' }}>
           <img 
-                src="/src/images/nationalities3.png" 
+                src="/images/nationalities3.png" 
                 style={{ width: '50%', borderRadius: '10px', height: 'auto', marginTop: '-98px' }} 
               />
         </Box>

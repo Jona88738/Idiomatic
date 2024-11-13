@@ -31,7 +31,7 @@ function FoodInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorchef.png" 
+                src="/images/vectorchef.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto', marginTop: '-48px' }} 
                 alt="Vector de comida" 
               />
@@ -60,7 +60,7 @@ function FoodInfo() {
               <Grid item xs={12} md={7}>
                 <Box sx={{ textAlign: 'center' }}>
                   <img 
-                    src="/src/images/food1.png"  
+                    src="/images/food1.png"  
                     alt="Alimento" 
                     style={{ width: '100%', height: 'auto', borderRadius: '8px', textAlign: 'center' }} 
                   />
@@ -70,7 +70,7 @@ function FoodInfo() {
               {/* Columna para la imagen alusiva */}
               <Grid item xs={12} md={5}>
                 <img 
-                  src="/src/images/food2.png"  
+                  src="/images/food2.png"  
                   alt="Ropa" 
                   style={{ width: '100%', height: 'auto', borderRadius: '8px', marginTop: '-50px' }} 
                 />
@@ -89,7 +89,7 @@ function FoodInfo() {
  
             <Box  sx={{textAlign: 'center' }}>
             <img 
-                  src="/src/images/food4.png"  
+                  src="/images/food4.png"  
                   alt="Ropa" 
                   style={{ width: '50%', height: 'auto', borderRadius: '8px', marginTop: '-20px' , textAlign: 'center'}} 
                 />
@@ -164,7 +164,7 @@ function FoodInfo() {
           </Typography>
           <Box sx={{  padding: '20px', marginBottom: '20px', textAlign: 'center' }}>
           <img 
-                  src="/src/images/food5.png"  
+                  src="/images/food5.png"  
                   alt="Ropa" 
                   style={{ width: '50%', height: 'auto', borderRadius: '8px', marginTop: '-20px' , textAlign: 'center'}} 
                 />

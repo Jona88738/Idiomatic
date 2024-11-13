@@ -6,7 +6,7 @@ export default function ApartadoTemaRecursos(){
 
             <NavBar_Apartados/>
 
-            <Head title="Temas Recursos" mycolor="rgba(146, 7, 255, 0.4)" ruta="/images/iconoEjercicios.svg"/>
+            <Head title="Temas Recursos" mycolor="rgba(146, 7, 255, 0.4)" ruta="/images/iconoEjercicios.png"/>
             
         <div style={{width:"100%",display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}}>
 

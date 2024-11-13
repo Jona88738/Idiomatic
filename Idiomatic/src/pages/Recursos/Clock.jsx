@@ -31,7 +31,7 @@ function ClockInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectortime.png" 
+                src="/images/vectortime.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto', marginTop: '-48px' }} 
               />
             </Grid>
@@ -65,7 +65,7 @@ function ClockInfo() {
             </Grid>
             <Grid item xs={6}>
               <img 
-                src="/src/images/reloj1.png"  
+                src="/images/reloj1.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' , marginTop: '-20px'}} 
               />
             </Grid>

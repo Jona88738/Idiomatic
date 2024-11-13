@@ -36,7 +36,7 @@ export default function ApartadoVideos(){
             <NavBar_Apartados/>
 
             
-            <Head title={link} mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.svg"/>
+            <Head title={link} mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.png"/>
             
             {infoVideos.map((video,contador) =>{ 
                  return (

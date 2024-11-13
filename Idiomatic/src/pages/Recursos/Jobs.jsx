@@ -49,7 +49,7 @@ function JobsInfo() {
             </Grid>
             <Grid item xs={4}>
               <img
-                src="/src/images/vectorjobs.png"
+                src="/images/vectorjobs.png"
                 style={{
                   width: '70%',
                   borderRadius: '10px',

@@ -31,7 +31,7 @@ function ClothesInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorropa.png" 
+                src="/images/vectorropa.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto', marginTop: '-48px' }} 
               />
             </Grid>
@@ -128,7 +128,7 @@ function ClothesInfo() {
         {/* Columna para la imagen alusiva */}
         <Grid item xs={12} md={6}>
           <img 
-                src="/src/images/clothe.png"  
+                src="/images/clothe.png"  
                 alt="Ropa" 
             style={{ width: '100%', height: 'auto', borderRadius: '8px' , marginTop: '-50px'}} 
           />

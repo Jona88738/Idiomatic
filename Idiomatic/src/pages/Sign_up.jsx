@@ -65,7 +65,7 @@ function Register() {
   
 
   return (
-    <div className="register-page" style={{ backgroundImage: `url('/src/images/fondo2s.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="register-page" style={{ backgroundImage: `url('/images/fondo2s.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <NavBar />
       <div className="register-container">
         {/* Sección Izquierda */}

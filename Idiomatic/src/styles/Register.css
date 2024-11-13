@@ -56,7 +56,7 @@
     align-items: center !important;
     justify-content: center !important;
     min-height: 100vh !important;
-    background: url('/src/images/fondo_reg.png') !important;
+    background: url('/images/fondo_reg.png') !important;
     background-size: cover !important;
     background-position: center !important;
   }
@@ -255,7 +255,7 @@
   .register-page {
       align-items: center;
       min-height: 100vh;      
-      background-image: url("/src/images/pruebaimg3.png") !important;
+      background-image: url("/images/pruebaimg3.png") !important;
 
   }
 

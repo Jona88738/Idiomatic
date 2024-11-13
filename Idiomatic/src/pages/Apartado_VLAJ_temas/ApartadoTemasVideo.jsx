@@ -103,7 +103,7 @@ export default function ApartadoTemasVideos(){
 <NavBar_Apartados/>
 
             
-<Head title="Temas de Videos" mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.svg"/>
+<Head title="Temas de Videos" mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.png"/>
 <div style={{width:"100%",display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}}>
     
 {Card.map((Element,index) =>{

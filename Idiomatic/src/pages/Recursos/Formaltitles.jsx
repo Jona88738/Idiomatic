@@ -31,7 +31,7 @@ function TitlesInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectormarital.png" 
+                src="/images/vectormarital.png" 
                 style={{ width: '80%', borderRadius: '10px', height: 'auto', marginTop: '-48px' }} 
               />
             </Grid>
@@ -104,11 +104,11 @@ function TitlesInfo() {
 
             <Grid item xs={4}>
               <img 
-                src="/src/images/ftitles1.png"  
+                src="/images/ftitles1.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' , marginTop: '-20px'}} 
               />
               <img 
-                src="/src/images/ftitles2.png"  
+                src="/images/ftitles2.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' , marginTop: '-20px'}} 
               />
             </Grid>
@@ -196,11 +196,11 @@ function TitlesInfo() {
 
             <Grid item xs={4}>
               <img 
-                src="/src/images/marital1.png"  
+                src="/images/marital1.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' , marginTop: '-20px'}} 
               />
               <img 
-                src="/src/images/marital2.png"  
+                src="/images/marital2.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' , marginTop: '-20px'}} 
               />
             </Grid>

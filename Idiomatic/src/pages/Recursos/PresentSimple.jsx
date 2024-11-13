@@ -31,7 +31,7 @@ function PresentSimpleInfo() {
               </Grid>
               <Grid item xs={4}>
                 <img 
-                  src="/src/images/vectorleyendo.png" 
+                  src="/images/vectorleyendo.png" 
                   style={{ width: '70%', borderRadius: '10px', height: 'auto' , marginTop: '-40px'}} 
                 />
               </Grid>
@@ -79,7 +79,7 @@ function PresentSimpleInfo() {
             <Grid container spacing={2} sx={{ marginTop: '20px', marginBottom: '20px', fontSize: '80px' }}>
               <Grid item xs={5} sx={{ textAlign: 'center' }}>
                 <img 
-                  src="/src/images/presentsimple1.png"  
+                  src="/images/presentsimple1.png"  
                   alt="Ejemplo del Present Simple" 
                   style={{ maxWidth: '106%', height: 'auto' }} 
                 />
@@ -113,7 +113,7 @@ A continuación, exploraremos cómo utilizar estos marcadores en la gramática y
             </Typography>
             <Box sx={{ marginBottom: '20px' , textAlign: 'center'}}>
             <img 
-                  src="/src/images/presentsimple2.png"  
+                  src="/images/presentsimple2.png"  
                   alt="Ejemplo del Present Simple" 
                   style={{ maxWidth: '50%', height: 'auto'}} 
                 />
@@ -187,7 +187,7 @@ A continuación, exploraremos cómo utilizar estos marcadores en la gramática y
             </Typography>
             <Box sx={{ marginBottom: '20px' , textAlign: 'center'}}>
             <img 
-                  src="/src/images/presentsimple3.png"  
+                  src="/images/presentsimple3.png"  
                   alt="Ejemplo del Present Simple" 
                   style={{ maxWidth: '60%', height: 'auto'}} 
                 />
@@ -200,7 +200,7 @@ A continuación, exploraremos cómo utilizar estos marcadores en la gramática y
             </Typography>
             <Box sx={{ marginBottom: '20px' , textAlign: 'center'}}>
             <img 
-                  src="/src/images/presentsimple4.png"  
+                  src="/images/presentsimple4.png"  
                   alt="Ejemplo del Present Simple" 
                   style={{ maxWidth: '60%', height: 'auto'}} 
                 />
@@ -223,7 +223,7 @@ A continuación, exploraremos cómo utilizar estos marcadores en la gramática y
                 </Typography>
             <Box sx={{ marginBottom: '10px' , textAlign: 'center'}}>
             <img 
-                  src="/src/images/presentsimple5.png"  
+                  src="/images/presentsimple5.png"  
                   alt="Ejemplo del Present Simple be" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px'}} 
                 />
@@ -231,7 +231,7 @@ A continuación, exploraremos cómo utilizar estos marcadores en la gramática y
                 Negativas          
                 </Typography>
             <img 
-                  src="/src/images/presentsimple6.png"  
+                  src="/images/presentsimple6.png"  
                   alt="Ejemplo del Present Simple be" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px'}} 
                 />
@@ -244,7 +244,7 @@ A continuación, exploraremos cómo utilizar estos marcadores en la gramática y
             </Typography>              
             </Box>
             <img 
-                  src="/src/images/presentsimple7.png"  
+                  src="/images/presentsimple7.png"  
                   alt="Ejemplo del Present Simple be" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px', textAlign: 'center'}} 
                 />
@@ -264,7 +264,7 @@ A continuación, exploraremos cómo utilizar estos marcadores en la gramática y
             </Typography>
             <Box sx={{ marginBottom: '10px' , textAlign: 'center'}}>
             <img 
-                  src="/src/images/presentsimple8.png"  
+                  src="/images/presentsimple8.png"  
                   alt="Ejemplo del Present Simple havegot" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px'}} 
                 />
@@ -287,7 +287,7 @@ A continuación, exploraremos cómo utilizar estos marcadores en la gramática y
                 </Typography>
             <Box sx={{ marginBottom: '10px' , textAlign: 'center'}}>
             <img 
-                  src="/src/images/presentsimple9.png"  
+                  src="/images/presentsimple9.png"  
                   alt="Ejemplo del Present Simple havegot" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px'}} 
                 />
@@ -295,7 +295,7 @@ A continuación, exploraremos cómo utilizar estos marcadores en la gramática y
                 Negativas          
                 </Typography>
             <img 
-                  src="/src/images/presentsimple10.png"  
+                  src="/images/presentsimple10.png"  
                   alt="Ejemplo del Present Simple be" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px'}} 
                 />
@@ -305,7 +305,7 @@ A continuación, exploraremos cómo utilizar estos marcadores en la gramática y
                 </Typography>             
             </Box>
             <img 
-                  src="/src/images/presentsimple11.png"  
+                  src="/images/presentsimple11.png"  
                   alt="Ejemplo del Present Simple be" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px', textAlign: 'center'}} 
                 />

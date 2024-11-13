@@ -31,7 +31,7 @@ function ModalCanInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorlibro.png" 
+                src="/images/vectorlibro.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto' , marginTop: '-48px'}} 
               />
             </Grid>
@@ -189,7 +189,7 @@ function ModalCanInfo() {
             </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Can1.png"  
+                src="/images/Can1.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '60%', height: 'auto' }} 
               />
@@ -199,7 +199,7 @@ function ModalCanInfo() {
             </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Can2.png"  
+                src="/images/Can2.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '60%', height: 'auto' }} 
               />
@@ -209,7 +209,7 @@ function ModalCanInfo() {
             </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Can3.png"  
+                src="/images/Can3.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '60%', height: 'auto' }} 
               />
@@ -219,7 +219,7 @@ function ModalCanInfo() {
             </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Can4.png"  
+                src="/images/Can4.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '60%', height: 'auto' }} 
               />
