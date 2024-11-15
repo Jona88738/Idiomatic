@@ -21,17 +21,11 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 const options = {
-    host:'localhost',
-    port:3306,
-    user:'root',
-    password:'root',
-    database:'idiomaticact'
-    /*host:HOST_BD,
+    host:HOST_BD,
     port:PORT_BD,
     user:USER_BD,
     password:PASSWORD_BD,
-    database:DATABASE */
-    
+    database:DATABASE
 }
 
 const sessionStore = new MySQLStore(options);
@@ -45,7 +39,7 @@ app.use(session({
     cookie: { secure: false } 
 }))
 
-app.use(express.static('recursos'))
+app.use("/api",express.static('recursos'))
 
 
 

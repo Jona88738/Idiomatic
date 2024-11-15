@@ -112,7 +112,7 @@ export default function NuestrosPlanes() {
                             fontSize: '14px',
                             '&:hover': { backgroundColor: '#5a5a78' }
                         }}
-                        onClick={() => Navigate('/Sign_up')} 
+                        onClick={() => router('/Sign_up')} 
                     >
                         Registrarse ahora
                     </Button>
@@ -160,7 +160,7 @@ export default function NuestrosPlanes() {
                             fontSize: '14px',
                             '&:hover': { backgroundColor: '#5a5a78' }
                         }}
-                        onClick={() => navigate('/ruta-plus')} // Cambia '/ruta-plus' por la ruta deseada
+                        onClick={() => router('/Sign_up')} // Cambia '/ruta-plus' por la ruta deseada
                     >
                         Pruébalo por 80 MXN
                     </Button>

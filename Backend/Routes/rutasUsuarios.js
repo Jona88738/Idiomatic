@@ -45,13 +45,19 @@ routes.patch("/progresoUsuarioGeneral",cUser.progresoUsuarioGeneral)
 
 routes.get("/logout",cUser.Logout)
 
-routes.get("/testAprendizaje")
+routes.post("/tiempo",cUser.tiempo)
+
+routes.get("/testAprendizaje",cUser.testAprendizajeGet)
 
 routes.post("/testAprendizaje",cUser.testAprendizaje)
 
 routes.get("/notificaciones",cUser.notificaciones);
 
 routes.patch("/notificaciones",cUser.pausarNotification);
+
+routes.delete("/DeleteNotificacionAvisos",cUser.DeleteNotificacionAvisos)
+
+routes.delete("/DeleteNotificacionNoti",cUser.DeleteNotificacionNoti)
 
 routes.patch("/comentario",cUser.comentario);
 

@@ -38,6 +38,20 @@ import MyHora from '../contexto/contextoHora/ProvedorHoraCon';
 import ApartadoTemaRecursos from './Apartado_VLAJ_temas/ApartadoTemaRecursos';
 import UnscrambleSentences from './ApartadoJuegos/UnscrambleSentences';
 import ConversacionIA from './ApartadoJuegos/ConversacionIA';
+import ApartadoRecursos from './ApartadosCursos/ApartadoRecursos';
+// import Panel_user from './Administrador/Panel_user';
+import Contenidos from './Administrador/Contenidos';
+import ContLectura from './Administrador/Contenidos/ContLectura';
+import ContEjercicioTema from './Administrador/Contenidos/ContEjercicio';
+import ContTemaVideo from './Administrador/Contenidos/ContVideo';
+import ContAudioTema from './Administrador/Contenidos/ContAudio';
+// import PresentSimple from './Recursos/PresentSimple';
+// import PresentContinuous from './Recursos/PresentContinuous';
+// import PastSimple from './Recursos/PastSimple';
+// import FutureSimple from './Recursos/FutureSimple';
+// import ModalCan from './Recursos/ModalCan';
+// import ModalMay from './Recursos/ModalMay';
+// import ModalMust from './Recursos/ModalMust';
 import Panel_user from './Administrador/Panel_user';
 import PresentSimple from './Recursos/PresentSimple';
 import PresentContinuous from './Recursos/PresentContinuous';
@@ -60,6 +74,7 @@ import Giveinformation from './Recursos/Giveinformation';
 import Formaltitles from './Recursos/Formaltitles';
 import Nationalities from './Recursos/Nationalities';
 import Jobs from './Recursos/Jobs';
+import Tipo_Aprendizaje from './Home_user/User_Tipo_Aprendizaje';
 
 
 
@@ -94,6 +109,7 @@ function App() {
           
                 <Route  path='/User_Home' element={ <User_Home/>  } />
                 <Route  path='/User_Cursos' element={<User_Cursos/>} />
+                <Route  path='/Estilos' element={<Tipo_Aprendizaje/>} />
 
                 {/* Temas VLAJ  */}
 
@@ -173,8 +189,14 @@ function App() {
 
 
                 <Route  path='/Admin_Home' element={<Admin_Home/>} />
+                <Route  path='/contenidos' element={<Contenidos/>} />
 
+                {/* Contenidos  Admin*/}
 
+                <Route  path='/ContLectura' element={<ContLectura/>} />
+                <Route  path='/ContEjercicio' element={<ContEjercicioTema/>} />
+                <Route  path='/ContVideoTema' element={<ContTemaVideo/>} />
+                <Route  path='/ContAudioTema' element={<ContAudioTema/>} />
 
                 <Route  path='*' element={<Error404/>} />
                 

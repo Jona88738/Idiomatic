@@ -7,8 +7,10 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
-export default function Notificacion({open, handleClose,titulo,img,btnTexto,texto,indice = 8}) {
-  
+import '../../styles/StylesApartados/NotificacionJuego.css'
+
+export default function Notificacion({open, handleClose,titulo,img,btnTexto,texto,indice = [],test = ""}) {
+  console.log("ultimo test: ",test.length)
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialog-paper': {
       padding: theme.spacing(2),
@@ -40,9 +42,29 @@ export default function Notificacion({open, handleClose,titulo,img,btnTexto,text
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <img src={img} width="40%" alt="XD" style={{position:"relative",left:"28%"}} />
-           {indice === 8 ? (""):(
+           {
+           
+           test.length !== 0 ? (
+
+            <>
+              <h3 style={{color:"black"}}> {test}</h3>
+              {/* <p>{"Incorrecto: " + Element.bad}</p>
+              <p>{"Recomendacion: " + Element.better}</p> */}
+             </>  
+
+           ):
+           
+           indice.length === 0 ? (""):(
             
-            indice.map(Element => <p>{Element + texto}</p>)
+            indice.map((Element,index) =>{
+              console.log(Element.description.en)
+
+             return(<>
+                   <h3 style={{color:"black"}}>{(index+1) +" " +Element.description.en}</h3>
+                   <p>{"Incorrecto: " + Element.bad}</p>
+                   <p>{"Recomendacion: " + Element.better}</p>
+             </>)  
+            })
             )}
             
           </DialogContentText>
@@ -52,7 +74,7 @@ export default function Notificacion({open, handleClose,titulo,img,btnTexto,text
           {/* <Button onClick={handleClose}  autoFocus>
             Salir
           </Button> */}
-          <Button onClick={handleClose} sx={{position:"relative",background:"rgba(255, 194, 18, 1)",right:"35%", width:"35%",borderRadius:"20px",color:"black",border:"2px solid black"}} variant="contained">{btnTexto}</Button>
+          <Button className='btnNotiJuego' onClick={handleClose} sx={{}} variant="contained">{btnTexto}</Button>
 
         </DialogActions>
       {/* </Dialog> */}

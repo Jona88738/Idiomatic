@@ -5,6 +5,10 @@ import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
 import { useNavigate } from "react-router-dom";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import '../../styles/StyleApartadoJuegos/AudioIA.css';
+
 export default function AudioIA() {
 
     const navigate = useNavigate();
@@ -15,13 +19,15 @@ export default function AudioIA() {
     const audioChunks = useRef([]);
 
     const location = useLocation();
+    const [numError, setnumError] = useState([]);
 
-    const { recursoFront, recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { recursoFront, recursoEjercicio,juegoID,index  } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     
-    // useEffect(() => {
-    //     console.log("se puede enviar");
-    // }, []);
+    
   const [open, setOpen] = useState(false);
+  const [openBackDrop, setOpenBackDrop] = useState(false);
+  const [Noti, setNoti] = useState(false);
+  const [grabar, setGrabar] = useState(true);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -29,7 +35,13 @@ export default function AudioIA() {
 
   const handleClose = () => {
     setOpen(false);
-    navigate("/Ejercicios",{state:{"link":link,"imagen":imagen}})
+    
+  };
+
+  const handleCloseComplete = () => {
+    setOpen(false);
+    navigate(-1)
+    
   };
 
 
@@ -38,6 +50,8 @@ export default function AudioIA() {
 
 
     const startRecording = async () => {
+        
+       setGrabar(false)
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             mediaRecorderRef.current = new MediaRecorder(stream);
@@ -62,6 +76,9 @@ export default function AudioIA() {
     };
 
     const stopRecording = () => {
+      
+        setGrabar(true)
+
         if (mediaRecorderRef.current) {
             mediaRecorderRef.current.stop();
             setRecording(false);
@@ -71,6 +88,7 @@ export default function AudioIA() {
     const sendAudioToServer = (blob) => {
         const formData = new FormData();
         formData.append('audio', blob, 'N.wav');
+        setOpenBackDrop(true)
 
         fetch('/api/audioIA', {
             method: 'POST',
@@ -80,22 +98,113 @@ export default function AudioIA() {
         .then(data => {
 
 
-            console.log(data)
+            console.log("IA",data.message)
+            let resulFinal = [];
+            resulFinal.push({
+                "bad":data.message,
+                "better":recursoEjercicio,
+                "description":{"en":"Possible spelling mistake"}
+            })
 
-            fetch(`https://api.textgears.com/grammar?text=${data}&language=en-US&ai=true`,{
+            fetch(`https://api.textgears.com/grammar?text=${data.message}&language=en-US&ai=true`,{
                 headers:{
                     Authorization: "Basic d96UAhwRk6kmjSXp"
                 }
             })
                     .then(res => res.json())
                     .then((res) =>{
+                        setOpenBackDrop(false)
+                        let contador = 0;
                         console.log(res);
+                        console.log(data.messag)
+
+                        console.log("arregloApi",res.response.errors.length)
+                        let texto = data.message;
+                        let respuestaF = recursoEjercicio.toUpperCase();
+                        let letras = texto.split("");
+                        let letrasREs = respuestaF.split("");
+                        console.log(recursoEjercicio.length)
 
 
-                        if(res.response.errors.length < 2){
 
+                        letras.forEach((element,indice) => {
+                            console.log(indice);
+                            
+                            if(element === letrasREs[indice]){
+                               
+                                contador++;
+                            }
+                        });
+                        setnumError(resulFinal);
+
+                        console.log("mi contador: ",contador);
+                        console.log(numError)
+
+                        let porcentaje = (contador* 100)/recursoEjercicio.length;
+                        console.log(porcentaje)
+                        if(res.response.errors.length < 2 && porcentaje > 80){
+
+                            setNoti(true);
+                            handleClickOpen();
+                            //inicia Actualizar contador
+
+                            let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
+        
+                            completeJuego[0].Total += 1;
+                            console.log("El tipo es: ",completeJuego[index].Total);
+                            
+                            if(completeJuego[index].TotalComplete <=  juegoID){
+                    
+                                completeJuego[index].TotalComplete = completeJuego[index].TotalComplete +1;
+                            console.log("entro")
+                            
+                            console.log(completeJuego[index].TotalComplete )
+                    
+                            sessionStorage.setItem('completeJuego',JSON.stringify(completeJuego) );
+                            console.log("Objeto actualizado: ",JSON.parse(sessionStorage.getItem('completeJuego')))
+                            completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'));
+                    
+                    
+                    
+                    
+                                //let complete = Number(sessionStorage.getItem('completeVideo')) +1;
+                                console.log("entro al if xD")
+                    
+                               // sessionStorage.setItem('completeVideo', complete);
+                        
+                              //  console.log("NumLeccionVideo: ",sessionStorage.getItem('completeVideo'));
+                        
+                                fetch(`/api/progresoUsuarioGeneral?TemaEjercicio=ejercicio&completeV=${completeJuego}`,{
+                                    method:"PATCH",
+                                    headers:{
+                        
+                                        "Content-Type":'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        completeVideo: completeJuego,
+                                      }),
+                                })
+                                .then(res => res.json())
+                                .then(res => console.log(res))
+                    
+                            }
+                            
+
+
+
+
+
+
+
+
+
+
+
+                            
+                            //Termina 
                         }else{
-
+                            setNoti(false);
+                            handleClickOpen()
                         }
                     })
 
@@ -113,48 +222,57 @@ export default function AudioIA() {
 
     
     return (
-        <div style={{ background: "#E0DFFD", height: "100vh" }}>
+        <div className='ContainerMainAudioIA' >
             <br />
-            <Container sx={{ background: "rgba(255, 194, 18, 0.65)", borderRadius: "25px", height: "25vh" }}>
-                <img src="/images/svgJuegos/speak.svg" width="250px" style={{ float: "right", position: "relative", bottom: "18%" }} />
-                <h1 style={{ paddingTop: "5%" }}>Speaking.- Was/Were</h1>
+            <Container className='ContainerTitleAudioIA' >
+                <img className='imgDogSpeak' src="/images/svgJuegos/speak.svg"   />
+                <h1 className='TitleAudioIA' >Speaking.- Was/Were</h1>
             </Container>
-            <h1 style={{ paddingLeft: "5%" }}>Speak this sentence</h1>
-            <Container sx={{ display: "flex" }}>
-                <img src={recursoFront.icono} alt="" width="20%" style={{ marginLeft: "8%" }} />
+
+            <h1 className='SubtitleAudioIA' >Speak this sentence</h1>
+            <Container className='ContainerEjercicioAudioIA' >
+                <img className='imgDogLeftAudioIA' src={recursoFront.icono} alt=""   />
                         {/*  ="/src/images/svgJuegos/perroDudaIA.png" */}
-                <Container sx={{}}>
-                    <div style={{ background: "rgba(255, 189, 0, 0.95)", height: "15vh", borderRadius: "22px", marginTop: "7%", border: "4px solid black" }}>
-                        <h2 style={{ textAlign: "center", paddingTop: "1%" }}>{recursoEjercicio}</h2>
+                <Container >
+                    <div className='ContainerTitleEjercicioAudioIA' >
+                        <h2 className='TitleEJercicioAudioIA' >{recursoEjercicio}</h2>
                     </div>
                 </Container>
             </Container>
             <br />
             <MicIcon sx={{ fontSize: 9 }} />
-            <Button
-                id="record"
-                onClick={startRecording}
-                variant="outlined"
-                sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background: recursoFront.btnColor, color: "black", marginLeft: "20%" }}
-            >
-                Press to talk
-                <MicIcon sx={{ fontSize: 50 }} />
-            </Button>
-            <Button
-                id="stopRecord"
-                onClick={stopRecording}
-                variant="outlined"
-                sx={{ width: "30%", height: "10vh", fontSize: "25px", borderRadius: "22px", background:recursoFront.btnColor, color: "black", marginLeft: "0%" }}
-            >
-                Press to stop Record
-                <MicIcon sx={{ fontSize: 50 }} />
-            </Button>
-
-
-            {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"/>) : 
-         (<Notificacion open={open} handleClose={handleClose} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
-        
             
+            {grabar === true ? (
+            <><Button className='btnAudioIARecord'  id="record" onClick={startRecording} variant="outlined" sx={{color:"black", background: recursoFront.btnColor, }}>
+                    Press to talk
+                    <MicIcon sx={{ fontSize: 50 }} />
+                </Button>
+                <Button className='btnAudioIAStop'  disabled  id="stopRecord" onClick={stopRecording} variant="outlined" sx={{ background: recursoFront.btnColor, color: "black", }}>
+                        Press to stop Record
+                        <MicIcon sx={{ fontSize: 50 }} />
+                </Button></>
+            ):(
+                <><Button className='btnAudioIARecord'  disabled id="record" onClick={startRecording} variant="outlined" sx={{color:"black",  background: recursoFront.btnColor,  }}>
+                        Press to talk
+                        <MicIcon sx={{ fontSize: 50 }} />
+                    </Button>
+                    <Button  className='btnAudioIAStop'  id="stopRecord" onClick={stopRecording} variant="outlined" sx={{ background: recursoFront.btnColor, color: "black",  }}>
+                            Press to stop Record
+                            <MicIcon sx={{ fontSize: 50 }} />
+                    </Button></>
+                )}
+
+            {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"indice={numError}  texto="Tuviste un Error"/>) : 
+         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+        
+        <Backdrop
+        sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+        open={openBackDrop}
+        // onClick={handleClose} 
+        >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+
         </div>
 
         

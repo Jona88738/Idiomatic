@@ -3,21 +3,37 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
 import { useState } from "react";
+import '../../styles/StyleApartadoJuegos/CreateSentences.css'
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
 
 export default function CreateSentences(){
 
     const location = useLocation();
     const navigate = useNavigate();
-    const { link,imagen, recursoFront, recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { link,imagen, recursoFront, recursoEjercicio,juegoID,index } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     
     const [arre, setArre] = useState([])
     const [Noti, setNoti] = useState(false);
+    const [openBackDrop, setOpenBackDrop] = useState(false);
+
+    const [ArreRespuestaUser,setArreRespuestaUser]  = useState(new Array(recursoEjercicio.length+1).fill(""))
+
+    //let valor = recursoEjercicio.length+1;
+    // const arr = new Array(valor).fill("");
+    const arr = ArreRespuestaUser;
+    console.log("",arr)
+
+    const [mensaje, setMensaje] = useState("")
+
+    
     
     
 
     // let arr = ["","","","",""]
-    let valor = recursoEjercicio.length+1;
-    const arr = new Array(valor).fill("");
+    
     
     //console.log(arr)
 
@@ -35,6 +51,12 @@ export default function CreateSentences(){
     //navigate("/Ejercicios",{state:{"link":link,"imagen":imagen}})
   };
 
+  const handleCloseComplete = () => {
+    setOpen(false);
+    navigate(-1)
+    
+  };
+
     function drag(ev){
         ev.dataTransfer.setData("text",ev.target.id)
     }
@@ -42,59 +64,62 @@ export default function CreateSentences(){
     function allodrop(e){
         e.preventDefault();
     }
-    
+
+   
+
     function drop(e){
         
-    if(isNaN(parseInt(e.target.id))){
-        console.log("error")
-    }else{
-        if(arr[parseInt(e.target.id)] === "" && parseInt(e.target.id) !== arr.length-1){
-
-            if( spa === true){
-
-                console.log("Entro",arr[parseInt(e.target.id)] )
-
-                var data = e.dataTransfer.getData("text");
-                const index = arr.findIndex(elemento => elemento === data);
-                if(index !== -1){
-
-                    arr[index] = "";
-                    console.log(e.target.id)
-                    arr[parseInt(e.target.id)] = data; // ""
-                    e.target.appendChild(document.getElementById(data));
-                    console.log("ya no puedes regresar1" ,arr)
-
-                }else{
-                    console.log(e.target.id)
-                    arr[parseInt(e.target.id)] = data; // ""
-                    e.target.appendChild(document.getElementById(data));
-                    console.log("ya no puedes regresar1" ,arr)
+        if(isNaN(parseInt(e.target.id))){
+            console.log("error")
+        }else{
+            if(arr[parseInt(e.target.id)] === "" && parseInt(e.target.id) !== arr.length-1){
+    
+                if( spa === true){
+    
+                    console.log("Entro",arr[parseInt(e.target.id)] )
+    
+                    var data = e.dataTransfer.getData("text");
+                    const index = arr.findIndex(elemento => elemento === data);
+                    if(index !== -1){
+    
+                        arr[index] = "";
+                        console.log(e.target.id)
+                        arr[parseInt(e.target.id)] = data; // ""
+                        e.target.appendChild(document.getElementById(data));
+                        console.log("ya no puedes regresar1" ,arr)
+    
+                    }else{
+                        console.log(e.target.id)
+                        arr[parseInt(e.target.id)] = data; // ""
+                        e.target.appendChild(document.getElementById(data));
+                        console.log("ya no puedes regresar1" ,arr)
+                    }
+                    
+                    
                 }
                 
+            }else if(arr[parseInt(e.target.id)] !== "" || parseInt(e.target.id) === arr.length-1  ){
+                
+                var data = e.dataTransfer.getData("text");
+                console.log(data)
+                const index = arr.findIndex(elemento => elemento === data);
+                if(index !== -1){
+                    arr[index] = "";
+                    e.target.appendChild(document.getElementById(data));
+                    console.log("ya no puedes regresar2",arr)
+                }
+               
                 
             }
-            
-        }else if(arr[parseInt(e.target.id)] !== "" || parseInt(e.target.id) === arr.length-1  ){
-            
-            var data = e.dataTransfer.getData("text");
-            console.log(data)
-            const index = arr.findIndex(elemento => elemento === data);
-            if(index !== -1){
-                arr[index] = "";
-                e.target.appendChild(document.getElementById(data));
-                console.log("ya no puedes regresar2",arr)
-            }
-           
+        }
+    
+            //verificar que este bien la oracion
+    
             
         }
-    }
-
-        //verificar que este bien la oracion
-
-        
-    }
 
     function enviar(){
+        setOpenBackDrop(true)
         //const arregloFinal = ["","","","",""];
         const respuesta = "Hello!, My name is Idiomatic"
         
@@ -102,49 +127,86 @@ export default function CreateSentences(){
         console.log(arrAux.length)
         const resultado = arrAux.join(' '); 
 
-        // console.log("el resultado es:", resultado,":arr ", arr,"arreglodinamico: ",arre)
+        console.log()
 
-        // if(resultado === respuesta) {
-        //     console.log("Felicidades es correcto el ejercicio")
-        //     setNoti(true);
-        //     setArre(resultado);
-           
-        //     handleClickOpen ()
-            
-            
-        // }else if( arre === respuesta){
-        //     console.log("Felicidades es correcto el ejercicio")
-        //     handleClickOpen()
-        // }
-        // else{
-        //     console.log("Tienes un error en la sentencia ")
-          
-        //     handleClickOpen()
-            
-        // }
-        console.log(resultado)
-
-        if(arrAux.length === 5){ 
+        if(arrAux.length === recursoEjercicio.length){ 
 
         
 
-        fetch(`https://api.textgears.com/grammar?text=${resultado}&language=en-US&ai=false`,{
-            headers:{
-                Authorization: "Basic d96UAhwRk6kmjSXp"
-            }
+        fetch(`https://api.textgears.com/grammar?text=${resultado}&language=en-US&ai=false&key=d96UAhwRk6kmjSXp`,{
+            // headers:{
+            //     Authorization: "Basic d96UAhwRk6kmjSXp"
+            // }
         })
             .then(res => res.json())
             .then(res => {
-                console.log(res)
+                console.log("Respuesta Api: ",res)
                 if(res.response.errors.length === 0 ){
+
+                    
+                    let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
+        
+                    completeJuego[0].Total += 1;
+                    console.log("El tipo es: ",completeJuego[index].TotalComplete);
+                    
+                    if(completeJuego[index].TotalComplete <=  juegoID){
+            
+                        completeJuego[index].TotalComplete = completeJuego[index].TotalComplete +1;
+                    console.log("entro")
+                    
+                    console.log(completeJuego[index].TotalComplete )
+            
+                    sessionStorage.setItem('completeJuego',JSON.stringify(completeJuego) );
+                    console.log("Objeto actualizado: ",JSON.parse(sessionStorage.getItem('completeJuego')))
+                    completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'));
+            
+            
+            
+            
+                        //let complete = Number(sessionStorage.getItem('completeVideo')) +1;
+                        console.log("entro al if xD")
+                        
+            
+                       // sessionStorage.setItem('completeVideo', complete);
+                
+                      //  console.log("NumLeccionVideo: ",sessionStorage.getItem('completeVideo'));
+                
+                        fetch(`/api/progresoUsuarioGeneral?TemaEjercicio=ejercicio&completeV=${completeJuego}`,{
+                            method:"PATCH",
+                            headers:{
+                
+                                "Content-Type":'application/json'
+                            },
+                            body: JSON.stringify({
+                                "completeVideo": completeJuego,
+                              }),
+                        })
+                        .then(res => res.json())
+                        .then(res => console.log(res))
+            
+                    }
+
+
+
+
+
+
+
                     console.log("Felicidades es correcto el ejercicio")
              setNoti(true);
              setArre(resultado);
            
              handleClickOpen ()
 
-                }else{
 
+
+
+
+
+                }else{
+                    console.log(res)
+                    setMensaje("Tienes un error en la sentencia")
+                    setArreRespuestaUser(arr)
                  console.log("Tienes un error en la sentencia ")
           
                 handleClickOpen()
@@ -154,79 +216,89 @@ export default function CreateSentences(){
             })
 
         }else{
-
-            console.log("Tienes un error en la sentencia ")
-          
+            setMensaje("Termina de ordenar la sentencia")
+            console.log("Termina de ordenar la sentencia")
+            setArreRespuestaUser(arr)
                 handleClickOpen()
 
         }
 
     }
 
-    return(<>
+    // fetch(()=>{
+    //     console.log("recarga");
+
+    // },[recursoEjercicio])
+
+    return(<Box className="MainContainerCreateSentencesBox">
 
 
-            <Container sx={{marginLeft:"4%",marginRight:"2%",background:"rgba(119, 102, 198, 0.4)",borderRadius:"25px",height:"25vh",marginTop:"5vh"}} >
-            <img src={recursoFront.icono} width="16%" alt="" style={{float:"left"}}/>             
-            <h1  >Create Sentences</h1>
+            <Container className="ContainerTitleCreateSentences"  >
+            <img className="imgTitleCreateSen" src={recursoFront.icono}  alt="" />             
+            <h1 className="TitleCreateSen" >Create Sentences</h1>
             </Container>
 
             
-            <p style={{marginLeft:"5% ",marginTop:"5vh",marginBottom:"5vh"}} >Look at the sentences. Arrange the words so that they are grammatically correct,
-                paying attention to the position of the adverbs and using appropiate puntuaction.
+            <p className="ExplicacionCreateSen"  >Ordena las palabras de manera que sean gramaticalmente correctas.
+            prestando atención a la posición de los adverbios y utilizando la puntuación adecuada.
             </p>
 
-        <Container sx={{display:"flex",margin:"0"}}>
+        <Container className="ContainerresCreateSen" >
 
-            <Container sx={{display:"flex",flexDirection:"column",width:"10%",margin:"0"}} >
+            <Container className="ContainerStars"  >
 
-                <img src="/images/svgJuegos/star.svg" alt="" />
-                <img src="/images/svgJuegos/star.svg" alt="" />
-                <img src="/images/svgJuegos/star.svg" alt="" />
-                <img src="/images/svgJuegos/star.svg" alt="" />
+                <img src="/images/svgJuegos/star.svg" className="EstrellaCreateS" alt="" />
+                <img src="/images/svgJuegos/star.svg" className="EstrellaCreateS"  alt="" />
+                <img src="/images/svgJuegos/star.svg" className="EstrellaCreateS"  alt="" />
+                <img src="/images/svgJuegos/star.svg" className="EstrellaCreateS"  alt="" />
                 
             </Container>
 
 
 
-            <div onDrop={drop} onDragOver={allodrop} id={recursoEjercicio.length} style={{display:"flex", flexWrap:"wrap", width:"60%",margin:"0"}}>
+            <div className="respuestasCreateSen" onDrop={drop} onDragOver={allodrop} id={recursoEjercicio.length} style={{}}>
 
                 {recursoEjercicio.map((palabra,index) => {
-                    return  <h3 key={index} style={{background:"rgba(119, 102, 198, 0.4)",height:"7vh",width:"135px",marginLeft:"2%",textAlign:"center",fontSize:"25px",display:"inline-block",borderRadius:"25px",marginTop:"0"}} name={palabra}  draggable="true" onDragStart={drag} id={palabra} >{palabra}</h3>
+                    // console.log("recarga");
+
+                    return  <h3 className="respuestaFinalCreateSen" key={index}  name={palabra}  draggable="true" onDragStart={drag} id={palabra} >{palabra}</h3>
             
                 } )}
             
-            {/* <h3 style={{background:"rgba(119, 102, 198, 0.4)",height:"7vh",width:"135px",marginLeft:"2%",textAlign:"center",fontSize:"25px",display:"inline-block",borderRadius:"25px",marginTop:"0"}}  draggable="true" onDragStart={drag} id="aus" >Australia</h3>
-            <h3 style={{background:"rgba(119, 102, 198, 0.4)",height:"7vh",width:"135px",marginLeft:"2%",textAlign:"center",fontSize:"25px",display:"inline-block",borderRadius:"25px",marginTop:"0"}}  draggable="true" onDragStart={drag} id="am" >Am</h3>
-            <h3 style={{background:"rgba(119, 102, 198, 0.4)",height:"7vh",width:"135px",marginLeft:"2%",textAlign:"center",fontSize:"25px",display:"inline-block",borderRadius:"25px",marginTop:"0"}}  draggable="true" onDragStart={drag} id="from" >from</h3>
-            <h3 style={{background:"rgba(119, 102, 198, 0.4)",height:"7vh",width:"135px",marginLeft:"2%",textAlign:"center",fontSize:"25px",display:"inline-block",borderRadius:"25px",marginTop:"0"}}  draggable="true" onDragStart={drag} id="I" >I</h3>
-             */}
+            
             </div>
 
         
         </Container>
 
         
-        <div style={{display:"flex", position:"relative"}}>
-            <div style={{width:"70%",height:"20vh",marginTop:"2%",display:"flex"}} >
+        <div className="ContainerComprobarCreate" >
+            <div className="campoResCreateSen"  >
 
             {recursoEjercicio.map((palabra,index) => {
-                    return  <div key={index} style={{background:recursoFront.inputColor,marginLeft:"4%",width:"15%",height:"7vh",marginTop:"4%",borderRadius:"25px"}} name={palabra}  id={index} onDrop={drop} onDragOver={allodrop}></div>
+                    return  <div className="campoRespuestaCreate" key={index} style={{background:recursoFront.inputColor,}} name={palabra}  id={index} onDrop={drop} onDragOver={allodrop}></div>
             
                 } )}
 
-            {/* <div style={{background:"rgba(119, 102, 198, 0.4)",marginLeft:"4%",width:"15%",height:"7vh",marginTop:"4%",borderRadius:"25px"}}  id="1" onDrop={drop} onDragOver={allodrop}></div>
-            <div style={{background:"rgba(119, 102, 198, 0.4)",marginLeft:"4%",width:"15%",height:"7vh",marginTop:"4%",borderRadius:"25px"}}  id="2" onDrop={drop} onDragOver={allodrop}></div>
-            <div style={{background:"rgba(119, 102, 198, 0.4)",marginLeft:"4%",width:"15%",height:"7vh",marginTop:"4%",borderRadius:"25px"}}  id="3" onDrop={drop} onDragOver={allodrop}></div>
-            <div style={{background:"rgba(119, 102, 198, 0.4)",marginLeft:"4%",width:"15%",height:"7vh",marginTop:"4%",borderRadius:"25px"}}  id="4" onDrop={drop} onDragOver={allodrop}></div> */}
-
+            
         </div>
-        <Button onClick={enviar} sx={{position:"absolute",background:recursoFront.btnColor,right:"5%",top:"45%", width:"15%",borderRadius:"20px",color:"black",border:"2px solid black"}} variant="contained">Enviar</Button>
 
+        
+        
         </div>
-        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"/>) : 
-         (<Notificacion open={open} handleClose={handleClose} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+        <Button className="btnCreateSen" onClick={enviar} sx={{background:recursoFront.btnColor}} variant="contained">Enviar</Button>
+
+        <Backdrop
+        sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+        open={openBackDrop}
+        // onClick={handleClose} 
+        >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+
+        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo={mensaje} btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"/>) : 
+         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
         
          
-        </>)
+        </Box>)
 }

@@ -19,7 +19,7 @@ const schema = yup.object().shape({
     .required('El correo es requerido'),
   contraseña: yup
     .string()
-    .min(6, 'La contraseña debe tener al menos 6 caracteres')
+    .min(2, 'La contraseña debe tener al menos 6 caracteres')
     .required('La contraseña es requerida'),
 });
 
@@ -35,30 +35,40 @@ const LoginPage = () => {
     console.log('Captcha value:', value);
   };
 
-  useEffect(() => {
-    fetch("/api/signUser?nombre=Jonathan")
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setUserData(data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api/signUser?nombre=Jonathan")
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log(data);
+  //       setUserData(data);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching data:', error);
+  //     });
+  // }, []);
 
   const onSubmit = methods.handleSubmit((data) => {
-    fetch(`/api/signUser?correo=${data.correo}&password=${data.contraseña}`)
-    .then(res => res.json())
-    .then(res => {
-      if (res.resultado === "true") {
-        if (res.rol === 1) {
-          navigate("/Admin_Home");
-        } else if (res.rol === 0) {
-          navigate("/User_Home");
-        } else {
-          console.log("Rol no válido");
-        }
+    fetch(`/api/signUser`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        correo: data.correo,
+        password: data.contraseña,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.resultado === "true") {
+          // Verificar el rol y redirigir a la página correspondiente
+          if (res.rol === 1) {
+            navigate("/Admin_Home");  // Redirigir al dashboard de administrador
+          } else if (res.rol === 0) {
+            navigate("/User_Home");   // Redirigir al dashboard de usuario
+          } else {
+            console.log("Rol no válido");
+          }
       } else {
         console.log("El usuario no existe o credenciales incorrectas");
       }
@@ -79,7 +89,7 @@ const LoginPage = () => {
           <h2 className="new-here-heading">¿Nuevo/a aquí?</h2>
           <p>¡Bienvenido/a! 🎉 Aprende inglés con nosotros.</p>
           <p>¡Explora, practica y disfruta del viaje lingüístico!</p>
-          <button className="register-button" onClick={() => window.location.href = '/Sign_up'}>Registrarse</button>
+          <button className="register-button" onClick={() => {const direccion = "/Sign_up"; navigate(direccion);}}>Registrarse</button>
         </div>
 
         <div className="form-section">

@@ -1,0 +1,515 @@
+@media screen and (max-width:600px) {
+
+    .ContainMainConversationIA{
+        /* margin-left:9%; */
+        height: 100vh;
+    }
+    .ContainerTitleConversationIA{
+        background:rgba(119, 102, 198, 0.5);
+        margin-top:1%;
+        border-radius:20px;
+        width:91% !important;
+        /* height:15vh; */
+        margin-left:5% !important;
+    }
+    .titleConvesationIA{
+        text-align:center;
+        position:relative;
+        /* top:25%; */
+        font-size:6vw;
+    }
+    .ContainerDogConversation{
+        margin-left:25% !important;
+        width:70% !important;
+        position:relative;
+        /* height:25vh; */
+    }
+    .ContainerOracionDog{
+        position:absolute;
+        z-index:1;
+        width:80%;
+        left:-13%;
+        top:25%;
+        /* height:15vh; */
+    }
+    .OracionDog{
+        position: relative;
+        left:-16%;
+        /* margin-top:5%; */
+        top: 2.3rem;
+        font-size:5vw;
+        width: 86%;
+    }
+    .imgCuadroDog{
+        position:absolute;
+        right:45%;
+        top:0%;
+        /* height: 25vh; */
+        width:100%;
+    }
+    .imgDog{
+        float:right;
+        margin-bottom:6%;
+        position:relative;
+        right:5%;
+        /* top:54px; */
+        width:45%;
+    }
+    .ContainerDialogosTextoRightIA{
+        width: 50% !important;
+        height: 30vh;
+    }
+    .ContainerDialogosTextosConIA{
+        display:flex !important;
+        /* height: 60vh; */
+    }
+    .ContainerDialogoIzquierdo{
+        /* position:absolute !important; */
+        z-index:1;
+        /* width:30% !important; */
+        width: 50% !important;
+        left:15%;
+        top:48%;
+        height:30vh;
+    }
+    .ContainerTitleConversationIALeft{
+        position:absolute;
+        z-index:1;
+        width:30%;
+        left:15%;
+        /* top:48%; */
+        height:15vh;
+    }
+    .TitleLeftConversation{
+        position:relative;
+        /* left:17%;
+        margin-left: 7%;
+        margin-top:10%; */
+        top: 1.5rem;
+        font-size:2.8vw;
+    }
+    .imgCuadroLeftConversation{
+        width:100%; 
+    }
+    .imgPersonaIzquierdaConversationIA{
+        width:40%;
+    }
+    .ContainerTitlePersonaRight{
+        position:absolute;
+        z-index:1;
+        width:30%;
+        right:12%;
+        /* top:48%; */
+        height:15vh;
+    }
+    .TitlePersonaRight{
+        position:relative;
+        right:30%;
+        top: 5.2rem;
+        margin-top:10%;
+        font-size:3.5vw;
+    }
+    .imgCuadroRightDerechoConIA{
+        position: relative;
+        top: 5rem;
+        right: 45%;
+        width:150%;
+    }
+    .imgPersonaDerechaConvIA{
+        position: relative;
+        top: 5rem;
+        width:40% !important;
+        float:right;
+        margin-right:20%;
+    }
+    .btnRecordConversationIA{
+        color: black !important;
+        /* margin-left: 23% !important; */
+        /* position:absolute !important; */
+        top:80px;
+        width: 40%;
+        /* height: 10vh; */
+        /* min-height: 2vh ; */
+        left: 5%;
+        font-size: 2.4vw !important;
+        border-radius: 22px !important; 
+    }
+
+    .btnStopConversationIA{
+
+        color: black;
+        margin-left: 0%;
+        /* height: 8vh; */
+        font-size: 18px;
+        border-radius: 22px !important;
+        /* position:absolute !important; */
+        left: 10%;
+        top:82px;
+        width: 40%; 
+        font-size: 2.4vw !important;
+    }
+
+    .btnStopConversationIA2{
+
+        color: black;
+        margin-left: 0%;
+        /* height: 8vh; */
+        font-size: 18px;
+        border-radius: 22px !important;
+        /* position:absolute !important; */
+        left: 8%;
+        top:112px;
+        width: 40%; 
+        font-size: 2.4vw !important;
+    }
+
+    .btnRecordConversationIA2{
+        color: black !important;
+        margin-left: 23% !important;
+        /* position:absolute !important; */
+        top:52px !important;
+        width: 40% !important;
+        /* height: 8vh; */
+        left: 28%;
+        font-size: 1.8vw;
+        border-radius: 22px !important; 
+        font-size: 2.4vw !important;
+    }
+
+}
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
+    
+    .ContainMainConversationIA{
+        margin-left:9%;
+        height: 100vh;
+    }
+    .ContainerTitleConversationIA{
+        background:rgba(119, 102, 198, 0.5);
+        margin-top:1%;
+        border-radius:20px;
+        width:70% !important;
+        /* height:15vh; */
+        height: 4.5rem;
+        margin-left:5% !important;
+    }
+    .titleConvesationIA{
+        text-align:center;
+        position:relative;
+        top:25%;
+        font-size:2vw;
+    }
+    .ContainerDogConversation{
+        margin-left:25% !important;
+        width:70% !important;
+        position:relative;
+        /* height:20vh; */
+    }
+    .ContainerOracionDog{
+        position:absolute;
+        z-index:1;
+        width:30%;
+        left:15%;
+        top:25%;
+        height:15vh;
+    }
+    .OracionDog{
+        left:30%;
+        margin-top:30%;
+        font-size:1.5vw;
+    }
+    .imgCuadroDog{
+        position:absolute;
+        right:45%;
+        top:-28%;
+        width:52%;
+    }
+    .imgDog{
+        float:right;
+        margin-bottom:6%;
+        position:relative;
+        right:30%;
+        top:25px;
+        width:15%;
+    }
+    .ContainerDialogosTextoRightIA{
+        width: 50% !important;
+        height: 50vh;
+    }
+    .ContainerDialogosTextosConIA{
+        display:flex !important;
+        height: 60vh;
+    }
+    .ContainerDialogoIzquierdo{
+        /* position:absolute !important; */
+        z-index:1;
+        /* width:30% !important; */
+        width: 50% !important;
+        left:15%;
+        top:48%;
+        height:45vh;
+    }
+    .ContainerTitleConversationIALeft{
+        position:absolute;
+        z-index:1;
+        width:30%;
+        left:15%;
+        /* top:48%; */
+        height:15vh;
+    }
+    .TitleLeftConversation{
+        position:relative;
+        left:17%;
+        margin-left: 7%;
+        margin-top:10%;
+        font-size:1.5vw;
+    }
+    .imgCuadroLeftConversation{
+        width:87%; 
+    }
+    .imgPersonaIzquierdaConversationIA{
+        width:18%;
+    }
+    .ContainerTitlePersonaRight{
+        position:absolute;
+        z-index:1;
+        width:30%;
+        right:12%;
+        /* top:48%; */
+        height:15vh;
+    }
+    .TitlePersonaRight{
+        position:relative;
+        left:17%;
+        margin-top:10%;
+        font-size:1.5vw;
+    }
+    .imgCuadroRightDerechoConIA{
+        width:87%;
+    }
+    .imgPersonaDerechaConvIA{
+        width:18% !important;
+        float:right;
+        margin-right:20%;
+    }
+    .btnRecordConversationIA{
+        color: black !important;
+        margin-left: 23% !important;
+        position:absolute !important;
+        bottom:0px;
+        width: 22%;
+        height: 10vh;
+        /* min-height: 2vh ; */
+        left: 5%;
+        font-size: 1.4vw !important;
+        border-radius: 22px !important; 
+    }
+    .btnStopConversationIA{
+
+        color: black;
+        margin-left: 0%;
+        height: 10vh;
+        font-size: 1.4vw !important;
+        border-radius: 22px !important;
+        position:absolute !important;
+        left: 50%;
+        bottom:0px;
+        width: 22%; 
+    }
+
+    .btnStopConversationIA2{
+
+        color: black;
+        margin-left: 0%;
+        /* height: 8vh; */
+        font-size: 18px;
+        border-radius: 22px !important;
+        position:absolute !important;
+        left: 28%;
+        bottom:0px;
+        width: 22%; 
+        font-size: 1.4vw !important;
+        height: 10vh;
+    }
+
+    .btnRecordConversationIA2{
+        color: black !important;
+        margin-left: 23% !important;
+        position:absolute !important;
+        bottom:0px;
+        width: 22% !important;
+        /* height: 8vh; */
+        left: 28%;
+        font-size: 1.8vw;
+        border-radius: 22px !important; 
+        font-size: 1.4vw !important;
+        height: 10vh;
+    }
+
+}
+
+
+@media  (min-width:1024px){
+
+    .ContainMainConversationIA{
+        margin-left:9%;
+        height: 100vh;
+    }
+    .ContainerTitleConversationIA{
+        background:rgba(119, 102, 198, 0.5);
+        margin-top:1%;
+        border-radius:20px;
+        width:70% !important;
+        /* height:15vh; */
+        height: 4.5rem;
+        margin-left:5% !important;
+    }
+    .titleConvesationIA{
+        text-align:center;
+        position:relative;
+        top:25%;
+        font-size:2vw;
+    }
+    .ContainerDogConversation{
+        margin-left:25% !important;
+        width:70% !important;
+        position:relative;
+        /* height:20vh; */
+    }
+    .ContainerOracionDog{
+        position:absolute;
+        z-index:1;
+        width:30%;
+        left:15%;
+        top:25%;
+        height:15vh;
+    }
+    .OracionDog{
+        left:30%;
+        margin-top:30%;
+        font-size:1.5vw;
+    }
+    .imgCuadroDog{
+        position:absolute;
+        right:45%;
+        top:-28%;
+        width:52%;
+    }
+    .imgDog{
+        float:right;
+        margin-bottom:6%;
+        position:relative;
+        right:30%;
+        top:54px;
+        width:15%;
+    }
+    .ContainerDialogosTextoRightIA{
+        width: 50% !important;
+        height: 50vh;
+    }
+    .ContainerDialogosTextosConIA{
+        display:flex !important;
+        height: 60vh;
+    }
+    .ContainerDialogoIzquierdo{
+        /* position:absolute !important; */
+        z-index:1;
+        /* width:30% !important; */
+        width: 50% !important;
+        left:15%;
+        top:48%;
+        height:45vh;
+    }
+    .ContainerTitleConversationIALeft{
+        position:absolute;
+        z-index:1;
+        width:30%;
+        left:15%;
+        /* top:48%; */
+        height:15vh;
+    }
+    .TitleLeftConversation{
+        position:relative;
+        left:17%;
+        margin-left: 7%;
+        margin-top:10%;
+        font-size:1.5vw;
+    }
+    .imgCuadroLeftConversation{
+        width:87%; 
+    }
+    .imgPersonaIzquierdaConversationIA{
+        width:18%;
+    }
+    .ContainerTitlePersonaRight{
+        position:absolute;
+        z-index:1;
+        width:30%;
+        right:12%;
+        /* top:48%; */
+        height:15vh;
+    }
+    .TitlePersonaRight{
+        position:relative;
+        left:17%;
+        margin-top:10%;
+        font-size:1.5vw;
+    }
+    .imgCuadroRightDerechoConIA{
+        width:87%;
+    }
+    .imgPersonaDerechaConvIA{
+        width:18% !important;
+        float:right;
+        margin-right:20%;
+    }
+    .btnRecordConversationIA{
+        color: black !important;
+        margin-left: 23% !important;
+        position:absolute !important;
+        bottom:25px;
+        width: 22%;
+        /* height: 8vh; */
+        left: 5%;
+        font-size: 18px;
+        border-radius: 22px !important; 
+    }
+    .btnStopConversationIA{
+
+        color: black;
+        margin-left: 0%;
+        /* height: 8vh; */
+        font-size: 18px;
+        border-radius: 22px !important;
+        position:absolute !important;
+        left: 50%;
+        bottom:25px;
+        width: 22%; 
+    }
+
+    .btnStopConversationIA2{
+
+        color: black;
+        margin-left: 0%;
+        /* height: 8vh; */
+        font-size: 18px;
+        border-radius: 22px !important;
+        position:absolute !important;
+        left: 28%;
+        bottom:25px;
+        width: 22%; 
+    }
+
+    .btnRecordConversationIA2{
+        color: black !important;
+        margin-left: 23% !important;
+        position:absolute !important;
+        bottom:25px;
+        width: 22% !important;
+        /* height: 8vh; */
+        left: 28%;
+        font-size: 1.8vw;
+        border-radius: 22px !important; 
+    }
+}

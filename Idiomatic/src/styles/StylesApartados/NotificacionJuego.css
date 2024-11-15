@@ -1,0 +1,39 @@
+@media screen and (max-width:600px) {
+    .btnNotiJuego{
+        position:relative !important;
+        background:rgba(255, 194, 18, 1) !important;
+        right:23%;
+        width:59%;
+        border-radius:20px !important;
+        color:black !important;
+        border:2px solid black !important;
+    }
+
+}
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
+
+    .btnNotiJuego{
+        position:relative !important;
+        background:rgba(255, 194, 18, 1) !important;
+        right:35%;
+        width:35%;
+        border-radius:20px !important;
+        color:black !important;
+        border:2px solid black !important;
+    }
+}
+
+
+@media  (min-width:1024px){
+    .btnNotiJuego{
+        position:relative !important;
+        background:rgba(255, 194, 18, 1) !important;
+        right:35%;
+        width:35%;
+        border-radius:20px !important;
+        color:black !important;
+        border:2px solid black !important;
+    }
+}

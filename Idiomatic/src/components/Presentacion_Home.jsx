@@ -2,8 +2,12 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import { useNavigate } from 'react-router-dom';
 
 export default function Presentacion_Home() {
+
+  const navigate = useNavigate();
+
   return (
     <>
       <div className='PresentacionContenedor'>
@@ -27,6 +31,7 @@ export default function Presentacion_Home() {
           <img className='PresentacionGif' src="/images/4GIF_SINFONDOFINAL.gif" width="90%" height="80%" alt="Logo de mi página" />
           <Button
             variant="contained"
+            onClick={() => {const direccion = "/Login"; navigate(direccion);}}
             sx={{ padding: '8px 50px', fontSize: '14px', backgroundColor: '#ffc212', color: '#000', marginTop: '10px' , marginLeft: '170px', borderRadius: '10px', '&:hover':{backgroundColor: '#f9b0c3'}}}
           >Comienza ahora
           </Button>

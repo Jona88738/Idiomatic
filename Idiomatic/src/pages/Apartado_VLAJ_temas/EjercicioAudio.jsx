@@ -1,14 +1,15 @@
 import { Container } from "@mui/system"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
+import '../../styles/StylesApartados/EjercicioAudio.css'
 export default function EjercicioAudio(){
 
     const location = useLocation();
 
-    const { link,recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { link,recursoEjercicio,index,audioID } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
 //     console.log(recursoEjercicio)
 
     const [respuestaUser, setRespuestaUser] = useState("")
@@ -16,6 +17,11 @@ export default function EjercicioAudio(){
     const [Noti, setNoti] = useState(false);
     
     const [open, setOpen] = useState(false);
+
+    const [numError, setnumError] = useState([]);
+
+    const navigate = useNavigate();
+    //let numError = [];
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -37,60 +43,116 @@ export default function EjercicioAudio(){
        // console.log("mi letra",text[0])
         let contador = 0;
         let aciertos = 0;
+        //let respuestaApi = respuestaUser;
 
         let sinEspacioUser = respuestaUser.replace(/\s+/g, '')
-
+        console.log("Esta es la respuesta User",sinEspacioUser)
         for (const letra of text) {
 
+            console.log(contador," letra: ",letra,"text:", sinEspacioUser[contador])
+            //if(  sinEspacioUser.length <=  text.length ){
+                console.log("entro")
 
-            console.log("letra: ",letra,"text:", sinEspacioUser[contador])
-            if(  sinEspacioUser.length <=  text.length ){
+                if(sinEspacioUser[contador] === undefined){
 
-                if(letra === sinEspacioUser[contador]){
+                }else{
+                
+
+                if(letra.toUpperCase() === sinEspacioUser[contador].toUpperCase()){
                    
                     aciertos++;
                     contador++;
+                    
                 }
-                
-                
             }
+                
+            //}
         }
 
-        // for (const letra of sinEspacioUser) {
-        //     //console.log(letra); // Imprime cada letra
-        //     console.log("letra: ",letra,"text:", text[contador])
-        //     if(  sinEspacioUser.length <=  text.length ){
-
-        //         if(letra === text[contador]){
-                   
-        //             aciertos++;
-        //             contador++;
-        //         }
-                
-                
-        //     }
-               
-        //   }
 
           console.log(contador)
           let porcentajeAcierto = ((aciertos * 100)/text.length)
         
         console.log("Respuesta verificada",porcentajeAcierto)
 
-         if(porcentajeAcierto >= 85){
 
-            if(porcentajeAcierto === 100){
+        if(porcentajeAcierto=== 100){
+
+            let completeAudio = JSON.parse(sessionStorage.getItem('completeAudio'))
+        
+            completeAudio[0].Total += 1;
+            console.log("El tipo es: ",completeAudio[index].TotalComplete);
+            
+            if(completeAudio[index].TotalComplete <=  audioID){
+    
+                completeAudio[index].TotalComplete = completeAudio[index].TotalComplete +1;
+            console.log("entro")
+            
+            console.log(completeAudio[index].TotalComplete )
+    
+            sessionStorage.setItem('completeAudio',JSON.stringify(completeAudio) );
+            console.log("Objeto actualizado: ",JSON.parse(sessionStorage.getItem('completeAudio')))
+            completeAudio = JSON.parse(sessionStorage.getItem('completeAudio'));
+    
+    
+    
+    
+                //let complete = Number(sessionStorage.getItem('completeVideo')) +1;
+                console.log("entro al if xD")
+    
+               // sessionStorage.setItem('completeVideo', complete);
+        
+              //  console.log("NumLeccionVideo: ",sessionStorage.getItem('completeVideo'));
+        
+                fetch(`/api/progresoUsuarioGeneral?TemaEjercicio=audio&completeV=${completeAudio}`,{
+                    method:"PATCH",
+                    headers:{
+        
+                        "Content-Type":'application/json'
+                    },
+                    body: JSON.stringify({
+                        "completeVideo": completeAudio,
+                      }),
+                })
+                .then(res => res.json())
+                .then(res => console.log(res))
+    
+            }
+            
                 console.log("Felicidades Completaste el ejercicio")
                 setNoti(true);
                 handleClickOpen();
-            }else{
-                console.log("Verifique bien la sentencia")
-                setNoti(false);
-                handleClickOpen();
-            }
+            
 
+         }else if(porcentajeAcierto >45){
+            
+
+            fetch(`https://api.textgears.com/grammar?text=${respuestaUser}&language=en-US&ai=true`,{
+                headers:{
+                    Authorization: "Basic d96UAhwRk6kmjSXp"
+                }
+            })
+                .then(res => res.json())
+                .then((res) => {
+                    console.log(res)
+                    setnumError(res.response.errors);
+                } )
+                .then((res) => {
+
+                    setNoti(false);
+                    handleClickOpen();
+
+                    console.log("Mis errores: ", numError[0].description.en)
+
+                })
+            
+            //setNoti(false);
+            //handleClickOpen();
+
+           // console.log("Reformula completamente la sentecia por que no coincide ")
          }else{
-            console.log("Reformula completamente la sentecia por que no coincide ")
+            setNoti(false);
+            handleClickOpen();
          }
         console.log("aciertos:", aciertos,"Total letras:",text.length)
     }
@@ -101,46 +163,50 @@ export default function EjercicioAudio(){
          
     }
 
-    return(<>
+    return(<div style={{height:"91vh"}}>
 
-        <br />
-        <Container sx={{background:"rgba(255, 194, 18, 0.65)",height:"20vh",borderRadius:"20px"}}>
-        <br />
-        <img src="/images/svgJuegos/speak.svg" width="250px"  style={{float:"right",position:"relative",bottom:"55%"}} />
+        
+       
+        <Container className="ContainerTitleEjerAudio"  >
+        
+        <img className="ContainerImgEjerAudio" src="/images/svgJuegos/speak.svg"  />
                 
-        <h1 style={{marginTop:"0%"}}>Apartado Audio</h1>
+        <h1  className="TitleEjerAudio" >Apartado Audio</h1>
         </Container>
 
-        <br />
+        
 
-        <div style={{background:"rgba(224, 223, 253, 1)",width:"90%",marginLeft:"5%",height:"50vh",borderRadius:"20px"}}>
+        <div className="ContainerMainEjerAudio" >
 
-                <h2 style={{textAlign:"center"}}>listen and write the correct sentence</h2>
+                <h2 className="ContMainTitle" >listen and write the correct sentence</h2>
 
 
-                <div style={{display:"flex",height:"50%"}}>
+                <div className="MainEjercicio" >
                     
-                <img src="/images/svgJuegos/perroDudaIA.png" alt="" width="20%" style={{marginLeft:"8%"}}/>
+                <img className="imgDogMainEjer" src="/images/svgJuegos/perroDudaIA.png" alt=""  />
 
-                <h1>XD</h1>   
-                <audio controls>
+                {/* <h1></h1>    */}
+                <audio controls className="MiAudioXD">
                 <source src={link} type="audio/mpeg" />
                 Your browser does not support the audio element.
                 </audio>
                 </div>
 
-                <input type="text" onChange={handleChange} placeholder="Escribe xD" style={{height:"8vh",width:"60%",borderRadius:"5px", paddingLeft:"5%",border:"2px solid black",marginLeft:"25%"}} />
+                <input className="inputAudioEjercicio" type="text" onChange={handleChange} placeholder="Escribe xD"  />
 
                
-                {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"  texto="Tuviste un Error"/>) : 
+                
+
+        </div>
+
+        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png" indice={numError}  texto="Tuviste un Error"/>) : 
          (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png" />)}
         
 
-        </div>
-        <Button onClick={enviar} variant="contained" sx={{background:"rgba(249, 176, 195, 0.57)",color:"black",border:"2px solid black",width:"20%",marginTop:"5%",marginLeft:"40%",borderRadius:"20px"}}>Enviar</Button>
+        <Button className="btnResEjercicioAudio" onClick={enviar} variant="contained" >Enviar</Button>
         
     
             
     
-    </>)
+    </div>)
 }

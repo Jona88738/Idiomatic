@@ -18,9 +18,9 @@ export default function  MyHora({children}){
 
     const handleUnload = () => {
       const endTime = Date.now();
-      const duration = Math.floor((endTime - startTime) / 1000); // Duración en segundos
-
-      console.log(duration);
+      const durationInSeconds = Math.floor((endTime - startTime) / 1000); // Duración en segundos
+      const durationInMinutes = Math.floor(durationInSeconds / 60); 
+      console.log("Duracion en minutos: ",durationInMinutes);
 
       // Enviar la duración al servidor
       /*
@@ -45,21 +45,50 @@ export default function  MyHora({children}){
 
   const stopTime = async () => {
     const endTime = Date.now();
-    const duration = Math.floor((endTime - startTime) / 1000); // Duración en segundos
-    console.log("Esta fue la duracion ",duration)
+    const durationInSeconds = Math.floor((endTime - startTime) / 1000); // Duración en segundos
+    const durationInMinutes = Math.floor(durationInSeconds / 60); 
+    console.log("Duracion en minutos: ",durationInMinutes);
+    //console.log("Esta fue la duracion ",duration)
     // Enviar el tiempo al servidor antes de cerrar sesión
-    /*
-    try {
-      await fetch('/api/saveDuration', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId: 'usuario123', duration })
-      });
-      console.log('Tiempo guardado correctamente');
-    } catch (error) {
-      console.error('Error al guardar el tiempo:', error);
+
+    let completeV = JSON.parse(sessionStorage.getItem('completeV'))
+    let completeAudio = JSON.parse(sessionStorage.getItem('completeAudio'))
+    let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
+
+    if(completeV[0].Total === 1 || completeAudio[0].Total === 1 || completeJuego[0].Total === 1  ){
+
+      try {
+        await fetch(`/api/tiempo?minutos=${durationInMinutes}`,{
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify({ "Noti": '1' })
+        });
+        console.log('Tiempo guardado correctamente');
+      } catch (error) {
+        console.error('Error al guardar el tiempo:', error);
+      }
+        
+
+    }else{
+
+      try {
+        await fetch(`/api/tiempo?minutos=${durationInMinutes}`,{
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+         // body: JSON.stringify({ userId: 'usuario123', duration })
+        });
+        console.log('Tiempo guardado correctamente');
+      } catch (error) {
+        console.error('Error al guardar el tiempo:', error);
+      }
+        
+
     }
-      */
+    
+   
+
+
+
 }
 
 

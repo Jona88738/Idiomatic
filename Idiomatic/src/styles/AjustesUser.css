@@ -1,8 +1,129 @@
 @media screen and (max-width: 600px) {
+
+    .ContainerMainAjustes{
+        padding-left: 0 !important;
+    }
     
+    .ContainerHead{
+        margin-top: 5%;
+        background:rgba(255, 199, 39, 1) !important;
+        width:100%;
+        /* height: 20vh; */
+        border-Radius:50px;
+        padding-bottom: 5%;
+    }
+
+    .TitleHead{
+        color:black;
+        left:20%;
+        font-Size:5vw;
+    }
+
+    .subTitleHead{
+        color:black;
+        text-Align:center;
+        font-Size:6vw;
+        /* z-index: 14; */
+    }
+
+    .imgHead{
+        display: none;
+        position:absolute;
+        right:20px;
+        width: 35%;
+        top:0%;
+        z-index: 0;
+        /* min-Height:25%; */
+    }
+
+    .ApartadosAjustes{
+        width: 60% !important;
+        padding-left: 0 !important;
+    }
+
+    .Containerbody{
+
+        margin-top: 5%;
+        
+        display: flex !important;
+        padding: 0 !important;
+        
+    }
+    .ApartadoBody{
+        background-color: rgba(31, 25, 47, 0.1);
+        border-radius: 30px;
+        padding-left: 20px;
+    }
+
+    .btnAjustes{
+        display: block;
+        width: 100%;
+        border-radius: 30px;
+        font-size:4vw;
+        margin-top:3% !important;
+        cursor:pointer;
+    }
 }
 
 @media  screen and (min-width:601px) and (max-Width:1023px) {
+
+    .ContainerMainAjustes{
+        padding: 0 !important;
+    }
+
+    .ContainerHead{
+        margin-top: 5%;
+        background:rgba(255, 199, 39, 1) !important;
+        width:100%;
+        border-Radius:50px;
+    }
+
+    .TitleHead{
+        color:black;
+        left:20%;
+        font-Size:4vw;
+    }
+
+    .subTitleHead{
+        color:black;
+        text-Align:center;
+        font-Size:2vw;
+    }
+
+    .imgHead{
+        position:absolute;
+        right:20px;
+        top:2px;
+        min-Height:25%;
+    }
+
+    .ApartadosAjustes{
+        width: 60% !important;
+        padding: 0 !important;
+    }
+
+    .Containerbody{
+
+        margin-top: 5%;
+        
+        display: flex !important;
+        padding: 0 !important;
+        
+    }
+    .ApartadoBody{
+        background-color: rgba(31, 25, 47, 0.1);
+        border-radius: 30px;
+        padding-left: 20px;
+    }
+
+    .btnAjustes{
+        display: block;
+        width: 100%;
+        border-radius: 30px;
+        font-size:2vw;
+        margin-top:3% !important;
+        cursor:pointer;
+    }
     
 
 }
@@ -57,6 +178,9 @@
         display: block;
         width: 100%;
         border-radius: 30px;
+        font-size:1.5vw;
+        margin-top:3% !important;
+        cursor:pointer;
     }
 
 

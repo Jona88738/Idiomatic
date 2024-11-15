@@ -1,23 +1,42 @@
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Notificacion from "../../components/ComponenteNotificacion/Notificacion";
 
 export default function CompleteSentences(){
 
     const location = useLocation();
 
-    const { recursoFront, recursoEjercicio } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { recursoFront, recursoEjercicio,juegoID,index } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     
     let inicio = []; 
     let fin = recursoFront.sentComplement;
     const [respuestas,setRespuestas]= useState([])
 
-    console.log("fin: ",fin)
+    const [Noti, setNoti] = useState(false);
+    
+    const [open, setOpen] = useState(false);
+
+    const [numError, setnumError] = useState();
+    const navigate = useNavigate();
+
+    const handleClickOpen = () => {
+        setOpen(true);
+      };
+    
+      const handleClose = () => {
+        setOpen(false);
+        
+      };
+      const handleCloseComplete = () => {
+        setOpen(false);
+        navigate(-1)
+        
+      };
 
     function handleOnChange(e){
-        console.log(e)
-        console.log(e.target.attributes.name.value,":",e.target.value)
+       
         setRespuestas({
             ...respuestas,     
             [e.target.attributes.name.value]:e.target.value,
@@ -25,24 +44,131 @@ export default function CompleteSentences(){
         
     }
 
-    function handleEnviar(){
+    function  handleEnviar(){
 
         console.log(respuestas)
         
-        let res = "";
+        let res = [];
+        let resFinal = [];
         inicio.map((element,index) =>{
-
-            res = element + respuestas[index] + " " +fin[index]
-
-            return console.log(res)
+            res.push(  element + respuestas[index] + " " +fin[index])
+            
         })
+        console.log(res)
+        let contadorAciertos = 0;
+ 
+const fetchPromises = res.map((element,index) => {
+    return fetch(`https://api.textgears.com/grammar?text=${element}&language=en-US&ai=true`, {
+        headers: {
+            Authorization: "Basic d96UAhwRk6kmjSXp"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Procesa la respuesta
+        console.log("Mis datos", data.response.errors[0])
+        console.log(data.response.errors.length)
+        if(data.response.errors.length === 0){
+                
+            let input = document.getElementById(index)
+                input.style.background = "rgba(223, 253, 224, 1)"
+                input.style.border = "3px solid green"
+               // console.log("entro bien la sentencias")
 
-        // respuestas.map((element,index) =>{
-        //     return console.log(inicio[index],": ",element)
-        // })
+        }else{
+            contadorAciertos++;
+            resFinal.push(data.response.errors[0])
+            let input = document.getElementById(index)
+                input.style.background = recursoFront.inputColor;
+                input.style.border = "3px solid red"
+        }
+    
+        return data; 
+    });
+});
+console.log("resFinal",resFinal)
+setnumError(resFinal);
+Promise.all(fetchPromises)
+    .then(results => {
+        console.log("Todos los fetch han terminado");
+        console.log("Número de aciertos:", contadorAciertos);
 
-        // inicio[0] +=  e.target.value;
-        // console.log(inicio[Number(e.target.attributes.name.value)] );
+        if(contadorAciertos === 0){
+            setNoti(true);
+            handleClickOpen();
+
+                //Inicia
+                let completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'))
+        
+                            completeJuego[0].Total += 1;
+                            console.log("El tipo es: ",completeJuego[index].Total);
+                            
+                            if(completeJuego[index].TotalComplete <=  juegoID){
+                    
+                                completeJuego[index].TotalComplete = completeJuego[index].TotalComplete +1;
+                            console.log("entro")
+                            
+                            console.log(completeJuego[index].TotalComplete )
+                    
+                            sessionStorage.setItem('completeJuego',JSON.stringify(completeJuego) );
+                            console.log("Objeto actualizado: ",JSON.parse(sessionStorage.getItem('completeJuego')))
+                            completeJuego = JSON.parse(sessionStorage.getItem('completeJuego'));
+                    
+                    
+                    
+                    
+                                //let complete = Number(sessionStorage.getItem('completeVideo')) +1;
+                                console.log("entro al if xD")
+                    
+                               // sessionStorage.setItem('completeVideo', complete);
+                        
+                              //  console.log("NumLeccionVideo: ",sessionStorage.getItem('completeVideo'));
+                        
+                                fetch(`/api/progresoUsuarioGeneral?TemaEjercicio=ejercicio&completeV=${completeJuego}`,{
+                                    method:"PATCH",
+                                    headers:{
+                        
+                                        "Content-Type":'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        completeVideo: completeJuego,
+                                      }),
+                                })
+                                .then(res => res.json())
+                                .then(res => console.log(res))
+                    
+                            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //Termina xD
+        }else{
+           
+            setNoti(false);
+            handleClickOpen();
+
+        }
+
+    })
+    .catch(error => {
+        console.error("Ocurrió un error en una o más peticiones:", error);
+    });
+        
     }
 
     return(
@@ -72,34 +198,18 @@ export default function CompleteSentences(){
                 return  <h3 key={index} style={{marginLeft:"20%",marginTop:"22%"}}>{element} </h3> 
             })}
 
-        {/* <h3 style={{marginLeft:"20%",marginTop:"22%"}}>I am </h3> 
-        <h3 style={{marginLeft:"20%",marginTop:"22%"}}>you are</h3> 
-        <h3 style={{marginLeft:"20%",marginTop:"22%"}}>he is</h3>
-        <h3 style={{marginLeft:"20%",marginTop:"22%"}}>she is</h3>
-        <h3 style={{marginLeft:"20%",marginTop:"22%"}}>it is</h3> */}
-
-            {console.log(inicio)}
+        
         </Container>
         
         <Container>
 
             {recursoFront.sentencia2.map((element,index) =>{
-                return ( <><input key={index} name={index} style={{display:"inline-block",paddingLeft:"1%",fontSize:"1.5vw",borderRadius:"25px",marginTop:"2%",height:"13%"}} type="text" onChange={handleOnChange}/>
+                return ( <><input key={index} id={index} name={index} style={{display:"inline-block",paddingLeft:"1%",fontSize:"1.5vw",borderRadius:"25px",marginTop:"2%",height:"13%"}} type="text" onChange={handleOnChange}/>
                 <h3 key={element} style={{marginLeft:"2%",display:"inline-block"}}>{element} </h3> <br/> </> )
                 
             })}
             
-        {/* <input style={{display:"inline-block",borderRadius:"25px",marginTop:"2%",height:"13%"}} type="text" />
-        <h3 style={{marginLeft:"2%",display:"inline-block"}}>I am </h3> <br/>
-        <input style={{display:"inline-block",borderRadius:"25px",marginTop:"2%",height:"13%"}} type="text" />
-        <h3 style={{marginLeft:"2%",display:"inline"}}>I am </h3> <br/>
-        <input style={{display:"inline-block",borderRadius:"25px",marginTop:"2%",height:"13%"}} type="text" />
-        <h3 style={{marginLeft:"2%",display:"inline"}}>I am </h3> <br/>
-        <input style={{display:"inline-block",borderRadius:"25px",marginTop:"2%",height:"13%"}} type="text" />    
-        <h3 style={{marginLeft:"2%",display:"inline"}}>I am </h3> <br/>
-        <input style={{display:"inline-block",borderRadius:"25px",marginTop:"2%",height:"13%"}} type="text" />
-        <h3 style={{marginLeft:"2%",display:"inline"}}>I am </h3> <br/>
-             */}
+       
 
         </Container>
 
@@ -108,6 +218,10 @@ export default function CompleteSentences(){
 
     </Container>
     
+    {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png" indice={numError}  texto="Tuviste un Error"/>) : 
+         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png" />)}
+        
+
 
       
     <Button onClick={handleEnviar} sx={{background:recursoFront.btnColor,color:"black",marginTop:"2%",marginLeft:"40%",borderRadius:"25px",width:"15%"}} variant='contained'>Enviar</Button> 

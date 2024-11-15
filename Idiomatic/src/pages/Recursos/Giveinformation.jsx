@@ -8,9 +8,9 @@ export default function Vocabulariobasico(){
 
             <Head title="Dar información" mycolor="rgba(146, 7, 255, 0.4)" ruta="/images/iconoEjercicios.svg" />
             
-            <MyCard title={"Clock"} imagen="/src/images/Clock.png" page="/Clock" link={""} introduccion={"Aprende a decir la hora correctamente y gestiona tu día con confianza."} />
-            <MyCard title={"Formal titles"} imagen="/src/images/titles.png" page="/Formaltitles" link={"presentaciones personales"} introduccion={"Domina los títulos formales y establezca relaciones profesionales en contextos formales."} />
-            <MyCard title={"Nationalities"} imagen="/src/images/nation.png" page="/Nationalities" link={"Dar informacion personal"} introduccion={"Familiarízate con las nacionalidades y descubre cómo presentarte en un entorno internacional."} />
+            <MyCard title={"Clock"} imagen="/src/images/Clock.png" page="/Clock" link={""} introduccion={"Aprende a decir la hora correctamente y gestiona tu día con confianza."} boxshadow={0}  />
+            <MyCard title={"Formal titles"} imagen="/src/images/titles.png" page="/Formaltitles" link={"presentaciones personales"} introduccion={"Domina los títulos formales y establezca relaciones profesionales en contextos formales."} boxshadow={0}  />
+            <MyCard title={"Nationalities"} imagen="/src/images/nation.png" page="/Nationalities" link={"Dar informacion personal"} introduccion={"Familiarízate con las nacionalidades y descubre cómo presentarte en un entorno internacional."} boxshadow={0}  />
 
     
     </>)

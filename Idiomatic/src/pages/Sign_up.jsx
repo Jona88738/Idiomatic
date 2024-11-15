@@ -51,7 +51,7 @@ function Register() {
           if (data.rol === 1) { 
             navigate('/Admin_Home'); // Redirige al dashboard de admin
           } else { 
-            navigate('/User_Home'); // Redirige al dashboard de usuario
+            navigate('/Login'); // Redirige al dashboard de usuario. Modificacion de Jona
           }
         } else {
           alert('Error de registro. Inténtalo de nuevo.');
@@ -149,7 +149,7 @@ function Register() {
         <div className="welcome-section">
           <h2 className="one-of-us-heading">¿Uno de nosotros?</h2>
           <p>¡Hola de nuevo! ¡Sigue aprendiendo y practicando con nosotros!</p>
-          <Button className="sign-in-button-reg" onClick={() => window.location.href = '/Login'}>Iniciar sesión</Button>
+          <Button className="sign-in-button-reg" onClick={() => navigate('/Login')}>Iniciar sesión</Button>
         </div>
       </div>
     </div>
