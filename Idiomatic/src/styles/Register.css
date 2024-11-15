@@ -55,7 +55,7 @@
     flex-direction: column !important; 
     align-items: center !important;
     justify-content: center !important;
-    min-height: 100vh !important;
+    min-height: 100vh ;
     background: url('/src/images/fondo_reg.png') !important;
     background-size: cover !important;
     background-position: center !important;
