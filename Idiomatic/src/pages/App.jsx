@@ -75,6 +75,7 @@ import Formaltitles from './Recursos/Formaltitles';
 import Nationalities from './Recursos/Nationalities';
 import Jobs from './Recursos/Jobs';
 import Tipo_Aprendizaje from './Home_user/User_Tipo_Aprendizaje';
+import AvisoPrivacidad from './AvisoPrivacidad';
 
 
 
@@ -102,6 +103,7 @@ function App() {
 
                 <Route  path='/TestAprendizaje' element={<TestAprendizaje/>} />
                 <Route  path='/TestIngles' element={<TestIngles/>} />
+                <Route  path='/Privacidad' element={<AvisoPrivacidad />} />
 
                 
               <Route element={<MyHora/>}>

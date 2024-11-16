@@ -12,6 +12,7 @@ import { fileURLToPath } from 'url';
 import { PORT, HOST_BD, PORT_BD, USER_BD, PASSWORD_BD, DATABASE } from './config.js'
 
 
+
 const require = createRequire(import.meta.url);
 const MySQLStore = require('express-mysql-session')(session);
 const app = express()
