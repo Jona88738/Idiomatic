@@ -5,7 +5,7 @@ const testMail = async () => {
         service: 'gmail',
         auth: {
             user: 'a21110142@ceti.mx',
-            pass: 'Monchita0316', // Cambia por tu contraseña o contraseña de aplicación
+            pass: '', // Cambia por tu contraseña o contraseña de aplicación
         },
     });
 
