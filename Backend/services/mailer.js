@@ -5,7 +5,7 @@ const transporter = createTransport({
     service: 'gmail',
     auth: {
         user: 'idiomaticsuppt@gmail.com', // Reemplaza con tu correo
-        pass: 'support123.'       // Reemplaza con tu contraseña
+        pass: 'support1234.'       // Reemplaza con tu contraseña
     }
 });
 

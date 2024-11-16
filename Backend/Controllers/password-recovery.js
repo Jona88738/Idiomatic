@@ -6,8 +6,11 @@ export const sendEmail = async (req, res) => {
 
     try {
         // Buscar al usuario con el email proporcionado
-        const [results] = await conn.query('SELECT * FROM usuario WHERE email_recovery = ?', [emailRecovery]);
-
+        const [results] = await conn.query(
+            'SELECT * FROM usuario WHERE correo_recuperacion = ? OR correo = ?',
+            [emailRecovery, emailRecovery]
+        );
+        
         // Si el usuario no existe, devolver éxito para no revelar información
         if (results.length === 0) {
             return res.status(200).json({
@@ -17,7 +20,7 @@ export const sendEmail = async (req, res) => {
         }
 
         // Crear la URL de restablecimiento de contraseña (puede ser una página genérica)
-        const url = `http://localhost:5173/update-password?email=${encodeURIComponent(emailRecovery)}`;
+        const url = `http://localhost:5173/update-password?correo=${encodeURIComponent(emailRecovery)}`;
 
         const mailOptions = {
             from: 'idiomaticsuppt@gmail.com',
@@ -32,7 +35,7 @@ export const sendEmail = async (req, res) => {
         };
 
         // Enviar el correo
-        const info = await transporter.sendMail(mailOptions);
+        const info = await transporter.sendEmail(mailOptions);
         console.log('Correo enviado: ' + info.response);
 
         return res.status(200).json({

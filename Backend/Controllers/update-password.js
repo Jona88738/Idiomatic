@@ -2,26 +2,26 @@ import { conn } from '../db/connectionMysql.js';
 import { encryptPass } from "../utils/fileHelperUser.js";
 
 export const updatePassword = async (req, res) => {
-    const { email, newPass, token } = req.body;  // Añadimos el token como parte de la solicitud
+    const { email, newPass } = req.body;
 
-    if (!email || !newPass || !token) {
+    // Verificar que el correo y la nueva contraseña se proporcionen
+    if (!email || !newPass) {
         return res.status(400).json({ 
-            message: 'Solicitud inválida. Falta el correo, contraseña o token.' ,
+            message: 'Solicitud inválida. Falta el correo o la nueva contraseña.',
             code: "ERR_INVALID_REQUEST",
         });
     }
 
     try {
-        // Verificar si el token es válido y no ha expirado
+        // Verificar si el usuario existe
         const [results] = await conn.promise().query(
-            'SELECT * FROM users WHERE email_recovery = ? AND reset_token = ? AND reset_token_expires > ?',
-            [email, token, Date.now()]
+            'SELECT * FROM usuario WHERE correo_recuperacion = ? OR correo = ?', [email]
         );
 
         if (results.length === 0) {
             return res.status(400).json({
-                message: 'El token es inválido o ha expirado.',
-                code: "ERR_INVALID_OR_EXPIRED_TOKEN",
+                message: 'El correo no está registrado.',
+                code: "ERR_USER_NOT_FOUND",
             });
         }
 
@@ -30,7 +30,7 @@ export const updatePassword = async (req, res) => {
 
         // Ejecutamos la consulta para actualizar la contraseña en la base de datos
         await conn.promise().query(
-            'UPDATE users SET pass = ?, reset_token = NULL, reset_token_expires = NULL WHERE email_recovery = ?', 
+            'UPDATE usuario SET contraseña = ? WHERE correo_recuperacion = ?', 
             [newHashedPassword, email]
         );
 
