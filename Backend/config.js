@@ -13,3 +13,6 @@ export const USER_BD = process.env.USER_BD;
 export const PASSWORD_BD = process.env.PASSWORD_BD;
 export const DATABASE = process.env.DATABASE;
 
+export const USER_GMAIL = process.env.USER_GMAIL;
+export const USER_PASSWORD = process.env.USER_PASSWORD;
+

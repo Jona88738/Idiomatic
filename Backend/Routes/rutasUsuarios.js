@@ -1,6 +1,6 @@
 import { Router } from "express";
 import cUser from "../Controllers/controladorUser.js"
-import { sendEmail } from '../Controllers/password-recovery.js'; 
+import { sendEmailF } from '../Controllers/password-recovery.js'; 
 import { updatePassword } from '../Controllers/update-password.js'; 
 import { exec,spawn } from'child_process';
 import multer from "multer";
@@ -23,7 +23,7 @@ const routes = Router();
 routes.post("/createUser", cUser.createUser ) 
 routes.post("/signUser", cUser.sign_in ) 
 
-routes.post("/PasswordRecovery", sendEmail)
+routes.post("/PasswordRecovery", sendEmailF)
 routes.post("/UpdatePassword", updatePassword)
 
 

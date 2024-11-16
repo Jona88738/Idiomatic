@@ -1,7 +1,7 @@
 import transporter from '../services/mailer.js';
 import { conn } from '../db/connectionMysql.js';
 
-export const sendEmail = async (req, res) => {
+export const sendEmailF = async (req, res) => {
     const { emailRecovery } = req.body;
 
     try {
@@ -33,9 +33,11 @@ export const sendEmail = async (req, res) => {
                 <p>Este enlace es válido por un tiempo limitado.</p>
             `,
         };
-
+        
+        
         // Enviar el correo
-        const info = await transporter.sendEmail(mailOptions);
+        
+        const info = await transporter.sendMail(mailOptions);
         console.log('Correo enviado: ' + info.response);
 
         return res.status(200).json({
