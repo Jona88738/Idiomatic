@@ -39,17 +39,43 @@
     cursor: pointer !important;
   }
   
-  .welcome-section {
-    display: flex!important;
-    flex-direction: column !important;
-    justify-content: center !important;
+  .welcome-section-reg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff !important;
-    height: 100% !important; 
-    padding: 10px;
-    padding-left: 3rem !important; 
+    color: #fff;
+    height: 100%;
+    padding: 20px; /* Ajusta el padding general */
   }
+  
+  .welcome-section-reg h2 {
+    font-size: 1.7rem; /* Ajusta el tamaño del texto */
+    margin: 0; /* Elimina márgenes adicionales */
+    color: #fff;
+    margin-top: -360PX; /* Asegura contraste */
+  }
+  
+  .welcome-section-reg p {
+    font-size: 1.1rem; /* Tamaño del texto para la descripción */
+    margin: 10px 0; /* Espaciado entre el título y la descripción */
+  }
+  
+  .sign-in-button-reg {
+    margin-top: 14px; /* Añade espacio entre el texto y el botón */
+    padding: 10px 7px; /* Ajusta el tamaño del botón */
+    background-color: #ffc107; /* Cambia color del botón */
+    color: #000; /* Contraste del texto del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sign-in-button-reg:hover {
+    background-color: #e0a800; /* Color del botón al pasar el cursor */
+  }
+  
   .register-page {
     display: flex !important;
     flex-direction: column !important; 
@@ -155,16 +181,16 @@
   }
   
   .sign-up-button-reg  {
-    width: 40% !important;
-    padding: 10px !important;
+    width: 44% !important;
+    padding: 8px !important;
     background-color: #FFC212 !important;
     text-align: center !important;
     border: none !important;
     border-radius: 25px !important;
     color: white !important;
     cursor: pointer !important;
-    font-size: 1rem !important;
-    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
     margin: 20px auto 0 auto !important; 
     margin-left: 140px !important;
     display: block !important; 
@@ -178,15 +204,17 @@
   }
   
   .sign-in-button-reg {
-    width: 32% !important;
-    padding: 10px !important;
+    width: 36% !important;
+    padding: 8px !important;
     background-color: #FFC212 !important;
     border: none !important;
     border-radius: 25px !important;
+    
+    margin-top: -70px !important;
     color: white !important;
     cursor: pointer !important;
-    font-size: 0.8rem !important;
-    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
     margin: 20px auto 0 auto !important; 
     display:  block !important; 
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important; /* Efecto de transición */

@@ -89,7 +89,7 @@ const LoginPage = () => {
           <h2 className="new-here-heading">¿Nuevo/a aquí?</h2>
           <p>¡Bienvenido/a! 🎉 Aprende inglés con nosotros.</p>
           <p>¡Explora, practica y disfruta del viaje lingüístico!</p>
-          <button className="register-button" onClick={() => {const direccion = "/Sign_up"; navigate(direccion);}}>Registrarse</button>
+          <button className="register-button" onClick={() => {const direccion = "/Sign_up"; navigate(direccion);}}>REGISTRARSE</button>
         </div>
 
         <div className="form-section">
@@ -158,7 +158,7 @@ const LoginPage = () => {
                />
               </div>
 
-              <button type="submit" className="login-btn">Ingresar</button>
+              <button type="submit" className="login-btn">INGRESAR</button>
             </form>
           </FormProvider>
 

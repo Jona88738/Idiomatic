@@ -153,15 +153,15 @@ body {
 }
 
 .login-btn {
-  width: 40%;
+  width: 43%;
   padding: 10px;
   background-color: #FFC212;
   border: none;
   border-radius: 25px;
   color: white;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: bold;
   margin: 20px auto 0 auto;
   display: block;
   margin-left: 8rem;
@@ -188,7 +188,7 @@ body {
 }
 
 .register-button {
-  width: 32%;
+  width: 43%;
   padding: 10px;
   background-color: #FFC212;
   border: none;
@@ -196,7 +196,7 @@ body {
   color: white;
   cursor: pointer;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: bold;
   margin: 20px auto 0 auto;
   display: block;
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
