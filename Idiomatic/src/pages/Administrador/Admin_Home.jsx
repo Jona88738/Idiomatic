@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Box, Typography, Grid, Button } from '@mui/material';
+import { Container, Box, Typography, Grid, IconButton } from '@mui/material';
 import AdminMenu from '../../components/NavBar_admin'; // Importa el menú de administración
 import { Pie } from 'react-chartjs-2';  // Importa el gráfico tipo Pie
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import DeleteIcon from '@mui/icons-material/Delete';  // Icono de basurero
+
 
 // Configuración de Chart.js
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const AdminDashboard = () => {
   const [userComments, setUserComments] = useState([]);
-  const [selectedComments, setSelectedComments] = useState([]);
   const [userStats, setUserStats] = useState({ usersCount: 0, subscriptionStats: {} });
 
   useEffect(() => {
@@ -37,32 +38,31 @@ const AdminDashboard = () => {
       .catch((error) => console.error('Error fetching user data:', error));
   }, []);
 
-  const handleCheckboxChange = (commentId) => {
-    setSelectedComments((prev) => {
-      if (prev.includes(commentId)) {
-        return prev.filter((id) => id !== commentId);
-      } else {
-        return [...prev, commentId];
-      }
-    });
-  };
-
   const handleDeleteComments = async (userId) => {
+    console.log("ID de usuario para eliminar:", userId);  // Debería imprimir el ID del usuario
+    if (!userId || typeof userId !== 'number') {
+        alert("ID de usuario no válido.");
+        return;
+    }
+  
     const confirmed = window.confirm("¿Estás seguro de que deseas eliminar los comentarios de este usuario?");
     if (confirmed) {
-      try {
-        const response = await fetch(`/api/DeleteComentarioUser?idusuario=${userId}`, { method: 'DELETE' });
-        const data = await response.json();
-        if (data.message) {
-          alert("Comentarios eliminados correctamente.");
-          // Aquí puedes actualizar el estado de los usuarios para reflejar los cambios.
-        } else {
-          alert("Error al eliminar comentarios. Inténtalo de nuevo.");
+        try {
+            // Cambio aquí: Reemplazar idusuario por id_usuario
+            const response = await fetch(`/api/DeleteComentarioUser?id_usuario=${userId}`, {
+                method: 'DELETE',
+            });
+            const data = await response.json();
+            if (response.ok) {
+                alert(data.message);
+                setUserComments((prev) => prev.filter((user) => user.idusuario !== userId));
+            } else {
+                alert(data.message || "Error al eliminar comentarios. Inténtalo de nuevo.");
+            }
+        } catch (error) {
+            console.error("Error eliminando comentarios:", error);
+            alert("Error al eliminar comentarios. Inténtalo de nuevo.");
         }
-      } catch (error) {
-        console.error('Error deleting comments:', error);
-        alert("Error al eliminar comentarios. Inténtalo de nuevo.");
-      }
     }
   };
 
@@ -132,15 +132,8 @@ const AdminDashboard = () => {
               user.comentarios.length > 0 && (
                 <Box key={user.idusuario} sx={{ mb: 2 }}>
                   <Grid container spacing={2} sx={{ '&:hover': { backgroundColor: '#f5f5f5' }, padding: '10px', borderRadius: '8px', fontSize: '12px' }}>
-                    <Grid item xs={1}>
-                      <input
-                        type="checkbox"
-                        onChange={() => handleCheckboxChange(user.idusuario)}  
-                        checked={selectedComments.includes(user.idusuario)}
-                      />
-                    </Grid>
                     <Grid item xs={5}>
-                      <Typography style={{ fontWeight: 'bold', color: '#4B0082' , fontSize: '18px'}}>{user.nombre}</Typography>
+                      <Typography style={{ fontWeight: 'bold', color: '#4B0082', fontSize: '18px'}}>{user.nombre}</Typography>
                     </Grid>
                     <Grid item xs={6}>
                       {user.comentarios.map((comentario, index) => (
@@ -148,12 +141,16 @@ const AdminDashboard = () => {
                       ))}
                     </Grid>
                   </Grid>
+                  <IconButton
+                    color="secondary"
+                    onClick={() => handleDeleteComments(user.idusuario)} // Aquí pasa el ID del usuario
+                    style={{ marginTop: '10px', float: 'right', marginRight: '10px', fontSize: '30px' }}
+                  >
+                    <DeleteIcon style={{ fontSize: 30 , marginTop: '-15px'}} />  {/* Ícono del bote de basura */}
+                  </IconButton>
                 </Box>
               )
             ))}
-            <Button variant="contained" color="secondary" onClick={handleDeleteComments} style={{ marginTop: '15px' }}>
-              Eliminar Comentarios
-            </Button>
           </Box>
 
           <Grid container spacing={3}>

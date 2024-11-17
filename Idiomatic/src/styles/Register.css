@@ -209,6 +209,8 @@
     background-color: #FFC212 !important;
     border: none !important;
     border-radius: 25px !important;
+    
+    margin-top: -70px !important;
     color: white !important;
     cursor: pointer !important;
     font-size: 0.9rem !important;
