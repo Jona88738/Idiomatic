@@ -121,10 +121,10 @@ const AdminDashboard = () => {
             </Typography>
             <Grid container spacing={2}>
               <Grid item xs={6}>
-                <Typography variant="subtitle1" style={{ fontWeight: 'bold' }}>USUARIO</Typography>
+                <Typography variant="subtitle1" style={{ fontWeight: 'bold', marginBottom: '20px' }}>USUARIO</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant="subtitle1" style={{ fontWeight: 'bold' }}>COMENTARIOS</Typography>
+                <Typography variant="subtitle1" style={{ fontWeight: 'bold', marginBottom: '20px' }}>COMENTARIOS</Typography>
               </Grid>
             </Grid>
 

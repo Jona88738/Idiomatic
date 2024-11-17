@@ -1,11 +1,17 @@
-import { createTransport } from 'nodemailer';
-
+import nodemailer from 'nodemailer';
+import {USER_GMAIL,USER_PASSWORD } from  '../config.js'
 // Configura el transportador de correo
-const transporter = createTransport({
-    service: 'gmail',
+console.log(USER_GMAIL,USER_GMAIL  )
+const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, 
     auth: {
-        user: 'idiomaticsuppt@gmail.com', // Reemplaza con tu correo
-        pass: 'support123.'       // Reemplaza con tu contraseña
+        user: USER_GMAIL, // Reemplaza con tu correo
+        pass: USER_PASSWORD       // Reemplaza con tu contraseña
+    },
+    tls:{
+        rejectUnauthorized:false
     }
 });
 

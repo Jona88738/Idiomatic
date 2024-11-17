@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Container, Typography, TextField, Button, InputAdornment } from '@mui/material';
-import EmailIcon from '@mui/icons-material/Email';
+import { Box, Container, Typography, TextField, Button } from '@mui/material';
 import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -10,6 +9,7 @@ import '../styles/UpdatePass.css';
 
 // Esquema de validación
 const schema = yup.object().shape({
+  email: yup.string().email('Correo inválido').required('Correo es requerido'),
   newPass: yup
     .string()
     .min(8, 'Debe tener al menos 8 caracteres')
@@ -20,88 +20,171 @@ const schema = yup.object().shape({
     .required('Confirmación es requerida'),
 });
 
-const UpdatePassword = ({ UpdatePasswordService }) => {
-  const [passField, setPassField] = useState('');
-  const { url, setUrl } = useUpdatePasswordContext();
-
-  // Mutation para actualizar la contraseña
-  const { mutateAsync, isError, error, isSuccess } = useMutation({
-    mutationKey: ['UpdatePassword'],
-    mutationFn: UpdatePasswordService,
+// Servicio para actualizar la contraseña
+const UpdatePasswordService = async ({ email, newPass }) => {
+  const response = await fetch('http://localhost:3001/api/update-password', {
+    method: 'POST',
+    headers: { 
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, newPass }),
+    credentials: 'include',
   });
 
-  // Obtener email del localStorage
-  useEffect(() => {
-    let email = localStorage.getItem('email');
-    email = JSON.parse(email);
-    setUrl(email);
-  }, [url, setUrl]);
+  if (!response.ok) {
+    const errorData = await response.json(); // Obtener los detalles del error
+    console.error('Error detallado:', errorData);  // Imprimir detalles en consola
+    throw new Error(errorData.message || 'Error al actualizar la contraseña');
+  }
 
-  // Formulario
+  return response.json();  // Respuesta exitosa
+};
+
+const UpdatePassword = () => {
   const methods = useForm({
     defaultValues: {
+      email: '',
       newPass: '',
       newConfirmPass: '',
     },
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = methods.handleSubmit(async ({ newPass, newConfirmPass }) => {
+  const { setValue, handleSubmit, formState: { errors } } = methods;
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const emailFromURL = queryParams.get('correo'); 
+    const emailLocalStorage = localStorage.getItem('email');
+    const emailToSet = emailFromURL || emailLocalStorage || ''; 
+    setValue('email', emailToSet);
+  }, [setValue]);
+
+  const { mutateAsync, isError, error, isSuccess, isLoading } = useMutation({
+    mutationFn: UpdatePasswordService,
+  });
+
+  const onSubmit = handleSubmit(async ({ email, newPass }) => {
     try {
-      const response = await mutateAsync({
-        request: {
-          email: url,
-          newPass: newPass,
-        },
-      });
-      console.log(response);
-      // Limpiar el formulario después del éxito
+      await mutateAsync({ email, newPass });
       methods.reset();
       localStorage.removeItem('email');
-      setUrl('');
-    } catch (error) {
-      console.error('Error al actualizar la contraseña', error);
+    } catch (err) {
+      console.error('Error al actualizar la contraseña:', err.message);
+      alert('No se pudo actualizar la contraseña. Inténtelo más tarde.');
     }
   });
 
   return (
     <div className="update-password-page">
       <NavBar />
-      <Container className="forgot-password-container">
-        <Box className="login-card">
-          <Typography variant="h5" className="title">
-            Actualizacion de contraseña
+      <Container className="forgot-password-container" sx={{ display: 'flex', justifyContent: 'center', marginTop: '10px', maxWidth: 300}}>
+        <Box className="login-card" sx={{ width: '100%', maxWidth: 750, padding: 2, borderRadius: 3, boxShadow: 3 }}>
+          <Typography variant="h5" className="title" sx={{ fontSize: '2rem', marginBottom: 1.5, marginTop: "-10px", fontFamily:'Century Gothic', fontWeight: 'bold'}}>
+            Actualización de Contraseña
           </Typography>
 
           <FormProvider {...methods}>
             <form onSubmit={onSubmit} className="forgot-password-form">
               <TextField
+                name="email"
+                variant="outlined"
+                fullWidth
+                type="email"
+                placeholder="Correo electrónico"
+                {...methods.register('email')}
+                error={!!errors.email}
+                helperText={errors.email?.message}
+                sx={{
+                  marginBottom: 2,
+                  '& .MuiInputLabel-root': { fontSize: '1.1rem' },
+                  '& .MuiInputBase-root': { fontSize: '1rem' },
+                  '& .MuiOutlinedInput-root': {
+                    border: '2px solid #333',
+                    '&:hover fieldset': {
+                      borderColor: '#555',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#000',
+                    },
+                  },
+                }}
+              />
+
+              <TextField
                 name="newPass"
-                label="Nueva Contraseña"
                 variant="outlined"
                 fullWidth
                 type="password"
                 placeholder="Nueva contraseña"
-                error={!!methods.formState.errors.newPass}
-                helperText={methods.formState.errors.newPass?.message}
+                error={!!errors.newPass}
+                helperText={errors.newPass?.message}
                 {...methods.register('newPass')}
+                sx={{
+                  marginBottom: 2,
+                  '& .MuiInputLabel-root': { fontSize: '1.1rem' },
+                  '& .MuiInputBase-root': { fontSize: '1rem' },
+                  '& .MuiOutlinedInput-root': {
+                    border: '2px solid #333',
+                    '&:hover fieldset': {
+                      borderColor: '#555',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#000',
+                    },
+                  },
+                }}
               />
 
               <TextField
                 name="newConfirmPass"
-                label="Confirmar Contraseña"
                 variant="outlined"
                 fullWidth
                 type="password"
                 placeholder="Confirmar contraseña"
-                error={!!methods.formState.errors.newConfirmPass}
-                helperText={methods.formState.errors.newConfirmPass?.message}
+                error={!!errors.newConfirmPass}
+                helperText={errors.newConfirmPass?.message}
                 {...methods.register('newConfirmPass')}
+                sx={{
+                  marginBottom: 2,
+                  '& .MuiInputLabel-root': { fontSize: '1.1rem' },
+                  '& .MuiInputBase-root': { fontSize: '1rem' },
+                  '& .MuiOutlinedInput-root': {
+                    border: '2px solid #333',
+                    '&:hover fieldset': {
+                      borderColor: '#555',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#000',
+                    },
+                  },
+                }}
               />
 
-              <Button type="submit" variant="contained" color="primary" fullWidth>
-                Actualizar contraseña
-              </Button>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Button 
+                  type="submit" 
+                  variant="contained" 
+                  color="primary" 
+                  sx={{ width: '48%' }}
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Cargando...' : 'Actualizar contraseña'}
+                </Button>
+
+                <Button 
+                  href="/Login" 
+                  variant="contained" 
+                  color="secondary"
+                  sx={{
+                    width: '78%',
+                    borderRadius: '20px',
+                    marginLeft:'15px'
+                  }}
+                >
+                  Volver a Login
+                </Button> 
+              </Box>
             </form>
           </FormProvider>
 
@@ -113,13 +196,9 @@ const UpdatePassword = ({ UpdatePasswordService }) => {
 
           {isError && (
             <Typography variant="body1" className="error-message">
-              {error.message}
+              {error?.message || 'Hubo un problema al actualizar la contraseña. Intente nuevamente más tarde.'}
             </Typography>
           )}
-
-          <Button href="/Login" variant="text" color="secondary">
-            Volver a Login
-          </Button>
         </Box>
       </Container>
     </div>

@@ -7,6 +7,9 @@
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^6.1.6",
     "chart.js": "^4.4.6",
+    "cors": "^2.8.5",
+    "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
     "nodemailer": "^6.9.15",
     "react-chartjs-2": "^5.2.0",
     "react-google-recaptcha": "^3.1.0"

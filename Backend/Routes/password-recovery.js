@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
 const router = Router();
-import { sendEmail } from '../Controllers/password-recovery.js';
+import  {sendEmailF} from '../Controllers/password-recovery.js';
 
-router.post("/password-recovery", sendEmail);
+router.post("/password-recovery", sendEmailF);
 
 export default router;
