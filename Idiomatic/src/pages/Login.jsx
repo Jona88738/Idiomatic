@@ -101,7 +101,7 @@ const LoginPage = () => {
                 name='correo'
                 variant="outlined"
                 fullWidth
-                placeholder="Usuario o correo electrónico"
+                placeholder="Correo electrónico"
                 error={!!methods.formState.errors.correo}
                 helperText={methods.formState.errors.correo?.message}
                 InputProps={{
