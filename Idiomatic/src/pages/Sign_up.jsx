@@ -146,11 +146,17 @@ function Register() {
         </div>
 
         {/* Sección Derecha */}
-        <div className="welcome-section">
-          <h2 className="one-of-us-heading">¿Uno de nosotros?</h2>
-          <p>¡Hola de nuevo! ¡Sigue aprendiendo y practicando con nosotros!</p>
-          <Button className="sign-in-button-reg" onClick={() => navigate('/Login')}>Iniciar sesión</Button>
-        </div>
+        <div className="welcome-section-reg">
+  <h2 className="one-of-us-heading">¿Uno de nosotros?</h2>
+  <p>¡Hola de nuevo! ¡Sigue aprendiendo y practicando con nosotros!</p>
+  <Button 
+    className="sign-in-button-reg" 
+    onClick={() => navigate('/Login')}
+  >
+    Iniciar sesión
+  </Button>
+</div>
+
       </div>
     </div>
   );
