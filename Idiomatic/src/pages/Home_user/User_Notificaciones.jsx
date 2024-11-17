@@ -28,7 +28,7 @@ function User_Notificaciones() {
     
     const nuevoArreglo = notificacion.filter((noti,i) => i !== indice)
 
-    console.log(nuevoArreglo)
+    // console.log(nuevoArreglo)
     // const prueba = {nombre:""}
     fetch("/api/DeleteNotificacionNoti",{
       method:"DELETE",

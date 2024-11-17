@@ -14,7 +14,6 @@ export default function ApartadoAudio(){
     
 
     let completeAudio = JSON.parse(sessionStorage.getItem('completeAudio'))
-    console.log(completeAudio[index].TotalComplete )
 
     useEffect(()=>{
         fetch(`/api/listaAudios?tema=${link}`)
@@ -47,12 +46,6 @@ export default function ApartadoAudio(){
                 //         (<MyCard key={video.idvideo} title={video.nombre} imagen={imagen} page="/video" link={video.link} introduccion={video.introduccion} videoID={video.id_leccion}  />)
                 // );
                 })}
-
-            {/* {infoAudios.map(audio => {
-            const recursoEjercicio = audio.respuesta;
-             return   <MyCard key={audio.idaudio} imagen={imagen} title={audio.nombre}  page="/EjercicioAudio" recursoEjercicio={recursoEjercicio}  link={audio.link} introduccion={audio.introduccion} />    
-                
-})} */}
 
 
             

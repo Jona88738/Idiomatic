@@ -28,7 +28,7 @@ function TestAprendizaje() {
   const [completed, setCompleted] = useState({});
   const [preguntas, setPreguntas] = useState([]);
   const [res, setRes] = useState([]);
-  //const [preguntas, setPreguntas] = useState([]);
+  
   const [selectedOption, setSelectedOption] = useState([]);
 
   const handleClickOpen = () => {
@@ -130,7 +130,7 @@ function TestAprendizaje() {
   };
 
   const handleMio = () =>{
-    console.log(res)
+    // console.log(res)
 
     
     
@@ -153,9 +153,9 @@ function TestAprendizaje() {
       }
     }
     
-    console.log(`El valor que más se repite es: ${valorMasRepetido} (${maxRepeticiones} veces)`);
+    // console.log(`El valor que más se repite es: ${valorMasRepetido} (${maxRepeticiones} veces)`);
     setTest(valorMasRepetido)
-    console.log("Mi test: ",test)
+    // console.log("Mi test: ",test)
     setNoti(true)
     handleClickOpen();
 
@@ -163,7 +163,7 @@ function TestAprendizaje() {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%'}}>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>
@@ -238,7 +238,7 @@ useEffect(()=>{
 },[])
 
     const handleChangle = (e) => {
-      console.log(e.target.value)
+      // console.log(e.target.value)
       //setSelectedOption(e.target.id);
       // setRes({
       //   ...res,
@@ -250,7 +250,7 @@ useEffect(()=>{
          [e.target.name]:e.target.value
        })
 
-      console.log(res)
+      // console.log(res)
 
       
 
@@ -258,11 +258,11 @@ useEffect(()=>{
 //console.log(res)
   return (
    
-    <div style={{backgroundImage: "url('/src/images/TestAprendizaje/prueba.png')",backgroundSize:"cover",backgroundPosition: "center",height:"100vh"}}>
+    <div style={{backgroundImage: "url('/images/TestAprendizaje/prueba.png')",backgroundSize:"cover",backgroundPosition: "center",height:"100vh"}}>
        
       <Container >
-      <img style={{float:"left",position:"absolute",left:"16%"}} src="/src/images/TestAprendizaje/libro.png" width="7%"/>
-      <img style={{float:"right",position:"absolute",right:"16%"}} src="/src/images/TestAprendizaje/materialEscolar.png" width="7%"/>
+      <img style={{float:"left",position:"absolute",left:"16%"}} src="/images/TestAprendizaje/libro.png" width="7%"/>
+      <img style={{float:"right",position:"absolute",right:"16%"}} src="/images/TestAprendizaje/materialEscolar.png" width="7%"/>
       
       <h1 style={{textAlign:'center',fontSize:'3vw'}}>Test de estilos de aprendizaje</h1>
       <br />
@@ -277,16 +277,16 @@ useEffect(()=>{
 
         return(<div style={{position:"relative",bottom:"2%"}}>
 
-            <h2 style={{marginLeft:"5%",marginTop:"2%"}}>{element.pregunta}</h2>
+            <h2 style={{marginLeft:"5%",marginTop:"2%",fontSize:"2vw"}}>{element.pregunta}</h2>
             
             <input type='radio' key={element.res1.tipo}  name={element.in} id={element.res1.res}   style={{marginLeft:"7%",width:"1.6vw",height:"1.6vw"}} onChange={handleChangle}  value={element.res1.tipo}  />
-            <label htmlFor={element.res1.res} style={{fontSize:"20px",position:"relative",Bottom:"99px"}}> {element.res1.res}</label>
+            <label htmlFor={element.res1.res} style={{fontSize:"2vw",position:"relative",Bottom:"99px"}}> {element.res1.res}</label>
 
             <input type='radio' key={element.res2.tipo}  name={element.in} id={element.res2.res}  style={{marginLeft:"7%",width:"1.6vw",height:"1.6vw"}} onChange={handleChangle} value={element.res2.tipo} />
-            <label htmlFor={element.res2.res} style={{fontSize:"20px"}}> {element.res2.res}</label>
+            <label htmlFor={element.res2.res} style={{fontSize:"2vw",}}> {element.res2.res}</label>
 
             <input type='radio' key={element.res3.tipo}  name={element.in} id={element.res3.res}   style={{marginLeft:"7%",width:"1.6vw",height:"1.6vw"}} onChange={handleChangle} value={element.res3.tipo} />
-            <label htmlFor={element.res3.res}   style={{fontSize:"20px"}} > {element.res3.res}</label>
+            <label htmlFor={element.res3.res}   style={{fontSize:"2vw",}} > {element.res3.res}</label>
 
             <br />
             <br />

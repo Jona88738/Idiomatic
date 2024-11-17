@@ -6,7 +6,7 @@ export default function Vocabulariobasico(){
 
             <NavBar_Apartados/>
 
-            <Head title="Vocabulario basico" mycolor="rgba(146, 7, 255, 0.4)" ruta="/images/iconoEjercicios.svg" />
+            <Head title="Vocabulario basico" mycolor="rgba(146, 7, 255, 0.4)" ruta="/images/iconoEjercicios.png" />
             
             <MyCard title={"Clothes"} imagen="/images/Clothescard.png"  page="/Clothes"  link={""}  introduccion={"Exprésate a través de la moda y aprende a describir tu estilo personal con confianza."} boxshadow={0}  /> 
             <MyCard title={"Family"} imagen="/images/Familycard.png"  page="/Family" link={"presentaciones personales"}  introduccion={"Conoce y comparte sobre tus seres queridos, fortaleciendo la conexión con aquellos que amas."} boxshadow={0}  />

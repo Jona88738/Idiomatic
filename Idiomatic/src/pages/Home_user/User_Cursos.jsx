@@ -31,7 +31,7 @@ function User_Cursos() {
   const navigate = useNavigate();
 
   function to(titulo){
-    console.log("Entro xD",titulo)
+    // console.log("Entro xD",titulo)
     navigate('/Temas'+titulo)
   }
 

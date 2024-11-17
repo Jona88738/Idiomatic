@@ -20,30 +20,24 @@ function User_Home() {
   const [info, setInfo] = useState({});
   const [notificacion, setNotificacion] = useState([])
 
-  // const userId = Cookies.get('userId');
-  // console.log(typeof userId)
-  // if(userId === "1"){
-  //   console.log("Entro")
-  //   setInfo(info)
-  // }
-  // console.log(userId)
+  
          
   const {stopTime} = useContext(HoraContext);
 
   const navigate = useNavigate();
 
   useEffect(() =>{
-      console.log("pidio datos progreso usuario")
-      console.log("XD")
+      // console.log("pidio datos progreso usuario")
+      // console.log("XD")
     fetch("/api/progresoUsuario")
       .then(res => res.json(res))
       .then(res =>{
-        console.log("Video",res.IdContenido)
+        // console.log("Video",res.IdContenido)
        // sessionStorage.setItem('completeVideo', res.completeVideo);
         sessionStorage.setItem('completeV', JSON.stringify( res.completeVideo));
         sessionStorage.setItem('completeAudio', JSON.stringify( res.completeAudio));
         sessionStorage.setItem('completeJuego', JSON.stringify( res.completeEjercicio));
-        console.log("Estos son los temas Videos ",res.temaVideos);
+        // console.log("Estos son los temas Videos ",res.temaVideos);
         sessionStorage.setItem('TemasJuegos', JSON.stringify( res.temasJuegos));
         sessionStorage.setItem('TemasAudios', JSON.stringify( res.temaAudios));
         sessionStorage.setItem('TemasVideos', JSON.stringify( res.temaVideos));
@@ -52,7 +46,7 @@ function User_Home() {
         
         // sessionStorage.setItem('rol', 'admin');
         
-      console.log(res)
+      // console.log(res)
       // Cookies.remove('userId');
 
         setInfo(res)
@@ -76,7 +70,7 @@ function User_Home() {
     
       let nuevoArreglo = notificacion.filter((noti,i) => i !== indice)
          
-        console.log(nuevoArreglo)
+        // console.log(nuevoArreglo)
         // const prueba = {nombre:""}
         fetch("/api/DeleteNotificacionAvisos",{
           method:"DELETE",
@@ -90,7 +84,7 @@ function User_Home() {
 
 
   function Notificacion({indice,titulo,texto}){
-    console.log(indice)
+    // console.log(indice)
     return(<>
       <Container className='ContenedorNoti' >
           <h2 className='titleNoti' style={{marginBottom:"0"}}>{titulo} </h2>

@@ -33,7 +33,7 @@ export default function NavBar() {
 
         <Container disableGutters className={navH ? 'NavBarOpciones':'NavBarOpcioness'}  id="nav">
 
-        <Button className='btnCerrar'>Cerrar</Button> 
+        <Button className='btnCerrar' onClick={cambioNav}>Cerrar</Button> 
 
         <Button className='btnOpcion' onClick={() => {const direccion = "/"; Redireccionar(direccion);}}  title='inicio'> Inicio </Button>
         {/* <Button  className='btnOpcion' onClick={() => {const direccion = "/Cursos"; Redireccionar(direccion);}}  >Cursos</Button> */}

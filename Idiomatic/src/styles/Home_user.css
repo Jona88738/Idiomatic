@@ -111,6 +111,7 @@
         
         text-Align:center;
         font-Size:5vh;
+       
     }
 
     .subTituloMain{
@@ -333,11 +334,14 @@
         
         text-Align:center;
         font-Size:4vw;
+        width: 80% !important;
     }
 
     .subTituloMain{
         text-Align:center;
         font-Size:3vw;
+       
+        
     }
 
     .imgHomeUser{
@@ -543,12 +547,14 @@
     .TituloMain{
         
         text-Align:center;
-        font-Size:4vw;
+        font-Size:3vw;
+        width: 80% !important;
     }
 
     .subTituloMain{
         text-Align:center;
         font-Size:2vw;
+        width: 80% !important;
     }
 
     .imgHomeUser{
