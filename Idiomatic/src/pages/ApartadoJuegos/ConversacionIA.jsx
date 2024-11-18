@@ -93,7 +93,7 @@ export default function ConversacionIA(){
         formData.append('file', blob, 'N.wav');
         setOpenBackDrop(true)
 
-        fetch('http://54.196.252.8:5000/IA', { //api/audioIA
+        fetch('/api/API_IA', { //api/audioIA
             method: 'POST',
             body: formData
         })

@@ -8,6 +8,8 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import axios from "axios";
+import FormData from 'form-data';
 
 //const {  } = require('child_process');
 const __filename = fileURLToPath(import.meta.url);
@@ -78,10 +80,42 @@ routes.get("/getAllLecturas",cUser.getAllLecturas)
 // routes.get("/juegos")
 // routes.get("/audios")
 
-routes.post("/API_IA", upload.single("audio") ,(req, res) => {
+routes.post("/API_IA", upload.single("file") , async (req, res) => {
 
+    console.log("Entro XD")
+    console.log(req.file);
+    try{
+
+         // Archivo recibido del frontend
+        //  const audioPath = req.file.path;
+
+        //  // Leer el archivo como un flujo
+        //  const audioStream = fs.createReadStream(audioPath);
+
+         // Crear el FormData para reenviar el archivo al otro servidor
+         const formData = new FormData();
+         formData.append('file', req.file.buffer, req.file.originalname); // El buffer contiene el archivo en memoria
+ 
+
+        const resIA = await axios.post("http://54.196.252.8:5000/IA",formData, {
+            headers: {
+                'Content-Type': 'audio/wav', // Cambia según el formato del audio
+            },
+        })
+
+        //console.log(resIA);
+
+        
+        res.json(resIA.data)
+
+
+    }catch(error){
+        console.log(error)
+
+        res.status(500).send('Error conectando al servidor.');
+    }
     
-
+    
 });
 
 
