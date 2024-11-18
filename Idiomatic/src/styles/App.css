@@ -185,6 +185,16 @@ body {
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  align-items: center;
+}
+
+.captcha-error-message {
+  margin-top: 15px; /* Espaciado entre el captcha y el mensaje */
+  color: rgb(158, 5, 5);
+  font-family: Century Gothic;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .register-button {

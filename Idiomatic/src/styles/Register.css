@@ -289,22 +289,14 @@
         align-items: center;
     }
 
-<<<<<<< HEAD
     .register-container {
         flex-direction: column;
         max-width: 100%;
         align-items: center;
         margin: 0 auto;
     }
-=======
-  .register-page {
-      align-items: center;
-      min-height: 100vh;      
-      background-image: url("/images/pruebaimg3.png") !important;
->>>>>>> test
 
-    .sign-up-heading,
-    .register-section h2 {
+    .sign-up-heading,.register-section h2 {
         font-size: 24px;
         margin-left: 0;
         text-align: center;
@@ -346,8 +338,7 @@
         margin: 5px;
     }
 
-    .sign-up-button-reg,
-    .sign-in-button-reg {
+    .sign-up-button-reg,.sign-in-button-reg {
         width: 80%;
         margin: 10px auto !important;
     }
@@ -356,4 +347,5 @@
         width: 70%;
         margin: 15px auto;
     }
+  
 }

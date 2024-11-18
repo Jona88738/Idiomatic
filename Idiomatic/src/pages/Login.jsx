@@ -26,14 +26,19 @@ const schema = yup.object().shape({
 const LoginPage = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
+  const [captchaValue, setCaptchaValue] = useState(null); // Estado para el captcha
+  const [captchaError, setCaptchaError] = useState(false); // Estado para mostrar errores del captcha
+  
   const methods = useForm({
     resolver: yupResolver(schema),
   });
 
-  // Función para manejar el cambio en ReCAPTCHA
   const onRecaptchaChange = (value) => {
-    console.log('Captcha value:', value);
+    setCaptchaValue(value); // Guarda el valor del captcha
+    setCaptchaError(false); // Resetea el estado de error si se resolvió
   };
+
+  
 
   // useEffect(() => {
   //   fetch("/api/signUser?nombre=Jonathan")
@@ -48,6 +53,11 @@ const LoginPage = () => {
   // }, []);
 
   const onSubmit = methods.handleSubmit((data) => {
+    if (!captchaValue) { // Validar si el captcha fue resuelto
+      setCaptchaError(true);
+      return;
+    }
+    
     fetch(`/api/signUser`, {
       method: 'POST',
       headers: {
@@ -151,12 +161,19 @@ const LoginPage = () => {
               <p style={{ textAlign: 'center' }}>
                 <a href="/PasswordRecovery" className="forgot-password-link">¿Olvidaste tu contraseña?</a>
               </p>
-              <div className="captcha-wrapper">
-              <ReCAPTCHA
-              sitekey="6LfGom4qAAAAADQWzmsHQvPvycKqQhF3302SDbRt"
-               onChange={onRecaptchaChange}
-               />
-              </div>
+              <div className="captcha-container">
+  <div className="captcha-wrapper">
+    <ReCAPTCHA
+      sitekey="6LfGom4qAAAAADQWzmsHQvPvycKqQhF3302SDbRt"
+      onChange={onRecaptchaChange}
+    />
+  </div>
+  {captchaError && (
+    <p className="captcha-error-message">
+      Por favor, resuelve el captcha antes de continuar.
+    </p>
+  )}
+</div>
 
               <button type="submit" className="login-btn">INGRESAR</button>
             </form>

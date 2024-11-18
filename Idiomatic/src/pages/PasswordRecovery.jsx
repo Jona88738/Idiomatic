@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavBar from '../components/NavBar_Home';
 import { TextField, InputAdornment, Button } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
@@ -16,6 +16,7 @@ const schema = yup.object().shape({
 });
 
 const ForgotPasswordPage = () => {
+  const [confirmationMessage, setConfirmationMessage] = useState('');
   const methods = useForm({
     resolver: yupResolver(schema),
   });
@@ -32,11 +33,13 @@ const ForgotPasswordPage = () => {
 
       const result = await response.json();
       if (result.success) {
-        alert('Si el correo está registrado, recibirás instrucciones para recuperar tu contraseña.');
+        setConfirmationMessage(
+          'Lo sentimos, el correo ingresado no está registrado.'        );
       } else {
-        console.log('Error en la recuperación de contraseña:', result.message);
+        setConfirmationMessage('Correo enviado. Por favor, revisa tu bandeja de entrada!.');
       }
     } catch (error) {
+      setConfirmationMessage('Ocurrió un error, por favor intenta nuevamente.');
       console.error('Error:', error);
     }
   });
@@ -70,6 +73,9 @@ const ForgotPasswordPage = () => {
               </Button>
             </form>
           </FormProvider>
+          {confirmationMessage && (
+            <p className="confirmation-message">{confirmationMessage}</p>
+          )}
         </div>
       </div>
     </div>
