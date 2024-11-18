@@ -81,8 +81,8 @@
     flex-direction: column !important; 
     align-items: center !important;
     justify-content: center !important;
-    min-height: 100vh ;
-    background: url('/src/images/fondo_reg.png') !important;
+    min-height: 100vh !important;
+    background: url('/images/fondo_reg.png') !important;
     background-size: cover !important;
     background-position: center !important;
   }
@@ -94,7 +94,7 @@
     width: 100% !important;
     height: 100% !important;
     max-width: 1100px;
-    background: url('/src/images/fonde_registro.png') no-repeat center center; /* Mantener la imagen de fondo */
+    background: url('/images/fonde_registro.png') no-repeat center center; /* Mantener la imagen de fondo */
     background-size: cover;
   }
   
@@ -289,12 +289,19 @@
         align-items: center;
     }
 
+<<<<<<< HEAD
     .register-container {
         flex-direction: column;
         max-width: 100%;
         align-items: center;
         margin: 0 auto;
     }
+=======
+  .register-page {
+      align-items: center;
+      min-height: 100vh;      
+      background-image: url("/images/pruebaimg3.png") !important;
+>>>>>>> test
 
     .sign-up-heading,
     .register-section h2 {

@@ -71,8 +71,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh ;
-  background-image: url("/src/images/fondo2s.png");
+  min-height: 100vh;
+  background-image: url("/images/fondo2s.png");
   background-size: cover;
   background-position: center;
 }
@@ -352,7 +352,7 @@ body {
   .login-page {
     align-items: flex-start;
     min-height: 100vh;
-    background-image: url("/src/images/pruebaimg.png");
+    background-image: url("/images/pruebaimg.png");
 
   }
 

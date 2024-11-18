@@ -31,7 +31,7 @@ function ColorsInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorcolor.png" 
+                src="/images/vectorcolor.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto', marginTop: '-48px' }} 
               />
             </Grid>
@@ -59,7 +59,7 @@ function ColorsInfo() {
         {/* Columna para la imagen alusiva */}
         <Grid item xs={12} md={6}>
           <img 
-                src="/src/images/color1.png"  
+                src="/images/color1.png"  
                 alt="Ropa" 
             style={{ width: '100%', height: 'auto', borderRadius: '8px' , marginTop: '-20px'}} 
           />
@@ -77,7 +77,7 @@ function ColorsInfo() {
         {/* Columna para la lista de ropa */}
         <Grid item xs={12} md={7}>
         <img 
-                src="/src/images/color2.png"  
+                src="/images/color2.png"  
                 alt="Ropa" 
             style={{ width: '100%', height: 'auto', borderRadius: '8px'}} 
           />
@@ -100,7 +100,7 @@ function ColorsInfo() {
           </Typography>
         <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
         <img 
-                src="/src/images/color3.png"  
+                src="/images/color3.png"  
                 alt="Ropa" 
             style={{ width: '60%', height: 'auto', borderRadius: '8px', textAlign: 'center'}} 
           />

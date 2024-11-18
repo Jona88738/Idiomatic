@@ -31,7 +31,7 @@ function PresentContinuousInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorescribiendo.png" 
+                src="/images/vectorescribiendo.png" 
                 style={{ width: '75%', borderRadius: '10px', height: 'auto' , marginTop: '-48px'}} 
               />
             </Grid>
@@ -63,7 +63,7 @@ function PresentContinuousInfo() {
             </Grid>
             <Grid item xs={5}>
               <img 
-                src="/src/images/presentcontinuous1.png"  
+                src="/images/presentcontinuous1.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
@@ -192,7 +192,7 @@ function PresentContinuousInfo() {
             </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/presentcontinuous2.png"  
+                src="/images/presentcontinuous2.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '60%', height: 'auto' }} 
               />
@@ -278,7 +278,7 @@ function PresentContinuousInfo() {
         </Box>
         <Box>
             <img 
-                  src="/src/images/presentcontinuous3.png"  
+                  src="/images/presentcontinuous3.png"  
                   alt="Ejemplo contractions" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px', textAlign: 'center'}} 
                 />

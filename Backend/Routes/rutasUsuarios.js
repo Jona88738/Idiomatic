@@ -20,11 +20,7 @@ const upload = multer({ storage: storage });
 
 const routes = Router();
 
-routes.post("/createUser", cUser.createUser ) 
-routes.post("/signUser", cUser.sign_in ) 
 
-routes.post("/PasswordRecovery", sendEmailF)
-routes.post("/UpdatePassword", updatePassword)
 
 
 routes.patch("/editUser", cUser.editUser)
@@ -77,8 +73,17 @@ routes.get("/getLectura",cUser.getLectura);
 
 routes.get("/getAllLecturas",cUser.getAllLecturas)
 
+
+
 // routes.get("/juegos")
 // routes.get("/audios")
+
+routes.post("/API_IA", upload.single("audio") ,(req, res) => {
+
+    
+
+});
+
 
 
 routes.post("/audioIA", upload.single("audio") ,(req, res) => {
@@ -109,8 +114,8 @@ routes.post("/audioIA", upload.single("audio") ,(req, res) => {
  
   fs.writeFileSync(tempFilePath, fileBuffer);
 
- //                        name
-  exec(`python prueba.py ${name}`, (error, stdout, stderr) => {
+ //     python Anterior            name
+  exec(`python3 prueba.py ${name}`, (error, stdout, stderr) => {
 
        // Eliminar el archivo temporal
     /*   fs.unlink(tempFilePath, (unlinkError) => {

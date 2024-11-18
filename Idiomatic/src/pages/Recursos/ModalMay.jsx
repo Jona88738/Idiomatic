@@ -31,7 +31,7 @@ function ModalMayInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorlibro.png" 
+                src="/images/vectorlibro.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto', marginTop: '-48px' }} 
               />
             </Grid>
@@ -134,7 +134,7 @@ function ModalMayInfo() {
             </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/May.png"  
+                src="/images/May.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '60%', height: 'auto' }} 
               />

@@ -60,7 +60,7 @@ const DecorativeLine = styled(Box)(({ theme }) => ({
 }));
 
 const MissionVisionSection = styled(Box)(({ theme }) => ({
-  backgroundImage: 'url(/src/images/fondonosotros.png)',
+  backgroundImage: 'url(/images/fondonosotros.png)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   padding: theme.spacing(20, 0),
@@ -102,7 +102,7 @@ function Nosotros() {
         <Grid container justifyContent="center" spacing={4}>
           <Grid item xs={12} sm={6} md={4}>
             <TeamCard elevation={3} sx={{ backgroundColor: '#9890BF' }}>
-              <Avatar src="/src/images/nina.png" sx={{ width: 120, height: 120, margin: '0 auto' }} />
+              <Avatar src="/images/nina.png" sx={{ width: 120, height: 120, margin: '0 auto' }} />
               <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 2, fontFamily: 'Century Gothic', color: '#00000' }}>
                 Nahomy Hernández
               </Typography>
@@ -113,7 +113,7 @@ function Nosotros() {
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <TeamCard elevation={9} sx={{ backgroundColor: '#F5C94D' }}>
-              <Avatar src="/src/images/nino.png" sx={{ width: 120, height: 120, margin: '0 auto' }} />
+              <Avatar src="/images/nino.png" sx={{ width: 120, height: 120, margin: '0 auto' }} />
               <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 2, fontFamily: 'Century Gothic', color: '#00000' }}>
                 Jonathan Pérez
               </Typography>

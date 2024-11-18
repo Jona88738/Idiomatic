@@ -111,6 +111,7 @@
         
         text-Align:center;
         font-Size:5vh;
+       
     }
 
     .subTituloMain{
@@ -333,11 +334,14 @@
         
         text-Align:center;
         font-Size:4vw;
+        width: 80% !important;
     }
 
     .subTituloMain{
         text-Align:center;
         font-Size:3vw;
+       
+        
     }
 
     .imgHomeUser{
@@ -402,6 +406,7 @@
     .navDespleSgund{
         position:relative !important;
         top:8%;
+        padding: 0 !important;
     }
 
     .ConBotones{
@@ -419,6 +424,7 @@
    margin-top: 10%;
    margin-left: 10%;
    /* font-size: 1.5vw; */
+   width: 100% !important;
     }
 
     .btnDesplegable h2{
@@ -541,12 +547,14 @@
     .TituloMain{
         
         text-Align:center;
-        font-Size:4vw;
+        font-Size:3vw;
+        width: 80% !important;
     }
 
     .subTituloMain{
         text-Align:center;
         font-Size:2vw;
+        width: 80% !important;
     }
 
     .imgHomeUser{
@@ -595,7 +603,7 @@
         border-Radius:50px;
         width:86% !important;
         background: rgba(70, 70, 122, 0.05);
-        height:75vh; 
+        height:77vh; 
         box-Shadow:5px 8px 2px GRAY;
         margin:0;
 
@@ -604,6 +612,7 @@
     .navDespleSgund{
         position:relative !important;
         top:8%;
+        padding: 0 !important;
     }
 
     .ConBotones{
@@ -621,6 +630,7 @@
    margin-top: 10%;
    margin-left: 10%;
    /* font-size: 1.5vw; */
+   width: 90% !important;
     }
 
     .btnDesplegable h2{

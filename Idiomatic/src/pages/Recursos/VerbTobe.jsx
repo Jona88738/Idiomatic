@@ -31,7 +31,7 @@ function VerbtobeInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorweb.png" 
+                src="/images/vectorweb.png" 
                 style={{ width: '68%', borderRadius: '10px', height: 'auto' , marginTop: '-48px'}} 
               />
             </Grid>
@@ -50,7 +50,7 @@ function VerbtobeInfo() {
           </Box>
           <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
             <img 
-                  src="/src/images/tobe1.png"  
+                  src="/images/tobe1.png"  
                   alt="tobe" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px', textAlign: 'center'}} 
                 />
@@ -71,13 +71,13 @@ function VerbtobeInfo() {
           
           <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
             <img 
-                  src="/src/images/tobe2.png"  
+                  src="/images/tobe2.png"  
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px', textAlign: 'center'}} 
                 />
         </Box>
         <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
             <img 
-                  src="/src/images/tobe3.png"  
+                  src="/images/tobe3.png"  
                   style={{ maxWidth: '50%', height: 'auto', marginTop: '-40px', textAlign: 'center'}} 
                 />
         </Box>
@@ -91,7 +91,7 @@ function VerbtobeInfo() {
           
           <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
             <img 
-                  src="/src/images/tobe4.png"  
+                  src="/images/tobe4.png"  
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px', textAlign: 'center'}} 
                 />
         </Box>
@@ -104,13 +104,13 @@ function VerbtobeInfo() {
           
           <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
             <img 
-                  src="/src/images/tobe5.png"  
+                  src="/images/tobe5.png"  
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px', textAlign: 'center'}} 
                 />
         </Box>
         <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
             <img 
-                  src="/src/images/tobe6.png"  
+                  src="/images/tobe6.png"  
                   style={{ maxWidth: '50%', height: 'auto', marginTop: '-40px', textAlign: 'center'}} 
                 />
         </Box>
@@ -131,13 +131,13 @@ function VerbtobeInfo() {
           <Grid container spacing={2}>
             <Grid item xs={6}>
             <img 
-                src="/src/images/tobe7.png"  
+                src="/images/tobe7.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
             <Grid item xs={6}>
               <img 
-                src="/src/images/tobe8.png"  
+                src="/images/tobe8.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
@@ -145,13 +145,13 @@ function VerbtobeInfo() {
           <Grid container spacing={2}>
             <Grid item xs={5}>
             <img 
-                src="/src/images/tobe9.png"  
+                src="/images/tobe9.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
             <Grid item xs={7}>
               <img 
-                src="/src/images/tobe10.png"  
+                src="/images/tobe10.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
@@ -172,13 +172,13 @@ function VerbtobeInfo() {
              <Grid container spacing={2}>
             <Grid item xs={6}>
             <img 
-                src="/src/images/tobe12.png"  
+                src="/images/tobe12.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
             <Grid item xs={6}>
               <img 
-                src="/src/images/tobe11.png"  
+                src="/images/tobe11.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
@@ -196,7 +196,7 @@ function VerbtobeInfo() {
 
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/tobe13.png"  
+                src="/images/tobe13.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '70%', height: 'auto' }} 
               />
@@ -210,7 +210,7 @@ function VerbtobeInfo() {
 
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/tobe14.png"  
+                src="/images/tobe14.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '70%', height: 'auto' }} 
               />
@@ -224,7 +224,7 @@ function VerbtobeInfo() {
 
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/tobe15.png"  
+                src="/images/tobe15.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '70%', height: 'auto' }} 
               />
@@ -239,13 +239,13 @@ function VerbtobeInfo() {
             <Grid container spacing={2}>
             <Grid item xs={6}>
             <img 
-                src="/src/images/tobe16.png"  
+                src="/images/tobe16.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
             <Grid item xs={6}>
               <img 
-                src="/src/images/tobe17.png"  
+                src="/images/tobe17.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>

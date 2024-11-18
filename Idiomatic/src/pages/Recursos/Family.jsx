@@ -31,7 +31,7 @@ function FamilyInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorfamily.png" 
+                src="/images/vectorfamily.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto', marginTop: '-48px' }} 
               />
             </Grid>
@@ -64,13 +64,13 @@ function FamilyInfo() {
             <Grid container spacing={2}>
             <Grid item xs={8}>
             <img 
-                src="/src/images/family3.png" 
+                src="/images/family3.png" 
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/family1.png" 
+                src="/images/family1.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto'}} 
               />
             </Grid>
@@ -124,7 +124,7 @@ function FamilyInfo() {
 
   <Grid item xs={4}>
     <img 
-      src="/src/images/family2.png" 
+      src="/images/family2.png" 
       style={{ width: '80%', borderRadius: '10px', height: 'auto' }} 
     />
   </Grid>
@@ -145,7 +145,7 @@ function FamilyInfo() {
         </Typography>
         <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
         <img 
-      src="/src/images/family4.png" 
+      src="/images/family4.png" 
       style={{ width: '70%', borderRadius: '10px', height: 'auto', textAlign: 'center' }} 
         />
         </Box>      

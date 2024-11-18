@@ -46,12 +46,10 @@ export default function EjercicioAudio(){
         //let respuestaApi = respuestaUser;
 
         let sinEspacioUser = respuestaUser.replace(/\s+/g, '')
-        console.log("Esta es la respuesta User",sinEspacioUser)
+        
         for (const letra of text) {
 
-            console.log(contador," letra: ",letra,"text:", sinEspacioUser[contador])
-            //if(  sinEspacioUser.length <=  text.length ){
-                console.log("entro")
+           
 
                 if(sinEspacioUser[contador] === undefined){
 
@@ -70,40 +68,31 @@ export default function EjercicioAudio(){
         }
 
 
-          console.log(contador)
+         
           let porcentajeAcierto = ((aciertos * 100)/text.length)
         
-        console.log("Respuesta verificada",porcentajeAcierto)
-
 
         if(porcentajeAcierto=== 100){
 
             let completeAudio = JSON.parse(sessionStorage.getItem('completeAudio'))
         
             completeAudio[0].Total += 1;
-            console.log("El tipo es: ",completeAudio[index].TotalComplete);
+            
             
             if(completeAudio[index].TotalComplete <=  audioID){
     
                 completeAudio[index].TotalComplete = completeAudio[index].TotalComplete +1;
-            console.log("entro")
             
-            console.log(completeAudio[index].TotalComplete )
+
     
             sessionStorage.setItem('completeAudio',JSON.stringify(completeAudio) );
-            console.log("Objeto actualizado: ",JSON.parse(sessionStorage.getItem('completeAudio')))
+            
             completeAudio = JSON.parse(sessionStorage.getItem('completeAudio'));
     
     
     
     
-                //let complete = Number(sessionStorage.getItem('completeVideo')) +1;
-                console.log("entro al if xD")
-    
-               // sessionStorage.setItem('completeVideo', complete);
-        
-              //  console.log("NumLeccionVideo: ",sessionStorage.getItem('completeVideo'));
-        
+                
                 fetch(`/api/progresoUsuarioGeneral?TemaEjercicio=audio&completeV=${completeAudio}`,{
                     method:"PATCH",
                     headers:{
@@ -119,7 +108,7 @@ export default function EjercicioAudio(){
     
             }
             
-                console.log("Felicidades Completaste el ejercicio")
+               
                 setNoti(true);
                 handleClickOpen();
             
@@ -134,7 +123,7 @@ export default function EjercicioAudio(){
             })
                 .then(res => res.json())
                 .then((res) => {
-                    console.log(res)
+                   
                     setnumError(res.response.errors);
                 } )
                 .then((res) => {
@@ -142,19 +131,16 @@ export default function EjercicioAudio(){
                     setNoti(false);
                     handleClickOpen();
 
-                    console.log("Mis errores: ", numError[0].description.en)
+                    
 
                 })
             
-            //setNoti(false);
-            //handleClickOpen();
-
-           // console.log("Reformula completamente la sentecia por que no coincide ")
+           
          }else{
             setNoti(false);
             handleClickOpen();
          }
-        console.log("aciertos:", aciertos,"Total letras:",text.length)
+       
     }
 
     function handleChange(e){

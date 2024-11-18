@@ -31,7 +31,7 @@ function FutureSimpleInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorfuturo.png" 
+                src="/images/vectorfuturo.png" 
                 style={{ width: '75%', borderRadius: '10px', height: 'auto' , marginTop: '-48px'}} 
               />
             </Grid>
@@ -178,7 +178,7 @@ function FutureSimpleInfo() {
             </Grid>
             <Grid item xs={5}>
               <img 
-                src="/src/images/Future1.png"  
+                src="/images/Future1.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
@@ -193,7 +193,7 @@ function FutureSimpleInfo() {
             Para conjugar un verbo en futuro simple con will, se emplea este verbo auxiliar junto con el infinitivo del verbo principal.            </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Future2.png"  
+                src="/images/Future2.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '70%', height: 'auto' }} 
               />
@@ -207,14 +207,14 @@ function FutureSimpleInfo() {
 
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Future3.png"  
+                src="/images/Future3.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '50%', height: 'auto' }} 
               />
             </Box>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Future4.png"  
+                src="/images/Future4.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '65%', height: '20%' }} 
               />
@@ -304,14 +304,14 @@ function FutureSimpleInfo() {
             </Grid>
             <Grid item xs={5}>
               <img 
-                src="/src/images/Going1.png"  
+                src="/images/Going1.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
           </Grid>
           <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Going2.png"  
+                src="/images/Going2.png"  
                 alt="Ejemplo" 
                 style={{ maxWidth: '65%', height: 'auto' }} 
               />
@@ -328,7 +328,7 @@ function FutureSimpleInfo() {
             </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Going5.png"  
+                src="/images/Going5.png"  
                 alt="Ejemplo" 
                 style={{ maxWidth: '55%', height: 'auto' }} 
               />
@@ -342,14 +342,14 @@ function FutureSimpleInfo() {
 
             <Box sx={{ marginBottom: '10px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Going3.png"  
+                src="/images/Going3.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '55%', height: 'auto' }} 
               />
             </Box>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Going4.png"  
+                src="/images/Going4.png"  
                 alt="Ejemplo del Present continuous" 
                 style={{ maxWidth: '65%', height: '20%' }} 
               />

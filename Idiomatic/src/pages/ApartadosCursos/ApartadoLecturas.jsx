@@ -8,7 +8,7 @@ export default function ApartadoLecturas(){
 
             <NavBar_Apartados/>
             
-            <Head title="Lecturas" mycolor="rgba(249, 176, 195, 0.54)" ruta="/images/iconoLecturas.svg"/>
+            <Head title="Lecturas" mycolor="rgba(249, 176, 195, 0.54)" ruta="/images/iconoLecturas.png"/>
             <MyCard title="Lectura de ejemplos"    page="/PageLecturas"     />
 
             {/* <MyCard title="" />

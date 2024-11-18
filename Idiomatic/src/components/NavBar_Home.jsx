@@ -33,7 +33,7 @@ export default function NavBar() {
 
         <Container disableGutters className={navH ? 'NavBarOpciones':'NavBarOpcioness'}  id="nav">
 
-        <Button className='btnCerrar'>Cerrar</Button> 
+        <Button className='btnCerrar' onClick={cambioNav}>Cerrar</Button> 
 
         <Button className='btnOpcion' onClick={() => {const direccion = "/"; Redireccionar(direccion);}}  title='inicio'> Inicio </Button>
         {/* <Button  className='btnOpcion' onClick={() => {const direccion = "/Cursos"; Redireccionar(direccion);}}  >Cursos</Button> */}
@@ -44,7 +44,7 @@ export default function NavBar() {
         <Button  className='btnOpcion' href="/Nosotros" >Nosotros</Button>
         <Button  className='btnOpcion' href="/Login" >Login</Button> */}
 
-        <Button className='btnCrearCuenta' href='/Sign_up'  variant="outlined"sx={{}}>Crear Cuenta</Button>
+        <Button className='btnCrearCuenta' onClick={() => {const direccion = "/Sign_up"; Redireccionar(direccion);}}   variant="outlined"sx={{}}>Crear Cuenta</Button>
       
         </Container>
         

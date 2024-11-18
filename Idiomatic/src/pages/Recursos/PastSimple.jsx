@@ -31,7 +31,7 @@ function PastSimpleInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorpensando.png" 
+                src="/images/vectorpensando.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto' , marginTop: '-48px'}} 
               />
             </Grid>
@@ -67,7 +67,7 @@ function PastSimpleInfo() {
             </Grid>
             <Grid item xs={6}>
               <img 
-                src="/src/images/Pastsimple1.png"  
+                src="/images/Pastsimple1.png"  
                 style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
               />
             </Grid>
@@ -196,7 +196,7 @@ Se usa para hablar de acciones o eventos que sucedieron y terminaron en un momen
             Las oraciones negativas e interrogativas se forman con el verbo auxiliar <strong>do</strong>, que en pasado toma la forma did. En estos casos, el verbo principal se mantiene en infinitivo, siendo el verbo auxiliar <strong>did</strong> el único que se conjuga en pasado.            </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/PastSimple2.png"  
+                src="/images/PastSimple2.png"  
                 alt="Ejemplo" 
                 style={{ maxWidth: '60%', height: 'auto' }} 
               />
@@ -221,7 +221,7 @@ Se usa para hablar de acciones o eventos que sucedieron y terminaron en un momen
     </Grid>
     <Grid item xs={6}>
       <img 
-        src="/src/images/PastSimple3.png"  
+        src="/images/PastSimple3.png"  
         style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
       />
     </Grid>
@@ -306,7 +306,7 @@ Se usa para hablar de acciones o eventos que sucedieron y terminaron en un momen
         </Box>
         <Box>
             <img 
-                  src="/src/images/PastSimple4.png"  
+                  src="/images/Pastsimple4.png"  
                   alt="Ejemplo contractions" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px', textAlign: 'center'}} 
                 />
@@ -321,7 +321,7 @@ Se usa para hablar de acciones o eventos que sucedieron y terminaron en un momen
           </Box>
           <Box>
             <img 
-                  src="/src/images/PastSimple5.png"  
+                  src="/images/Pastsimple5.png"  
                   alt="Ejemplo contractions" 
                   style={{ maxWidth: '60%', height: 'auto', marginTop: '-20px', textAlign: 'center'}} 
                 />

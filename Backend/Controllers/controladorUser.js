@@ -13,7 +13,7 @@ import { elements } from "chart.js";
 const createUser = async (req, res) => {
   const { username, email, password, rol = 0 } = req.body;  // Rol por defecto es 0 (usuario)
 
-  console.log('Datos recibidos:', username, email);
+ // console.log('Datos recibidos:', username, email);
   
   try {
     // Verificar si faltan datos
@@ -23,7 +23,7 @@ const createUser = async (req, res) => {
 
     // Encriptar la contraseña
     const passHashed = await encryptPass(password);
-    console.log('Contraseña encriptada:', passHashed);  // Verifica la contraseña encriptada    
+    //console.log('Contraseña encriptada:', passHashed);  // Verifica la contraseña encriptada    
     // Insertar el usuario en la base de datos
     const [result] = await conn.query('INSERT INTO usuario (nombre, correo, contraseña, foto, rol, suscripcion, tipo_aprendizaje) VALUES (?, ?, ?, ?, ?, ?, ?)', [
       username,
@@ -35,7 +35,7 @@ const createUser = async (req, res) => {
       '' // Valor vacío para tipo_aprendizaje
     ]);
 // result[0].insertId
-    console.log('Resultado de la inserción:', result);  // Verifica el resultado de la consulta
+    //console.log('Resultado de la inserción:', result);  // Verifica el resultado de la consulta
     // Verificar si se insertó correctamente
     if (result.affectedRows === 1) {
       res.json({ success: true, message: 'Usuario registrado con éxito', rol });
@@ -51,7 +51,7 @@ const createUser = async (req, res) => {
 
 const sign_in = async (req, res) => {
   const { correo, password } = req.body;
-  console.log(correo + " : " + password);
+ // console.log(correo + " : " + password);
 
   try {
     const [row] = await conn.query(`SELECT * FROM usuario WHERE correo = ?`, [correo]);
@@ -109,7 +109,7 @@ const editUser = async (req,res) => {
 
   const {nombre, correo,contraseña,foto} = req.body;
 
-  console.log("Entro: ", req.body,contraseña);
+  //console.log("Entro: ", req.body,contraseña);
   
   if(contraseña === undefined){
 
@@ -140,7 +140,7 @@ const deleteUser = async (req,res) => {
 
   const [row] = await conn.query('delete from usuario where idusuario = ?',[req.session.idUser])
 
-  console.log(row)
+ // console.log(row)
   res.json({
 
     "Message":true
@@ -211,7 +211,7 @@ const createOrder = async (req,res) =>{
     }
   })
 
-  console.log(respuesta.data.links[1].href)
+  //console.log(respuesta.data.links[1].href)
 
 
   res.json({"link":respuesta.data.links[1].href})
@@ -231,7 +231,7 @@ const CaptureOrder = async (req,res) =>{
         password: PAYPAL_SECRET,
     }
   })
-  console.log(respuesta);
+  //console.log(respuesta);
 
    
   // res.cookie('userId', 123);
@@ -386,10 +386,10 @@ const testAprendizajeGet = (req,res) =>{
 const testAprendizaje = async (req,res) => {
     const {tipoAprendizaje} = req.body;
 
-   console.log(tipoAprendizaje)
+  // console.log(tipoAprendizaje)
 
    const [user] = await conn.query('update usuario set tipo_aprendizaje = ? where idusuario = ? ',[tipoAprendizaje,req.session.idUser]);
-    console.log(user)
+    //console.log(user)
 
     res.json({
         resultado:"true",
@@ -408,7 +408,7 @@ const recursos = async (req,res) => {
 
   const [row] = await conn.query("select * from recursos where tema = ?",[tema]);
 
-    console.log(row)
+   // console.log(row)
 
   res.json(row)
 }
@@ -416,7 +416,7 @@ const recursos = async (req,res) => {
 const getLectura = (req, res) =>{
 
   const {lectura} = req.query;
-  console.log(lectura)
+  //console.log(lectura)
 
    const data = fs.readFileSync("./recursos/Lecturas"+lectura)
 
@@ -460,7 +460,7 @@ const Logout = (req,res) => {
       return res.send('Error al cerrar sesión');
     }
     //res.redirect('/login');
-    console.log("salio "+ req.session.idUser)
+  //  console.log("salio "+ req.session.idUser)
     res.status(200).json({
 
       "message":true
@@ -473,18 +473,18 @@ const tiempo = async (req,res) =>{
   const {minutos} = req.query;
   const {Noti} = req.body;
 
-  console.log("Los minutos que llegaron: ",minutos)
+  //console.log("Los minutos que llegaron: ",minutos)
   
   const [row] = await conn.query("SELECT tiempoHoras,tiempoMinutos FROM  progresousuario where Id_usuario = ? ",[12])
   
   const tiempoTotalMinutos = row[0].tiempoMinutos + Number(minutos);
-  console.log("Total minutos",tiempoTotalMinutos)
+ // console.log("Total minutos",tiempoTotalMinutos)
 
   if(tiempoTotalMinutos < 60 ){
 
     const [rowMinutos] = await conn.query("update progresousuario set tiempoMinutos = ? where Id_usuario = ?",[tiempoTotalMinutos,req.session.idUser])
 
-    console.log(rowMinutos)
+   // console.log(rowMinutos)
   }else{
 
     const hours = Math.floor(tiempoTotalMinutos / 60); // Horas
@@ -493,7 +493,7 @@ const tiempo = async (req,res) =>{
     const [rowHoras] = await conn.query("update progresousuario set tiempoHoras = ?, tiempoMinutos = ? where  Id_usuario = ?",[hours,remainingMinutes,12])
 
   }
-  console.log(row[0].tiempoHoras)
+  //console.log(row[0].tiempoHoras)
 
   const [tableNoti] = await conn.query("select notificacion from notificaciones where Id_usuario  = ?",[req.session.idUser])//req.session.idUser
 
@@ -501,7 +501,7 @@ const tiempo = async (req,res) =>{
   if(Noti === "1" && tableNoti[0].notificacion.Notificacion.length === 0){
    
     // const [tableNoti] = await conn.query("select notificacion from notificaciones where Id_usuario  = ?",[req.session.idUser])//req.session.idUser
-    console.log("entro")
+   // console.log("entro")
     const Notificacion = {"texto":"Sigue adelante con tus metas.","Titulo":"Felicidades empezaste un nuevo Apartado de aprendizaje"}
 
     tableNoti[0].notificacion.Notificacion.push(Notificacion);
@@ -519,7 +519,7 @@ const tiempo = async (req,res) =>{
 
     tableNoti[0].notificacion.Notificacion.map((element) =>{
       
-      console.log(element.Titulo)
+    //  console.log(element.Titulo)
 
       if( tableNoti[0].notificacion.Notificacion === "Felicidades empezaste un nuevo Apartado de aprendizaje"){
         contador++;
@@ -528,7 +528,7 @@ const tiempo = async (req,res) =>{
     })
 
 
-    console.log("Mi contador: ",contador)
+    //console.log("Mi contador: ",contador)
     
    
 
@@ -548,6 +548,7 @@ const progresoUsuario = async (req,res) => {
   res.status(200).json({
     "message":true,
     "nombre":req.session.nombre,
+    "AudioIA":user[0].idusuario,
     "correo":req.session.correo,
     "progresoGeneral":row[0].porcentajeGeneral,
     "tiempoHoras":row[0].tiempoHoras,
@@ -566,12 +567,24 @@ const progresoUsuario = async (req,res) => {
   })
 }
 
+const sesion = (req,res) =>{
+
+  const MySesion = req.session.idUser;
+  console.log("Esta es la session",MySesion);
+
+  if(MySesion === undefined){
+    res.json({"Valor":false})
+  }
+
+  res.json({"Valor":true})
+}
+
 const progresoUsuarioGeneral = async (req,res) => {
 
   const {TemaEjercicio,completeV} = req.query;
   const {completeVideo} = req.body;
-  console.log(completeVideo)
-  console.log("Entron xD")
+ // console.log(completeVideo)
+  //console.log("Entron xD")
   const progresoJSON = JSON.stringify(completeVideo);
   // const [row] = await conn.query(`SELECT * FROM progresousuario where Id_usuario = ?`,[TemaEjercicio])
   // //console.log(typeof row[0].porcentajeGeneral);
@@ -580,7 +593,7 @@ const progresoUsuarioGeneral = async (req,res) => {
   // console.log(porcentaje)
   const [row] = await conn.query("CALL ActualizarProgresoUsuario(?,?,?)",[req.session.idUser,TemaEjercicio,progresoJSON]);
 
-  console.log(row)
+ // console.log(row)
 
   res.json(row)
 }
@@ -590,7 +603,7 @@ const progresoUsuarioGeneral = async (req,res) => {
 const notificaciones = async (req,res) =>{
 
   const [row] = await conn.query("select * from notificaciones where Id_usuario= ?",[req.session.idUser])
-      console.log("Aqui esta el dato",row[0].notificacion.Avisos[0])
+  //    console.log("Aqui esta el dato",row[0].notificacion.Avisos[0])
   res.status(200).json([
       row[0].notificacion.Notificacion,
       row[0].pausarNotificacion,
@@ -628,13 +641,13 @@ const DeleteNotificacionAvisos = async  (req,res) =>{
   const [row] = await conn.query("select * from notificaciones where Id_usuario= ?",[req.session.idUser])
   // console.log(row[0])
   // console.log("Aqui esta el dato",)
-  console.log(row[0].notificacion)
+  //console.log(row[0].notificacion)
   row[0].notificacion.Avisos = arreglo;
-   console.log(row[0].notificacion)
+  // console.log(row[0].notificacion)
 
   const [update] = await conn.query("update notificaciones set notificacion = ? where Id_usuario = ?",[JSON.stringify(row[0].notificacion),req.session.idUser])
   
-  console.log(update)
+ // console.log(update)
   res.json({})
 }
 
@@ -646,9 +659,9 @@ const DeleteNotificacionNoti = async (req,res) =>{
   const [row] = await conn.query("select * from notificaciones where Id_usuario= ?",[req.session.idUser])
   // console.log(row[0])
   // console.log("Aqui esta el dato",)
-  console.log(row[0].notificacion)
+ // console.log(row[0].notificacion)
   row[0].notificacion.Notificacion = arreglo;
-   console.log(row[0].notificacion)
+ //  console.log(row[0].notificacion)
 
   const [update] = await conn.query("update notificaciones set notificacion = ? where Id_usuario = ?",[JSON.stringify(row[0].notificacion),req.session.idUser])
   
@@ -670,9 +683,9 @@ const ejercicios = async (req,res) => {
 
 const listaVideos = async (req,res) =>{
   const {tema} = req.query;
-console.log(tema)
+//console.log(tema)
   const [row] = await conn.query("select * from video where tema = ?",[tema]);
-  console.log(row)
+  //console.log(row)
   res.json(
       row
   )
@@ -682,7 +695,7 @@ const listaAudios = async (req,res) => {
 
   const {tema} = req.query
   const [row] = await conn.query("select * from audio where tema = ?",[tema]);
-  console.log(row);
+  //console.log(row);
 
   res.json(row)
 }
@@ -693,7 +706,7 @@ const listaAudios = async (req,res) => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
   
-   console.log("mi ruta XD"+__dirname)
+  // console.log("mi ruta XD"+__dirname)
    // Construir la ruta para acceder a la carpeta uploads/Videos
  const videosPath = join(__dirname, '../recursos/Videos');
 
@@ -724,6 +737,7 @@ export default {
     recursoVideos,
     Logout,
     tiempo,
+    sesion,
     notificaciones,
     DeleteNotificacionAvisos,
     DeleteNotificacionNoti,

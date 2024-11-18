@@ -21,7 +21,7 @@ export default function ApartadoRecursos(){
     return(<>
             <NavBar_Apartados/>
             
-            <Head title="Recursos" mycolor="rgba(0, 26, 255, 0.4)" ruta="/images/iconoAudios.svg"/>
+            <Head title="Recursos" mycolor="rgba(0, 26, 255, 0.4)" ruta="/images/iconoAudios.png"/>
 
             {infoAudios.map(audio => <MyCard key={audio.idaudio} title={audio.nombre}  page=" " link={audio.link} introduccion={audio.introduccion} />)}
 

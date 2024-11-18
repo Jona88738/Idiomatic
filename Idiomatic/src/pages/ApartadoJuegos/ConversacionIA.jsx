@@ -90,10 +90,10 @@ export default function ConversacionIA(){
 
     const sendAudioToServer = (blob) => {
         const formData = new FormData();
-        formData.append('audio', blob, 'N.wav');
+        formData.append('file', blob, 'N.wav');
         setOpenBackDrop(true)
 
-        fetch('/api/audioIA', {
+        fetch('http://54.196.252.8:5000/IA', { //api/audioIA
             method: 'POST',
             body: formData
         })

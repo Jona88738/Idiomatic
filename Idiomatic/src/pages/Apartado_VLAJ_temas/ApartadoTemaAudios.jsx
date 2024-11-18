@@ -100,7 +100,7 @@ export default function ApartadoTemaAudio(){
     return(<>
             <NavBar_Apartados/>
             
-            <Head title="Temas Audios" mycolor="rgba(0, 26, 255, 0.4)" ruta="/images/iconoAudios.svg"/>
+            <Head title="Temas Audios" mycolor="rgba(0, 26, 255, 0.4)" ruta="/images/iconoAudios.png"/>
         <div style={{width:"100%",display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}}>
             {Card.map((Element,index) =>{
                 console.log(Element.Total)

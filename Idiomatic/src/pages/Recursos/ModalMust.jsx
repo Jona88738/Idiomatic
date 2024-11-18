@@ -31,7 +31,7 @@ function ModalMustInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorlibro.png" 
+                src="/images/vectorlibro.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto', marginTop: '-48px' }} 
               />
             </Grid>
@@ -134,7 +134,7 @@ function ModalMustInfo() {
             </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/Must.png"  
+                src="/images/Must.png"  
                 alt="Ejemplo de Must" 
                 style={{ maxWidth: '60%', height: 'auto' }} 
               />

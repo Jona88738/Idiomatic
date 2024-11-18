@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Notificacion from "../components/ComponenteNotificacion/Notificacion";
+import '../styles/TestTipoAprendizaje.css';
 
 const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad',''];
 
@@ -28,7 +29,7 @@ function TestAprendizaje() {
   const [completed, setCompleted] = useState({});
   const [preguntas, setPreguntas] = useState([]);
   const [res, setRes] = useState([]);
-  //const [preguntas, setPreguntas] = useState([]);
+  
   const [selectedOption, setSelectedOption] = useState([]);
 
   const handleClickOpen = () => {
@@ -130,7 +131,7 @@ function TestAprendizaje() {
   };
 
   const handleMio = () =>{
-    console.log(res)
+    // console.log(res)
 
     
     
@@ -153,9 +154,9 @@ function TestAprendizaje() {
       }
     }
     
-    console.log(`El valor que más se repite es: ${valorMasRepetido} (${maxRepeticiones} veces)`);
+    // console.log(`El valor que más se repite es: ${valorMasRepetido} (${maxRepeticiones} veces)`);
     setTest(valorMasRepetido)
-    console.log("Mi test: ",test)
+    // console.log("Mi test: ",test)
     setNoti(true)
     handleClickOpen();
 
@@ -163,7 +164,7 @@ function TestAprendizaje() {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box className='ContainerPuntosTestAprendizaje'sx={{ }}>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>
@@ -186,7 +187,7 @@ function TestAprendizaje() {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
+            <Typography className='StepTestTipoAprendizaje' sx={{ mt: 2, mb: 1, py: 1 }}>
               Step {activeStep + 1}
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
@@ -212,7 +213,7 @@ function TestAprendizaje() {
 
                   completedSteps() === totalSteps() - 1
                     ? (<Button onClick={handleMio} variant='contained'>Enviar</Button>)
-                    : (<Button onClick={handleComplete} variant='contained' >Siguiente  <ArrowForwardIcon /> </Button>)
+                    : (<Button onClick={handleComplete} className='btnSiguienteTestAprendizaje' variant='contained' >Siguiente  <ArrowForwardIcon /> </Button>)
 
                   
                   // <Button onClick={handleComplete}>
@@ -238,7 +239,7 @@ useEffect(()=>{
 },[])
 
     const handleChangle = (e) => {
-      console.log(e.target.value)
+      // console.log(e.target.value)
       //setSelectedOption(e.target.id);
       // setRes({
       //   ...res,
@@ -250,7 +251,7 @@ useEffect(()=>{
          [e.target.name]:e.target.value
        })
 
-      console.log(res)
+      // console.log(res)
 
       
 
@@ -258,13 +259,13 @@ useEffect(()=>{
 //console.log(res)
   return (
    
-    <div style={{backgroundImage: "url('/src/images/TestAprendizaje/prueba.png')",backgroundSize:"cover",backgroundPosition: "center",height:"100vh"}}>
+    <div className='mainContainerTestAprendizaje' >
        
-      <Container >
-      <img style={{float:"left",position:"absolute",left:"16%"}} src="/src/images/TestAprendizaje/libro.png" width="7%"/>
-      <img style={{float:"right",position:"absolute",right:"16%"}} src="/src/images/TestAprendizaje/materialEscolar.png" width="7%"/>
+      <Container  className='ContainerTitleTestAprendizaje'>
+      <img className='IconoTitleLeft' src="/images/TestAprendizaje/libro.png" />
+      <img className='IconoTitleRight'  src="/images/TestAprendizaje/materialEscolar.png" />
       
-      <h1 style={{textAlign:'center',fontSize:'3vw'}}>Test de estilos de aprendizaje</h1>
+      <h1 className='TitleMainTestAprendizaje' >Test de estilos de aprendizaje</h1>
       <br />
       <br />
       <HorizontalNonLinearStepper />
@@ -275,18 +276,18 @@ useEffect(()=>{
       preguntas.slice(count, count+2).map((element,index) =>{
        // console.log(res[index].radio)
 
-        return(<div style={{position:"relative",bottom:"2%"}}>
+        return(<div className='ContainerPreguntasTestAprendizaje' >
 
-            <h2 style={{marginLeft:"5%",marginTop:"2%"}}>{element.pregunta}</h2>
+            <h2 className='PreguntaTestAprendizaje' >{element.pregunta}</h2>
             
-            <input type='radio' key={element.res1.tipo}  name={element.in} id={element.res1.res}   style={{marginLeft:"7%",width:"1.6vw",height:"1.6vw"}} onChange={handleChangle}  value={element.res1.tipo}  />
-            <label htmlFor={element.res1.res} style={{fontSize:"20px",position:"relative",Bottom:"99px"}}> {element.res1.res}</label>
+            <input className='firstInputTestAprendizaje' type='radio' key={element.res1.tipo}  name={element.in} id={element.res1.res}   onChange={handleChangle}  value={element.res1.tipo}  />
+            <label className='firstLabelTestAprendizaje' htmlFor={element.res1.res} > {element.res1.res}</label>
 
-            <input type='radio' key={element.res2.tipo}  name={element.in} id={element.res2.res}  style={{marginLeft:"7%",width:"1.6vw",height:"1.6vw"}} onChange={handleChangle} value={element.res2.tipo} />
-            <label htmlFor={element.res2.res} style={{fontSize:"20px"}}> {element.res2.res}</label>
+            <input className='segundoInputTestAprendizaje' type='radio' key={element.res2.tipo}  name={element.in} id={element.res2.res}   onChange={handleChangle} value={element.res2.tipo} />
+            <label className='segundoLabelTestAprendizaje'  htmlFor={element.res2.res} > {element.res2.res}</label>
 
-            <input type='radio' key={element.res3.tipo}  name={element.in} id={element.res3.res}   style={{marginLeft:"7%",width:"1.6vw",height:"1.6vw"}} onChange={handleChangle} value={element.res3.tipo} />
-            <label htmlFor={element.res3.res}   style={{fontSize:"20px"}} > {element.res3.res}</label>
+            <input className='tresInputTestAprendizaje'  type='radio' key={element.res3.tipo}  name={element.in} id={element.res3.res}    onChange={handleChangle} value={element.res3.tipo} />
+            <label className='tresLabelTestAprendizaje' htmlFor={element.res3.res}    > {element.res3.res}</label>
 
             <br />
             <br />

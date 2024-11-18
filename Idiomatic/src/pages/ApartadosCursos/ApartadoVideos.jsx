@@ -12,8 +12,7 @@ export default function ApartadoVideos(){
     const { link, imagen,index } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     
     let completeV = JSON.parse(sessionStorage.getItem('completeV'))
-    console.log("complete",completeV[index].Complete )
-    console.log("Mi index: ", index )
+    
    
 
     useEffect(()=>{
@@ -24,19 +23,14 @@ export default function ApartadoVideos(){
 
     },[])
 
-    //Prueba XD
-    // [{"Tema":"saludos y despedidas","TotalComplete":0,},{"Tema":"presentaciones personales","TotalComplete":0,}
-
-    //  ]
-
-    //console.log(infoVideos)
+    
    
     return(<>
 
             <NavBar_Apartados/>
 
             
-            <Head title={link} mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.svg"/>
+            <Head title={link} mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.png"/>
             
             {infoVideos.map((video,contador) =>{ 
                  return (

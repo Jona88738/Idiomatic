@@ -1,0 +1,240 @@
+@media screen and (max-width:600px) {
+
+    
+    .mainContainerTestAprendizaje{
+
+        background-image: url('/images/TestAprendizaje/prueba.png');
+        background-size:cover;
+        background-position: center;
+        height:100vh;
+
+
+    }
+    .ContainerTitleTestAprendizaje{
+        height: 7rem;
+    }
+    .IconoTitleLeft{
+        float:left;
+        position:absolute;
+        left:16%;
+        width:7%;
+    }
+
+    .IconoTitleRight{
+        float:right;
+        position:absolute;
+        right:16%;
+        width:7%;
+    }
+
+    .TitleMainTestAprendizaje{
+        text-align:center;
+        font-size:3vw;
+    }
+    .ContainerPreguntasTestAprendizaje{
+        position:relative;
+        bottom:2%;
+        height: 25%;
+    }
+    .PreguntaTestAprendizaje{
+        margin-left:5%;
+        margin-top:20px !important;
+        font-size:4vw;
+    }
+    .firstInputTestAprendizaje{
+        margin-left:7%;
+        width:1.6vw;
+        height:1.6vw;
+    }
+    .firstLabelTestAprendizaje{
+        font-size:3.5vw;
+        position:relative;
+        /* Bottom:99px  !important; */
+    }
+    .segundoInputTestAprendizaje{
+        margin-left:7%;
+        width:1.6vw;
+        height:1.6vw;
+    }
+    .segundoLabelTestAprendizaje{
+        font-size:3.5vw;
+    }
+    .tresInputTestAprendizaje{
+        margin-left:7%;
+        width:1.6vw;
+        height:1.6vw;
+    }
+    .tresLabelTestAprendizaje{
+        font-size:3.5vw;
+    }
+    .ContainerPuntosTestAprendizaje{
+        width: 100% !important;
+        position: relative;
+        bottom: 43px;
+    }
+    .StepTestTipoAprendizaje{
+        position: relative;
+        bottom: 25px;
+        font-size: 5vw !important;
+    }
+    .btnSiguienteTestAprendizaje{
+        width: 30%;
+        height: 1.5rem;
+        font-size: 2.5vw !important;
+        position: relative !important;
+        bottom: 61px;
+    }
+
+}
+
+@media screen and (min-width:601px) and (max-width:1023px){
+
+
+    .mainContainerTestAprendizaje{
+
+        background-image: url('/images/TestAprendizaje/prueba.png');
+        background-size:cover;
+        background-position: center;
+        height:100vh;
+
+
+    }
+    .ContainerTitleTestAprendizaje{
+        height: 10rem;
+    }
+    .IconoTitleLeft{
+        float:left;
+        position:absolute;
+        left:16%;
+        width:7%;
+    }
+
+    .IconoTitleRight{
+        float:right;
+        position:absolute;
+        right:16%;
+        width:7%;
+    }
+
+    .TitleMainTestAprendizaje{
+        text-align:center;
+        font-size:3vw;
+    }
+    .ContainerPreguntasTestAprendizaje{
+        position:relative;
+        bottom:-16%;
+        height: 25%;
+    }
+    .PreguntaTestAprendizaje{
+        margin-left:5%;
+        margin-top:0!important;
+        font-size:3vw;
+    }
+    .firstInputTestAprendizaje{
+        margin-left:7%;
+        width:1.6vw;
+        height:1.6vw;
+    }
+    .firstLabelTestAprendizaje{
+        font-size:2vw;
+        position:relative;
+        /* Bottom:99px  !important; */
+    }
+    .segundoInputTestAprendizaje{
+        margin-left:7%;
+        width:1.6vw;
+        height:1.6vw;
+    }
+    .segundoLabelTestAprendizaje{
+        font-size:2vw;
+    }
+    .tresInputTestAprendizaje{
+        margin-left:7%;
+        width:1.6vw;
+        height:1.6vw;
+    }
+    .tresLabelTestAprendizaje{
+        font-size:2vw;
+    }
+    .ContainerPuntosTestAprendizaje{
+        width: 100%;
+    }
+
+
+
+}
+
+
+@media  (min-width:1024px){
+
+    .mainContainerTestAprendizaje{
+
+        background-image: url('/images/TestAprendizaje/prueba.png');
+        background-size:cover;
+        background-position: center;
+        height:100vh;
+
+
+    }
+
+    .IconoTitleLeft{
+        float:left;
+        position:absolute;
+        left:16%;
+        width:7%;
+    }
+
+    .IconoTitleRight{
+        float:right;
+        position:absolute;
+        right:16%;
+        width:7%;
+    }
+
+    .TitleMainTestAprendizaje{
+        text-align:center;
+        font-size:3vw;
+    }
+    .ContainerPreguntasTestAprendizaje{
+        position:relative;
+        bottom:2%;
+
+    }
+    .PreguntaTestAprendizaje{
+        margin-left:5%;
+        margin-top:2%;
+        font-size:2vw;
+        margin-bottom: 2%;
+    }
+    .firstInputTestAprendizaje{
+        margin-left:7%;
+        width:1.6vw;
+        height:1.6vw;
+    }
+    .firstLabelTestAprendizaje{
+        font-size:2vw;
+        position:relative;
+        /* Bottom:99px  !important; */
+    }
+    .segundoInputTestAprendizaje{
+        margin-left:7%;
+        width:1.6vw;
+        height:1.6vw;
+    }
+    .segundoLabelTestAprendizaje{
+        font-size:2vw;
+    }
+    .tresInputTestAprendizaje{
+        margin-left:7%;
+        width:1.6vw;
+        height:1.6vw;
+    }
+    .tresLabelTestAprendizaje{
+        font-size:2vw;
+    }
+    .ContainerPuntosTestAprendizaje{
+        width: 100%;
+    }
+
+    
+}

@@ -31,7 +31,7 @@ function GreetingsInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectorsaludo.png" 
+                src="/images/vectorsaludo.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto' , marginTop: '-48px'}} 
               />
             </Grid>
@@ -60,7 +60,7 @@ function GreetingsInfo() {
                 </Typography>
                 <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
                 <img 
-                src="/src/images/greetings1.png"  
+                src="/images/greetings1.png"  
                 style={{ maxWidth: '50%', height: 'auto' }} 
                 />
                 </Box>
@@ -69,7 +69,7 @@ function GreetingsInfo() {
                 </Typography> 
                 <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
                 <img 
-                src="/src/images/greetings2.png"  
+                src="/images/greetings2.png"  
                 style={{ maxWidth: '40%', height: 'auto' }} 
                 />
               </Box>
@@ -78,7 +78,7 @@ function GreetingsInfo() {
               </Typography> 
                 <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
                 <img 
-                src="/src/images/greetings3.png"  
+                src="/images/greetings3.png"  
                 style={{ maxWidth: '40%', height: 'auto' }} 
                 />
               </Box>
@@ -87,7 +87,7 @@ function GreetingsInfo() {
               Por el lado contrario, cuando queremos decir que no estamos bien podemos responder las preguntas anteriores con las siguientes frases:              </Typography> 
                 <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
                 <img 
-                src="/src/images/greetings4.png"  
+                src="/images/greetings4.png"  
                 style={{ maxWidth: '40%', height: 'auto' }} 
                 />
               </Box>
@@ -102,7 +102,7 @@ function GreetingsInfo() {
                 </Typography>
                 <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
                 <img 
-                src="/src/images/greetings5.png"  
+                src="/images/greetings5.png"  
                 style={{ maxWidth: '50%', height: 'auto' }} 
                 />
                 </Box>
@@ -114,7 +114,7 @@ function GreetingsInfo() {
                 </Typography>
                 <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
                 <img 
-                src="/src/images/greetings6.png"  
+                src="/images/greetings6.png"  
                 style={{ maxWidth: '40%', height: 'auto' }} 
                 />
                 </Box>

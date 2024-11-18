@@ -11,6 +11,8 @@ import { createRequire } from 'module';
 import { resolve, join, dirname } from "path";
 import { fileURLToPath } from 'url';
 import { PORT, HOST_BD, PORT_BD, USER_BD, PASSWORD_BD, DATABASE } from './config.js'
+import {authenticate} from './utils/MiddlewareAutentication.js'
+import rutasPublicas from './Routes/rutasPublicas.js'
 
 const require = createRequire(import.meta.url);
 const MySQLStore = require('express-mysql-session')(session);
@@ -63,11 +65,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 console.log("Ruta de ejecución:", __dirname);
-
-app.use("/api", rutasUsuario);
-app.use("/api", rutasAdministrador);
+app.use("/api",rutasPublicas)
 app.use("/api", passwordrecovery);
 app.use("/api", updatePassword);
+app.use("/api",authenticate, rutasUsuario);
+app.use("/api",authenticate, rutasAdministrador);
+
 
 app.post('/api/forgot-password', (req, res) => {
     res.json({ success: true }); 

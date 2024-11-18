@@ -31,7 +31,7 @@ function NumbersInfo() {
             </Grid>
             <Grid item xs={4}>
               <img 
-                src="/src/images/vectornumber.png" 
+                src="/images/vectornumber.png" 
                 style={{ width: '70%', borderRadius: '10px', height: 'auto', marginTop: '-48px' }} 
               />
             </Grid>
@@ -59,7 +59,7 @@ function NumbersInfo() {
     </Grid>
     <Grid item xs={6}>
       <img 
-        src="/src/images/num1.png"  
+        src="/images/num1.png"  
         style={{ width: '100%', borderRadius: '10px', height: 'auto' }} 
       />
     </Grid>
@@ -88,7 +88,7 @@ function NumbersInfo() {
             </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/num2.png"  
+                src="/images/num2.png"  
                 style={{ maxWidth: '50%', height: 'auto' }} 
               />
             </Box>
@@ -101,7 +101,7 @@ function NumbersInfo() {
             
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/num3.png"  
+                src="/images/num3.png"  
                 style={{ maxWidth: '50%', height: 'auto' }} 
               />
             </Box>
@@ -114,7 +114,7 @@ function NumbersInfo() {
             
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/num4.png"  
+                src="/images/num4.png"  
                 style={{ maxWidth: '40%', height: 'auto' }} 
               />
             </Box>
@@ -157,7 +157,7 @@ function NumbersInfo() {
             </Typography>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/num5.png"  
+                src="/images/num5.png"  
                 alt="Ejemplo de Must" 
                 style={{ maxWidth: '40%', height: 'auto' }} 
               />
@@ -176,7 +176,7 @@ function NumbersInfo() {
             
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/num6.png"  
+                src="/images/num6.png"  
                 style={{ maxWidth: '40%', height: 'auto' }} 
               />
             </Box>
@@ -201,7 +201,7 @@ function NumbersInfo() {
             </List>
             <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
               <img 
-                src="/src/images/num7.png"  
+                src="/images/num7.png"  
                 style={{ maxWidth: '40%', height: 'auto' }} 
               />
             </Box>

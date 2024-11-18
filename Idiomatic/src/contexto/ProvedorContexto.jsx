@@ -8,6 +8,8 @@ export default function Datos({children}){
     const suma= ()=>{
         setNum(num +1)
     }
+
+    
     return(
 
         <datosContext.Provider value={{suma,num}}>
