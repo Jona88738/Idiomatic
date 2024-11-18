@@ -1,12 +1,14 @@
 import { Box, Typography, Grid, List, ListItem, ListItemText, Divider } from '@mui/material';
 import NavBar_Home from '../../components/NavBar_Home';
+import NavBar_Apartados from "../../components/NavBar_Apartados"
+
 
 function ModalMustInfo() {
   return (
     <>
       {/* Navbar arriba */}
       <Box>
-        <NavBar_Home />
+        <NavBar_Apartados />
       </Box>
 
       {/* Contenido principal */}

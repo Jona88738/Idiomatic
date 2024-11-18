@@ -104,7 +104,7 @@ const AdminDashboard = () => {
                 </Typography>
               </Grid>
               <Grid item xs={4}>
-                <img src="/src/images/icondashboard.png" alt="Dashboard Icon" style={{ width: '100%', borderRadius: '10px', height: 'auto' }} />
+                <img src="/images/icondashboard.png" alt="Dashboard Icon" style={{ width: '100%', borderRadius: '10px', height: 'auto' }} />
               </Grid>
             </Grid>
           </Box>
@@ -170,7 +170,7 @@ const AdminDashboard = () => {
         Estimado de Usuarios Registrados
       </Typography>
       <img 
-      src="/src/images/happy.png" 
+      src="/images/happy.png" 
       alt="D" 
       style={{
         width: '100px', 

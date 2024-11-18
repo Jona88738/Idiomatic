@@ -87,7 +87,7 @@ const AdminMenu = () => {
         }}
       >
         <Avatar 
-          src="/src/images/adminlogo1.png" 
+          src="/images/adminlogo1.png" 
           sx={{ 
             width: 100, 
             height: 100, 

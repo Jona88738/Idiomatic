@@ -216,7 +216,7 @@ export default function ContTemaVideo(){
     {/* <NavBar_Apartados/> */}
 
             
-    <Head title="Temas de Videos" mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.svg"/>
+    <Head title="Temas de Videos" mycolor="rgba(255, 194, 18, 0.4)" ruta="/images/iconoVideos.png"/>
 
     <Container style={{marginTop:"2%",marginLeft:"0",marginRight:"0", maxWidth:"1440px"}}>
       <h1 style={{marginBottom:"4%",marginLeft:"2%"}}>Agregar Contenido</h1>

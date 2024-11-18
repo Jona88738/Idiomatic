@@ -300,8 +300,8 @@ export default function ConversacionIA(){
                     </Button></>
                 )}
 
-        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"indice={numError} test={test}  texto="Tuviste un Error"/>) : 
-         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" test={test} img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/images/svgJuegos/dogEquivocado.png"indice={numError} test={test}  texto="Tuviste un Error"/>) : 
+         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" test={test} img="/images/svgJuegos/dogFelicidades.png"/>)}
         
 
 

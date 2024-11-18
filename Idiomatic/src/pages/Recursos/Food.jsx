@@ -1,12 +1,13 @@
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid } from '@mui/material';
 import NavBar_Home from '../../components/NavBar_Home';
+import NavBar_Apartados from "../../components/NavBar_Apartados"
 
 function FoodInfo() {
   return (
     <>
       {/* Navbar arriba */}
       <Box>
-        <NavBar_Home />
+        <NavBar_Apartados />
       </Box>
 
       {/* Contenido principal */}

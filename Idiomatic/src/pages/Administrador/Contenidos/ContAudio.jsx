@@ -219,7 +219,7 @@ export default function ContAudioTema(){
 
     return(<>
     
-    <Head title="Temas Audios" mycolor="rgba(0, 26, 255, 0.4)" ruta="/images/iconoAudios.svg"/>
+    <Head title="Temas Audios" mycolor="rgba(0, 26, 255, 0.4)" ruta="/images/iconoAudios.png"/>
 
     <Container style={{marginTop:"2%",marginLeft:"0",marginRight:"0", maxWidth:"1440px"}}>
       <h1 style={{marginBottom:"4%",marginLeft:"2%"}}>Agregar Contenido</h1>

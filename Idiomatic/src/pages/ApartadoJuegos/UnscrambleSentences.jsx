@@ -193,8 +193,8 @@ if(faltanRespuestas === false ){
         
     </div>
     
-    {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo={mensajeNotificacion} btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png" indice={num} texto="Tuviste un Error"/>) : 
-         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png" />)}
+    {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo={mensajeNotificacion} btnTexto="Salir" img="/images/svgJuegos/dogEquivocado.png" indice={num} texto="Tuviste un Error"/>) : 
+         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/images/svgJuegos/dogFelicidades.png" />)}
         
     <Button className='btnUnscrambleEnviar' onClick={enviar} sx={{background:recursoFront.btnColor}} variant='contained'>Enviar</Button> 
     

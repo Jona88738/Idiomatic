@@ -136,7 +136,7 @@ function User_Home() {
               Panel de Usuarios
             </Typography>
             <img 
-              src="/src/images/usericon.png"  
+              src="/images/usericon.png"  
               alt="Ropa" 
               style={{ width: '3%', height: 'auto', borderRadius: '8px', marginLeft: '10px' }} 
             />
@@ -189,7 +189,7 @@ function User_Home() {
         PaperProps={{
           sx: {
             padding: 2,
-            backgroundImage: 'url(/src/images/fondomodal.png)', 
+            backgroundImage: 'url(/images/fondomodal.png)', 
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

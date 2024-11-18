@@ -73,7 +73,7 @@ export default function ContEjercicioTema(){
             {/* <NavBar_Apartados/> */}
 
             
-            <Head title="Temas Ejercicios" mycolor="rgba(255, 0, 0, 0.4)" ruta="/images/iconoEjercicios.svg"/>
+            <Head title="Temas Ejercicios" mycolor="rgba(255, 0, 0, 0.4)" ruta="/images/iconoEjercicios.png"/>
             
 
             {juegos.map((ejercicio) =>{
@@ -85,8 +85,8 @@ export default function ContEjercicioTema(){
             })} 
             
             
-            {Noti === false ? (<NotificacionAdmin open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"   texto="Tuviste un Error"/>) : 
-         (<NotificacionAdmin open={open} handleClose={handleClose} handleCloseBorrar={handleCloseBorrar} titulo="¿Estas seguro de eliminar el contenido completo?" btnTexto="Completar" img="/src/images/svgJuegos/perroDuda.png" />)}
+            {Noti === false ? (<NotificacionAdmin open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/images/svgJuegos/dogEquivocado.png"   texto="Tuviste un Error"/>) : 
+         (<NotificacionAdmin open={open} handleClose={handleClose} handleCloseBorrar={handleCloseBorrar} titulo="¿Estas seguro de eliminar el contenido completo?" btnTexto="Completar" img="/images/svgJuegos/perroDuda.png" />)}
      
     </>)
 }

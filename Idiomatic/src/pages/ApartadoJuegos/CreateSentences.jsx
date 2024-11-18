@@ -299,8 +299,8 @@ export default function CreateSentences(){
         <CircularProgress color="inherit" />
       </Backdrop>
 
-        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo={mensaje} btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"/>) : 
-         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+        {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo={mensaje} btnTexto="Salir" img="/images/svgJuegos/dogEquivocado.png"/>) : 
+         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" img="/images/svgJuegos/dogFelicidades.png"/>)}
         
          
         </Box>)

@@ -80,7 +80,7 @@ export default function ContLectura(){
 
     return(<>
     
-        <Head title="Lecturas" mycolor="rgba(0, 26, 255, 0.4)" ruta="/images/iconoAudios.svg"/>
+        <Head title="Lecturas" mycolor="rgba(0, 26, 255, 0.4)" ruta="/images/iconoAudios.png"/>
         
 
         {lecturas.map((element,index) =>{
@@ -90,8 +90,8 @@ export default function ContLectura(){
 
   
      
-{Noti === false ? (<NotificacionAdmin open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png"   texto="Tuviste un Error"/>) : 
-         (<NotificacionAdmin open={open} handleClose={handleClose} handleCloseBorrar={handleCloseBorrar} titulo="¿Estas seguro de eliminar el contenido completo?" btnTexto="Completar" img="/src/images/svgJuegos/perroDuda.png" />)}
+{Noti === false ? (<NotificacionAdmin open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/images/svgJuegos/dogEquivocado.png"   texto="Tuviste un Error"/>) : 
+         (<NotificacionAdmin open={open} handleClose={handleClose} handleCloseBorrar={handleCloseBorrar} titulo="¿Estas seguro de eliminar el contenido completo?" btnTexto="Completar" img="/images/svgJuegos/perroDuda.png" />)}
      
         
     </>)

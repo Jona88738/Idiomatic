@@ -300,7 +300,7 @@ useEffect(()=>{
        
        
   {Noti === false ? (<Notificacion open={open} handleClose={handleClose} titulo="Cometiste un error en la sentencia." btnTexto="Salir" img="/src/images/svgJuegos/dogEquivocado.png" texto="Tuviste un Error"/>) : 
-         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" test={"Tu tipo de aprendizaje es: "+test} img="/src/images/svgJuegos/dogFelicidades.png"/>)}
+         (<Notificacion open={open} handleClose={handleCloseComplete} titulo="Felicidades conseguiste completar el ejercicio con exito!!!" btnTexto="Completar" test={"Tu tipo de aprendizaje es: "+test} img="/images/svgJuegos/dogFelicidades.png"/>)}
         
      <img src="/images/svgJuegos//dogSaludando.png" alt="xd"  width="15%" style={{position:"absolute",right:"5%",bottom:"1%"}}/>
       </div>
