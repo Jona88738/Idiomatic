@@ -73,6 +73,7 @@ const comentarioUser = async (req, res) => {
 
 const DeleteComentarioUser = async (req, res) => {
     const { id_usuario } = req.query;  // Cambié idusuario por id_usuario
+    const updateJSon = {"comentario": []};
 
     if (!id_usuario) {
         return res.status(400).json({ message: "ID de usuario no proporcionado" });
@@ -80,7 +81,8 @@ const DeleteComentarioUser = async (req, res) => {
 
     try {
         // Elimina los comentarios de la tabla bitacora basándose en el id_usuario
-        const [result] = await conn.query('DELETE FROM bitacora WHERE id_usuario = ?', [id_usuario]);
+        const [result] = await conn.query('update bitacora set comentarios = ? where id_usuario = ?',[JSON.stringify(updateJSon),id_usuario])
+       // const [result] = await conn.query('DELETE FROM bitacora WHERE id_usuario = ?', [id_usuario]);
 
         if (result.affectedRows > 0) {
             return res.json({ message: "Comentarios eliminados correctamente." });
