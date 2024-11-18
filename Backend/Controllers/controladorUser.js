@@ -184,8 +184,8 @@ const createOrder = async (req,res) =>{
           "brand_name":"Idiomatic",
           "landing_page":"NO_PREFERENCE",
           "user_action":"PAY_NOW",
-          "return_url":"http://localhost:3001/api/CaptureOrder",
-          "cancel_url":`http://localhost:5173/User_Home`,
+          "return_url":"https://myidiomatic.com/api/CaptureOrder",
+          "cancel_url":`https://myidiomatic.com/User_Home`,
 
 
         }
@@ -236,7 +236,7 @@ const CaptureOrder = async (req,res) =>{
    
   // res.cookie('userId', 123);
   
-  res.redirect('http://localhost:5173/User_Home');
+  res.redirect('https://myidiomatic.com/User_Home');
 }
 
 

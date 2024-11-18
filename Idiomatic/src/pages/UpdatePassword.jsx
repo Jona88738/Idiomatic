@@ -24,7 +24,7 @@ const schema = yup.object().shape({
 
 // Servicio para actualizar la contraseña
 const UpdatePasswordService = async ({ email, newPass }) => {
-  const response = await fetch('http://localhost:3001/api/update-password', {
+  const response = await fetch('/api/update-password', {
     method: 'POST',
     headers: { 
         'Content-Type': 'application/json',
