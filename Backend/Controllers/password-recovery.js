@@ -20,6 +20,7 @@ export const sendEmailF = async (req, res) => {
         if (results.length === 0) {
             console.log("Debugging: No se encontró ningún usuario con el correo proporcionado.");
             return res.status(200).json({
+                success:true,
                 message: "Correo enviado a la dirección, si el usuario existe",
                 code: "EMAIL_SENT_IF_EXIST",
             });
@@ -32,6 +33,8 @@ export const sendEmailF = async (req, res) => {
 
         // Crear la URL con el token para la recuperación
         const url = `http://localhost:5173/UpdatePassword?token=${encodeURIComponent(token)}`;
+       // const url = `https://myidiomatic.com/UpdatePassword?token=${encodeURIComponent(token)}`;
+ 
         console.log("Debugging: URL generada para la recuperación:", url);
 
         // Configuración del correo

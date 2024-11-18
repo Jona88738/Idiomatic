@@ -209,7 +209,7 @@
     background-color: #FFC212 !important;
     border: none !important;
     border-radius: 25px !important;
-    
+
     margin-top: -70px !important;
     color: white !important;
     cursor: pointer !important;
@@ -276,60 +276,76 @@
   }
   
   /* Media query para dispositivos móviles */
-@media screen and (max-width: 767px) {
-  /* Estilos específicos para móviles */
+  @media screen and (max-width: 800px) and (min-width: 300px) {
+    .register-page {
+        background-image: url("/src/images/pruebaimg3.png") !important;
+        background-size: cover !important;
+        background-position: center !important;
+        min-height: 150vh !important;
+        min-width: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .register-container {
+        flex-direction: column;
+        max-width: 100%;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .sign-up-heading,.register-section h2 {
+        font-size: 24px;
+        margin-left: 0;
+        text-align: center;
+    }
+    .welcome-section-reg h2 {
+      font-size: 1.3rem; /* Ajusta el tamaño del texto */
+      margin: 0; /* Elimina márgenes adicionales */
+      color: #fff;
+      margin-top: 60PX; /* Asegura contraste */
+    }
+    
+    .welcome-section-reg p {
+      font-size: 0.8rem; /* Tamaño del texto para la descripción */
+      margin: 10px 0; /* Espaciado entre el título y la descripción */
+    }
+    .one-of-us-heading{
+      margin-top: 180px;
+    }
+
+    .register-form {
+        margin: 0;
+        max-width: 90%;
+        width: 100%;
+    }
+
+    .register-form input {
+        width: 100%;
+        text-align: center !important;
+    }
+
+    .social-reg-buttons {
+        text-align: center !important;
+        margin-left: 0;
+    }
+
+    .social-btn {
+        padding: 8px 15px;
+        font-size: 1rem !important;
+        margin: 5px;
+    }
+
+    .sign-up-button-reg,.sign-in-button-reg {
+        width: 80%;
+        margin: 10px auto !important;
+    }
+
+    .line-below-button {
+        width: 70%;
+        margin: 15px auto;
+    }
   
-
-  .register-page {
-      align-items: center;
-      min-height: 100vh;      
-      background-image: url("/images/pruebaimg3.png") !important;
-
-  }
-
-  .register-container {
-      flex-direction: column;
-      max-width: 100%;
-      align-items: center;
-      margin: 0 auto;
-  }
-
-  .sign-up-heading, .one-of-us-heading, .register-section h2 {
-      font-size: 24px;
-      margin-left: 0;
-      text-align: center;
-  }
-
-  .register-form {
-      margin: 0;
-      max-width: 90%;
-      width: 100%;
-  }
-
-  .register-form input {
-      width: 100%;
-      text-align: center !important;
-  }
-
-  .social-reg-buttons {
-      text-align: center !important;
-      margin-left: 0;
-  }
-
-  .social-btn {
-      padding: 8px 15px;
-      font-size: 0.7rem;
-  }
-
-  /* Centrando y agregando margen superior a los botones de Registrar y Iniciar sesión */
-  .sign-up-button-reg{
-      margin: 15px auto; /* Para centrar */
-      width: 40% !important;
-      text-align: center !important;
-  }
-  .sign-in-button-reg {
-    margin: 15px auto; /* Para centrar */
-    width: 30% !important;
-    text-align: center !important;
-}
 }

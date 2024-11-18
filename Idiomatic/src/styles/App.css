@@ -185,6 +185,16 @@ body {
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  align-items: center;
+}
+
+.captcha-error-message {
+  margin-top: 15px; /* Espaciado entre el captcha y el mensaje */
+  color: rgb(158, 5, 5);
+  font-family: Century Gothic;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .register-button {
@@ -346,7 +356,7 @@ body {
 }
 
 /* Media query para dispositivos móviles */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 800px) and (min-width: 300px) {
   /* Estilos específicos para móviles */
 
   .login-page {
@@ -362,6 +372,12 @@ body {
     margin: 0 auto;
   }
 
+  .new-here-heading {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
   .social-login-text{
     font-size: 16px;
     margin-left: 0;
@@ -370,7 +386,7 @@ body {
   }
 
   .sign-in-heading {
-    font-size: 10px;
+    font-size: 6px;
     margin-top: 160px;
     margin-left: 0;
     text-align: center;
