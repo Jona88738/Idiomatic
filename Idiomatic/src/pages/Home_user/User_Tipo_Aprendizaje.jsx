@@ -146,7 +146,7 @@ export default function Tipo_Aprendizaje({ suscripcion, tipoAprendizaje }) {
             {tipoAprendizaje && (
                 <Box sx={{ textAlign: "center", marginTop: "20px" , marginBottom: "30px"}}>
                     <img
-                        src={`src/images/guia_${tipoAprendizaje.toLowerCase()}.png`}
+                        src={`/images/guia_${tipoAprendizaje.toLowerCase()}.png`}
                         alt={`Guía para el estilo ${tipoAprendizaje}`}
                         style={{ maxWidth: "80%", height: "auto" , marginLeft: "-40px", marginTop: "-40px"}}
                     />
@@ -184,7 +184,7 @@ export default function Tipo_Aprendizaje({ suscripcion, tipoAprendizaje }) {
                     </Typography>
                     <Box sx={{ textAlign: "center", marginTop: "20px" }}>
                     <img
-                        src={`src/images/${tipoAprendizaje.toLowerCase()}.png`}
+                        src={`/images/${tipoAprendizaje.toLowerCase()}.png`}
                         alt={`Guía para el estilo ${tipoAprendizaje}`}
                         style={{ maxWidth: "30%", height: "auto" , marginLeft: "-40px", marginTop: "-10px"}}
                     />
@@ -255,7 +255,7 @@ export default function Tipo_Aprendizaje({ suscripcion, tipoAprendizaje }) {
           </h2>
           <Box sx={{ textAlign: "center", marginTop: "-30px" }}>
             <img
-              src={`src/images/recomendaciones_${tipoAprendizaje.toLowerCase()}.png`}
+              src={`/images/recomendaciones_${tipoAprendizaje.toLowerCase()}.png`}
               alt={`Guía para el estilo ${tipoAprendizaje}`}
               style={{
                 maxWidth: "100%", height: "auto", marginTop: "-10px",

@@ -32,8 +32,8 @@ export const sendEmailF = async (req, res) => {
         const token = jwt.sign({ email: user.correo }, 'your_secret_key', { expiresIn: '1h' });
 
         // Crear la URL con el token para la recuperación
-        const url = `http://localhost:5173/UpdatePassword?token=${encodeURIComponent(token)}`;
-       // const url = `https://myidiomatic.com/UpdatePassword?token=${encodeURIComponent(token)}`;
+        // const url = `http://localhost:5173/UpdatePassword?token=${encodeURIComponent(token)}`;
+        const url = `https://myidiomatic.com/UpdatePassword?token=${encodeURIComponent(token)}`;
  
         console.log("Debugging: URL generada para la recuperación:", url);
 
