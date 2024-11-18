@@ -567,6 +567,18 @@ const progresoUsuario = async (req,res) => {
   })
 }
 
+const sesion = (req,res) =>{
+
+  const MySesion = req.session.idUser;
+  console.log("Esta es la session",MySesion);
+
+  if(MySesion === undefined){
+    res.json({"Valor":false})
+  }
+
+  res.json({"Valor":true})
+}
+
 const progresoUsuarioGeneral = async (req,res) => {
 
   const {TemaEjercicio,completeV} = req.query;
@@ -725,6 +737,7 @@ export default {
     recursoVideos,
     Logout,
     tiempo,
+    sesion,
     notificaciones,
     DeleteNotificacionAvisos,
     DeleteNotificacionNoti,

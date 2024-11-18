@@ -7,11 +7,15 @@ export default function  MyHora({children}){
 
     const [startTime, setStartTime] = useState(null);
 
-    
+    // let completeVComprobar = JSON.parse(sessionStorage.getItem('completeV'))
 
     console.log("Empezo a contar")
+    // console.log("contenido sin session",completeV)
   useEffect(() => {
     // Iniciar el tiempo cuando el usuario ingresa a la plataforma
+
+    
+
     if (!startTime) {
       setStartTime(Date.now());
     }
@@ -95,6 +99,8 @@ export default function  MyHora({children}){
 
 
     return(
+
+      // {completeVComprobar.length === 0 ? (""):("")}
 
         <HoraContext.Provider value={{ stopTime }}>
 

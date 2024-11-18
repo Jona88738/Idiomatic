@@ -20,11 +20,7 @@ const upload = multer({ storage: storage });
 
 const routes = Router();
 
-routes.post("/createUser", cUser.createUser ) 
-routes.post("/signUser", cUser.sign_in ) 
 
-routes.post("/PasswordRecovery", sendEmailF)
-routes.post("/UpdatePassword", updatePassword)
 
 
 routes.patch("/editUser", cUser.editUser)
@@ -76,6 +72,8 @@ routes.use("/listaAudios",cUser.listaAudios);
 routes.get("/getLectura",cUser.getLectura);
 
 routes.get("/getAllLecturas",cUser.getAllLecturas)
+
+
 
 // routes.get("/juegos")
 // routes.get("/audios")

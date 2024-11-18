@@ -352,7 +352,7 @@ body {
   .login-page {
     align-items: flex-start;
     min-height: 100vh;
-    background-image: url("/src/images/pruebaimg.png");
+    background-image: url("/images/pruebaimg.png");
 
   }
 

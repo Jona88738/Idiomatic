@@ -76,6 +76,7 @@ import Nationalities from './Recursos/Nationalities';
 import Jobs from './Recursos/Jobs';
 import Tipo_Aprendizaje from './Home_user/User_Tipo_Aprendizaje';
 import AvisoPrivacidad from './AvisoPrivacidad';
+import Entrar from '../contexto/ContextoEntrar/ProvedorEntrarCon';
 
 
 
@@ -101,17 +102,21 @@ function App() {
                 <Route  path='/Cursos' element={<Cursos/>} />
                 
 
-                <Route  path='/TestAprendizaje' element={<TestAprendizaje/>} />
+                
                 <Route  path='/TestIngles' element={<TestIngles/>} />
                 <Route  path='/Privacidad' element={<AvisoPrivacidad />} />
 
-                
+          
+          <Route element={<Entrar/>}>
               <Route element={<MyHora/>}>
                 {/* Apartado Home_user */}
           
                 <Route  path='/User_Home' element={ <User_Home/>  } />
                 <Route  path='/User_Cursos' element={<User_Cursos/>} />
                 <Route  path='/Estilos' element={<Tipo_Aprendizaje/>} />
+
+
+                <Route  path='/TestAprendizaje' element={<TestAprendizaje/>} />
 
                 {/* Temas VLAJ  */}
 
@@ -199,7 +204,8 @@ function App() {
                 <Route  path='/ContEjercicio' element={<ContEjercicioTema/>} />
                 <Route  path='/ContVideoTema' element={<ContTemaVideo/>} />
                 <Route  path='/ContAudioTema' element={<ContAudioTema/>} />
-
+            
+            </Route>
                 <Route  path='*' element={<Error404/>} />
                 
 

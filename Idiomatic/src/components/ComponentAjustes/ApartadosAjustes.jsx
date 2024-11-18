@@ -148,18 +148,18 @@ export function Cursos(){
 
         
     <h1>Mi cuenta</h1>
-        <Container sx={{background:"rgba(224, 223, 253, 0.5)",borderRadius:"25px",height:"29vh",paddingRight:"0"}}>
+        <Container className="ContainerMainBorrarCuenta" >
         <br />
-        <h3 style={{marginBottom:"2px",display:"inline",marginLeft:"40%",paddingBottom:"35%"}}>Idioma</h3>
-        <h3 style={{marginBottom:"2px",display:"inline",marginLeft:"8%"}}>Nivel</h3>
+        <h3 className="TitleMainBorrarCuenta" >Idioma</h3>
+        <h3 className="TitleNIvelBorrarCuenta" >Nivel</h3>
         <Container  sx={{display:"flex",justifyContent:"space-evenly"}}> 
 
 
 
-        <img  src="/images/cuadrado.png" width="30%" height="50%" style={{marginTop:"0%",paddingRight:"5%"}} alt="" />
-        <div style={{paddingLeft:"5%",paddingRight:"5%",boxShadow: "-2px 0px  0px rgba(31, 25, 47, 0.5), 2px 0px 0px rgba(31, 25, 47, 0.5)"}}> <h2 style={{marginTop:"6vh",}}>Ingles</h2>   </div>
-        <div style={{paddingLeft:"5%",paddingRight:"5%",boxShadow:" 2px 0px 0px rgba(31, 25, 47, 0.5)"}}>  <h2 style={{marginTop:"6vh"}}>A1</h2> </div>
-        <div style={{width:"20%",paddingLeft:"2%"}}> <button onClick={handleClickOpen} style={{width:"100%",height:"30%",borderRadius:"25px",marginTop:"49%",cursor:"pointer"}}>  <DeleteIcon  /> </button>
+        <img className="imgBorrarCuenta"  src="/images/cuadrado.png" alt="" />
+        <div className="microContainerInglesBorrarCuenta" > <h2 className="InglesBorrarCuenta" >Ingles</h2>   </div>
+        <div className="microContainerA1BorrarCuenta" >  <h2 className="InglesBorrarCuenta" >A1</h2> </div>
+        <div className="microContainerIconoBorrarCuenta" > <button onClick={handleClickOpen} className="btnBorrarCuenta" >  <DeleteIcon  /> </button>
 
         </div>
 
