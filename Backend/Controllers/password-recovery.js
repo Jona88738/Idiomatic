@@ -33,6 +33,8 @@ export const sendEmailF = async (req, res) => {
 
         // Crear la URL con el token para la recuperación
         const url = `http://localhost:5173/UpdatePassword?token=${encodeURIComponent(token)}`;
+       // const url = `https://myidiomatic.com/UpdatePassword?token=${encodeURIComponent(token)}`;
+ 
         console.log("Debugging: URL generada para la recuperación:", url);
 
         // Configuración del correo
