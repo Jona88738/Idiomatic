@@ -27,7 +27,7 @@
     .ReactPlayerX{
         width: 80% !important;
         height: auto;
-        /* height: 100vh; */
+        height: 50vh;
         margin-left:11%;
         margin-top:18%;
     }
@@ -60,7 +60,7 @@
     }
     .ReactPlayerX{
         width: 60% !important;
-        /* height: 100vh; */
+        height: 60vh;
         margin-left:23%;
         margin-top:2%;
     }
@@ -92,7 +92,7 @@
     }
     .ReactPlayerX{
         width: 60% !important;
-        /* height: 100vh; */
+        height: 60vh;
         margin-left:23%;
         margin-top:2%;
     }
