@@ -17,6 +17,7 @@ export default function ApartadoTemasLecturas(){
 
     },[])
 
+    const arrImg = ["Fondo_patito.png","Fondo_caperucita.png","Fondo_cerditos.png","Fondo_pinocho.png","Fondo_jengibre.png","Fondo_ricitos.png","Fondo_tortuga.png"]; 
     
 
     return(<>
@@ -26,7 +27,7 @@ export default function ApartadoTemasLecturas(){
             <Head title="Lecturas" mycolor="rgba(249, 176, 195, 0.54)" ruta="/images/iconoLecturas.png"/>
         <div style={{width:"100%",display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}}> 
             {lecturas.map((element,index) =>{
-               return <MyCard key={index} title={element.nombre} imagen="/images/ApartadosTemas/greetings and farewells.png"  page="/PageLecturas" lectura={element.rutaLectura}    introduccion={element.introduccion} boxshadow={0}  /> 
+               return <MyCard key={index} title={element.nombre} imagen={arrImg[index]}  page="/PageLecturas" lectura={element.rutaLectura}    introduccion={element.introduccion} boxshadow={0}  /> 
             })}
             
            </div> 
