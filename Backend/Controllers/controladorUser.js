@@ -390,7 +390,7 @@ const testAprendizaje = async (req,res) => {
 
    const [user] = await conn.query('update usuario set tipo_aprendizaje = ? where idusuario = ? ',[tipoAprendizaje,req.session.idUser]);
     //console.log(user)
-
+ // console.log(user)
     res.json({
         resultado:"true",
     })

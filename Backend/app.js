@@ -68,8 +68,8 @@ console.log("Ruta de ejecución:", __dirname);
 app.use("/api",rutasPublicas)
 app.use("/api", passwordrecovery);
 app.use("/api", updatePassword);
-app.use("/api",authenticate, rutasUsuario);
-app.use("/api",authenticate, rutasAdministrador);
+app.use("/api", rutasUsuario); //,authenticate,
+//app.use("/api",authenticate, rutasAdministrador);
 
 
 app.post('/api/forgot-password', (req, res) => {
