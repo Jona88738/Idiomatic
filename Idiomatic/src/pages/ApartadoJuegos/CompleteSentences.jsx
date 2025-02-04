@@ -8,7 +8,7 @@ export default function CompleteSentences(){
 
     const location = useLocation();
 
-    const { recursoFront, recursoEjercicio,juegoID,index } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
+    const { recursoFront, recursoEjercicio ,juegoID,index } = location.state || {}; // Usa un valor predeterminado para evitar errores si state es undefined
     
     let inicio = []; 
     let fin = recursoFront.sentComplement;

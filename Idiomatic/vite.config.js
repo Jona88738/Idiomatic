@@ -24,7 +24,6 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom' // Configura el entorno de pruebas en jsdom
-    // globals: true,        // Activa el uso de describe, it, y expect globales
-    // setupFiles: './setupTests.js', // Opcional, si tienes un archivo de configuración adicional
+    
   },
 });
